@@ -592,11 +592,11 @@ public class GameScript : MonoBehaviour
       return itemPrices[999] * 2; // Default price for unknown items
   }
 
-  public virtual void RefreshGold()
-  {
-    this.txtGoldCounter.text = RuntimeServices.op_Addition("x", (object) GameScript.curGold);
-    this.goldCounter.GetComponent<Animation>().Play();
-  }
+	public virtual void RefreshGold()
+	{
+	    txtGoldCounter.text = $"x{GameScript.curGold}";
+	    goldCounter.GetComponent<Animation>().Play();
+	}
 
   public virtual void SetDead() => this.isDead = true;
 
