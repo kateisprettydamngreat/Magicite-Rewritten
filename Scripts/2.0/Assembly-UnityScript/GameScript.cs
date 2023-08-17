@@ -710,7 +710,10 @@ public class GameScript : MonoBehaviour
 	    }
 	}
 
-  public virtual IEnumerator Timer() => (IEnumerator) new GameScript.\u0024Timer\u00241521(this).GetEnumerator();
+	public virtual IEnumerator Timer()
+	{
+	    return new GameScript.$Timer$1521(this).GetEnumerator();
+	}
 
   public virtual void Awake()
   {
