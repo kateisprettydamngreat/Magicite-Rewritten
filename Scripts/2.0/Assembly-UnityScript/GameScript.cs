@@ -648,23 +648,47 @@ public class GameScript : MonoBehaviour
 	    );
 	}
 
-  public static void FairyCounter()
-  {
-    ++GameScript.fairyCounter;
-    if (GameScript.fairyCounter < 3)
-      return;
-    GameScript.fairyCounter = 0;
-    Network.Instantiate(Resources.Load("e/fQueen"), new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f), Quaternion.identity, 0);
-  }
+	public static void FairyCounter()
+	{
+	    // Increment the fairy counter
+	    GameScript.fairyCounter++;
 
-  public static void DragonCounter()
-  {
-    ++GameScript.dragonCounter;
-    if (GameScript.dragonCounter < 1)
-      return;
-    GameScript.dragonCounter = 0;
-    Network.Instantiate(Resources.Load("e/scourgeDragon"), new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y - 30f, 0.0f), Quaternion.identity, 0);
-  }
+	    // Check if the fairy counter is less than 3
+	    if (GameScript.fairyCounter < 3)
+	        return;
+
+	    // Reset the fairy counter
+	    GameScript.fairyCounter = 0;
+
+	    // Instantiate the "fQueen" game object using the Network system
+	    Network.Instantiate(
+	        Resources.Load("e/fQueen"),
+	        new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f),
+	        Quaternion.identity,
+	        0
+	    );
+	}
+
+	public static void DragonCounter()
+	{
+	    // Increment the dragon counter
+	    GameScript.dragonCounter++;
+
+	    // Check if the dragon counter is less than 1
+	    if (GameScript.dragonCounter < 1)
+	        return;
+
+	    // Reset the dragon counter
+	    GameScript.dragonCounter = 0;
+
+	    // Instantiate the "scourgeDragon" game object using the Network system
+	    Network.Instantiate(
+	        Resources.Load("e/scourgeDragon"),
+	        new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y - 30f, 0.0f),
+	        Quaternion.identity,
+	        0
+	    );
+	}
 
   public virtual void DetectRes()
   {
