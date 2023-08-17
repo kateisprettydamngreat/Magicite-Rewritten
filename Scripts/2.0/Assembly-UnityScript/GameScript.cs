@@ -622,7 +622,10 @@ public class GameScript : MonoBehaviour
 	    txtLevel.text = $"Lv: {GameScript.playerLevel}";
 	}
 
-  public virtual IEnumerator Invader() => (IEnumerator) new GameScript.\u0024Invader\u00241516(this).GetEnumerator();
+	public virtual IEnumerator Invader()
+	{
+	    return new GameScript.$Invader$1516(this).GetEnumerator();
+	}
 
   public static void EggCounter()
   {
