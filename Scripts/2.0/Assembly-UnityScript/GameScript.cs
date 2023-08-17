@@ -598,14 +598,15 @@ public class GameScript : MonoBehaviour
 	    goldCounter.GetComponent<Animation>().Play();
 	}
 
+	//The murder button
   public virtual void SetDead() => this.isDead = true;
 
-  public virtual void SetRevive()
-  {
-    this.isDead = false;
-    GameScript.HP = 1;
-    this.LoadHearts();
-  }
+	public virtual void SetRevive()
+	{
+	    isDead = false;
+	    GameScript.HP = 1;
+	    LoadHearts();
+	}
 
   public virtual void LoadEXP()
   {
