@@ -1000,7 +1000,10 @@ public class GameScript : MonoBehaviour
     this.StartCoroutine_Auto(this.RegenManaComp());
   }
 
-  public virtual IEnumerator RegenManaComp() => (IEnumerator) new GameScript.\u0024RegenManaComp\u00241524(this).GetEnumerator();
+	public virtual IEnumerator RegenManaComp()
+	{
+	    return new GameScript.$RegenManaComp$1524(this).GetEnumerator();
+	}
 
   public virtual void HealC()
   {
