@@ -1018,11 +1018,20 @@ public class GameScript : MonoBehaviour
 	    }
 	}
 
-  public virtual IEnumerator ScourgeMaskTick() => (IEnumerator) new GameScript.\u0024ScourgeMaskTick\u00241527().GetEnumerator();
+	public virtual IEnumerator ScourgeMaskTick()
+	{
+	    return new GameScript.$ScourgeMaskTick$1527().GetEnumerator();
+	}
 
-  public virtual IEnumerator TikiCheck() => (IEnumerator) new GameScript.\u0024TikiCheck\u00241528(this).GetEnumerator();
+	public virtual IEnumerator TikiCheck()
+	{
+	    return new GameScript.$TikiCheck$1528(this).GetEnumerator();
+	}
 
-  public virtual IEnumerator RecoverMana() => (IEnumerator) new GameScript.\u0024RecoverMana\u00241533(this).GetEnumerator();
+	public virtual IEnumerator RecoverMana()
+	{
+	    return new GameScript.$RecoverMana$1533(this).GetEnumerator();
+	}
 
   public virtual void SetStartingItems()
   {
