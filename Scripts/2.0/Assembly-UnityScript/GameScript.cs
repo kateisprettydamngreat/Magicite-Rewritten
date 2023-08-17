@@ -627,14 +627,26 @@ public class GameScript : MonoBehaviour
 	    return new GameScript.$Invader$1516(this).GetEnumerator();
 	}
 
-  public static void EggCounter()
-  {
-    ++GameScript.eggCounter;
-    if (GameScript.eggCounter < 3)
-      return;
-    GameScript.eggCounter = 0;
-    Network.Instantiate(Resources.Load("e/broodmother"), new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f), Quaternion.identity, 0);
-  }
+	public static void EggCounter()
+	{
+	    // Increment the egg counter
+	    GameScript.eggCounter++;
+
+	    // Check if the egg counter is less than 3
+	    if (GameScript.eggCounter < 3)
+	        return;
+
+	    // Reset the egg counter
+	    GameScript.eggCounter = 0;
+
+	    // Release the broodmother
+	    Network.Instantiate(
+	        Resources.Load("e/broodmother"),
+	        new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f),
+	        Quaternion.identity,
+	        0
+	    );
+	}
 
   public static void FairyCounter()
   {
