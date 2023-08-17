@@ -404,42 +404,84 @@ public class GameScript : MonoBehaviour
   public virtual void TD(int a) => GameScript.HP -= a;
 	//what is TD?
 //PurchaseHandler
-  public virtual void Purchase(int id)
-  {
-    MonoBehaviour.print((object) RuntimeServices.op_Addition("Purchasing function called. ID:", (object) id));
-    if (id == 0)
-      return;
-    int itemPrice = this.GetItemPrice(id);
-    if (GameScript.curGold >= itemPrice)
-    {
-      GameScript.curGold -= itemPrice;
-      PlayerTriggerScript.itemPurchasing = 0;
-      Item obj = new Item(id, 1, new int[4], 0.0f, (GameObject) null);
-      if (obj.id >= 500)
-      {
-        obj.d = (int) this.GetMaxDurability(obj.id);
-        obj.e = this.GetGearStats(obj.id);
-      }
-      ((GameObject) UnityEngine.Object.Instantiate(Resources.Load("iLocal"), GameScript.player.transform.position, Quaternion.identity)).SendMessage("InitL", (object) new int[7]
-      {
-        obj.id,
-        obj.q,
-        0,
-        0,
-        0,
-        0,
-        100
-      });
-      PlayerTriggerScript.currentStand.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
-      GameScript.isShopping = false;
-      this.RefreshGold();
-      this.GetComponent<AudioSource>().PlayOneShot((AudioClip) Resources.Load("Au/PURCHASE", typeof (AudioClip)));
-      GameScript.player.SendMessage("WW2");
-      GameScript.tempStats[11] = GameScript.tempStats[11] + 1;
-    }
-    else
-      this.GetComponent<AudioSource>().PlayOneShot((AudioClip) Resources.Load("Au/FAIL", typeof (AudioClip)));
-  }
+	public virtual void Purchase(int id)
+	{
+		MonoBehaviour.print($"Purchasing function called. ID: {id}");
+
+		if (id == 0)
+				return;
+
+		int itemPrice = GetItemPrice(id);
+
+		if (GameScript.curGold < itemPrice)
+		{
+				PlayPurchaseFailSound();
+				return;
+		}
+
+		ProcessPurchase(id, itemPrice);
+	}
+
+	private void PlayPurchaseFailSound()
+	{
+		AudioSource audioSource = GetComponent<AudioSource>();
+		AudioClip failClip = Resources.Load<AudioClip>("Au/FAIL");
+		audioSource.PlayOneShot(failClip);
+	}
+
+	private void ProcessPurchase(int id, int itemPrice)
+	{
+		GameScript.curGold -= itemPrice;
+		PlayerTriggerScript.itemPurchasing = 0;
+
+		Item purchasedItem = CreatePurchasedItem(id);
+
+		if (purchasedItem.id >= 500)
+		{
+				purchasedItem.d = (int)GetMaxDurability(purchasedItem.id);
+				purchasedItem.e = GetGearStats(purchasedItem.id);
+		}
+
+		SpawnPurchasedItem(purchasedItem);
+
+		PlayerTriggerScript.currentStand.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
+		GameScript.isShopping = false;
+		RefreshGold();
+
+		AudioSource audioSource = GetComponent<AudioSource>();
+		AudioClip purchaseClip = Resources.Load<AudioClip>("Au/PURCHASE");
+		audioSource.PlayOneShot(purchaseClip);
+
+		GameScript.player.SendMessage("WW2");
+		GameScript.tempStats[11]++;
+	}
+
+	private Item CreatePurchasedItem(int id)
+	{
+		return new Item(id, 1, new int[4], 0.0f, null);
+	}
+
+	private void SpawnPurchasedItem(Item item)
+	{
+		int[] initializationData = new int[7]
+		{
+				item.id,
+				item.q,
+				0,
+				0,
+				0,
+				0,
+				100
+		};
+
+		GameObject newItem = (GameObject)UnityEngine.Object.Instantiate(
+				Resources.Load("iLocal"),
+				GameScript.player.transform.position,
+				Quaternion.identity
+		);
+
+		newItem.SendMessage("InitL", initializationData);
+		}
 
 	public virtual int GetItemPrice(int id)
   {
