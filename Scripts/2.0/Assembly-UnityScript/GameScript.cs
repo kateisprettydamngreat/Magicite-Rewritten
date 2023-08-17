@@ -12,6 +12,7 @@ using UnityEngine;
 [Serializable]
 public class GameScript : MonoBehaviour
 {
+//Declarations
   [NonSerialized]
   public static bool debugMode;
   [NonSerialized]
@@ -357,7 +358,7 @@ public class GameScript : MonoBehaviour
   [NonSerialized]
   public static bool selectingSkill;
   private Vector2 hotSpot;
-
+// this instancing
   public GameScript()
   {
     this.cheatButton = new GameObject[4];
@@ -399,9 +400,10 @@ public class GameScript : MonoBehaviour
     this.cursorMode = CursorMode.Auto;
     this.hotSpot = new Vector2(8f, 8f);
   }
-
+//takingDamage
   public virtual void TD(int a) => GameScript.HP -= a;
-
+	//what is TD?
+//PurchaseHandler
   public virtual void Purchase(int id)
   {
     MonoBehaviour.print((object) RuntimeServices.op_Addition("Purchasing function called. ID:", (object) id));
@@ -439,299 +441,113 @@ public class GameScript : MonoBehaviour
       this.GetComponent<AudioSource>().PlayOneShot((AudioClip) Resources.Load("Au/FAIL", typeof (AudioClip)));
   }
 
-  public virtual int GetItemPrice(int id)
+	public virtual int GetItemPrice(int id)
   {
-    int num1 = new int();
-    int num2;
-    switch (id)
-    {
-      case 1:
-        num2 = 5;
-        break;
-      case 2:
-        num2 = 10;
-        break;
-      case 3:
-        num2 = 5;
-        break;
-      case 4:
-        num2 = 15;
-        break;
-      case 5:
-        num2 = 30;
-        break;
-      case 6:
-        num2 = 70;
-        break;
-      case 7:
-        num2 = 5;
-        break;
-      case 8:
-        num2 = 8;
-        break;
-      case 9:
-        num2 = 10;
-        break;
-      case 10:
-        num2 = 10;
-        break;
-      case 11:
-        num2 = 10;
-        break;
-      case 12:
-        num2 = 30;
-        break;
-      case 13:
-        num2 = 60;
-        break;
-      case 14:
-        num2 = 140;
-        break;
-      case 15:
-        num2 = 20;
-        break;
-      case 16:
-        num2 = 20;
-        break;
-      case 17:
-        num2 = 20;
-        break;
-      case 18:
-        num2 = 7;
-        break;
-      case 19:
-        num2 = 7;
-        break;
-      case 20:
-        num2 = 7;
-        break;
-      case 21:
-        num2 = 5;
-        break;
-      case 22:
-        num2 = 10;
-        break;
-      case 23:
-        num2 = 10;
-        break;
-      case 24:
-        num2 = 15;
-        break;
-      case 25:
-        num2 = 20;
-        break;
-      case 26:
-        num2 = 10;
-        break;
-      case 27:
-        num2 = 15;
-        break;
-      case 28:
-        num2 = 30;
-        break;
-      case 29:
-        num2 = 20;
-        break;
-      case 30:
-        num2 = 20;
-        break;
-      case 31:
-        num2 = 20;
-        break;
-      case 32:
-        num2 = 60;
-        break;
-      case 33:
-        num2 = 120;
-        break;
-      case 34:
-        num2 = 280;
-        break;
-      case 35:
-        num2 = 120;
-        break;
-      case 36:
-        num2 = 240;
-        break;
-      case 37:
-        num2 = 560;
-        break;
-      case 38:
-        num2 = 10;
-        break;
-      case 39:
-        num2 = 20;
-        break;
-      case 40:
-        num2 = 40;
-        break;
-      case 41:
-        num2 = 80;
-        break;
-      case 42:
-        num2 = 45;
-        break;
-      case 43:
-        num2 = 45;
-        break;
-      case 44:
-        num2 = 20;
-        break;
-      case 45:
-        num2 = 45;
-        break;
-      case 46:
-        num2 = 500;
-        break;
-      case 47:
-        num2 = 30;
-        break;
-      case 48:
-        num2 = 65;
-        break;
-      case 49:
-        num2 = 10;
-        break;
-      case 50:
-        num2 = 15;
-        break;
-      case 51:
-        num2 = 5;
-        break;
-      case 52:
-        num2 = 5;
-        break;
-      case 53:
-        num2 = 10;
-        break;
-      case 54:
-        num2 = 20;
-        break;
-      case 55:
-        num2 = 40;
-        break;
-      case 56:
-        num2 = 60;
-        break;
-      case 500:
-        num2 = 35;
-        break;
-      case 501:
-        num2 = 30;
-        break;
-      case 502:
-        num2 = 45;
-        break;
-      case 503:
-        num2 = 120;
-        break;
-      case 504:
-        num2 = 120;
-        break;
-      case 505:
-        num2 = 120;
-        break;
-      case 506:
-        num2 = 300;
-        break;
-      case 507:
-        num2 = 300;
-        break;
-      case 508:
-        num2 = 300;
-        break;
-      case 509:
-        num2 = 700;
-        break;
-      case 510:
-        num2 = 700;
-        break;
-      case 511:
-        num2 = 700;
-        break;
-      case 512:
-        num2 = 55;
-        break;
-      case 513:
-        num2 = 50;
-        break;
-      case 514:
-        num2 = 65;
-        break;
-      case 515:
-        num2 = 100;
-        break;
-      case 516:
-        num2 = 55;
-        break;
-      case 517:
-        num2 = 50;
-        break;
-      case 518:
-        num2 = 65;
-        break;
-      case 519:
-        num2 = 200;
-        break;
-      case 550:
-        num2 = 330;
-        break;
-      case 560:
-        num2 = 135;
-        break;
-      case 561:
-        num2 = (int) byte.MaxValue;
-        break;
-      case 562:
-        num2 = 1000;
-        break;
-      case 563:
-        num2 = 95;
-        break;
-      case 566:
-        num2 = 1000;
-        break;
-      case 600:
-        num2 = 100;
-        break;
-      case 601:
-        num2 = 100;
-        break;
-      case 602:
-        num2 = 100;
-        break;
-      case 700:
-        num2 = 90;
-        break;
-      case 701:
-        num2 = 180;
-        break;
-      case 702:
-        num2 = 420;
-        break;
-      case 800:
-        num2 = 90;
-        break;
-      case 801:
-        num2 = 180;
-        break;
-      case 802:
-        num2 = 420;
-        break;
-      case 900:
-        num2 = 90;
-        break;
-      case 901:
-        num2 = 180;
-        break;
-      case 902:
-        num2 = 420;
-        break;
-      default:
-        num2 = 999;
-        break;
-    }
-    return num2 * 2;
+      Dictionary<int, int> itemPrices = new Dictionary<int, int>
+        {{ 1, 5 },
+        { 2, 10 },
+        { 3, 5 },
+        { 4, 15 },
+        { 5, 30 },
+        { 6, 70 },
+        { 7, 5 },
+        { 8, 8 },
+        { 9, 10 },
+        { 10, 10 },
+        { 11, 10 },
+        { 12, 30 },
+        { 13, 60 },
+        { 14, 140 },
+        { 15, 20 },
+        { 16, 20 },
+        { 17, 20 },
+        { 18, 7 },
+        { 19, 7 },
+        { 20, 7 },
+        { 21, 5 },
+        { 22, 10 },
+        { 23, 10 },
+        { 24, 15 },
+        { 25, 20 },
+        { 26, 10 },
+        { 27, 15 },
+        { 28, 30 },
+        { 29, 20 },
+        { 30, 20 },
+        { 31, 20 },
+        { 32, 60 },
+        { 33, 120 },
+        { 34, 280 },
+        { 35, 120 },
+        { 36, 240 },
+        { 37, 560 },
+        { 38, 10 },
+        { 39, 20 },
+        { 40, 40 },
+        { 41, 80 },
+        { 42, 45 },
+        { 43, 45 },
+        { 44, 20 },
+        { 45, 45 },
+        { 46, 500 },
+        { 47, 30 },
+        { 48, 65 },
+        { 49, 10 },
+        { 50, 15 },
+        { 51, 5 },
+        { 52, 5 },
+        { 53, 10 },
+        { 54, 20 },
+        { 55, 40 },
+        { 56, 60 },
+        { 500, 35 },
+        { 501, 30 },
+        { 502, 45 },
+        { 503, 120 },
+        { 504, 120 },
+        { 505, 120 },
+        { 506, 300 },
+        { 507, 300 },
+        { 508, 300 },
+        { 509, 700 },
+        { 510, 700 },
+        { 511, 700 },
+        { 512, 55 },
+        { 513, 50 },
+        { 514, 65 },
+        { 515, 100 },
+        { 516, 55 },
+        { 517, 50 },
+        { 518, 65 },
+        { 519, 200 },
+        { 550, 330 },
+        { 560, 135 },
+        { 561, 255 },
+        { 562, 1000 },
+        { 563, 95 },
+        { 566, 1000 },
+        { 600, 100 },
+        { 601, 100 },
+        { 602, 100 },
+        { 700, 90 },
+        { 701, 180 },
+        { 702, 420 },
+        { 800, 90 },
+        { 801, 180 },
+        { 802, 420 },
+        { 900, 90 },
+        { 901, 180 },
+        { 902, 420 },
+        { 999, 999 } // Default price for unknown items
+      };
+
+      int price;
+      if (itemPrices.TryGetValue(id, out price))
+      {
+          return price * 2; // Double the price
+      }
+
+      return itemPrices[999] * 2; // Default price for unknown items
   }
 
   public virtual void RefreshGold()
