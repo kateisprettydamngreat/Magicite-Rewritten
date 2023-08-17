@@ -690,23 +690,25 @@ public class GameScript : MonoBehaviour
 	    );
 	}
 
-  public virtual void DetectRes()
-  {
-    if ((double) Camera.main.aspect >= 1.7000000476837158)
-      Camera.main.orthographicSize = 12f;
-    else if ((double) Camera.main.aspect >= 1.5)
-      Camera.main.orthographicSize = 13f;
-    else if ((double) Camera.main.aspect >= 1.2999999523162842)
-    {
-      Camera.main.orthographicSize = 14.5f;
-    }
-    else
-    {
-      if ((double) Camera.main.aspect < 1.25)
-        return;
-      Camera.main.orthographicSize = 15.2f;
-    }
-  }
+	public virtual void DetectRes()
+	{
+	    if (Camera.main.aspect >= 1.7f)
+	    {
+	        Camera.main.orthographicSize = 12f;
+	    }
+	    else if (Camera.main.aspect >= 1.5f)
+	    {
+	        Camera.main.orthographicSize = 13f;
+	    }
+	    else if (Camera.main.aspect >= 1.3f)
+	    {
+	        Camera.main.orthographicSize = 14.5f;
+	    }
+	    else if (Camera.main.aspect >= 1.25f)
+	    {
+	        Camera.main.orthographicSize = 15.2f;
+	    }
+	}
 
   public virtual IEnumerator Timer() => (IEnumerator) new GameScript.\u0024Timer\u00241521(this).GetEnumerator();
 
