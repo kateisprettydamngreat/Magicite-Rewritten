@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!300 &1
+RuntimeInitializeOnLoadManager:
+  m_ObjectHideFlags: 0
+  m_AssemblyNames:
+  - UnityEngine.Advertisements
+  - UnityEditor.Advertisements
+  - UnityEngine.Analytics
+  m_NamespaceNames:
+  - UnityEngine.Advertisements
+  - UnityEditor.Advertisements
+  - UnityEngine.Analytics
+  m_ClassInfos:
+  - m_AssemblyNameIndex: 0
+    m_NamespaceIndex: 0
+    m_ClassName: Advertisement
+    m_NumOfMethods: 1
+    m_MethodIndex: 0
+    m_IsUnityClass: 0
+  - m_AssemblyNameIndex: 1
+    m_NamespaceIndex: 1
+    m_ClassName: UnityAdsEditor
+    m_NumOfMethods: 1
+    m_MethodIndex: 1
+    m_IsUnityClass: 0
+  - m_AssemblyNameIndex: 2
+    m_NamespaceIndex: 2
+    m_ClassName: Analytics
+    m_NumOfMethods: 1
+    m_MethodIndex: 2
+    m_IsUnityClass: 0
+  m_ClassMethodInfos:
+  - m_ClassIndex: 0
+    m_MethodName: LoadRuntime
+    m_OrderNumber: 0
+  - m_ClassIndex: 1
+    m_MethodName: EditorOnLoad
+    m_OrderNumber: 0
+  - m_ClassIndex: 2
+    m_MethodName: AutoStartUnityAnalytics
+    m_OrderNumber: 0
+  m_BeforeUnityMethodExecutionOrders: []
+  m_AfterUnityMethodExecutionOrders:
+  - 0
+  - 1
+  - 2
+  m_BeforeMethodExecutionOrders: []
+  m_AfterMethodExecutionOrders: []
+  m_FullClassNames: []
