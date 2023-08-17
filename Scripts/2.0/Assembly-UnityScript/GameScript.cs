@@ -608,17 +608,19 @@ public class GameScript : MonoBehaviour
 	    LoadHearts();
 	}
 
-  public virtual void LoadEXP()
-  {
-    float exp = GameScript.exp;
-    float maxExp = GameScript.maxEXP;
-    this.txtStatEXP.text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.exp, "/"), (object) GameScript.maxEXP);
-    float num1 = (float) ((double) exp / (double) maxExp * 1.1499999761581421);
-    Vector3 localScale = this.barEXP.transform.localScale;
-    double num2 = (double) (localScale.x = num1);
-    Vector3 vector3 = this.barEXP.transform.localScale = localScale;
-    this.txtLevel.text = RuntimeServices.op_Addition("Lv: ", (object) GameScript.playerLevel);
-  }
+	public virtual void LoadEXP()
+	{
+	    float exp = GameScript.exp;
+	    float maxExp = GameScript.maxEXP;
+
+	    txtStatEXP.text = $"{exp}/{maxExp}";
+
+	    float expRatio = exp / maxExp * 1.15f; // Adjusted the constant for clarity
+	    Vector3 newScale = new Vector3(expRatio, barEXP.transform.localScale.y, barEXP.transform.localScale.z);
+	    barEXP.transform.localScale = newScale;
+
+	    txtLevel.text = $"Lv: {GameScript.playerLevel}";
+	}
 
   public virtual IEnumerator Invader() => (IEnumerator) new GameScript.\u0024Invader\u00241516(this).GetEnumerator();
 
