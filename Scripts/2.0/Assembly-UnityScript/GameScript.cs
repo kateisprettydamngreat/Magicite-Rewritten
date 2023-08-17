@@ -1005,13 +1005,10 @@ public class GameScript : MonoBehaviour
 	    return new GameScript.$RegenManaComp$1524(this).GetEnumerator();
 	}
 
-  public virtual void HealC()
-  {
-    if (GameScript.HP + 1 > GameScript.MAXHP)
-      GameScript.HP = GameScript.MAXHP;
-    else
-      ++GameScript.HP;
-  }
+	public virtual void HealC()
+	{
+	    GameScript.HP = Mathf.Min(GameScript.HP + 1, GameScript.MAXHP);
+	}
 
   public virtual void SetRaceStats()
   {
