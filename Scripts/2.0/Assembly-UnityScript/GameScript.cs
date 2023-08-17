@@ -1010,12 +1010,13 @@ public class GameScript : MonoBehaviour
 	    GameScript.HP = Mathf.Min(GameScript.HP + 1, GameScript.MAXHP);
 	}
 
-  public virtual void SetRaceStats()
-  {
-    int num = new int();
-    for (int index = 0; index < 4; ++index)
-      GameScript.tempLevelStat[index] = GameScript.tempLevelStat[index] + MenuScript.raceStats[index];
-  }
+	public virtual void SetRaceStats()
+	{
+	    for (int index = 0; index < 4; ++index)
+	    {
+	        GameScript.tempLevelStat[index] += MenuScript.raceStats[index];
+	    }
+	}
 
   public virtual IEnumerator ScourgeMaskTick() => (IEnumerator) new GameScript.\u0024ScourgeMaskTick\u00241527().GetEnumerator();
 
