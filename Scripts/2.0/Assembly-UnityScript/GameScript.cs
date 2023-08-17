@@ -1033,51 +1033,63 @@ public class GameScript : MonoBehaviour
 	    return new GameScript.$RecoverMana$1533(this).GetEnumerator();
 	}
 
-  public virtual void SetStartingItems()
-  {
-    int num = new int();
-    for (int index = 0; index < 3; ++index)
-    {
-      if (MenuScript.startingItemID[index] != 8888)
-      {
-        if (MenuScript.startingItemID[index] == 9999)
-        {
-          int id = UnityEngine.Random.Range(0, 54);
-          if (id == 49 || id == 11)
-            id = 9;
-          switch (id)
-          {
-            case 13:
-              id = 5;
-              break;
-            case 14:
-              id = 4;
-              break;
-            default:
-              if (id == 32 || id == 35 || id == 36 || id == 37)
-              {
-                id = 4;
-                break;
-              }
-              switch (id)
-              {
-                case 33:
-                  id = 5;
-                  break;
-                case 34:
-                  id = 5;
-                  break;
-              }
-              break;
-          }
-          GameScript.inventory[index] = new Item(id, 1, new int[4], 0.0f, (GameObject) null);
-        }
-        else
-          GameScript.inventory[index] = MenuScript.startingItemID[index] < 500 ? new Item(MenuScript.startingItemID[index], 1, new int[4], 0.0f, (GameObject) null) : new Item(MenuScript.startingItemID[index], 1, this.GetGearStats(MenuScript.startingItemID[index]), this.GetMaxDurability(MenuScript.startingItemID[index]), (GameObject) null);
-      }
-    }
-  }
+	public virtual void SetStartingItems()
+	{
+	    for (int index = 0; index < 3; ++index)
+	    {
+	        if (MenuScript.startingItemID[index] != 8888)
+	        {
+	            if (MenuScript.startingItemID[index] == 9999)
+	            {
+	                int id = UnityEngine.Random.Range(0, 54);
+	                if (id == 49 || id == 11)
+	                    id = 9;
 
+	                switch (id)
+	                {
+	                    case 13:
+	                        id = 5;
+	                        break;
+	                    case 14:
+	                        id = 4;
+	                        break;
+	                    default:
+	                        if (id == 32 || id == 35 || id == 36 || id == 37)
+	                        {
+	                            id = 4;
+	                            break;
+	                        }
+	                        switch (id)
+	                        {
+	                            case 33:
+	                                id = 5;
+	                                break;
+	                            case 34:
+	                                id = 5;
+	                                break;
+	                        }
+	                        break;
+	                }
+
+	                GameScript.inventory[index] = new Item(id, 1, new int[4], 0.0f, null);
+	            }
+	            else
+	            {
+	                if (MenuScript.startingItemID[index] < 500)
+	                {
+	                    GameScript.inventory[index] = new Item(MenuScript.startingItemID[index], 1, new int[4], 0.0f, null);
+	                }
+	                else
+	                {
+	                    int[] gearStats = this.GetGearStats(MenuScript.startingItemID[index]);
+	                    float maxDurability = this.GetMaxDurability(MenuScript.startingItemID[index]);
+	                    GameScript.inventory[index] = new Item(MenuScript.startingItemID[index], 1, gearStats, maxDurability, null);
+	                }
+	            }
+	        }
+	    }
+	}
+	
   public virtual IEnumerator ScourgeBoss(int d) => (IEnumerator) new GameScript.\u0024ScourgeBoss\u00241537(d).GetEnumerator();
 
   public virtual IEnumerator Write(int num) => (IEnumerator) new GameScript.\u0024Write\u00241541(num, this).GetEnumerator();
