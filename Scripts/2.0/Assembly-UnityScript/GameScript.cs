@@ -630,325 +630,264 @@ public GameScript()
 
 	public virtual void Awake()
 	{
-	    GameScript.usedAltar = false;
-	    Application.targetFrameRate = 60;
-	    GameScript.drumATK = 0;
-	    GameScript.drumDEX = 0;
-	    GameScript.drumMAG = 0;
+	  GameScript.usedAltar = false;
+	  Application.targetFrameRate = 60;
+	  GameScript.drumATK = 0;
+	  GameScript.drumDEX = 0;
+	  GameScript.drumMAG = 0;
 
-	    if (Network.isServer)
-	        this.StartCoroutine_Auto(this.Timer());
+	  if (Network.isServer)
+	  {
+	      this.StartCoroutine_Auto(this.Timer());
+	  }
 
-	    this.DetectRes();
-	    this.ATKING = false;
-	    this.usingPot = false;
-	    GameScript.win = false;
-	    this.@using = false;
-	    GameScript.finalATKNet = 0;
-	    GameScript.isFloating = false;
-	    GameScript.menuOpen = false;
-	    this.canAttack = true;
-	    this.dead = false;
-	    GameScript.attacking = false;
-	    GameScript.inventoryOpen = false;
-	    this.immobilized = false;
-	    PlayerTriggerScript.isDead = false;
-	    PlayerTriggerScript.canTakeDamage = true;
-	    GameScript.eggCounter = 0;
-	    GameScript.fairyCounter = 0;
-	    GameScript.dragonCounter = 0;
-	    GameScript.DEXBonus = 0;
-	    GameScript.rage = false;
-	    PlayerControllerN.downed = false;
-	    GameScript.manaWait = 10;
-	    this.RefreshSkills();
+	  this.DetectRes();
+	  this.ATKING = false;
+	  this.usingPot = false;
+	  int num1 = 0;
+	  GameScript.win = false;
+	  this.@using = false;
+	  GameScript.finalATKNet = 0;
+	  GameScript.isFloating = false;
+	  GameScript.menuOpen = false;
+	  this.canAttack = true;
+	  this.dead = false;
+	  GameScript.attacking = false;
+	  GameScript.inventoryOpen = false;
+	  this.immobilized = false;
+	  PlayerTriggerScript.isDead = false;
+	  PlayerTriggerScript.canTakeDamage = true;
+	  GameScript.eggCounter = 0;
+	  GameScript.fairyCounter = 0;
+	  GameScript.dragonCounter = 0;
+	  GameScript.DEXBonus = 0;
+	  GameScript.rage = false;
+	  PlayerControllerN.downed = false;
+	  GameScript.manaWait = 10;
+	  this.RefreshSkills();
+	  if (!GameScript.isInitialized)
+	  {
+	      GameScript.bossDefeated = false;
+	      GameScript.isShopping = false;
+	      GameScript.isCooking = false;
+	      GameScript.inventoryOpen = false;
+	      GameScript.takingDamage = false;
+	      GameScript.readyPlayers = 0;
+	      GameScript.win = false;
+	      GameScript.interacted = false;
+	      GameScript.hitsTaken = 0;
+	      GameScript.arrowsShot = 0;
+	      GameScript.curGold = 0;
+	      GameScript.potsUsed = 0;
+	      GameScript.timer = 0;
+	      GameScript.selectingSkill = false;
+	      GameScript.curBiome = 0;
+	      GameScript.finalBoss = 0;
+	      GameScript.skill[0] = 0;
+	      GameScript.skill[1] = 0;
+	      GameScript.skill[2] = 0;
+	      GameScript.districtLevel = 1;
+	      GameScript.count = 0;
+	      GameScript.exp = 0.0f;
+	      GameScript.maxEXP = 8f;
+	      GameScript.hunger = MenuScript.curTrait[1] == 10 || MenuScript.curTrait[2] == 10 ? 12 : 8;
+	      GameScript.playerLevel = 1;
+	      GameScript.tempStats = new int[15];
+	      for (int index = 0; index < 15; ++index)
+	          GameScript.tempStats[index] = 0;
 
-	    if (!GameScript.isTown)
-	        this.StartCoroutine_Auto(this.Invader());
+	      GameScript.tempGearStat = new int[4];
+	      GameScript.tempLevelStat = new int[4];
+	      GameScript.tempPlayerStat = new int[4];
+	      for (int index = 0; index < 4; ++index)
+	      {
+	          GameScript.tempGearStat[index] = 0;
+	          GameScript.tempLevelStat[index] = 0;
+	          GameScript.tempPlayerStat[index] = 0;
+	      }
 
-	    Network.minimumAllocatableViewIDs = 700;
+	      GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
+	      GameScript.HP = GameScript.MAXHP;
+	      GameScript.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
+	      GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
+	      GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
+	      GameScript.SPD = (float)((double)GameScript.DEX * 0.05000000074505806 + 7.5999999046325684);
+	      if (MenuScript.pHat == 9)
+	          GameScript.SPD += 4f;
 
-	    GameScript.bossDefeated = false;
-	    this.txtDied.text = RuntimeServices.op_Addition(MenuScript.curName, " has fallen.");
-	    GameScript.isShopping = false;
-	    this.accountEXP = MenuScript.accountEXP;
-	    this.txtLevel.text = RuntimeServices.op_Addition("Lv: ", (object)GameScript.playerLevel);
-	    GameScript.isCooking = false;
-	    this.LoadEXP();
-	    this.maxHunger = MenuScript.curTrait[1] == 10 || MenuScript.curTrait[2] == 10 ? 12 : 8;
-	    GameScript.inventoryOpen = false;
-	    GameScript.takingDamage = false;
-	    this.fade = (FadeInOut)Camera.main.gameObject.GetComponent("FadeInOut");
-	    GameScript.readyPlayers = 0;
-	    int playerLevel = GameScript.playerLevel;
-	    this.maxStamina = playerLevel > 4 ? (playerLevel > 12 ? 12 : playerLevel) : 4;
-	    this.stamina = (float)this.maxStamina;
+	      this.SetRaceStats();
+	      this.SetStartingItems();
 
-	    if (!GameScript.isInitialized)
+	      switch (GameScript.districtLevel)
+	      {
+	          case 20:
+	              GameScript.finalBoss = 1;
+	              break;
+	          case 21:
+	              GameScript.curBiome = 19;
+	              GameScript.isTown = false;
+	              break;
+	      }
+
+	      GameScript.curBiome = 0;
+	      GameScript.isInitialized = true;
+	  }
+	  else
+	  {
+	      ++GameScript.districtLevel;
+	      if (GameScript.districtLevel == 10)
+	          MenuScript.canUnlockRace[7] = 1;
+
+	      if (GameScript.selectingSkill)
+	          this.SkillMenu();
+
+	      GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
+	      GameScript.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
+	      GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
+	      GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
+	      GameScript.SPD = (float)((double)GameScript.DEX * 0.05000000074505806 + 7.5999999046325684);
+	      if (MenuScript.pHat == 9)
+	          GameScript.SPD += 4f;
+
+	      this.RefreshGold();
+
+	      switch (GameScript.districtLevel)
+	      {
+	          case 20:
+	              GameScript.finalBoss = 1;
+	              break;
+	          case 21:
+	              GameScript.curBiome = 19;
+	              GameScript.isTown = false;
+	              break;
+	      }
+	  }
+
+	  this.select.transform.localPosition = this.GetSelectPos((object) GameScript.curActiveSlot);
+	  this.UpdateHunger();
+	  GameScript.facingLeft = false;
+	  this.dead = false;
+	  string curName = MenuScript.curName;
+	  Vector3 position = new Vector3(2f, 2f, 0.0f);
+	  switch (GameScript.curBiome)
+	  {
+	    case 1:
+	      MenuScript.canUnlockHat[6] = 1;
+	      break;
+	    case 2:
+	      MenuScript.canUnlockHat[7] = 1;
+	      break;
+	    case 3:
+	      MenuScript.canUnlockHat[15] = 1;
+	      break;
+	    case 5:
+	      MenuScript.canUnlockHat[13] = 1;
+	      break;
+	    case 6:
+	      MenuScript.canUnlockHat[16] = 1;
+	      break;
+	    case 7:
+	      MenuScript.canUnlockHat[10] = 1;
+	      break;
+	    case 9:
+	      MenuScript.canUnlockRace[10] = 1;
+	      break;
+	    case 19:
+	      MenuScript.canUnlockHat[17] = 1;
+	      break;
+	  }
+	  GameScript.door[0] = 0;
+	  GameScript.door[1] = 0;
+	  GameScript.door[2] = 0;
+	  if (GameScript.changingScene)
+	    ;
+	  if (!(bool) (UnityEngine.Object) GameScript.player)
+	  {
+	    GameScript.player = (GameObject) Network.Instantiate(Resources.Load("playerN"), position, Quaternion.identity, 0);
+	    if (GameScript.player.GetComponent<NetworkView>().isMine)
 	    {
-	        GameScript.win = false;
-	        GameScript.interacted = false;
-	        GameScript.hitsTaken = 0;
-
-	        for (int index = 0; index < 14; ++index)
-	            MenuScript.canUnlockRace[index] = 0;
-
-	        for (int index = 0; index < 25; ++index)
-	            MenuScript.canUnlockHat[index] = 0;
-
-	        for (int index = 0; index < 3; ++index)
-	            GameScript.legendary[index] = 0;
-
-	        GameScript.arrowsShot = 0;
-	        GameScript.curGold = 0;
-	        GameScript.potsUsed = 0;
-	        GameScript.timer = 0;
-	        GameScript.selectingSkill = false;
-	        GameScript.curBiome = 0;
-	        GameScript.finalBoss = 0;
-	        GameScript.skill[0] = 0;
-	        GameScript.skill[1] = 0;
-	        GameScript.skill[2] = 0;
-	        this.RefreshSkills();
-	        GameScript.curSkill = 0;
-	        GameScript.districtLevel = 1;
-
-	        for (int index = 0; index < 15; ++index)
-	            GameScript.tempStats[index] = 0;
-
-	        this.RefreshGold();
-	        GameScript.curActiveSlot = 0;
-	        GameScript.playerLevel = 1;
-	        GameScript.count = 0;
-	        GameScript.exp = 0.0f;
-	        GameScript.maxEXP = 8f;
-	        GameScript.hunger = 8;
-	        GameScript.isInitialized = true;
-
-	        for (int index = 0; index < 4; ++index)
-	        {
-	            GameScript.tempGearStat[index] = 0;
-	            GameScript.tempLevelStat[index] = 0;
-	            GameScript.tempPlayerStat[index] = 0;
-	        }
-
-	        GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
-	        GameScript.HP = GameScript.MAXHP;
-	        this.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
-	        GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
-	        GameScript.MAG = GameScript.MAXMAG;
-	        GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
-	        GameScript.SPD = (float)((double)GameScript.DEX * 0.05000000074505806 + 7.5999999046325684);
-	        this.SetRaceStats();
-
-	        if (MenuScript.pHat == 9)
-	            GameScript.SPD += 4f;
-
-	        this.SetStartingItems();
-
-	        if (GameScript.districtLevel % 5 != 0)
-	            ;
-
-	        switch (GameScript.districtLevel)
-	        {
-	            case 20:
-	                GameScript.finalBoss = 1;
-	                break;
-	            case 21:
-	                GameScript.curBiome = 19;
-	                GameScript.isTown = false;
-	                break;
-	        }
-
-	        GameScript.curBiome = 0;
+	      int num7 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+	      int armor = PlayerControllerN.armor;
+	      int offhand = PlayerControllerN.offhand;
+	      GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num7, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+	      GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object) MenuScript.curName);
 	    }
-	    else
-	    {
-	        ++GameScript.districtLevel;
-
-	        if (GameScript.districtLevel == 10)
-	            MenuScript.canUnlockRace[7] = 1;
-
-	        if (GameScript.districtLevel % 5 != 0)
-	            ;
-
-	        switch (GameScript.districtLevel)
-	        {
-	            case 20:
-	                GameScript.finalBoss = 1;
-	                break;
-	            case 21:
-	                GameScript.curBiome = 19;
-	                GameScript.isTown = false;
-	                break;
-	        }
-
-	        if (GameScript.selectingSkill)
-	            this.SkillMenu();
-
-	        GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
-	        this.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
-	        GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
-	        GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
-	        GameScript.SPD = (float)((double)GameScript.DEX * 0.05000000074505806 + 7.5999999046325684);
-
-	        if (MenuScript.pHat == 9)
-	            GameScript.SPD += 4f;
-
-	        this.RefreshGold();
-	    }
-
-	    this.select.transform.localPosition = this.GetSelectPos((object)GameScript.curActiveSlot);
+	  }
+	  else if (GameScript.player.GetComponent<NetworkView>().isMine)
+	  {
+	    int num8 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+	    int armor = PlayerControllerN.armor;
+	    int offhand = PlayerControllerN.offhand;
+	    GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num8, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+	    GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object) MenuScript.curName);
+	  }
+	  GameScript.player.SendMessage("Initialize");
+	  if (GameScript.player.GetComponent<NetworkView>().isMine)
+	  {
+	    this.trait[1].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[1]), typeof (Material));
+	    this.trait[2].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[2]), typeof (Material));
+	    if (GameScript.hunger == 0)
+	      GameScript.hunger = this.maxHunger;
 	    this.UpdateHunger();
-	    GameScript.facingLeft = false;
-	    this.dead = false;
-	    string curName = MenuScript.curName;
-	    Vector3 position = new Vector3(2f, 2f, 0.0f);
-
-	    switch (GameScript.curBiome)
-	    {
-	        case 1:
-	            MenuScript.canUnlockHat[6] = 1;
-	            break;
-	        case 2:
-	            MenuScript.canUnlockHat[7] = 1;
-	            break;
-	        case 3:
-	            MenuScript.canUnlockHat[15] = 1;
-	            break;
-	        case 5:
-	            MenuScript.canUnlockHat[13] = 1;
-	            break;
-	        case 6:
-	            MenuScript.canUnlockHat[16] = 1;
-	            break;
-	        case 7:
-	            MenuScript.canUnlockHat[10] = 1;
-	            break;
-	        case 9:
-	            MenuScript.canUnlockRace[10] = 1;
-	            break;
-	        case 19:
-	            MenuScript.canUnlockHat[17] = 1;
-	            break;
-	    }
-
-	    GameScript.door[0] = 0;
-	    GameScript.door[1] = 0;
-	    GameScript.door[2] = 0;
-
-	    if (GameScript.changingScene)
-	        ;
-
-	    if (!(bool)(UnityEngine.Object)GameScript.player)
-	    {
-	        GameScript.player = (GameObject)Network.Instantiate(Resources.Load("playerN"), position, Quaternion.identity, 0);
-
-	        if (GameScript.player.GetComponent<NetworkView>().isMine)
-	        {
-	            int num7 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
-	            int armor = PlayerControllerN.armor;
-	            int offhand = PlayerControllerN.offhand;
-	            GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object)num7, (object)armor, (object)MenuScript.pRace, (object)offhand, (object)MenuScript.pHat);
-	            GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object)MenuScript.curName);
-	        }
-	    }
-	    else if (GameScript.player.GetComponent<NetworkView>().isMine)
-	    {
-	        int num8 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
-	        int armor = PlayerControllerN.armor;
-	        int offhand = PlayerControllerN.offhand;
-	        GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object)num8, (object)armor, (object)MenuScript.pRace, (object)offhand, (object)MenuScript.pHat);
-	        GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object)MenuScript.curName);
-	    }
-
+	  }
+	  this.@base = GameObject.Find("base");
+	  this.head = GameObject.Find("head");
+	  this.head2 = GameObject.Find("head2");
+	  this.body = GameObject.Find("body");
+	  this.arm1 = GameObject.Find("arm1");
+	  this.arm2 = GameObject.Find("arm2");
+	  this.leg = GameObject.Find("leg");
+	  this.weapon = GameObject.Find("item");
+	  this.hasCurTown = PlayerPrefs.GetInt("hasTown");
+	  GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
+	  this.UpdateCharacterWeapon();
+	  this.StartCoroutine_Auto(this.GenerateText());
+	  this.GenerateLevelName();
+	  this.StartCoroutine_Auto(this.ScourgeMaskTick());
+	  GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
+	  GameScript.player.SendMessage("Initialize");
+	  if (GameScript.player.GetComponent<NetworkView>().isMine)
+	  {
+	    this.trait[1].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[1]), typeof (Material));
+	    this.trait[2].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[2]), typeof (Material));
+	    if (GameScript.hunger == 0)
+	      GameScript.hunger = this.maxHunger;
+	    this.UpdateHunger();
+	  }
+	  Camera.main.SendMessage("SetPlayer", (object) GameScript.player);
+	  this.weapon = GameObject.Find("weapon");
+	  this.UpdateCharacterWeapon();
+	  GameScript.isInstance = true;
+	  if (!GameScript.isTown)
+	  {
+	    if (Network.isServer)
+	      this.StartCoroutine_Auto(this.GenerateLevel());
+	  }
+	  else if (Network.isServer)
+	    this.StartCoroutine_Auto(this.SpawnTownNetwork());
+	  if ((bool) (UnityEngine.Object) GameScript.player)
+	  {
+	    Camera.main.SendMessage("SetPlayer", (object) GameScript.player.gameObject);
 	    GameScript.player.SendMessage("Initialize");
-
-	    if (GameScript.player.GetComponent<NetworkView>().isMine)
-	    {
-	        this.trait[1].GetComponent<Renderer>().material = (Material)Resources.Load(RuntimeServices.op_Addition("t/t", (object)MenuScript.curTrait[1]), typeof(Material));
-	        this.trait[2].GetComponent<Renderer>().material = (Material)Resources.Load(RuntimeServices.op_Addition("t/t", (object)MenuScript.curTrait[2]), typeof(Material));
-
-	        if (GameScript.hunger == 0)
-	            GameScript.hunger = this.maxHunger;
-
-	        this.UpdateHunger();
-	    }
-
-	    this.@base = GameObject.Find("base");
-	    this.head = GameObject.Find("head");
-	    this.head2 = GameObject.Find("head2");
-	    this.body = GameObject.Find("body");
-	    this.arm1 = GameObject.Find("arm1");
-	    this.arm2 = GameObject.Find("arm2");
-	    this.leg = GameObject.Find("leg");
-	    this.weapon = GameObject.Find("item");
-	    this.hasCurTown = PlayerPrefs.GetInt("hasTown");
-	    GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
-	    this.UpdateCharacterWeapon();
-	    this.StartCoroutine_Auto(this.GenerateText());
-	    this.GenerateLevelName();
-	    this.StartCoroutine_Auto(this.ScourgeMaskTick());
-	    GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
-	    GameScript.player.SendMessage("Initialize");
-
-	    if (GameScript.player.GetComponent<NetworkView>().isMine)
-	    {
-	        this.trait[1].GetComponent<Renderer>().material = (Material)Resources.Load(RuntimeServices.op_Addition("t/t", (object)MenuScript.curTrait[1]), typeof(Material));
-	        this.trait[2].GetComponent<Renderer>().material = (Material)Resources.Load(RuntimeServices.op_Addition("t/t", (object)MenuScript.curTrait[2]), typeof(Material));
-
-	        if (GameScript.hunger == 0)
-	            GameScript.hunger = this.maxHunger;
-
-	        this.UpdateHunger();
-	    }
-
-	    Camera.main.SendMessage("SetPlayer", (object)GameScript.player);
-	    this.@base = GameObject.Find("base");
-	    this.head = GameObject.Find("head");
-	    this.head2 = GameObject.Find("head2");
-	    this.body = GameObject.Find("body");
-	    this.arm1 = GameObject.Find("arm1");
-	    this.arm2 = GameObject.Find("arm2");
-	    this.leg = GameObject.Find("leg");
-	    this.weapon = GameObject.Find("weapon");
-	    this.UpdateCharacterWeapon();
-	    GameScript.isInstance = true;
-
-	    if (!GameScript.isTown)
-	    {
-	        if (Network.isServer)
-	            this.StartCoroutine_Auto(this.GenerateLevel());
-	    }
-	    else if (Network.isServer)
-	        this.StartCoroutine_Auto(this.SpawnTownNetwork());
-
-	    if ((bool)(UnityEngine.Object)GameScript.player)
-	    {
-	        Camera.main.SendMessage("SetPlayer", (object)GameScript.player.gameObject);
-	        GameScript.player.SendMessage("Initialize");
-	    }
-
-	    this.RefreshActionBar();
-	    this.maxStamina += this.STA;
-	    this.RefreshPlayerStats();
-	    this.StartCoroutine_Auto(this.RecoverMana());
-
-	    if (Network.isServer && GameScript.curBiome == 19)
-	        Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0.0f, 0.0f), Quaternion.identity, 0);
-
-	    this.LoadEXP();
-	    this.StartCoroutine_Auto(this.TikiCheck());
-	    this.LoadSTA();
-
-	    if (MenuScript.companion == 1)
-	        this.HealC();
-	    else if (MenuScript.companion == 3)
-	        GameScript.SPD *= 2f;
-	    else if (MenuScript.companion == 9)
-	        GameScript.SPD *= 3f;
-	    if (MenuScript.companion == 5)
-	        this.StartCoroutine_Auto(this.RegenManaComp());
+	  }
+	  this.RefreshActionBar();
+	  this.maxStamina += this.STA;
+	  this.RefreshPlayerStats();
+	  this.StartCoroutine_Auto(this.RecoverMana());
+	  if (Network.isServer && GameScript.curBiome == 19)
+	    Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0.0f, 0.0f), Quaternion.identity, 0);
+	  this.LoadEXP();
+	  this.StartCoroutine_Auto(this.TikiCheck());
+	  this.LoadSTA();
+	  if (MenuScript.companion == 1)
+	    this.HealC();
+	  else if (MenuScript.companion == 3)
+	    GameScript.SPD *= 2f;
+	  else if (MenuScript.companion == 9)
+	    GameScript.SPD *= 3f;
+	  if (MenuScript.companion != 5)
+	    return;
+	  this.StartCoroutine_Auto(this.RegenManaComp());
 	}
 
 
