@@ -265,7 +265,7 @@ public class GameScript : MonoBehaviour
   private Vector2 hotSpot;
 #endregion Serializable Fields
 
-// this instancing
+// GameScript Constructor
 public GameScript()
 {
   #region Array
