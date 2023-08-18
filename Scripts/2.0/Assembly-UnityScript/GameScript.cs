@@ -13,22 +13,86 @@ using UnityEngine;
 public class GameScript : MonoBehaviour
 {
 //Declarations
-  [NonSerialized]
-  public static bool debugMode;
-  [NonSerialized]
-  public static bool usedAltar;
-  [NonSerialized]
-  public static int curAltar;
-  [NonSerialized]
-  public static int[] legendary = new int[3];
+#region NonSerialized Fields
+  [NonSerialized] public static bool debugMode;
+  [NonSerialized] public static bool usedAltar;
+  [NonSerialized] public static int curAltar;
+  [NonSerialized] public static int[] legendary = new int[3];
+  [NonSerialized] public static bool interacted;
+  [NonSerialized] public static int hitsTaken;
+  [NonSerialized] public static bool isCat;
+  [NonSerialized] public static int vBonus;
+  [NonSerialized] public static int drumATK;
+  [NonSerialized] public static int drumDEX;
+  [NonSerialized] public static int drumMAG;
+  [NonSerialized] public static int timer;
+  [NonSerialized] public static int potsUsed;
+  [NonSerialized] public static int arrowsShot;
+  [NonSerialized] public static bool win;
+  [NonSerialized] public static int eggCounter;
+  [NonSerialized] public static int fairyCounter;
+  [NonSerialized] public static int dragonCounter;
+  [NonSerialized] public static int finalBoss;
+  [NonSerialized] public static GameObject aSphere;
+  [NonSerialized] public static int[] doorBiome = new int[3];
+  [NonSerialized] public static GameObject barrierObj;
+  [NonSerialized] public static int districtLevel;
+  [NonSerialized] public static bool isShopping;
+  [NonSerialized] public static int curGold;
+  [NonSerialized] public static int[] tempStats = new int[16];
+  [NonSerialized] public static int[] tempPlayerStat = new int[4];
+  [NonSerialized] public static int[] tempLevelStat = new int[4];
+  [NonSerialized] public static int[] tempGearStat = new int[4];
+  [NonSerialized] public static bool interacting;
+  [NonSerialized] public static bool canTakeDamage = true;
+  [NonSerialized] public static int curZone;
+  [NonSerialized] public static int curStyle;
+  [NonSerialized] public static bool takingDamage;
+  [NonSerialized] public static int curBiome;
+  [NonSerialized] public static GameObject player;
+  [NonSerialized] public static bool menuOpen;
+  [NonSerialized] public static bool isInstance;
+  [NonSerialized] public static bool facingLeft;
+  [NonSerialized] public static bool isReturning;
+  [NonSerialized] public static bool changingScene;
+  [NonSerialized] public static int cLevel;
+  [NonSerialized] public static bool isTown;
+  [NonSerialized] public static int hunger;
+  [NonSerialized] public static bool isInitialized;
+  [NonSerialized] public static int HP;
+  [NonSerialized] public static int playerLevel;
+  [NonSerialized] public static float exp;
+  [NonSerialized] public static float maxEXP = 8f;
+  [NonSerialized] public static int count = 8;
+  [NonSerialized] public static int readyPlayers;
+  [NonSerialized] public static int playersDead;
+  [NonSerialized] public static int[] door = new int[3];
+  [NonSerialized] public static int finalATK;
+  [NonSerialized] public static int finalATKChop;
+  [NonSerialized] public static int finalATKMine = 1;
+  [NonSerialized] public static int curDoor;
+  [NonSerialized] public static bool attacking;
+  [NonSerialized] public static int finalATKNet;
+  [NonSerialized] public static Item[] npcInventory = new Item[15];
+  [NonSerialized] public static bool isCooking;
+  [NonSerialized] public static bool canInteract;
+  [NonSerialized] public static string interacter;
+  [NonSerialized] public static bool inventoryOpen;
+  [NonSerialized] public static bool selectingSkill;
+  [NonSerialized] public static bool rage;
+  [NonSerialized] public static bool clair;
+  [NonSerialized] public static int curSkill;
+  [NonSerialized] public static int curActiveSlot;
+  [NonSerialized] public static int MAG;
+  [NonSerialized] public static float SPD = 30f;
+  [NonSerialized] public static int MAXHP;
+  [NonSerialized] public static int MAXMAG;
+  [NonSerialized] public static int DEX;
+  [NonSerialized] public static int[] skill = new int[3];
+#endregion NonSerialized Fields
+#region Serializable Fields
   public GameObject menuAltar;
-  [NonSerialized]
-  public static bool interacted;
-  [NonSerialized]
-  public static int hitsTaken;
   public GameObject[] cheatButton;
-  [NonSerialized]
-  public static bool isCat;
   private bool addingInput;
   public TextMesh txtInput;
   private int inputCount;
@@ -36,30 +100,16 @@ public class GameScript : MonoBehaviour
   private bool cheating;
   public GameObject menuCheat;
   private bool spawningTown;
-  [NonSerialized]
-  public static int vBonus;
   public GameObject menuHoarder;
   public Material blacksmithMenu;
   public TextMesh txtNPCName;
   public Material tailorMenu;
   public Material leatherworkerMenu;
   public GameObject musicBox;
-  [NonSerialized]
-  public static int drumATK;
-  [NonSerialized]
-  public static int drumDEX;
-  [NonSerialized]
-  public static int drumMAG;
   public TextMesh txtTimer;
-  [NonSerialized]
-  public static int timer;
-  [NonSerialized]
-  public static int potsUsed;
   private bool selectingReward;
   public GameObject[] rewardChestObj;
   private int[] rewardChest;
-  [NonSerialized]
-  public static int arrowsShot;
   public Material rewShade;
   public Material rewChest;
   public Material rewOpened;
@@ -73,71 +123,21 @@ public class GameScript : MonoBehaviour
   private bool usingDrum;
   private bool[] isVariant;
   private int[] reward;
-  [NonSerialized]
-  public static bool win;
   public GameObject menuVictory;
   private string txtStatuss;
   public TextMesh txtStatus2;
-  [NonSerialized]
-  public static int eggCounter;
-  [NonSerialized]
-  public static int fairyCounter;
-  [NonSerialized]
-  public static int dragonCounter;
   public TextMesh[] txtHighScore;
   public GameObject bAgain;
   public GameObject bMenu;
   public GameObject blackk;
   public LayerMask mask;
-  [NonSerialized]
-  public static int finalBoss;
-  [NonSerialized]
-  public static GameObject aSphere;
-  private bool writingEgg;
-  public GameObject[] LUP;
-  public TextMesh txtTraitName;
-  public TextMesh txtTraitDesc;
-  public GameObject traitDesc;
-  public TextMesh txtSkillName;
-  public TextMesh txtSkillDesc;
-  public GameObject skillDesc;
-  [NonSerialized]
-  public static bool multishot;
-  [NonSerialized]
-  public static bool isFloating;
-  [NonSerialized]
-  public static int DEXBonus;
-  [NonSerialized]
-  public static int manaWait;
-  public GameObject GUImana;
-  public GameObject goldCounter;
-  [NonSerialized]
-  public static bool rage;
-  [NonSerialized]
-  public static bool clair;
-  [NonSerialized]
-  public static int curSkill;
-  public GameObject[] skillObjShade;
   private float[] skillCooldown;
   public GameObject[] skillObj;
-  [NonSerialized]
-  public static int[] skill = new int[3];
   public GameObject menuSkill;
-  [NonSerialized]
-  public static GameObject exitObj;
-  [NonSerialized]
-  public static bool bossDefeated;
+  public GameObject exitObj;
   private bool ATKING;
   public TextMesh txtDied;
-  [NonSerialized]
-  public static int[] doorBiome = new int[3];
-  [NonSerialized]
-  public static GameObject barrierObj;
   public TextMesh txtZone;
-  [NonSerialized]
-  public static int districtLevel;
-  [NonSerialized]
-  public static bool isShopping;
   public TextMesh txtGoldCounter;
   public GameObject expBack2;
   public TextMesh txtLevelEXP;
@@ -161,85 +161,9 @@ public class GameScript : MonoBehaviour
   private int accountEXP;
   private float tempEXP;
   public GameObject worm;
-  [NonSerialized]
-  public static bool isCooking;
-  [NonSerialized]
-  public static bool canInteract;
-  [NonSerialized]
-  public static string interacter;
-  [NonSerialized]
-  public static int[] tempStats = new int[16];
-  [NonSerialized]
-  public static int[] tempPlayerStat = new int[4];
-  [NonSerialized]
-  public static int[] tempLevelStat = new int[4];
-  [NonSerialized]
-  public static int[] tempGearStat = new int[4];
-  [NonSerialized]
-  public static bool interacting;
-  [NonSerialized]
-  public static bool canTakeDamage = true;
-  [NonSerialized]
-  public static int curZone;
-  [NonSerialized]
-  public static int curStyle;
-  [NonSerialized]
-  public static bool takingDamage;
-  [NonSerialized]
-  public static int curBiome;
-  [NonSerialized]
-  public static GameObject player;
-  [NonSerialized]
-  public static bool menuOpen;
-  [NonSerialized]
-  public static bool isInstance;
-  [NonSerialized]
-  public static bool facingLeft;
-  [NonSerialized]
-  public static bool isReturning;
-  [NonSerialized]
-  public static bool changingScene;
-  [NonSerialized]
-  public static int cLevel;
-  [NonSerialized]
-  public static bool isTown;
-  [NonSerialized]
-  public static int hunger;
-  [NonSerialized]
-  public static bool isInitialized;
-  [NonSerialized]
-  public static int HP;
-  [NonSerialized]
-  public static int playerLevel;
-  [NonSerialized]
-  public static float exp;
-  [NonSerialized]
-  public static float maxEXP = 8f;
-  [NonSerialized]
-  public static int count = 8;
-  [NonSerialized]
-  public static int readyPlayers;
-  [NonSerialized]
-  public static int playersDead;
-  [NonSerialized]
-  public static int[] door = new int[3];
-  [NonSerialized]
-  public static int finalATK;
-  [NonSerialized]
-  public static int finalATKChop;
-  [NonSerialized]
-  public static int finalATKMine = 1;
-  [NonSerialized]
-  public static int curDoor;
-  [NonSerialized]
-  public static bool attacking;
-  [NonSerialized]
-  public static int finalATKNet;
-  public AudioClip audioCrafted;
-  [NonSerialized]
-  public static Item[] npcInventory = new Item[15];
-  public GameObject[] bSmithObject;
-  public TextMesh[] bSmithText;
+  public GameObject GUImana;
+  public GameObject goldCounter;
+  public GameObject[] skillObjShade;
   public GameObject menuStats;
   public TextMesh[] txtStats;
   public GameObject[] statObj;
@@ -250,31 +174,16 @@ public class GameScript : MonoBehaviour
   public GameObject selectCraft2;
   public TextMesh txtLevelName;
   public TextMesh txtStatus;
-  [NonSerialized]
-  public static int curGold;
   private int maxHunger;
   private bool shifting;
   public TextMesh[] txtPlayerStat;
-  [NonSerialized]
-  public static int curActiveSlot;
-  [NonSerialized]
-  public static Item[] inventory = new Item[31];
+  public Item[] inventory = new Item[31];
   private Item[] temp;
   private bool canAttack;
   public int ATK;
-  [NonSerialized]
-  public static int MAG;
-  [NonSerialized]
-  public static float SPD = 30f;
   public int STA;
   public int ATKChop;
   public int ATKMine;
-  [NonSerialized]
-  public static int MAXHP;
-  [NonSerialized]
-  public static int MAXMAG;
-  [NonSerialized]
-  public static int DEX;
   private int lowestQ;
   private string levelName;
   public Material staminaMaterial;
@@ -332,8 +241,6 @@ public class GameScript : MonoBehaviour
   private RaycastHit hit;
   private bool enteringIP;
   private int curCharacter;
-  [NonSerialized]
-  public static bool inventoryOpen;
   private bool generatingLevel;
   private Ray rayCursor;
   private RaycastHit cursorHit;
@@ -355,9 +262,9 @@ public class GameScript : MonoBehaviour
   public Texture2D cursorTexture;
   public Texture2D cursorTexture2;
   private CursorMode cursorMode;
-  [NonSerialized]
-  public static bool selectingSkill;
   private Vector2 hotSpot;
+#endregion Serializable Fields
+
 // this instancing
   public GameScript()
   {
