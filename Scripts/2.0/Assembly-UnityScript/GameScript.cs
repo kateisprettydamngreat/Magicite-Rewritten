@@ -266,47 +266,53 @@ public class GameScript : MonoBehaviour
 #endregion Serializable Fields
 
 // this instancing
-  public GameScript()
-  {
-    this.cheatButton = new GameObject[4];
-    this.inputString = new int[7];
-    this.rewardChestObj = new GameObject[4];
-    this.rewardChest = new int[4];
-    this.txtRewardTop = new TextMesh[2];
-    this.txtRewardBot = new TextMesh[2];
-    this.isVariant = new bool[15];
-    this.reward = new int[50];
-    this.txtHighScore = new TextMesh[2];
-    this.LUP = new GameObject[4];
-    this.skillObjShade = new GameObject[3];
-    this.skillCooldown = new float[3];
-    this.skillObj = new GameObject[3];
-    this.barBack = new GameObject[4];
-    this.barFill = new GameObject[4];
-    this.txtGearStat = new TextMesh[4];
-    this.trait = new GameObject[3];
-    this.bSmithObject = new GameObject[15];
-    this.bSmithText = new TextMesh[15];
-    this.txtStats = new TextMesh[16];
-    this.statObj = new GameObject[16];
-    this.maxHunger = 10;
-    this.txtPlayerStat = new TextMesh[4];
-    this.temp = new Item[20];
-    this.canAttack = true;
-    this.txtBarInfo = new TextMesh[4];
-    this.maxStamina = 10;
-    this.txtInfoName = new TextMesh[2];
-    this.txtStat = new TextMesh[2];
-    this.txtInfoEnchantment = new TextMesh[2];
-    this.inventorySlot = new GameObject[31];
-    this.inventoryQ = new TextMesh[31];
-    this.txtIP = new TextMesh[2];
-    this.curTownNPCs = new int[9];
-    this.atkWait = 0.45f;
-    this.atkAnim = "a1";
-    this.cursorMode = CursorMode.Auto;
-    this.hotSpot = new Vector2(8f, 8f);
-  }
+public GameScript()
+{
+  #region Array
+    atkAnim = "a1";
+    atkWait = 0.45f;
+    barBack = new GameObject[4];
+    barFill = new GameObject[4];
+    bSmithObject = new GameObject[15];
+    bSmithText = new TextMesh[15];
+    canAttack = true;
+    cheatButton = new GameObject[4];
+    curTownNPCs = new int[9];
+    hotSpot = new Vector2(8f, 8f);
+    inputString = new int[7];
+    inventoryQ = new TextMesh[31];
+    inventorySlot = new GameObject[31];
+    isVariant = new bool[15];
+    LUP = new GameObject[4];
+    maxHunger = 10;
+    maxStamina = 10;
+    reward = new int[50];
+    rewardChest = new int[4];
+    rewardChestObj = new GameObject[4];
+    skillCooldown = new float[3];
+    skillObj = new GameObject[3];
+    skillObjShade = new GameObject[3];
+    statObj = new GameObject[16];
+    temp = new Item[20];
+    trait = new GameObject[3];
+    txtBarInfo = new TextMesh[4];
+    txtGearStat = new TextMesh[4];
+    txtHighScore = new TextMesh[2];
+    txtInfoEnchantment = new TextMesh[2];
+    txtInfoName = new TextMesh[2];
+    txtIP = new TextMesh[2];
+    txtPlayerStat = new TextMesh[4];
+    txtRewardBot = new TextMesh[2];
+    txtRewardTop = new TextMesh[2];
+    txtStat = new TextMesh[2];
+    txtStats = new TextMesh[16];
+	#region Properties
+    cursorMode = CursorMode.Auto;
+    isDead = false;
+    atkWait = 0.45f;
+    atkAnim = "a1";
+    hotSpot = new Vector2(8f, 8f);
+}
 //takingDamage
   public virtual void TD(int a) => GameScript.HP -= a;
 	//what is TD?
