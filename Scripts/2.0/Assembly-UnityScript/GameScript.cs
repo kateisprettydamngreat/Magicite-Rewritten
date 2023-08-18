@@ -5954,410 +5954,231 @@ public GameScript()
 
   public virtual IEnumerator ManaTick() => (IEnumerator) new GameScript.\u0024ManaTick\u00241817(this).GetEnumerator();
 
-  public virtual string GetItemName(int id)
+  public class ItemId
   {
-    switch (id)
-    {
-      case 1:
-        return "Wood";
-      case 2:
-        return "Wooden Plank";
-      case 3:
-        return "Wooden Stick";
-      case 4:
-        return "Ironite Ore";
-      case 5:
-        return "Goldium Ore";
-      case 6:
-        return "Diamonite Ore";
-      case 7:
-        return "Raw Meat";
-      case 8:
-        return "Cooked Meat";
-      case 9:
-        return "Herb";
-      case 10:
-        return "Shroom";
-      case 11:
-        return "Root";
-      case 12:
-        return "Ironite Bar";
-      case 13:
-        return "Goldium Bar";
-      case 14:
-        return "Diamonite Bar";
-      case 15:
-        return "HP Potion";
-      case 16:
-        return "Mana Potion";
-      case 17:
-        return "Vial of Poison";
-      case 18:
-        return "Monster Bone";
-      case 19:
-        return "Monster Hide";
-      case 20:
-        return "Monster Pelt";
-      case 21:
-        return "Raw Chicken";
-      case 22:
-        return "Cooked Chicken";
-      case 23:
-        return "Spider Web";
-      case 24:
-        return "Sword Hilt";
-      case 25:
-        return "Wooden Blade";
-      case 26:
-        return "Axe Handle";
-      case 27:
-        return "Pick Handle";
-      case 28:
-        return "Unstrung Bow";
-      case 29:
-        return "String";
-      case 30:
-        return "Fire Bug";
-      case 31:
-        return "Thunder Bug";
-      case 32:
-        return "Ironite Blade";
-      case 33:
-        return "Goldmium Blade";
-      case 34:
-        return "Diamonite Blade";
-      case 35:
-        return "Ironite Great Blade";
-      case 36:
-        return "Goldium Great Blade";
-      case 37:
-        return "Diamonite Great Blade";
-      case 38:
-        return "Stone";
-      case 39:
-        return "Refined Stone";
-      case 40:
-        return "Stone Blade";
-      case 41:
-        return "Stone Great Blade";
-      case 42:
-        return "Big HP Potion";
-      case 43:
-        return "Big Mana Potion";
-      case 44:
-        return "Mysterious Potion";
-      case 45:
-        return "Big Mysterious Potion";
-      case 46:
-        return "Total Biscuit";
-      case 47:
-        return "Coal";
-      case 48:
-        return "Firestarter";
-      case 49:
-        return "Mystery Key";
-      case 50:
-        return "Bone Blade";
-      case 51:
-        return "Refined Bone";
-      case 52:
-        return "Bone Arrow";
-      case 53:
-        return "Stone Arrow";
-      case 54:
-        return "Ironite Arrow";
-      case 55:
-        return "Goldium Arrow";
-      case 56:
-        return "Diamonite Arrow";
-      case 57:
-        return "Dragonite Arrow";
-      case 58:
-        return "Adamantite Arrow";
-      case 59:
-        return "Obsidian Arrow";
-      case 60:
-        return "Crystalite Fragment";
-      case 61:
-        return "Crystalite Shard";
-      case 62:
-        return "Dragonite Ore";
-      case 63:
-        return "Dragonite Bar";
-      case 64:
-        return "Adamantite Ore";
-      case 65:
-        return "Adamantite Bar";
-      case 66:
-        return "Obsidian Ore";
-      case 67:
-        return "Obsidian Bar";
-      case 68:
-        return "Net";
-      case 69:
-        return "Fire Gem I";
-      case 70:
-        return "Thunder Gem I";
-      case 71:
-        return "Ice Gem I";
-      case 72:
-        return "Stone Dagger";
-      case 73:
-        return "Bone Dagger";
-      case 74:
-        return "Ironite Dagger";
-      case 75:
-        return "Goldium Dagger";
-      case 76:
-        return "Diamonite Dagger";
-      case 77:
-        return "Tribal Drum";
-      case 78:
-        return "Drum of Strength";
-      case 79:
-        return "Drum of Dexterity";
-      case 80:
-        return "Drum of Wisdom";
-      case 81:
-        return "Ice Bug";
-      case 82:
-        return "Refined Leather";
-      case 83:
-        return "Rugged Leather";
-      case 84:
-        return "Tribal Leather";
-      case 85:
-        return "Elegant Leather";
-      case 86:
-        return "Royal Leather";
-      case 87:
-        return "Luminous Leather";
-      case 88:
-        return "Rugged Fabric";
-      case 89:
-        return "Tribal Fabric";
-      case 90:
-        return "Elegant Fabric";
-      case 91:
-        return "Royal Fabric";
-      case 92:
-        return "Luminous Fabric";
-      case 94:
-        return "Refined Cloth";
-      case 95:
-        return "Spirit Gem";
-      default:
-        return "NULL";
-    }
+      private Dictionary<int, string> itemNames = new Dictionary<int, string>
+      {
+        { 1, "Wood" },
+        { 2, "Wooden Plank" },
+        { 3, "Wooden Stick" },
+        { 4, "Ironite Ore" },
+        { 5, "Goldium Ore" },
+        { 6, "Diamonite Ore" },
+        { 7, "Raw Meat" },
+        { 8, "Cooked Meat" },
+        { 9, "Herb" },
+        { 10, "Shroom" },
+        { 11, "Root" },
+        { 12, "Ironite Bar" },
+        { 13, "Goldium Bar" },
+        { 14, "Diamonite Bar" },
+        { 15, "HP Potion" },
+        { 16, "Mana Potion" },
+        { 17, "Vial of Poison" },
+        { 18, "Monster Bone" },
+        { 19, "Monster Hide" },
+        { 20, "Monster Pelt" },
+        { 21, "Raw Chicken" },
+        { 22, "Cooked Chicken" },
+        { 23, "Spider Web" },
+        { 24, "Sword Hilt" },
+        { 25, "Wooden Blade" },
+        { 26, "Axe Handle" },
+        { 27, "Pick Handle" },
+        { 28, "Unstrung Bow" },
+        { 29, "String" },
+        { 30, "Fire Bug" },
+        { 31, "Thunder Bug" },
+        { 32, "Ironite Blade" },
+        { 33, "Goldmium Blade" },
+        { 34, "Diamonite Blade" },
+        { 35, "Ironite Great Blade" },
+        { 36, "Goldium Great Blade" },
+        { 37, "Diamonite Great Blade" },
+        { 38, "Stone" },
+        { 39, "Refined Stone" },
+        { 40, "Stone Blade" },
+        { 41, "Stone Great Blade" },
+        { 42, "Big HP Potion" },
+        { 43, "Big Mana Potion" },
+        { 44, "Mysterious Potion" },
+        { 45, "Big Mysterious Potion" },
+        { 46, "Total Biscuit" },
+        { 47, "Coal" },
+        { 48, "Firestarter" },
+        { 49, "Mystery Key" },
+        { 50, "Bone Blade" },
+        { 51, "Refined Bone" },
+        { 52, "Bone Arrow" },
+        { 53, "Stone Arrow" },
+        { 54, "Ironite Arrow" },
+        { 55, "Goldium Arrow" },
+        { 56, "Diamonite Arrow" },
+        { 57, "Dragonite Arrow" },
+        { 58, "Adamantite Arrow" },
+        { 59, "Obsidian Arrow" },
+        { 60, "Crystalite Fragment" },
+        { 61, "Crystalite Shard" },
+        { 62, "Dragonite Ore" },
+        { 63, "Dragonite Bar" },
+        { 64, "Adamantite Ore" },
+        { 65, "Adamantite Bar" },
+        { 66, "Obsidian Ore" },
+        { 67, "Obsidian Bar" },
+        { 68, "Net" },
+        { 69, "Fire Gem I" },
+        { 70, "Thunder Gem I" },
+        { 71, "Ice Gem I" },
+        { 72, "Stone Dagger" },
+        { 73, "Bone Dagger" },
+        { 74, "Ironite Dagger" },
+        { 75, "Goldium Dagger" },
+        { 76, "Diamonite Dagger" },
+        { 77, "Tribal Drum" },
+        { 78, "Drum of Strength" },
+        { 79, "Drum of Dexterity" },
+        { 80, "Drum of Wisdom" },
+        { 81, "Ice Bug" },
+        { 82, "Refined Leather" },
+        { 83, "Rugged Leather" },
+        { 84, "Tribal Leather" },
+        { 85, "Elegant Leather" },
+        { 86, "Royal Leather" },
+        { 87, "Luminous Leather" },
+        { 88, "Rugged Fabric" },
+        { 89, "Tribal Fabric" },
+        { 90, "Elegant Fabric" },
+        { 91, "Royal Fabric" },
+        { 92, "Luminous Fabric" },
+        { 94, "Refined Cloth" },
+        { 95, "Spirit Gem" },
+      };
+
+
+      public virtual string GetItemName(int id)
+      {
+          if (itemNames.TryGetValue(id, out string itemName))
+          {
+              return itemName;
+          }
+          return "NULL";
+      }
   }
 
-  public virtual string GetGearName(int id)
+
+  public class GearId
   {
-    switch (id)
+    private Dictionary<int, string> gearNames = new Dictionary<int, string>
     {
-      case 500:
-        return "Wooden Sword";
-      case 501:
-        return "Wooden Axe";
-      case 502:
-        return "Wooden Pick";
-      case 503:
-        return "Ironite Sword";
-      case 504:
-        return "Ironite Axe";
-      case 505:
-        return "Ironite Pick";
-      case 506:
-        return "Goldium Sword";
-      case 507:
-        return "Goldium Axe";
-      case 508:
-        return "Goldium Pick";
-      case 509:
-        return "Diamonite Sword";
-      case 510:
-        return "Diamonite Axe";
-      case 511:
-        return "Diamonite Pick";
-      case 512:
-        return "Stone Sword";
-      case 513:
-        return "Stone Axe";
-      case 514:
-        return "Stone Pick";
-      case 515:
-        return "Wooden Bow";
-      case 516:
-        return "Bone Sword";
-      case 517:
-        return "Bone Axe";
-      case 518:
-        return "Bone Pick";
-      case 519:
-        return "Wooden Club";
-      case 520:
-        return "Lightbringer";
-      case 521:
-        return "Scourge Blade";
-      case 522:
-        return "Dragonite Pick";
-      case 523:
-        return "Wightslayer";
-      case 524:
-        return "Adamantite Axe";
-      case 525:
-        return "Adamantite Pick";
-      case 526:
-        return "Spellblade";
-      case 527:
-        return "Obsidian Axe";
-      case 528:
-        return "Obsidian Pick";
-      case 529:
-        return "Bug Net";
-      case 530:
-        return "Crystal Bow";
-      case 531:
-        return "Emerald Katana";
-      case 532:
-        return "Emerald Combat Axe";
-      case 533:
-        return "Obsidian Sword";
-      case 534:
-        return "Laser Sword";
-      case 535:
-        return "Laser Crossbow";
-      case 536:
-        return "Fire Bow";
-      case 550:
-        return "Giant Fish";
-      case 560:
-        return "Ironite Great Axe";
-      case 561:
-        return "Goldium Great Axe";
-      case 562:
-        return "Diamonite Great Axe";
-      case 563:
-        return "Stone Great Axe";
-      case 564:
-        return "Hellswrath";
-      case 565:
-        return "The Philibuster";
-      case 566:
-        return "Jelly Blade";
-      case 567:
-        return "Zweihander";
-      case 568:
-        return "Icebrand";
-      case 569:
-        return "Firebrand";
-      case 570:
-        return "Thunderbrand";
-      case 600:
-        return "Fireball";
-      case 601:
-        return "Bolt";
-      case 602:
-        return "Frostshard";
-      case 603:
-        return "Summon Zombie";
-      case 700:
-        return "Ironite Helm";
-      case 701:
-        return "Goldium Helm";
-      case 702:
-        return "Diamonite Helm";
-      case 703:
-        return "Stone Helm";
-      case 704:
-        return "Bone Helm";
-      case 705:
-        return "Rugged Cap";
-      case 706:
-        return "Tribal Cap";
-      case 707:
-        return "Elegant Cap";
-      case 708:
-        return "Royal Cap";
-      case 709:
-        return "Luminous Cap";
-      case 710:
-        return "Rugged Hood";
-      case 711:
-        return "Tribal Hood";
-      case 712:
-        return "Elegant Hood";
-      case 713:
-        return "Royal Hood";
-      case 714:
-        return "Luminous Hood";
-      case 800:
-        return "Ironite Armor";
-      case 801:
-        return "Goldium Armor";
-      case 802:
-        return "Diamonite Armor";
-      case 803:
-        return "Stone Armor";
-      case 804:
-        return "Bone Armor";
-      case 805:
-        return "Rugged Cloak";
-      case 806:
-        return "Tribal Cloak";
-      case 807:
-        return "Elegant Cloak";
-      case 808:
-        return "Royal Cloak";
-      case 809:
-        return "Luminous Cloak";
-      case 810:
-        return "Rugged Robes";
-      case 811:
-        return "Tribal Robes";
-      case 812:
-        return "Elegant Robes";
-      case 813:
-        return "Royal Robes";
-      case 814:
-        return "Luminous Robes";
-      case 900:
-        return "Ironite Shield";
-      case 901:
-        return "Goldium Shield";
-      case 902:
-        return "Diamonite Shield";
-      case 903:
-        return "Stone Shield";
-      case 904:
-        return "Bone Shield";
-      case 905:
-        return "Ryvenrath's Scale";
-      case 906:
-        return "Paladin Guard";
-      case 907:
-        return "Scourge Shield";
-      case 950:
-        return "Ring of Power";
-      case 951:
-        return "Ring of Wisdom";
-      case 952:
-        return "Ring of Nature";
-      case 953:
-        return "Ring of Life";
-      case 954:
-        return "Ring of Rage";
-      case 955:
-        return "Ring of Insanity";
-      case 956:
-        return "Archer's Ring";
-      case 957:
-        return "Ring of Balance";
-      default:
-        return "NULL";
+      { 500, "Wooden Sword" },
+      { 501, "Wooden Axe" },
+      { 502, "Wooden Pick" },
+      { 503, "Ironite Sword" },
+      { 504, "Ironite Axe" },
+      { 505, "Ironite Pick" },
+      { 506, "Goldium Sword" },
+      { 507, "Goldium Axe" },
+      { 508, "Goldium Pick" },
+      { 509, "Diamonite Sword" },
+      { 510, "Diamonite Axe" },
+      { 511, "Diamonite Pick" },
+      { 512, "Stone Sword" },
+      { 513, "Stone Axe" },
+      { 514, "Stone Pick" },
+      { 515, "Wooden Bow" },
+      { 516, "Bone Sword" },
+      { 517, "Bone Axe" },
+      { 518, "Bone Pick" },
+      { 519, "Wooden Club" },
+      { 520, "Lightbringer" },
+      { 521, "Scourge Blade" },
+      { 522, "Dragonite Pick" },
+      { 523, "Wightslayer" },
+      { 524, "Adamantite Axe" },
+      { 525, "Adamantite Pick" },
+      { 526, "Spellblade" },
+      { 527, "Obsidian Axe" },
+      { 528, "Obsidian Pick" },
+      { 529, "Bug Net" },
+      { 530, "Crystal Bow" },
+      { 531, "Emerald Katana" },
+      { 532, "Emerald Combat Axe" },
+      { 533, "Obsidian Sword" },
+      { 534, "Laser Sword" },
+      { 535, "Laser Crossbow" },
+      { 536, "Fire Bow" },
+      { 550, "Giant Fish" },
+      { 560, "Ironite Great Axe" },
+      { 561, "Goldium Great Axe" },
+      { 562, "Diamonite Great Axe" },
+      { 563, "Stone Great Axe" },
+      { 564, "Hellswrath" },
+      { 565, "The Philibuster" },
+      { 566, "Jelly Blade" },
+      { 567, "Zweihander" },
+      { 568, "Icebrand" },
+      { 569, "Firebrand" },
+      { 570, "Thunderbrand" },
+      { 600, "Fireball" },
+      { 601, "Bolt" },
+      { 602, "Frostshard" },
+      { 603, "Summon Zombie" },
+      { 700, "Ironite Helm" },
+      { 701, "Goldium Helm" },
+      { 702, "Diamonite Helm" },
+      { 703, "Stone Helm" },
+      { 704, "Bone Helm" },
+      { 705, "Rugged Cap" },
+      { 706, "Tribal Cap" },
+      { 707, "Elegant Cap" },
+      { 708, "Royal Cap" },
+      { 709, "Luminous Cap" },
+      { 710, "Rugged Hood" },
+      { 711, "Tribal Hood" },
+      { 712, "Elegant Hood" },
+      { 713, "Royal Hood" },
+      { 714, "Luminous Hood" },
+      { 800, "Ironite Armor" },
+      { 801, "Goldium Armor" },
+      { 802, "Diamonite Armor" },
+      { 803, "Stone Armor" },
+      { 804, "Bone Armor" },
+      { 805, "Rugged Cloak" },
+      { 806, "Tribal Cloak" },
+      { 807, "Elegant Cloak" },
+      { 808, "Royal Cloak" },
+      { 809, "Luminous Cloak" },
+      { 810, "Rugged Robes" },
+      { 811, "Tribal Robes" },
+      { 812, "Elegant Robes" },
+      { 813, "Royal Robes" },
+      { 814, "Luminous Robes" },
+      { 900, "Ironite Shield" },
+      { 901, "Goldium Shield" },
+      { 902, "Diamonite Shield" },
+      { 903, "Stone Shield" },
+      { 904, "Bone Shield" },
+      { 905, "Ryvenrath's Scale" },
+      { 906, "Paladin Guard" },
+      { 907, "Scourge Shield" },
+      { 950, "Ring of Power" },
+      { 951, "Ring of Wisdom" },
+      { 952, "Ring of Nature" },
+      { 953, "Ring of Life" },
+      { 954, "Ring of Rage" },
+      { 955, "Ring of Insanity" },
+      { 956, "Archer's Ring" },
+      { 957, "Ring of Balance" },
+    }
+    public virtual string GetGearName(int id)
+    {
+      if (gearNames.TryGetValue(id, out string gearName))
+    {
+        return gearName;
+    }
+    return "NULL";
     }
   }
-
   public virtual void Main()
   {
   }
