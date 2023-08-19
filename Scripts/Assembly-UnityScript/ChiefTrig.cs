@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class ChiefTrif : MonoBehaviour
+public class ChiefTrig : MonoBehaviour
 {
 	public GameObject parent;
 
