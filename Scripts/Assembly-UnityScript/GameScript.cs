@@ -992,51 +992,93 @@ public GameScript()
     GameScript.player.GetComponent<NetworkView>().RPC("WritePlayer", RPCMode.All, (object) a);
   }
 
-  public virtual IEnumerator WriteFinal(int a) => (IEnumerator) new GameScript.\u0024WriteFinal\u00241548(a, this).GetEnumerator();
+  public virtual IEnumerator WriteFinal(int a) {
+    string text = null;
 
-  public virtual IEnumerator GenerateText() => (IEnumerator) new GameScript.\u0024GenerateText\u00241555(this).GetEnumerator();
+    text = "The Scourge have invaded! Get out!!";
+    txtStatus2.gameObject.SetActive(true);
+    txtStatus2.text = text;
+    yield return new WaitForSeconds(2f);
+    txtStatus2.text = " ";
+  }
 
-  public virtual void GenerateLevelName()
+  public virtual IEnumerator GenerateText() {
+    int rand = UnityEngine.Random.Range(0, 30);
+    string text = null;
+    int num = rand;
+    if (num == 0)
+    {
+      text = "You feel as if you are being watched...";
+    }
+    else if (num == 1)
+    {
+      text = "You hear a distant rumble...";
+    }
+    else if (num == 2)
+    {
+      text = "There is a foul taste in the air.";
+    }
+    else if (num == 3)
+    {
+      text = "You feel uneasy.";
+    }
+    else if (num == 4)
+    {
+      text = "A slight breeze brushes against your face.";
+    }
+    else
+    {
+      text = string.Empty;
+    }
+    if ((bool)txtStatus2)
+    {
+      txtStatus2.text = text;
+      yield return new WaitForSeconds(1f);
+    }
+    txtStatus2.text = string.Empty;
+  }
+
+ public virtual void GenerateLevelName()
   {
-    string lhs = GameScript.curBiome == 19 ? "The Scourge Lair" : RuntimeServices.op_Addition(RuntimeServices.op_Addition("District ", (object) GameScript.districtLevel), ": ");
+    string lhs = GameScript.curBiome == 19 ? "The Scourge Lair" : $"District {districtLevel}: ";
     string rhs;
     switch (GameScript.curBiome)
     {
       case 0:
-        rhs = RuntimeServices.op_Addition(this.GetForestPrefix(), " Forest");
+        rhs = $"{this.GetForestPrefix()} Forest";
         break;
       case 1:
-        rhs = RuntimeServices.op_Addition(this.GetTundraPrefix(), " Tundra");
+        rhs = $"{this.GetTundraPrefix()} Tundra";
         break;
       case 2:
-        rhs = RuntimeServices.op_Addition(this.GetCavePrefix(), " Cave");
+        rhs = $"{this.GetCavePrefix()} Cave";
         break;
       case 3:
-        rhs = RuntimeServices.op_Addition(this.GetDungeonPrefix(), " Dungeon");
+        rhs = $"{this.GetDungeonPrefix()} Dungeon";
         break;
       case 4:
-        rhs = RuntimeServices.op_Addition(this.GetCavePrefix(), " Desert");
+        rhs = $"{this.GetCavePrefix()} Desert";
         break;
       case 5:
-        rhs = RuntimeServices.op_Addition(this.GetCavePrefix(), " Veldt");
+        rhs = $"{this.GetCavePrefix()} Veldt";
         break;
       case 6:
-        rhs = RuntimeServices.op_Addition(this.GetCavePrefix(), " Volcano");
+        rhs = $"{this.GetCavePrefix()} Volcano";
         break;
       case 7:
-        rhs = RuntimeServices.op_Addition(this.GetCavePrefix(), " Swamp");
+        rhs = $"{this.GetCavePrefix()} Swamp";
         break;
       case 8:
-        rhs = RuntimeServices.op_Addition(this.GetCavePrefix(), " Quarry");
+        rhs = $"{this.GetCavePrefix()} Quarry";
         break;
       case 9:
-        rhs = RuntimeServices.op_Addition(this.GetCavePrefix(), " Crater");
+        rhs = $"{this.GetCavePrefix()} Crater";
         break;
       default:
         rhs = string.Empty;
         break;
     }
-    string str = RuntimeServices.op_Addition(lhs, rhs);
+    string str = $"{lhs}{rhs}";
     if (!Network.isServer)
       return;
     GameScript.player.GetComponent<NetworkView>().RPC("SetZoneName", RPCMode.All, (object) str);
@@ -1120,7 +1162,7 @@ public GameScript()
         rhs = "flower";
         break;
     }
-    return RuntimeServices.op_Addition(lhs, rhs);
+    return $"{lhs}{rhs}";
   }
 
   public virtual string GetTundraPrefix()
