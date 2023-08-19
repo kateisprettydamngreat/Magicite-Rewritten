@@ -270,12 +270,10 @@ public GameScript()
 {
   #region Array
     atkAnim = "a1";
-    atkWait = 0.45f;
     barBack = new GameObject[4];
     barFill = new GameObject[4];
     bSmithObject = new GameObject[15];
     bSmithText = new TextMesh[15];
-    canAttack = true;
     cheatButton = new GameObject[4];
     curTownNPCs = new int[9];
     hotSpot = new Vector2(8f, 8f);
@@ -284,8 +282,6 @@ public GameScript()
     inventorySlot = new GameObject[31];
     isVariant = new bool[15];
     LUP = new GameObject[4];
-    maxHunger = 10;
-    maxStamina = 10;
     reward = new int[50];
     rewardChest = new int[4];
     rewardChestObj = new GameObject[4];
@@ -306,16 +302,18 @@ public GameScript()
     txtRewardTop = new TextMesh[2];
     txtStat = new TextMesh[2];
     txtStats = new TextMesh[16];
-	#region Properties
+  #region Properties
+    maxHunger = 10;
+    maxStamina = 10;
     cursorMode = CursorMode.Auto;
     isDead = false;
+    canAttack = true;
     atkWait = 0.45f;
-    atkAnim = "a1";
-    hotSpot = new Vector2(8f, 8f);
-}
+  }
+
 //takingDamage
   public virtual void TD(int a) => GameScript.HP -= a;
-	//what is TD?
+
 //PurchaseHandler
 	public virtual void Purchase(int id)
 	{
