@@ -4,76 +4,59 @@ using UnityEngine;
 [Serializable]
 public class HazTrig : MonoBehaviour
 {
-	public bool negatePlayerDamage;
+    public bool negatePlayerDamage;
+    public bool canDamage;
+    public int damage;
+    public bool isIce;
 
-	public bool canDMG;
+    private void OnTriggerEnter(Collider other)
+    {
+        int otherLayer = other.gameObject.layer;
 
-	public int dmg;
+        if (otherLayer == 8 && !negatePlayerDamage)
+        {
+            if (isIce && MenuScript.pvp == 1) //Pvp? Interesting. A remnant of when that was planned?
+            {
+                Debug.Log($"Ice hit damage: {damage}");
+                other.gameObject.SendMessage("TD", damage);
+            }
+            else
+            {
+                other.gameObject.SendMessage("TD", damage);
+            }
+        }
+        else if (otherLayer == 9 || otherLayer == 12)
+        {
+            other.gameObject.SendMessage("Knock22", gameObject.transform.position, SendMessageOptions.DontRequireReceiver);
+            if (canDamage)
+            {
+                other.gameObject.SendMessage("TD", damage);
+            }
+        }
+    }
 
-	public bool ice;
+    [RPC]
+    private void SetDamage(int a)
+    {
+        damage = Mathf.Max(a, 1);
+        GetComponent<Collider>().isTrigger = true;
+        GetComponent<Collider>().enabled = true;
+        gameObject.layer = 0;
+    }
 
-	public virtual void OnTriggerEnter(Collider c)
-	{
-		if (c.gameObject.layer == 8 && !negatePlayerDamage)
-		{
-			if (ice)
-			{
-				if (MenuScript.pvp == 1)
-				{
-					MonoBehaviour.print("hit dmg: " + dmg);
-					c.gameObject.SendMessage("TD", dmg);
-				}
-			}
-			else
-			{
-				c.gameObject.SendMessage("TD", dmg);
-			}
-		}
-		else if (c.gameObject.layer == 9 || c.gameObject.layer == 12)
-		{
-			c.gameObject.SendMessage("Knock22", gameObject.transform.position, SendMessageOptions.DontRequireReceiver);
-			if (canDMG)
-			{
-				c.gameObject.SendMessage("TD", dmg);
-			}
-		}
-	}
-
-	[RPC]
-	public virtual void SetH(int a)
-	{
-		if (a < 1)
-		{
-			a = 1;
-		}
-		dmg = a;
-		GetComponent<Collider>().isTrigger = true;
-		GetComponent<Collider>().enabled = true;
-		gameObject.layer = 0;
-	}
-
-	[RPC]
-	public virtual void SetHH(int a)
-	{
-		if (GetComponent<NetworkView>().isMine)
-		{
-			if (a < 1)
-			{
-				a = 1;
-			}
-			dmg = a;
-			GetComponent<Collider>().isTrigger = true;
-			GetComponent<Collider>().enabled = true;
-			gameObject.layer = 0;
-		}
-		else if (MenuScript.pvp == 1)
-		{
-			GetComponent<Collider>().enabled = true;
-		}
-		else
-		{
-			GetComponent<Collider>().enabled = false;
-		}
-	}
-
-	}
+    [RPC]
+    private void SetDamageForPlayer(int a)
+    {
+        if (GetComponent<NetworkView>().isMine)
+        {
+            damage = Mathf.Max(a, 1);
+            GetComponent<Collider>().isTrigger = true;
+            GetComponent<Collider>().enabled = true;
+            gameObject.layer = 0;
+        }
+        else
+        {
+            GetComponent<Collider>().enabled = MenuScript.pvp == 1;
+        }
+    }
+}
