@@ -97,17 +97,22 @@ public class Animate : MonoBehaviour
         }
     }
 
+		private IEnumerator Die()
+    {
+        // Wait for a specified amount of time before destroying the object.
+        yield return new WaitForSeconds(10f); // Adjust the time as needed.
+
+        // Destroy the GameObject.
+        UnityEngine.Object.Destroy(gameObject);
+    }
+
     // Coroutine to start the animation.
     public virtual IEnumerator Start()
     {
-        return new AnimationGenerator(this).GetEnumerator();
-    }
+        // Start the animation coroutine.
+        yield return new AnimationGenerator(this).GetEnumerator();
 
-    // Coroutine to handle object destruction after animation.
-    private IEnumerator Die()
-    {
-        // Put the Die() coroutine logic here
-        yield return new WaitForSeconds(10f);
-        UnityEngine.Object.Destroy(gameObject);
+        // Call the Die coroutine after animation is complete.
+        StartCoroutine(Die());
     }
 }
