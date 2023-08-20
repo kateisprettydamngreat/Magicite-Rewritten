@@ -21,7 +21,4 @@ public class GobTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -30,7 +30,4 @@ public class txtItemScript : MonoBehaviour
 		t.Translate(Vector3.up * num * Time.deltaTime);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

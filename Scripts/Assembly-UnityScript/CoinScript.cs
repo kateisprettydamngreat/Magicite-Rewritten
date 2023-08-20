@@ -118,7 +118,4 @@ public class CoinScript : MonoBehaviour
 		return new _0024Start_00241330(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -29,7 +29,4 @@ public class FortuneScript : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

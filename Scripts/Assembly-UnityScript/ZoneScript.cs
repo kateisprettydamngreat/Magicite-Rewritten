@@ -9,7 +9,4 @@ public class ZoneScript : MonoBehaviour
 		int num = UnityEngine.Random.Range(1, 6);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

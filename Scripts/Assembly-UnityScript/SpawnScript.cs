@@ -1787,7 +1787,4 @@ public class SpawnScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

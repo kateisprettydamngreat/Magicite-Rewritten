@@ -101,7 +101,4 @@ public class StoneScript : MonoBehaviour
 		return new _0024Exile_00242623(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

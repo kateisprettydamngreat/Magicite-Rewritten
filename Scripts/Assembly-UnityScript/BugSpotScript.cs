@@ -147,7 +147,4 @@ public class BugSpotScript : MonoBehaviour
 		};
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -21,7 +21,4 @@ public class Tyrannoxtrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -150,7 +150,4 @@ public class RockScript : MonoBehaviour
 		return new _0024Exile_00242380(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -21,7 +21,4 @@ public class ScourgeKnightTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

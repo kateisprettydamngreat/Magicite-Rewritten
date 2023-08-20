@@ -21,7 +21,4 @@ public class BroodMotherTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

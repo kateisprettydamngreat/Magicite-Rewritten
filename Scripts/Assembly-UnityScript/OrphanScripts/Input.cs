@@ -12,7 +12,4 @@ public class Input : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

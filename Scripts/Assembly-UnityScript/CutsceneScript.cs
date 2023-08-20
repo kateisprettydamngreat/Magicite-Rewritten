@@ -380,7 +380,4 @@ public class CutsceneScript : MonoBehaviour
 		return new _0024Write_00241345(s, this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

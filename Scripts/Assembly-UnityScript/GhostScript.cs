@@ -58,7 +58,4 @@ public class GhostScript : MonoBehaviour
 		Vector3 vector2 = (bar.transform.localScale = localScale);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

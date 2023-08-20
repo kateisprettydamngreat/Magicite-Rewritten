@@ -9,7 +9,4 @@ public class RemoveRPCScript : MonoBehaviour
 		Network.RemoveRPCs(GetComponent<NetworkView>().viewID);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

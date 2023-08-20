@@ -649,7 +649,4 @@ public class NPCScript : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

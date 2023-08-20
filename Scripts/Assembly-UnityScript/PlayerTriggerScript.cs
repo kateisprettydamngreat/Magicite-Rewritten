@@ -494,7 +494,4 @@ public class PlayerTriggerScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

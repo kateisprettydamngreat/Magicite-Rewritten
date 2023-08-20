@@ -208,7 +208,4 @@ public class Boomerang : MonoBehaviour
 		return new _0024Exile_00241287(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

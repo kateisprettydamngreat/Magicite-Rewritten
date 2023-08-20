@@ -294,7 +294,4 @@ public class LightBlast : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -27,7 +27,4 @@ public class ScrollScriptx : MonoBehaviour
 		Vector2 vector4 = (r.material.mainTextureOffset = mainTextureOffset2);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

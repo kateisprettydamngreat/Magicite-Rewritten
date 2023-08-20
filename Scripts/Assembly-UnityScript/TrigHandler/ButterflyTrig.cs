@@ -21,7 +21,4 @@ public class ButterflyTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

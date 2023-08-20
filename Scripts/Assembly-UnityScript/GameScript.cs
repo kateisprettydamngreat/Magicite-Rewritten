@@ -6219,7 +6219,3 @@ public GameScript()
     return "NULL";
     }
   }
-  public virtual void Main()
-  {
-  }
-}

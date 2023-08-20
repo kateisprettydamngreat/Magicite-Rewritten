@@ -388,7 +388,4 @@ public class MerchantScript : MonoBehaviour
 		} * 2;
 	}
 
-	public virtual void Main()
-	{
 	}
-}

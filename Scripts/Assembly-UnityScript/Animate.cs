@@ -89,8 +89,3 @@ public class Animate : MonoBehaviour
 	{
 		return new _0024Start_00241141(this).GetEnumerator();
 	}
-
-	public virtual void Main()
-	{
-	}
-}

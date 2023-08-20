@@ -21,7 +21,4 @@ public class fQueenTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

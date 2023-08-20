@@ -306,7 +306,4 @@ public class ChestScript : MonoBehaviour
 		};
 	}
 
-	public virtual void Main()
-	{
 	}
-}

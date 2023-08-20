@@ -3658,7 +3658,4 @@ public class PlayerControllerN : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

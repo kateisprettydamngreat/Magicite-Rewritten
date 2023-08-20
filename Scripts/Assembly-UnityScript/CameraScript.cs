@@ -62,7 +62,4 @@ public class CameraScript : MonoBehaviour
 		return (Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).y + player.position.y) * 0.5f;
 	}
 
-	public virtual void Main()
-	{
 	}
-}

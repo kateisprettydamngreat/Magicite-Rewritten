@@ -74,7 +74,4 @@ public class fireAnimate : MonoBehaviour
 		return new _0024Start_00242861(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

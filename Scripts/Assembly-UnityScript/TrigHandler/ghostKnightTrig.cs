@@ -21,7 +21,4 @@ public class ghostKnightTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -30,7 +30,4 @@ public class ScourgeTimer : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

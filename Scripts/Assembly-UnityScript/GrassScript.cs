@@ -223,7 +223,4 @@ public class GrassScript : MonoBehaviour
 		};
 	}
 
-	public virtual void Main()
-	{
 	}
-}

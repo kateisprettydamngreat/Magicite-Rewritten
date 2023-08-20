@@ -422,7 +422,4 @@ public class SmallWorm : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

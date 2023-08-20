@@ -311,7 +311,4 @@ public class TreeScript : MonoBehaviour
 		return new _0024TD2_00242670(dmg, this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

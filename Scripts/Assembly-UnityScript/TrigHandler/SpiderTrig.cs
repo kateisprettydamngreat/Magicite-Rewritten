@@ -21,7 +21,4 @@ public class SpiderTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

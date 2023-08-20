@@ -50,7 +50,4 @@ public class FadeInOut : MonoBehaviour
 		fadeIn();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

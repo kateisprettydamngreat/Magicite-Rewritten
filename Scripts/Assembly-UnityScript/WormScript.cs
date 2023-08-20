@@ -653,7 +653,4 @@ public class WormScript : MonoBehaviour
 		return new _0024KN_00242761(l, this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

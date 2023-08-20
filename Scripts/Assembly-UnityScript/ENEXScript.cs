@@ -256,7 +256,4 @@ public class ENEXScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

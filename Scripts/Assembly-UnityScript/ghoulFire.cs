@@ -240,7 +240,4 @@ public class ghoulFire : MonoBehaviour
 		return new _0024Exile_00242874(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

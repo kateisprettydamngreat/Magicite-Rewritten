@@ -70,7 +70,4 @@ public class Intro : MonoBehaviour
 		return new _0024Start_00241913(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

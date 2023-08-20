@@ -185,7 +185,4 @@ public class BallScript : MonoBehaviour
 		return new _0024Exile_00241218(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

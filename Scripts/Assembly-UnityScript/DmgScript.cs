@@ -191,7 +191,4 @@ public class DmgScript : MonoBehaviour
 		GetComponent<NetworkView>().viewID = id;
 	}
 
-	public virtual void Main()
-	{
 	}
-}

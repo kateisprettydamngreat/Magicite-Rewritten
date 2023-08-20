@@ -21,7 +21,4 @@ public class MinoTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

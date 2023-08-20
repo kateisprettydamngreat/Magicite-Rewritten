@@ -12,7 +12,4 @@ public class TownReturnScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

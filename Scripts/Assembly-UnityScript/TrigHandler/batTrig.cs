@@ -21,7 +21,4 @@ public class batTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

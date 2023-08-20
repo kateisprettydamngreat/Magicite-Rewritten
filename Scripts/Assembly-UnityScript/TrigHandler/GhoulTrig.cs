@@ -21,7 +21,4 @@ public class GhoulTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -117,7 +117,4 @@ public class ExpScript : MonoBehaviour
 		return new _0024Start_00241460(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

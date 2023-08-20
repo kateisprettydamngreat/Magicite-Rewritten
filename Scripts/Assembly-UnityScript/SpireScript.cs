@@ -19,7 +19,4 @@ public class SpireScript : MonoBehaviour
 		@base.GetComponent<Renderer>().material = mat[num];
 	}
 
-	public virtual void Main()
-	{
 	}
-}

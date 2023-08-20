@@ -76,7 +76,4 @@ public class HazTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

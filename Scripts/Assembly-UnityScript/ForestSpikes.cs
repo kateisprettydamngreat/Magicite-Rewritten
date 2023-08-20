@@ -75,7 +75,4 @@ public class ForestSpikes : MonoBehaviour
 		@base.GetComponent<Animation>().Play();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

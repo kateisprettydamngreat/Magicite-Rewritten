@@ -21,7 +21,4 @@ public class FairyTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

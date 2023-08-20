@@ -113,7 +113,4 @@ public class BugSpot : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

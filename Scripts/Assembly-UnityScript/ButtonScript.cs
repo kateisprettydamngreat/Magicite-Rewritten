@@ -28,8 +28,3 @@ public class ButtonScript : MonoBehaviour
 	{
 		shade.SetActive(value: false);
 	}
-
-	public virtual void Main()
-	{
-	}
-}

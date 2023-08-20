@@ -85,7 +85,4 @@ public class bWScript : MonoBehaviour
 		return new _0024Start_00242799(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

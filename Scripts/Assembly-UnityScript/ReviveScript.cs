@@ -11,7 +11,4 @@ public class ReviveScript : MonoBehaviour
 		player.SendMessage("HELP");
 	}
 
-	public virtual void Main()
-	{
 	}
-}

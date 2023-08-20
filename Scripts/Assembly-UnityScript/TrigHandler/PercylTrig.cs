@@ -21,7 +21,4 @@ public class PercylTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

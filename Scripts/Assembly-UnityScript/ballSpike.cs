@@ -109,7 +109,4 @@ public class ballSpike : MonoBehaviour
 		@base.GetComponent<Animation>().Play();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

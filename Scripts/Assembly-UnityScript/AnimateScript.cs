@@ -142,7 +142,4 @@ public class AnimateScript : MonoBehaviour
 		return new _0024Die_00241152(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

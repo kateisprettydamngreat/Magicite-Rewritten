@@ -21,7 +21,4 @@ public class commanderTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

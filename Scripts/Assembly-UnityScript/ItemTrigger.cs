@@ -27,7 +27,4 @@ public class ItemTrigger : MonoBehaviour
 		Parent.SendMessage("D");
 	}
 
-	public virtual void Main()
-	{
 	}
-}

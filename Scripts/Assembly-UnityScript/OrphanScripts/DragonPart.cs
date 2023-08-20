@@ -23,7 +23,4 @@ public class DragonPart : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

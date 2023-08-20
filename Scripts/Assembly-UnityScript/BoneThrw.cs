@@ -172,7 +172,4 @@ public class BoneThrw : MonoBehaviour
 		return new _0024Exile_00241278(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -15,7 +15,4 @@ public class CoinTrigger : MonoBehaviour
 		UnityEngine.Object.Destroy(gameObject);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

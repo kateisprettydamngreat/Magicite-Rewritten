@@ -61,7 +61,4 @@ public class Deatha : MonoBehaviour
 		return new _0024Start_00241127(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

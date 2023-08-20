@@ -823,7 +823,4 @@ public class NPCCommoner : MonoBehaviour
 		return new _0024K_00242073(l, this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

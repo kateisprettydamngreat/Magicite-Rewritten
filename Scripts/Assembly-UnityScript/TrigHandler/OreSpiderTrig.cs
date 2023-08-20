@@ -21,7 +21,4 @@ public class OreSpiderTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

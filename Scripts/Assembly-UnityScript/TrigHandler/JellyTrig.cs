@@ -21,7 +21,4 @@ public class JellyTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

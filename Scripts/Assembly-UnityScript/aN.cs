@@ -74,7 +74,4 @@ public class aN : MonoBehaviour
 		return new _0024Start_00242985(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

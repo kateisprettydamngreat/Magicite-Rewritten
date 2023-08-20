@@ -21,7 +21,4 @@ public class sArcherTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

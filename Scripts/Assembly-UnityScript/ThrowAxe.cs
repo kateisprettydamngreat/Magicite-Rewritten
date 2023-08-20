@@ -57,7 +57,4 @@ public class ThrowAxe : MonoBehaviour
 		t.Translate(Vector3.left * -12f * Time.deltaTime);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

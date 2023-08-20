@@ -338,7 +338,4 @@ public class ScourgeWall : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

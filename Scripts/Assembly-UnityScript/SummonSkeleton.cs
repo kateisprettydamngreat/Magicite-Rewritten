@@ -351,7 +351,4 @@ public class SummonSkeleton : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

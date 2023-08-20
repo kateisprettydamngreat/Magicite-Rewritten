@@ -75,7 +75,4 @@ public class bwbw : MonoBehaviour
 		return new _0024Anim_00242990(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

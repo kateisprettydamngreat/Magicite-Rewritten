@@ -21,7 +21,4 @@ public class GiantBugTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

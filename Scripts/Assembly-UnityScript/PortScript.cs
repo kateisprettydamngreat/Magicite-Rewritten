@@ -12,7 +12,4 @@ public class PortScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

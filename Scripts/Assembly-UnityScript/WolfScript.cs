@@ -343,7 +343,4 @@ public class WolfScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

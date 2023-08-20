@@ -25,7 +25,4 @@ public class TownScript : MonoBehaviour
 		platform2.GetComponent<Renderer>().material = (Material)Resources.Load("platformS/p" + b, typeof(Material));
 	}
 
-	public virtual void Main()
-	{
 	}
-}

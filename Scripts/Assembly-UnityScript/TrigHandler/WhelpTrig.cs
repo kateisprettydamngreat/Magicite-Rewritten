@@ -21,7 +21,4 @@ public class WhelpTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

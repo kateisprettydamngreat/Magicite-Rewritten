@@ -12,7 +12,4 @@ public class DragonSpawn : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

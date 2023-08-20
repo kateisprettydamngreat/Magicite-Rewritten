@@ -21,7 +21,4 @@ public class ChickenKingTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

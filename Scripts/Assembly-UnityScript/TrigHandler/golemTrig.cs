@@ -21,7 +21,4 @@ public class golemTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

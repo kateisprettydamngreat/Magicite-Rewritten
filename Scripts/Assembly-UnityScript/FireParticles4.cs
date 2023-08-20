@@ -17,7 +17,4 @@ public class FireParticles4 : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

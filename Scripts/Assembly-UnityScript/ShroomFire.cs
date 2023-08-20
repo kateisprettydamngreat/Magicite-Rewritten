@@ -163,7 +163,4 @@ public class ShroomFire : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

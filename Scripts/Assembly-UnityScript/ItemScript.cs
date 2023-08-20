@@ -277,7 +277,4 @@ public class ItemScript : MonoBehaviour
 		e = item.e;
 	}
 
-	public virtual void Main()
-	{
 	}
-}

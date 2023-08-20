@@ -181,7 +181,4 @@ public class BoltScript : MonoBehaviour
 		return new _0024Exile_00241272(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

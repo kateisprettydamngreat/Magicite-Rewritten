@@ -205,7 +205,4 @@ public class OreScript : MonoBehaviour
 		return new _0024Exile_00242117(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

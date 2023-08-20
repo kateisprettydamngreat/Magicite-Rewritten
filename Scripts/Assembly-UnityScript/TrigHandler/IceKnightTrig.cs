@@ -21,7 +21,4 @@ public class IceKnightTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

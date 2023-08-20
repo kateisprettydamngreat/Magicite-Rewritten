@@ -101,7 +101,4 @@ public class GhostSword : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

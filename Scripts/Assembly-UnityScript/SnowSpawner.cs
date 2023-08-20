@@ -83,7 +83,4 @@ public class SnowSpawner : MonoBehaviour
 		return new _0024Start_00242572(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

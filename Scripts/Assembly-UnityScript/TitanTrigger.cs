@@ -41,7 +41,4 @@ public class TitanTrigger : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

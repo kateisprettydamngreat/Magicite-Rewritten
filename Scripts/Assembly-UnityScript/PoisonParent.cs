@@ -79,7 +79,4 @@ public class PoisonParent : MonoBehaviour
 		return new _0024Exile_00241130(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

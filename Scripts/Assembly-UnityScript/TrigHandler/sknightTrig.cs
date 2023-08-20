@@ -21,7 +21,4 @@ public class sknightTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

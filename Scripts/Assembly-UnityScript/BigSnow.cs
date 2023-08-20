@@ -108,7 +108,4 @@ public class BigSnow : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

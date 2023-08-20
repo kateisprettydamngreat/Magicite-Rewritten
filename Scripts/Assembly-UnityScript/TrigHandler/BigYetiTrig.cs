@@ -21,7 +21,4 @@ public class BigYetiTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -21,7 +21,4 @@ public class ddragonTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

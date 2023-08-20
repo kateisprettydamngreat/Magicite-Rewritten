@@ -80,7 +80,4 @@ public class Poison : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

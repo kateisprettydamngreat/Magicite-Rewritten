@@ -89,7 +89,4 @@ public class TitanTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -8,8 +8,3 @@ public class ChangeScript : MonoBehaviour
 	{
 		Application.LoadLevel(2);
 	}
-
-	public virtual void Main()
-	{
-	}
-}

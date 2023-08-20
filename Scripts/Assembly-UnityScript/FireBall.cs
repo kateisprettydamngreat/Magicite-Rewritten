@@ -233,7 +233,4 @@ public class FireBall : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

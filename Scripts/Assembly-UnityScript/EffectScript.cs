@@ -117,7 +117,4 @@ public class EffectScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -21,7 +21,4 @@ public class skelCraterTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

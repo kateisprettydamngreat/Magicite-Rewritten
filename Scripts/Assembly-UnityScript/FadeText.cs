@@ -66,7 +66,4 @@ public class FadeText : MonoBehaviour
 		return new _0024Die_00241463(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

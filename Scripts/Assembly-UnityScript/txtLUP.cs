@@ -90,7 +90,4 @@ public class txtLUP : MonoBehaviour
 		return new _0024Start_00242979(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

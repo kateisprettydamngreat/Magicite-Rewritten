@@ -21,7 +21,4 @@ public class kingTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

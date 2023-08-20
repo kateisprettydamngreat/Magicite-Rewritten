@@ -238,7 +238,4 @@ public class SpriteScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

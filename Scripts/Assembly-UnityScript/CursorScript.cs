@@ -23,7 +23,4 @@ public class CursorScript : MonoBehaviour
 		Vector3 vector4 = (t.position = position2);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

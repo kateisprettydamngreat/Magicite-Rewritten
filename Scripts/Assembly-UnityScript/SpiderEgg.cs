@@ -38,7 +38,4 @@ public class SpiderEgg : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

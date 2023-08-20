@@ -141,7 +141,4 @@ public class MusicBox : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

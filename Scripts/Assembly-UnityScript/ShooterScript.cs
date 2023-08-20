@@ -103,7 +103,4 @@ public class ShooterScript : MonoBehaviour
 		return new _0024Attack_00242425(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

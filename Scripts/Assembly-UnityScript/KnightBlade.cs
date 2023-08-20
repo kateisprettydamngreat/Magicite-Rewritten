@@ -135,7 +135,4 @@ public class KnightBlade : MonoBehaviour
 		return new _0024Exile_00241937(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

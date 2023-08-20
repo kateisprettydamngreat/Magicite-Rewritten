@@ -21,7 +21,4 @@ public class skelredTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

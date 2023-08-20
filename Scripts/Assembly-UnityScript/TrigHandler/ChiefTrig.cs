@@ -21,7 +21,4 @@ public class ChiefTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

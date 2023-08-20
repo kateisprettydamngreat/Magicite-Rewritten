@@ -10,7 +10,4 @@ public class HouseScript : MonoBehaviour
 		GetComponent<NetworkView>().viewID = id;
 	}
 
-	public virtual void Main()
-	{
 	}
-}

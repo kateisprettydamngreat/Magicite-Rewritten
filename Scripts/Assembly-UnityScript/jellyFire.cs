@@ -214,7 +214,4 @@ public class jellyFire : MonoBehaviour
 		return new _0024Exile_00242895(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

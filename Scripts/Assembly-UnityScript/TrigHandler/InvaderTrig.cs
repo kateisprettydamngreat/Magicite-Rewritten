@@ -21,7 +21,4 @@ public class InvaderTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

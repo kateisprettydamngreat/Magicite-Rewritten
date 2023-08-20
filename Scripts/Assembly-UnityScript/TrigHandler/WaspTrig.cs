@@ -21,7 +21,4 @@ public class WaspTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

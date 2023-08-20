@@ -175,7 +175,4 @@ public class EnemyProjectile : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

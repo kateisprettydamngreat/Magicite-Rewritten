@@ -31,7 +31,4 @@ public class txtAltar : MonoBehaviour
 		base2.text = text;
 	}
 
-	public virtual void Main()
-	{
 	}
-}

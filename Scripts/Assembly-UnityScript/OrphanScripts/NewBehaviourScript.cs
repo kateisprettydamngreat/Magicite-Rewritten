@@ -12,7 +12,4 @@ public class NewBehaviourScript : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -18,7 +18,4 @@ public class MenuRacesCenter : MonoBehaviour
 		gameScript.SetRace(99);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

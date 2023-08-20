@@ -960,7 +960,4 @@ public class EnemyScript : MonoBehaviour
 		TD(dmg);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

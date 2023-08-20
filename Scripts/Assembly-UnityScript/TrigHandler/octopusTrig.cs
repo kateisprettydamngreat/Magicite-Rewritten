@@ -21,7 +21,4 @@ public class octopusTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

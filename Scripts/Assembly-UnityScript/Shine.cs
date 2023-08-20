@@ -131,7 +131,4 @@ public class Shine : MonoBehaviour
 		gameScript.SetComp(99);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

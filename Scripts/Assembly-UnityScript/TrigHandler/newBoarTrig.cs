@@ -21,7 +21,4 @@ public class newBoarTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

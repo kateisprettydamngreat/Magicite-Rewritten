@@ -311,7 +311,4 @@ public class MinionScript : MonoBehaviour
 		return new _0024Die_00242016(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

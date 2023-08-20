@@ -4268,7 +4268,4 @@ public class MenuScript : MonoBehaviour
 		};
 	}
 
-	public virtual void Main()
-	{
 	}
-}

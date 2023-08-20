@@ -352,7 +352,4 @@ public class AttackCube : MonoBehaviour
 		player.SendMessage("RA");
 	}
 
-	public virtual void Main()
-	{
 	}
-}

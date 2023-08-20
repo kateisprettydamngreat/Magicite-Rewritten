@@ -72,7 +72,4 @@ public class NPCBasicScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

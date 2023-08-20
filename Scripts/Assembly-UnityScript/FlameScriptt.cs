@@ -75,7 +75,4 @@ public class FlameScriptt : MonoBehaviour
 		@base.GetComponent<Animation>().Play();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

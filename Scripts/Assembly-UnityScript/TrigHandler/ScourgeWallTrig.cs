@@ -21,7 +21,4 @@ public class ScourgeWallTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

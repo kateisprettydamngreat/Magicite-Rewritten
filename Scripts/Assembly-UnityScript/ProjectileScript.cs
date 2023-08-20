@@ -91,7 +91,4 @@ public class ProjectileScript : MonoBehaviour
 		stuck = true;
 	}
 
-	public virtual void Main()
-	{
 	}
-}

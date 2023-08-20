@@ -50,7 +50,4 @@ public class StandScript : MonoBehaviour
 		gameObject.transform.position = new Vector3(0f, -500f, -500f);
 	}
 
-	public virtual void Main()
-	{
 	}
-}

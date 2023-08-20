@@ -205,7 +205,4 @@ public class FireScript : MonoBehaviour
 		return new _0024Exile_00241507(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

@@ -12,7 +12,4 @@ public class StatsScript : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

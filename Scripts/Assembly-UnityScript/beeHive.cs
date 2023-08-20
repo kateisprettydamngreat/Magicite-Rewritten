@@ -52,7 +52,4 @@ public class beeHive : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

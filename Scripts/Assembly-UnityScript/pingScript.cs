@@ -92,7 +92,4 @@ public class pingScript : MonoBehaviour
 		return new _0024Animate_00242936(this).GetEnumerator();
 	}
 
-	public virtual void Main()
-	{
 	}
-}

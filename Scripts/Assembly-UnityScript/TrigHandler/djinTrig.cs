@@ -21,7 +21,4 @@ public class djinTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

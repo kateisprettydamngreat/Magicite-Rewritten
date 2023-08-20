@@ -322,7 +322,4 @@ public class ArrowScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

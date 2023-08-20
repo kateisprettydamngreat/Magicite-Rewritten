@@ -89,7 +89,4 @@ public class Destro : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

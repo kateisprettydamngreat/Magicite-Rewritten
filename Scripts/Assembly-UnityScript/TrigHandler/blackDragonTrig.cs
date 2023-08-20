@@ -21,7 +21,4 @@ public class blackDragonTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

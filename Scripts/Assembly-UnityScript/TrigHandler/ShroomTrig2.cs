@@ -21,7 +21,4 @@ public class ShroomTrig2 : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

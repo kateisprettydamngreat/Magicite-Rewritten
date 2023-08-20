@@ -12,7 +12,4 @@ public class LobbyPlayer : MonoBehaviour
 	{
 	}
 
-	public virtual void Main()
-	{
 	}
-}

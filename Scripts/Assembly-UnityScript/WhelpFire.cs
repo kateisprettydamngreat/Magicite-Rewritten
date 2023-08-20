@@ -185,7 +185,4 @@ public class WhelpFire : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

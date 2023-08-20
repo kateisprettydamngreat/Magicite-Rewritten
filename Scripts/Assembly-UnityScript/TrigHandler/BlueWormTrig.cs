@@ -21,7 +21,4 @@ public class BlueWormTrig : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}

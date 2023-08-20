@@ -79,7 +79,4 @@ public class CritScript : MonoBehaviour
 		}
 	}
 
-	public virtual void Main()
-	{
 	}
-}
