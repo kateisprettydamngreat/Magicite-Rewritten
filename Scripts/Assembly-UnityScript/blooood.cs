@@ -61,8 +61,4 @@ public class blooood : MonoBehaviour
 	{
 		return new _0024Start_00242828(this).GetEnumerator();
 	}
-
-
-	{
-	}
 }
