@@ -5,25 +5,25 @@ using UnityEngine;
 [Serializable]
 public class Destro : MonoBehaviour
 {
-    public GameObject[] bars;
-    public float wait = 0.3f;
+    public GameObject[] bars; //Health bars
+    public float wait = 0.3f; //wait time
 
     private IEnumerator Start()
     {
-        return DestroyObjectAfterDelay();
+        return DestroyObjectAfterDelay(); //Initializes DestroyObjectAfterDelay
     }
 
     private IEnumerator DestroyObjectAfterDelay()
     {
-        if (Network.isServer)
+        if (Network.isServer) //If the client IS the server as in, the host
         {
-            yield return new WaitForSeconds(wait);
-            Network.Destroy(GetComponent<NetworkView>().viewID);
+            yield return new WaitForSeconds(wait); //Wait for the amount of time set in the float "wait", from earlier
+            Network.Destroy(GetComponent<NetworkView>().viewID); //Afterwards, use the network library to destroy it.
         }
     }
 
     [RPC]
-    private void SetHH(int a)
+    private void SetHH(int a) //adjusts the heathbars accordingly
     {
         if (GetComponent<NetworkView>().isMine)
         {
