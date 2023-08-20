@@ -1,145 +1,113 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
-public class AnimateScript : MonoBehaviour
+public class Animate : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00241147 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal float _0024_0024387_00241148;
+    // Determines whether the object should be destroyed after animation.
+    public bool nodestroy;
 
-			internal Vector2 _0024_0024388_00241149;
+    // Reference to the object's renderer component.
+    private Renderer renderer;
 
-			internal AnimateScript _0024self__00241150;
+    // Custom generator class to handle animation coroutine.
+    [Serializable]
+    private sealed class AnimationGenerator : GenericGenerator<WaitForSeconds>
+    {
+        // Enumerator for handling animation steps.
+        [Serializable]
+        private sealed class AnimationEnumerator : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+        {
+            // Current iteration index.
+            private int iteration;
 
-			public _0024(AnimateScript self_)
-			{
-				_0024self__00241150 = self_;
-			}
+            // Offset for animating the texture.
+            private float textureOffsetX;
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00241150.isWisp)
-					{
-						_0024self__00241150.StartCoroutine_Auto(_0024self__00241150.Die());
-					}
-					_0024self__00241150.r = _0024self__00241150.@base.GetComponent<Renderer>();
-					goto case 2;
-				case 2:
-				{
-					_0024self__00241150.lightObj.GetComponent<Light>().intensity = 0.5f * (float)UnityEngine.Random.Range(_0024self__00241150.min, _0024self__00241150.max);
-					float num = (_0024_0024387_00241148 = _0024self__00241150.r.material.mainTextureOffset.x + 0.25f);
-					Vector2 vector = (_0024_0024388_00241149 = _0024self__00241150.r.material.mainTextureOffset);
-					float num2 = (_0024_0024388_00241149.x = _0024_0024387_00241148);
-					Vector2 vector3 = (_0024self__00241150.r.material.mainTextureOffset = _0024_0024388_00241149);
-					result = (Yield(2, new WaitForSeconds(_0024self__00241150.wait)) ? 1 : 0);
-					break;
-				}
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+            // Current texture offset.
+            private Vector2 currentTextureOffset;
 
-		internal AnimateScript _0024self__00241151;
+            // Reference to the Animate component.
+            private Animate animateComponent;
 
-		public _0024Start_00241147(AnimateScript self_)
-		{
-			_0024self__00241151 = self_;
-		}
+            // Constructor to initialize with Animate component.
+            public AnimationEnumerator(Animate animate)
+            {
+                animateComponent = animate;
+            }
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241151);
-		}
-	}
+            // Implementation of the IEnumerator's MoveNext method.
+            public override bool MoveNext()
+            {
+                int result;
+                switch (_state)
+                {
+                    default:
+                        // Get the renderer component of the Animate object.
+                        animateComponent.renderer = animateComponent.GetComponent<Renderer>();
+                        // Initialize iteration index.
+                        iteration = 0;
+                        goto AnimationLoop;
+                    case 2:
+                        iteration++;
+                        goto AnimationLoop;
+                    case 1:
+                        result = 0;
+                        break;
+                    AnimationLoop:
+                        // Perform animation for a limited number of iterations.
+                        if (iteration < 3)
+                        {
+                            // Calculate new texture offset for animation.
+                            textureOffsetX = animateComponent.renderer.material.mainTextureOffset.x + 0.25f;
+                            currentTextureOffset = animateComponent.renderer.material.mainTextureOffset;
+                            currentTextureOffset.x = textureOffsetX;
+                            animateComponent.renderer.material.mainTextureOffset = currentTextureOffset;
+                            // Yield for a short duration before the next iteration.
+                            result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
+                            break;
+                        }
+                        // Check if the object should be destroyed.
+                        if (!animateComponent.nodestroy)
+                        {
+                            UnityEngine.Object.Destroy(animateComponent.gameObject);
+                        }
+                        // YieldDefault to finish the coroutine.
+                        YieldDefault(1);
+                        goto case 1;
+                }
+                return (byte)result != 0;
+            }
+        }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Die_00241152 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal AnimateScript _0024self__00241153;
+        // Reference to the Animate component.
+        private Animate animateComponent;
 
-			public _0024(AnimateScript self_)
-			{
-				_0024self__00241153 = self_;
-			}
+        // Constructor to initialize with Animate component.
+        public AnimationGenerator(Animate animate)
+        {
+            animateComponent = animate;
+        }
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-					break;
-				case 2:
-					UnityEngine.Object.Destroy(_0024self__00241153.gameObject);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+        // Implementation of the IEnumerable's GetEnumerator method.
+        public override IEnumerator<WaitForSeconds> GetEnumerator()
+        {
+            return new AnimationEnumerator(animateComponent);
+        }
+    }
 
-		internal AnimateScript _0024self__00241154;
+    // Coroutine to start the animation.
+    public virtual IEnumerator Start()
+    {
+        return new AnimationGenerator(this).GetEnumerator();
+    }
 
-		public _0024Die_00241152(AnimateScript self_)
-		{
-			_0024self__00241154 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241154);
-		}
-	}
-
-	public bool isWisp;
-
-	public GameObject @base;
-
-	private Renderer r;
-
-	public GameObject lightObj;
-
-	public int min;
-
-	public int max;
-
-	public float wait;
-
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00241147(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Die()
-	{
-		return new _0024Die_00241152(this).GetEnumerator();
-	}
-
-	}
+    // Coroutine to handle object destruction after animation.
+    private IEnumerator Die()
+    {
+        // Put the Die() coroutine logic here
+        yield return new WaitForSeconds(10f);
+        UnityEngine.Object.Destroy(gameObject);
+    }
+}
