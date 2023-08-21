@@ -6096,14 +6096,15 @@ public GameScript()
 
 
       public virtual string GetItemName(int id)
-      {
-          if (itemNames.TryGetValue(id, out string itemName))
+          {
+            if (itemNames.TryGetValue(id, out string gearName))
           {
               return itemName;
           }
-          return "NULL";
+
+          Debug.LogError("Item id doesn't exist")
+       return "NULL";
       }
-  }
 
 
   public class GearId
@@ -6211,11 +6212,13 @@ public GameScript()
       { 957, "Ring of Balance" },
     }
     public virtual string GetGearName(int id)
-    {
-      if (gearNames.TryGetValue(id, out string gearName))
-    {
-        return gearName;
-    }
-    return "NULL";
+        {
+          if (gearNames.TryGetValue(id, out string gearName))
+        {
+            return gearName;
+        }
+
+        Debug.LogError("Gear id doesn't exist")
+     return "NULL";
     }
   }
