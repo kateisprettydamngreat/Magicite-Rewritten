@@ -1,10 +1,10 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: GameScript
 // Assembly: Assembly-UnityScript, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: 02B1B6D8-E57A-4719-B6A1-229EE70B1103
-// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Magicite\Magicite_Data\Managed\Assembly-UnityScript.dll
+// Assembly location: C:\Users\kyjor\Desktop\Magicite\Magicite_Data\Managed\Assembly-UnityScript.dll
 
-using Boo.Lang.Runtime;
+
 using System;
 using System.Collections;
 using UnityEngine;
@@ -12,87 +12,22 @@ using UnityEngine;
 [Serializable]
 public class GameScript : MonoBehaviour
 {
-//Declarations
-#region NonSerialized Fields
-  [NonSerialized] public static bool debugMode;
-  [NonSerialized] public static bool usedAltar;
-  [NonSerialized] public static int curAltar;
-  [NonSerialized] public static int[] legendary = new int[3];
-  [NonSerialized] public static bool interacted;
-  [NonSerialized] public static int hitsTaken;
-  [NonSerialized] public static bool isCat;
-  [NonSerialized] public static int vBonus;
-  [NonSerialized] public static int drumATK;
-  [NonSerialized] public static int drumDEX;
-  [NonSerialized] public static int drumMAG;
-  [NonSerialized] public static int timer;
-  [NonSerialized] public static int potsUsed;
-  [NonSerialized] public static int arrowsShot;
-  [NonSerialized] public static bool win;
-  [NonSerialized] public static int eggCounter;
-  [NonSerialized] public static int fairyCounter;
-  [NonSerialized] public static int dragonCounter;
-  [NonSerialized] public static int finalBoss;
-  [NonSerialized] public static GameObject aSphere;
-  [NonSerialized] public static int[] doorBiome = new int[3];
-  [NonSerialized] public static GameObject barrierObj;
-  [NonSerialized] public static int districtLevel;
-  [NonSerialized] public static bool isShopping;
-  [NonSerialized] public static int curGold;
-  [NonSerialized] public static int[] tempStats = new int[16];
-  [NonSerialized] public static int[] tempPlayerStat = new int[4];
-  [NonSerialized] public static int[] tempLevelStat = new int[4];
-  [NonSerialized] public static int[] tempGearStat = new int[4];
-  [NonSerialized] public static bool interacting;
-  [NonSerialized] public static bool canTakeDamage = true;
-  [NonSerialized] public static int curZone;
-  [NonSerialized] public static int curStyle;
-  [NonSerialized] public static bool takingDamage;
-  [NonSerialized] public static int curBiome;
-  [NonSerialized] public static GameObject player;
-  [NonSerialized] public static bool menuOpen;
-  [NonSerialized] public static bool isInstance;
-  [NonSerialized] public static bool facingLeft;
-  [NonSerialized] public static bool isReturning;
-  [NonSerialized] public static bool changingScene;
-  [NonSerialized] public static int cLevel;
-  [NonSerialized] public static bool isTown;
-  [NonSerialized] public static int hunger;
-  [NonSerialized] public static bool isInitialized;
-  [NonSerialized] public static int HP;
-  [NonSerialized] public static int playerLevel;
-  [NonSerialized] public static float exp;
-  [NonSerialized] public static float maxEXP = 8f;
-  [NonSerialized] public static int count = 8;
-  [NonSerialized] public static int readyPlayers;
-  [NonSerialized] public static int playersDead;
-  [NonSerialized] public static int[] door = new int[3];
-  [NonSerialized] public static int finalATK;
-  [NonSerialized] public static int finalATKChop;
-  [NonSerialized] public static int finalATKMine = 1;
-  [NonSerialized] public static int curDoor;
-  [NonSerialized] public static bool attacking;
-  [NonSerialized] public static int finalATKNet;
-  [NonSerialized] public static Item[] npcInventory = new Item[15];
-  [NonSerialized] public static bool isCooking;
-  [NonSerialized] public static bool canInteract;
-  [NonSerialized] public static string interacter;
-  [NonSerialized] public static bool inventoryOpen;
-  [NonSerialized] public static bool selectingSkill;
-  [NonSerialized] public static bool rage;
-  [NonSerialized] public static bool clair;
-  [NonSerialized] public static int curSkill;
-  [NonSerialized] public static int curActiveSlot;
-  [NonSerialized] public static int MAG;
-  [NonSerialized] public static float SPD = 30f;
-  [NonSerialized] public static int MAXHP;
-  [NonSerialized] public static int MAXMAG;
-  [NonSerialized] public static int DEX;
-  [NonSerialized] public static int[] skill = new int[3];
-#endregion NonSerialized Fields
-#region Serializable Fields
+  [NonSerialized]
+  public static bool debugMode;
+  [NonSerialized]
+  public static bool usedAltar;
+  [NonSerialized]
+  public static int curAltar;
+  [NonSerialized]
+  public static int[] legendary = new int[3];
   public GameObject menuAltar;
+  [NonSerialized]
+  public static bool interacted;
+  [NonSerialized]
+  public static int hitsTaken;
   public GameObject[] cheatButton;
+  [NonSerialized]
+  public static bool isCat;
   private bool addingInput;
   public TextMesh txtInput;
   private int inputCount;
@@ -100,16 +35,30 @@ public class GameScript : MonoBehaviour
   private bool cheating;
   public GameObject menuCheat;
   private bool spawningTown;
+  [NonSerialized]
+  public static int vBonus;
   public GameObject menuHoarder;
   public Material blacksmithMenu;
   public TextMesh txtNPCName;
   public Material tailorMenu;
   public Material leatherworkerMenu;
   public GameObject musicBox;
+  [NonSerialized]
+  public static int drumATK;
+  [NonSerialized]
+  public static int drumDEX;
+  [NonSerialized]
+  public static int drumMAG;
   public TextMesh txtTimer;
+  [NonSerialized]
+  public static int timer;
+  [NonSerialized]
+  public static int potsUsed;
   private bool selectingReward;
   public GameObject[] rewardChestObj;
   private int[] rewardChest;
+  [NonSerialized]
+  public static int arrowsShot;
   public Material rewShade;
   public Material rewChest;
   public Material rewOpened;
@@ -123,21 +72,71 @@ public class GameScript : MonoBehaviour
   private bool usingDrum;
   private bool[] isVariant;
   private int[] reward;
+  [NonSerialized]
+  public static bool win;
   public GameObject menuVictory;
   private string txtStatuss;
   public TextMesh txtStatus2;
+  [NonSerialized]
+  public static int eggCounter;
+  [NonSerialized]
+  public static int fairyCounter;
+  [NonSerialized]
+  public static int dragonCounter;
   public TextMesh[] txtHighScore;
   public GameObject bAgain;
   public GameObject bMenu;
   public GameObject blackk;
   public LayerMask mask;
+  [NonSerialized]
+  public static int finalBoss;
+  [NonSerialized]
+  public static GameObject aSphere;
+  private bool writingEgg;
+  public GameObject[] LUP;
+  public TextMesh txtTraitName;
+  public TextMesh txtTraitDesc;
+  public GameObject traitDesc;
+  public TextMesh txtSkillName;
+  public TextMesh txtSkillDesc;
+  public GameObject skillDesc;
+  [NonSerialized]
+  public static bool multishot;
+  [NonSerialized]
+  public static bool isFloating;
+  [NonSerialized]
+  public static int DEXBonus;
+  [NonSerialized]
+  public static int manaWait;
+  public GameObject GUImana;
+  public GameObject goldCounter;
+  [NonSerialized]
+  public static bool rage;
+  [NonSerialized]
+  public static bool clair;
+  [NonSerialized]
+  public static int curSkill;
+  public GameObject[] skillObjShade;
   private float[] skillCooldown;
   public GameObject[] skillObj;
+  [NonSerialized]
+  public static int[] skill = new int[3];
   public GameObject menuSkill;
-  public GameObject exitObj;
+  [NonSerialized]
+  public static GameObject exitObj;
+  [NonSerialized]
+  public static bool bossDefeated;
   private bool ATKING;
   public TextMesh txtDied;
+  [NonSerialized]
+  public static int[] doorBiome = new int[3];
+  [NonSerialized]
+  public static GameObject barrierObj;
   public TextMesh txtZone;
+  [NonSerialized]
+  public static int districtLevel;
+  [NonSerialized]
+  public static bool isShopping;
   public TextMesh txtGoldCounter;
   public GameObject expBack2;
   public TextMesh txtLevelEXP;
@@ -161,9 +160,85 @@ public class GameScript : MonoBehaviour
   private int accountEXP;
   private float tempEXP;
   public GameObject worm;
-  public GameObject GUImana;
-  public GameObject goldCounter;
-  public GameObject[] skillObjShade;
+  [NonSerialized]
+  public static bool isCooking;
+  [NonSerialized]
+  public static bool canInteract;
+  [NonSerialized]
+  public static string interacter;
+  [NonSerialized]
+  public static int[] tempStats = new int[16];
+  [NonSerialized]
+  public static int[] tempPlayerStat = new int[4];
+  [NonSerialized]
+  public static int[] tempLevelStat = new int[4];
+  [NonSerialized]
+  public static int[] tempGearStat = new int[4];
+  [NonSerialized]
+  public static bool interacting;
+  [NonSerialized]
+  public static bool canTakeDamage = true;
+  [NonSerialized]
+  public static int curZone;
+  [NonSerialized]
+  public static int curStyle;
+  [NonSerialized]
+  public static bool takingDamage;
+  [NonSerialized]
+  public static int curBiome;
+  [NonSerialized]
+  public static GameObject player;
+  [NonSerialized]
+  public static bool menuOpen;
+  [NonSerialized]
+  public static bool isInstance;
+  [NonSerialized]
+  public static bool facingLeft;
+  [NonSerialized]
+  public static bool isReturning;
+  [NonSerialized]
+  public static bool changingScene;
+  [NonSerialized]
+  public static int cLevel;
+  [NonSerialized]
+  public static bool isTown;
+  [NonSerialized]
+  public static int hunger;
+  [NonSerialized]
+  public static bool isInitialized;
+  [NonSerialized]
+  public static int HP;
+  [NonSerialized]
+  public static int playerLevel;
+  [NonSerialized]
+  public static float exp;
+  [NonSerialized]
+  public static float maxEXP = 8f;
+  [NonSerialized]
+  public static int count = 8;
+  [NonSerialized]
+  public static int readyPlayers;
+  [NonSerialized]
+  public static int playersDead;
+  [NonSerialized]
+  public static int[] door = new int[3];
+  [NonSerialized]
+  public static int finalATK;
+  [NonSerialized]
+  public static int finalATKChop;
+  [NonSerialized]
+  public static int finalATKMine = 1;
+  [NonSerialized]
+  public static int curDoor;
+  [NonSerialized]
+  public static bool attacking;
+  [NonSerialized]
+  public static int finalATKNet;
+  public AudioClip audioCrafted;
+  [NonSerialized]
+  public static Item[] npcInventory = new Item[15];
+  public GameObject[] bSmithObject;
+  public TextMesh[] bSmithText;
   public GameObject menuStats;
   public TextMesh[] txtStats;
   public GameObject[] statObj;
@@ -174,16 +249,31 @@ public class GameScript : MonoBehaviour
   public GameObject selectCraft2;
   public TextMesh txtLevelName;
   public TextMesh txtStatus;
+  [NonSerialized]
+  public static int curGold;
   private int maxHunger;
   private bool shifting;
   public TextMesh[] txtPlayerStat;
-  public Item[] inventory = new Item[31];
+  [NonSerialized]
+  public static int curActiveSlot;
+  [NonSerialized]
+  public static Item[] inventory = new Item[31];
   private Item[] temp;
   private bool canAttack;
   public int ATK;
+  [NonSerialized]
+  public static int MAG;
+  [NonSerialized]
+  public static float SPD = 30f;
   public int STA;
   public int ATKChop;
   public int ATKMine;
+  [NonSerialized]
+  public static int MAXHP;
+  [NonSerialized]
+  public static int MAXMAG;
+  [NonSerialized]
+  public static int DEX;
   private int lowestQ;
   private string levelName;
   public Material staminaMaterial;
@@ -241,6 +331,8 @@ public class GameScript : MonoBehaviour
   private RaycastHit hit;
   private bool enteringIP;
   private int curCharacter;
+  [NonSerialized]
+  public static bool inventoryOpen;
   private bool generatingLevel;
   private Ray rayCursor;
   private RaycastHit cursorHit;
@@ -262,726 +354,949 @@ public class GameScript : MonoBehaviour
   public Texture2D cursorTexture;
   public Texture2D cursorTexture2;
   private CursorMode cursorMode;
+  [NonSerialized]
+  public static bool selectingSkill;
   private Vector2 hotSpot;
-#endregion Serializable Fields
 
-// GameScript Constructor
-public GameScript()
-{
-  #region Array
-    atkAnim = "a1";
-    barBack = new GameObject[4];
-    barFill = new GameObject[4];
-    bSmithObject = new GameObject[15];
-    bSmithText = new TextMesh[15];
-    cheatButton = new GameObject[4];
-    curTownNPCs = new int[9];
-    hotSpot = new Vector2(8f, 8f);
-    inputString = new int[7];
-    inventoryQ = new TextMesh[31];
-    inventorySlot = new GameObject[31];
-    isVariant = new bool[15];
-    LUP = new GameObject[4];
-    reward = new int[50];
-    rewardChest = new int[4];
-    rewardChestObj = new GameObject[4];
-    skillCooldown = new float[3];
-    skillObj = new GameObject[3];
-    skillObjShade = new GameObject[3];
-    statObj = new GameObject[16];
-    temp = new Item[20];
-    trait = new GameObject[3];
-    txtBarInfo = new TextMesh[4];
-    txtGearStat = new TextMesh[4];
-    txtHighScore = new TextMesh[2];
-    txtInfoEnchantment = new TextMesh[2];
-    txtInfoName = new TextMesh[2];
-    txtIP = new TextMesh[2];
-    txtPlayerStat = new TextMesh[4];
-    txtRewardBot = new TextMesh[2];
-    txtRewardTop = new TextMesh[2];
-    txtStat = new TextMesh[2];
-    txtStats = new TextMesh[16];
-  #region Properties
-    maxHunger = 10;
-    maxStamina = 10;
-    cursorMode = CursorMode.Auto;
-    isDead = false;
-    canAttack = true;
-    atkWait = 0.45f;
+  public GameScript()
+  {
+    this.cheatButton = new GameObject[4];
+    this.inputString = new int[7];
+    this.rewardChestObj = new GameObject[4];
+    this.rewardChest = new int[4];
+    this.txtRewardTop = new TextMesh[2];
+    this.txtRewardBot = new TextMesh[2];
+    this.isVariant = new bool[15];
+    this.reward = new int[50];
+    this.txtHighScore = new TextMesh[2];
+    this.LUP = new GameObject[4];
+    this.skillObjShade = new GameObject[3];
+    this.skillCooldown = new float[3];
+    this.skillObj = new GameObject[3];
+    this.barBack = new GameObject[4];
+    this.barFill = new GameObject[4];
+    this.txtGearStat = new TextMesh[4];
+    this.trait = new GameObject[3];
+    this.bSmithObject = new GameObject[15];
+    this.bSmithText = new TextMesh[15];
+    this.txtStats = new TextMesh[16];
+    this.statObj = new GameObject[16];
+    this.maxHunger = 10;
+    this.txtPlayerStat = new TextMesh[4];
+    this.temp = new Item[20];
+    this.canAttack = true;
+    this.txtBarInfo = new TextMesh[4];
+    this.maxStamina = 10;
+    this.txtInfoName = new TextMesh[2];
+    this.txtStat = new TextMesh[2];
+    this.txtInfoEnchantment = new TextMesh[2];
+    this.inventorySlot = new GameObject[31];
+    this.inventoryQ = new TextMesh[31];
+    this.txtIP = new TextMesh[2];
+    this.curTownNPCs = new int[9];
+    this.atkWait = 0.45f;
+    this.atkAnim = "a1";
+    this.cursorMode = CursorMode.Auto;
+    this.hotSpot = new Vector2(8f, 8f);
   }
 
-//takingDamage
   public virtual void TD(int a) => GameScript.HP -= a;
 
-//PurchaseHandler
-	public virtual void Purchase(int id)
-	{
-		MonoBehaviour.print($"Purchasing function called. ID: {id}");
-
-		if (id == 0)
-				return;
-
-		int itemPrice = GetItemPrice(id);
-
-		if (GameScript.curGold < itemPrice)
-		{
-				PlayPurchaseFailSound();
-				return;
-		}
-
-		ProcessPurchase(id, itemPrice);
-	}
-
-	private void PlayPurchaseFailSound()
-	{
-		AudioSource audioSource = GetComponent<AudioSource>();
-		AudioClip failClip = Resources.Load<AudioClip>("Au/FAIL");
-		audioSource.PlayOneShot(failClip);
-	}
-
-	private void ProcessPurchase(int id, int itemPrice)
-	{
-		GameScript.curGold -= itemPrice;
-		PlayerTriggerScript.itemPurchasing = 0;
-
-		Item purchasedItem = CreatePurchasedItem(id);
-
-		if (purchasedItem.id >= 500)
-		{
-				purchasedItem.d = (int)GetMaxDurability(purchasedItem.id);
-				purchasedItem.e = GetGearStats(purchasedItem.id);
-		}
-
-		SpawnPurchasedItem(purchasedItem);
-
-		PlayerTriggerScript.currentStand.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
-		GameScript.isShopping = false;
-		RefreshGold();
-
-		AudioSource audioSource = GetComponent<AudioSource>();
-		AudioClip purchaseClip = Resources.Load<AudioClip>("Au/PURCHASE");
-		audioSource.PlayOneShot(purchaseClip);
-
-		GameScript.player.SendMessage("WW2");
-		GameScript.tempStats[11]++;
-	}
-
-	private Item CreatePurchasedItem(int id)
-	{
-		return new Item(id, 1, new int[4], 0.0f, null);
-	}
-
-	private void SpawnPurchasedItem(Item item)
-	{
-		int[] initializationData = new int[7]
-		{
-				item.id,
-				item.q,
-				0,
-				0,
-				0,
-				0,
-				100
-		};
-
-		GameObject newItem = (GameObject)UnityEngine.Object.Instantiate(
-				Resources.Load("iLocal"),
-				GameScript.player.transform.position,
-				Quaternion.identity
-		);
-
-		newItem.SendMessage("InitL", initializationData);
-		}
-
-	public virtual int GetItemPrice(int id)
+  public virtual void Purchase(int id)
   {
-      Dictionary<int, int> itemPrices = new Dictionary<int, int>
-        {{ 1, 5 },
-        { 2, 10 },
-        { 3, 5 },
-        { 4, 15 },
-        { 5, 30 },
-        { 6, 70 },
-        { 7, 5 },
-        { 8, 8 },
-        { 9, 10 },
-        { 10, 10 },
-        { 11, 10 },
-        { 12, 30 },
-        { 13, 60 },
-        { 14, 140 },
-        { 15, 20 },
-        { 16, 20 },
-        { 17, 20 },
-        { 18, 7 },
-        { 19, 7 },
-        { 20, 7 },
-        { 21, 5 },
-        { 22, 10 },
-        { 23, 10 },
-        { 24, 15 },
-        { 25, 20 },
-        { 26, 10 },
-        { 27, 15 },
-        { 28, 30 },
-        { 29, 20 },
-        { 30, 20 },
-        { 31, 20 },
-        { 32, 60 },
-        { 33, 120 },
-        { 34, 280 },
-        { 35, 120 },
-        { 36, 240 },
-        { 37, 560 },
-        { 38, 10 },
-        { 39, 20 },
-        { 40, 40 },
-        { 41, 80 },
-        { 42, 45 },
-        { 43, 45 },
-        { 44, 20 },
-        { 45, 45 },
-        { 46, 500 },
-        { 47, 30 },
-        { 48, 65 },
-        { 49, 10 },
-        { 50, 15 },
-        { 51, 5 },
-        { 52, 5 },
-        { 53, 10 },
-        { 54, 20 },
-        { 55, 40 },
-        { 56, 60 },
-        { 500, 35 },
-        { 501, 30 },
-        { 502, 45 },
-        { 503, 120 },
-        { 504, 120 },
-        { 505, 120 },
-        { 506, 300 },
-        { 507, 300 },
-        { 508, 300 },
-        { 509, 700 },
-        { 510, 700 },
-        { 511, 700 },
-        { 512, 55 },
-        { 513, 50 },
-        { 514, 65 },
-        { 515, 100 },
-        { 516, 55 },
-        { 517, 50 },
-        { 518, 65 },
-        { 519, 200 },
-        { 550, 330 },
-        { 560, 135 },
-        { 561, 255 },
-        { 562, 1000 },
-        { 563, 95 },
-        { 566, 1000 },
-        { 600, 100 },
-        { 601, 100 },
-        { 602, 100 },
-        { 700, 90 },
-        { 701, 180 },
-        { 702, 420 },
-        { 800, 90 },
-        { 801, 180 },
-        { 802, 420 },
-        { 900, 90 },
-        { 901, 180 },
-        { 902, 420 },
-        { 999, 999 } // Default price for unknown items
-      };
-
-      int price;
-      if (itemPrices.TryGetValue(id, out price))
+    //MonoBehaviour.print((object) $"Purchasing function called. ID:", (object) id));
+    if (id == 0)
+      return;
+    int itemPrice = this.GetItemPrice(id);
+    if (GameScript.curGold >= itemPrice)
+    {
+      GameScript.curGold -= itemPrice;
+      PlayerTriggerScript.itemPurchasing = 0;
+      Item obj = new Item(id, 1, new int[4], 0.0f, (GameObject) null);
+      if (obj.id >= 500)
       {
-          return price * 2; // Double the price
+        obj.d = (int) this.GetMaxDurability(obj.id);
+        obj.e = this.GetGearStats(obj.id);
       }
-
-      return itemPrices[999] * 2; // Default price for unknown items
+      ((GameObject) UnityEngine.Object.Instantiate(Resources.Load("iLocal"), GameScript.player.transform.position, Quaternion.identity)).SendMessage("InitL", (object) new int[7]
+      {
+        obj.id,
+        obj.q,
+        0,
+        0,
+        0,
+        0,
+        100
+      });
+      PlayerTriggerScript.currentStand.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
+      GameScript.isShopping = false;
+      this.RefreshGold();
+      this.GetComponent<AudioSource>().PlayOneShot((AudioClip) Resources.Load("Au/PURCHASE", typeof (AudioClip)));
+      GameScript.player.SendMessage("WW2");
+      GameScript.tempStats[11] = GameScript.tempStats[11] + 1;
+    }
+    else
+      this.GetComponent<AudioSource>().PlayOneShot((AudioClip) Resources.Load("Au/FAIL", typeof (AudioClip)));
   }
 
-	public virtual void RefreshGold()
-	{
-	    txtGoldCounter.text = $"x{GameScript.curGold}";
-	    goldCounter.GetComponent<Animation>().Play();
-	}
+  public virtual int GetItemPrice(int id)
+  {
+    int num1 = new int();
+    int num2;
+    switch (id)
+    {
+      case 1:
+        num2 = 5;
+        break;
+      case 2:
+        num2 = 10;
+        break;
+      case 3:
+        num2 = 5;
+        break;
+      case 4:
+        num2 = 15;
+        break;
+      case 5:
+        num2 = 30;
+        break;
+      case 6:
+        num2 = 70;
+        break;
+      case 7:
+        num2 = 5;
+        break;
+      case 8:
+        num2 = 8;
+        break;
+      case 9:
+        num2 = 10;
+        break;
+      case 10:
+        num2 = 10;
+        break;
+      case 11:
+        num2 = 10;
+        break;
+      case 12:
+        num2 = 30;
+        break;
+      case 13:
+        num2 = 60;
+        break;
+      case 14:
+        num2 = 140;
+        break;
+      case 15:
+        num2 = 20;
+        break;
+      case 16:
+        num2 = 20;
+        break;
+      case 17:
+        num2 = 20;
+        break;
+      case 18:
+        num2 = 7;
+        break;
+      case 19:
+        num2 = 7;
+        break;
+      case 20:
+        num2 = 7;
+        break;
+      case 21:
+        num2 = 5;
+        break;
+      case 22:
+        num2 = 10;
+        break;
+      case 23:
+        num2 = 10;
+        break;
+      case 24:
+        num2 = 15;
+        break;
+      case 25:
+        num2 = 20;
+        break;
+      case 26:
+        num2 = 10;
+        break;
+      case 27:
+        num2 = 15;
+        break;
+      case 28:
+        num2 = 30;
+        break;
+      case 29:
+        num2 = 20;
+        break;
+      case 30:
+        num2 = 20;
+        break;
+      case 31:
+        num2 = 20;
+        break;
+      case 32:
+        num2 = 60;
+        break;
+      case 33:
+        num2 = 120;
+        break;
+      case 34:
+        num2 = 280;
+        break;
+      case 35:
+        num2 = 120;
+        break;
+      case 36:
+        num2 = 240;
+        break;
+      case 37:
+        num2 = 560;
+        break;
+      case 38:
+        num2 = 10;
+        break;
+      case 39:
+        num2 = 20;
+        break;
+      case 40:
+        num2 = 40;
+        break;
+      case 41:
+        num2 = 80;
+        break;
+      case 42:
+        num2 = 45;
+        break;
+      case 43:
+        num2 = 45;
+        break;
+      case 44:
+        num2 = 20;
+        break;
+      case 45:
+        num2 = 45;
+        break;
+      case 46:
+        num2 = 500;
+        break;
+      case 47:
+        num2 = 30;
+        break;
+      case 48:
+        num2 = 65;
+        break;
+      case 49:
+        num2 = 10;
+        break;
+      case 50:
+        num2 = 15;
+        break;
+      case 51:
+        num2 = 5;
+        break;
+      case 52:
+        num2 = 5;
+        break;
+      case 53:
+        num2 = 10;
+        break;
+      case 54:
+        num2 = 20;
+        break;
+      case 55:
+        num2 = 40;
+        break;
+      case 56:
+        num2 = 60;
+        break;
+      case 500:
+        num2 = 35;
+        break;
+      case 501:
+        num2 = 30;
+        break;
+      case 502:
+        num2 = 45;
+        break;
+      case 503:
+        num2 = 120;
+        break;
+      case 504:
+        num2 = 120;
+        break;
+      case 505:
+        num2 = 120;
+        break;
+      case 506:
+        num2 = 300;
+        break;
+      case 507:
+        num2 = 300;
+        break;
+      case 508:
+        num2 = 300;
+        break;
+      case 509:
+        num2 = 700;
+        break;
+      case 510:
+        num2 = 700;
+        break;
+      case 511:
+        num2 = 700;
+        break;
+      case 512:
+        num2 = 55;
+        break;
+      case 513:
+        num2 = 50;
+        break;
+      case 514:
+        num2 = 65;
+        break;
+      case 515:
+        num2 = 100;
+        break;
+      case 516:
+        num2 = 55;
+        break;
+      case 517:
+        num2 = 50;
+        break;
+      case 518:
+        num2 = 65;
+        break;
+      case 519:
+        num2 = 200;
+        break;
+      case 550:
+        num2 = 330;
+        break;
+      case 560:
+        num2 = 135;
+        break;
+      case 561:
+        num2 = (int) byte.MaxValue;
+        break;
+      case 562:
+        num2 = 1000;
+        break;
+      case 563:
+        num2 = 95;
+        break;
+      case 566:
+        num2 = 1000;
+        break;
+      case 600:
+        num2 = 100;
+        break;
+      case 601:
+        num2 = 100;
+        break;
+      case 602:
+        num2 = 100;
+        break;
+      case 700:
+        num2 = 90;
+        break;
+      case 701:
+        num2 = 180;
+        break;
+      case 702:
+        num2 = 420;
+        break;
+      case 800:
+        num2 = 90;
+        break;
+      case 801:
+        num2 = 180;
+        break;
+      case 802:
+        num2 = 420;
+        break;
+      case 900:
+        num2 = 90;
+        break;
+      case 901:
+        num2 = 180;
+        break;
+      case 902:
+        num2 = 420;
+        break;
+      default:
+        num2 = 999;
+        break;
+    }
+    return num2 * 2;
+  }
 
-	//The murder button
+  public virtual void RefreshGold()
+  {
+    this.txtGoldCounter.text = $"x{curGold}";
+    this.goldCounter.GetComponent<Animation>().Play();
+  }
+
   public virtual void SetDead() => this.isDead = true;
 
-	public virtual void SetRevive()
-	{
-	    isDead = false;
-	    GameScript.HP = 1;
-	    LoadHearts();
-	}
+  public virtual void SetRevive()
+  {
+    this.isDead = false;
+    GameScript.HP = 1;
+    this.LoadHearts();
+  }
 
-	public virtual void LoadEXP()
-	{
-	    float exp = GameScript.exp;
-	    float maxExp = GameScript.maxEXP;
+  public virtual void LoadEXP()
+  {
+    float exp = GameScript.exp;
+    float maxExp = GameScript.maxEXP;
+    this.txtStatEXP.text = $"{exp}/{maxExp}";
+    float num1 = (float) ((double) exp / (double) maxExp * 1.14999997615814);
+    Vector3 localScale = this.barEXP.transform.localScale;
+    double num2 = (double) (localScale.x = num1);
+    Vector3 vector3 = this.barEXP.transform.localScale = localScale;
+    this.txtLevel.text = $"Lv: {playerLevel}";
+  }
 
-	    txtStatEXP.text = $"{exp}/{maxExp}";
+  public virtual IEnumerator Invader()
+  {
+    int test = default(int);
+    var waitTime = UnityEngine.Random.Range(300, 350);
+    if (districtLevel <= 1)
+    {
+      waitTime *= 2;
+    }
 
-	    float expRatio = exp / maxExp * 1.15f; // Adjusted the constant for clarity
-	    Vector3 newScale = new Vector3(expRatio, barEXP.transform.localScale.y, barEXP.transform.localScale.z);
-	    barEXP.transform.localScale = newScale;
+    if (MenuScript.GameMode == 1 && districtLevel < 20)
+    {
+      waitTime = 3;
+      this.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/madman", typeof(AudioClip)));
+    }
 
-	    txtLevel.text = $"Lv: {GameScript.playerLevel}";
-	}
+    yield return new WaitForSeconds(waitTime);
+    this.StartCoroutine(this.Write(5));
+    player.GetComponent<NetworkView>().RPC("Boss", RPCMode.All);
+    if (MenuScript.GameMode == 1 && districtLevel < 20)
+    {
+      Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0f, 0f), Quaternion.identity, 0);
+    }
 
-	public virtual IEnumerator Invader()
-	{
-	    return new GameScript.$Invader$1516(this).GetEnumerator();
-	}
+    test = 0;
+    test++;
+    for (int i = 0; i < 5; i++)
+    {
+      Network.Instantiate(Resources.Load("e/invader"), new Vector3(-15f, 15f, 0f), Quaternion.identity, 0);
+      yield return new WaitForSeconds(UnityEngine.Random.Range(3, 8));
+    }
+  }
 
-	public static void EggCounter()
-	{
-	    // Increment the egg counter
-	    GameScript.eggCounter++;
+  public static void EggCounter()
+  {
+    ++GameScript.eggCounter;
+    if (GameScript.eggCounter < 3)
+      return;
+    GameScript.eggCounter = 0;
+    Network.Instantiate(Resources.Load("e/broodmother"), new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f), Quaternion.identity, 0);
+  }
 
-	    // Check if the egg counter is less than 3
-	    if (GameScript.eggCounter < 3)
-	        return;
+  public static void FairyCounter()
+  {
+    ++GameScript.fairyCounter;
+    if (GameScript.fairyCounter < 3)
+      return;
+    GameScript.fairyCounter = 0;
+    Network.Instantiate(Resources.Load("e/fQueen"), new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f), Quaternion.identity, 0);
+  }
 
-	    // Reset the egg counter
-	    GameScript.eggCounter = 0;
+  public static void DragonCounter()
+  {
+    ++GameScript.dragonCounter;
+    if (GameScript.dragonCounter < 1)
+      return;
+    GameScript.dragonCounter = 0;
+    Network.Instantiate(Resources.Load("e/scourgeDragon"), new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y - 30f, 0.0f), Quaternion.identity, 0);
+  }
 
-	    // Release the broodmother
-	    Network.Instantiate(
-	        Resources.Load("e/broodmother"),
-	        new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f),
-	        Quaternion.identity,
-	        0
-	    );
-	}
+  public virtual void DetectRes()
+  {
+    if ((double) Camera.main.aspect >= 1.70000004768372)
+      Camera.main.orthographicSize = 12f;
+    else if ((double) Camera.main.aspect >= 1.5)
+      Camera.main.orthographicSize = 13f;
+    else if ((double) Camera.main.aspect >= 1.29999995231628)
+    {
+      Camera.main.orthographicSize = 14.5f;
+    }
+    else
+    {
+      if ((double) Camera.main.aspect < 1.25)
+        return;
+      Camera.main.orthographicSize = 15.2f;
+    }
+  }
 
-	public static void FairyCounter()
-	{
-	    // Increment the fairy counter
-	    GameScript.fairyCounter++;
+  public virtual IEnumerator Timer() {
+    yield return new WaitForSeconds(1f);
+    if (!this.dead)
+    {
+      timer++;
+    }
+  }
 
-	    // Check if the fairy counter is less than 3
-	    if (GameScript.fairyCounter < 3)
-	        return;
+  public virtual void Awake()
+  {
+    GameScript.usedAltar = false;
+    Application.targetFrameRate = 60;
+    GameScript.drumATK = 0;
+    GameScript.drumDEX = 0;
+    GameScript.drumMAG = 0;
+    if (Network.isServer)
+      this.StartCoroutine(this.Timer());
+    this.DetectRes();
+    this.ATKING = false;
+    this.usingPot = false;
+    int num1 = new int();
+    GameScript.win = false;
+    this.@using = false;
+    GameScript.finalATKNet = 0;
+    GameScript.isFloating = false;
+    GameScript.menuOpen = false;
+    this.canAttack = true;
+    this.dead = false;
+    GameScript.attacking = false;
+    GameScript.inventoryOpen = false;
+    this.immobilized = false;
+    PlayerTriggerScript.isDead = false;
+    PlayerTriggerScript.canTakeDamage = true;
+    GameScript.eggCounter = 0;
+    GameScript.fairyCounter = 0;
+    GameScript.dragonCounter = 0;
+    GameScript.DEXBonus = 0;
+    GameScript.rage = false;
+    this.dead = false;
+    PlayerControllerN.downed = false;
+    GameScript.isFloating = false;
+    GameScript.manaWait = 10;
+    this.RefreshSkills();
+    if (!GameScript.isTown)
+      this.StartCoroutine(this.Invader());
+    Network.minimumAllocatableViewIDs = 700;
+    int num2 = new int();
+    int num3 = new int();
+    int num4 = new int();
+    GameScript.bossDefeated = false;
+    this.txtDied.text = $"{MenuScript.curName} has fallen.";
+    GameScript.isShopping = false;
+    this.accountEXP = MenuScript.accountEXP;
+    this.txtLevel.text = $"Lv: {GameScript.playerLevel}";
+    GameScript.isCooking = false;
+    this.LoadEXP();
+    this.maxHunger = MenuScript.curTrait[1] == 10 || MenuScript.curTrait[2] == 10 ? 12 : 8;
+    GameScript.inventoryOpen = false;
+    GameScript.takingDamage = false;
+    this.fade = (FadeInOut) Camera.main.gameObject.GetComponent("FadeInOut");
+    GameScript.readyPlayers = 0;
+    int playerLevel = GameScript.playerLevel;
+    this.maxStamina = playerLevel > 4 ? (playerLevel > 12 ? 12 : playerLevel) : 4;
+    this.stamina = (float) this.maxStamina;
+    if (!GameScript.isInitialized)
+    {
+      GameScript.win = false;
+      GameScript.interacted = false;
+      GameScript.hitsTaken = 0;
+      int num5 = new int();
+      for (int index = 0; index < 14; ++index)
+        MenuScript.canUnlockRace[index] = 0;
+      for (int index = 0; index < 25; ++index)
+        MenuScript.canUnlockHat[index] = 0;
+      for (int index = 0; index < 3; ++index)
+        GameScript.legendary[index] = 0;
+      GameScript.arrowsShot = 0;
+      GameScript.curGold = 0;
+      GameScript.potsUsed = 0;
+      GameScript.timer = 0;
+      GameScript.selectingSkill = false;
+      GameScript.curBiome = 0;
+      GameScript.finalBoss = 0;
+      GameScript.skill[0] = 0;
+      GameScript.skill[1] = 0;
+      GameScript.skill[2] = 0;
+      this.RefreshSkills();
+      GameScript.curSkill = 0;
+      GameScript.districtLevel = 1;
+      int num6 = new int();
+      for (int index = 0; index < 15; ++index)
+        GameScript.tempStats[index] = 0;
+      this.RefreshGold();
+      GameScript.curActiveSlot = 0;
+      GameScript.playerLevel = 1;
+      GameScript.count = 0;
+      GameScript.exp = 0.0f;
+      GameScript.maxEXP = 8f;
+      GameScript.hunger = 8;
+      GameScript.isInitialized = true;
+      for (int index = 0; index < 4; ++index)
+      {
+        GameScript.tempGearStat[index] = 0;
+        GameScript.tempLevelStat[index] = 0;
+        GameScript.tempPlayerStat[index] = 0;
+      }
+      GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
+      GameScript.HP = GameScript.MAXHP;
+      this.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
+      GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
+      GameScript.MAG = GameScript.MAXMAG;
+      GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
+      GameScript.SPD = (float) ((double) GameScript.DEX * 0.0500000007450581 + 7.59999990463257);
+      this.SetRaceStats();
+      if (MenuScript.pHat == 9)
+        GameScript.SPD += 4f;
+      this.SetStartingItems();
+      if (GameScript.districtLevel % 5 != 0)
+        ;
+      switch (GameScript.districtLevel)
+      {
+        case 20:
+          GameScript.finalBoss = 1;
+          break;
+        case 21:
+          GameScript.curBiome = 19;
+          GameScript.isTown = false;
+          break;
+      }
+      GameScript.curBiome = 0;
+    }
+    else
+    {
+      ++GameScript.districtLevel;
+      if (GameScript.districtLevel == 10)
+        MenuScript.canUnlockRace[7] = 1;
+      if (GameScript.districtLevel % 5 != 0)
+        ;
+      switch (GameScript.districtLevel)
+      {
+        case 20:
+          GameScript.finalBoss = 1;
+          break;
+        case 21:
+          GameScript.curBiome = 19;
+          GameScript.isTown = false;
+          break;
+      }
+      if (GameScript.selectingSkill)
+        this.SkillMenu();
+      GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
+      this.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
+      GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
+      GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
+      GameScript.SPD = (float) ((double) GameScript.DEX * 0.0500000007450581 + 7.59999990463257);
+      if (MenuScript.pHat == 9)
+        GameScript.SPD += 4f;
+      this.RefreshGold();
+    }
+    this.select.transform.localPosition = this.GetSelectPos((object) GameScript.curActiveSlot);
+    this.UpdateHunger();
+    GameScript.facingLeft = false;
+    this.dead = false;
+    string curName = MenuScript.curName;
+    Vector3 position = new Vector3(2f, 2f, 0.0f);
+    switch (GameScript.curBiome)
+    {
+      case 1:
+        MenuScript.canUnlockHat[6] = 1;
+        break;
+      case 2:
+        MenuScript.canUnlockHat[7] = 1;
+        break;
+      case 3:
+        MenuScript.canUnlockHat[15] = 1;
+        break;
+      case 5:
+        MenuScript.canUnlockHat[13] = 1;
+        break;
+      case 6:
+        MenuScript.canUnlockHat[16] = 1;
+        break;
+      case 7:
+        MenuScript.canUnlockHat[10] = 1;
+        break;
+      case 9:
+        MenuScript.canUnlockRace[10] = 1;
+        break;
+      case 19:
+        MenuScript.canUnlockHat[17] = 1;
+        break;
+    }
+    GameScript.door[0] = 0;
+    GameScript.door[1] = 0;
+    GameScript.door[2] = 0;
+    if (GameScript.changingScene)
+      ;
+    if (!(bool) (UnityEngine.Object) GameScript.player)
+    {
+      GameScript.player = (GameObject) Network.Instantiate(Resources.Load("playerN"), position, Quaternion.identity, 0);
+      if (GameScript.player.GetComponent<NetworkView>().isMine)
+      {
+        int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+        int armor = PlayerControllerN.armor;
+        int offhand = PlayerControllerN.offhand;
+        GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+        GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object) MenuScript.curName);
+      }
+    }
+    else if (GameScript.player.GetComponent<NetworkView>().isMine)
+    {
+      int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+      int armor = PlayerControllerN.armor;
+      int offhand = PlayerControllerN.offhand;
+      GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+      GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object) MenuScript.curName);
+    }
+    GameScript.player.SendMessage("Initialize");
+    if (GameScript.player.GetComponent<NetworkView>().isMine)
+    {
+      this.trait[1].GetComponent<Renderer>().material = (Material) Resources.Load($"t/t{MenuScript.curTrait[1]}", typeof (Material));
+      this.trait[2].GetComponent<Renderer>().material = (Material) Resources.Load($"t/t{MenuScript.curTrait[2]}", typeof (Material));
+      if (GameScript.hunger == 0)
+        GameScript.hunger = this.maxHunger;
+      this.UpdateHunger();
+    }
+    this.@base = GameObject.Find("base");
+    this.head = GameObject.Find("head");
+    this.head2 = GameObject.Find("head2");
+    this.body = GameObject.Find("body");
+    this.arm1 = GameObject.Find("arm1");
+    this.arm2 = GameObject.Find("arm2");
+    this.leg = GameObject.Find("leg");
+    this.weapon = GameObject.Find("item");
+    this.hasCurTown = PlayerPrefs.GetInt("hasTown");
+    GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
+    this.UpdateCharacterWeapon();
+    this.StartCoroutine(this.GenerateText());
+    this.GenerateLevelName();
+    this.StartCoroutine(this.ScourgeMaskTick());
+    GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
+    GameScript.player.SendMessage("Initialize");
+    if (GameScript.player.GetComponent<NetworkView>().isMine)
+    {
+      this.trait[1].GetComponent<Renderer>().material = (Material) Resources.Load($"t/t{MenuScript.curTrait[1]}", typeof (Material));
+      this.trait[2].GetComponent<Renderer>().material = (Material) Resources.Load($"t/t{MenuScript.curTrait[2]}", typeof (Material));
+      if (GameScript.hunger == 0)
+        GameScript.hunger = this.maxHunger;
+      this.UpdateHunger();
+    }
+    Camera.main.SendMessage("SetPlayer", (object) GameScript.player);
+    this.@base = GameObject.Find("base");
+    this.head = GameObject.Find("head");
+    this.head2 = GameObject.Find("head2");
+    this.body = GameObject.Find("body");
+    this.arm1 = GameObject.Find("arm1");
+    this.arm2 = GameObject.Find("arm2");
+    this.leg = GameObject.Find("leg");
+    this.weapon = GameObject.Find("weapon");
+    this.UpdateCharacterWeapon();
+    GameScript.isInstance = true;
+    if (!GameScript.isTown)
+    {
+      if (Network.isServer)
+        this.StartCoroutine(this.GenerateLevel());
+    }
+    else if (Network.isServer)
+      this.StartCoroutine(this.SpawnTownNetwork());
+    if ((bool) (UnityEngine.Object) GameScript.player)
+    {
+      Camera.main.SendMessage("SetPlayer", (object) GameScript.player.gameObject);
+      GameScript.player.SendMessage("Initialize");
+    }
+    this.RefreshActionBar();
+    this.maxStamina += this.STA;
+    this.RefreshPlayerStats();
+    this.StartCoroutine(this.RecoverMana());
+    if (Network.isServer && GameScript.curBiome == 19)
+      Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0.0f, 0.0f), Quaternion.identity, 0);
+    this.LoadEXP();
+    this.StartCoroutine(this.TikiCheck());
+    this.LoadSTA();
+    if (MenuScript.companion == 1)
+      this.HealC();
+    else if (MenuScript.companion == 3)
+      GameScript.SPD *= 2f;
+    else if (MenuScript.companion == 9)
+      GameScript.SPD *= 3f;
+    if (MenuScript.companion != 5)
+      return;
+    this.StartCoroutine(this.RegenManaComp());
+  }
 
-	    // Reset the fairy counter
-	    GameScript.fairyCounter = 0;
+  public virtual IEnumerator RegenManaComp() {
+    throw new NotImplementedException();
+  }
 
-	    // Instantiate the "fQueen" game object using the Network system
-	    Network.Instantiate(
-	        Resources.Load("e/fQueen"),
-	        new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y + 50f, 0.0f),
-	        Quaternion.identity,
-	        0
-	    );
-	}
+  public virtual void HealC()
+  {
+    if (GameScript.HP + 1 > GameScript.MAXHP)
+      GameScript.HP = GameScript.MAXHP;
+    else
+      ++GameScript.HP;
+  }
 
-	public static void DragonCounter()
-	{
-	    // Increment the dragon counter
-	    GameScript.dragonCounter++;
+  public virtual void SetRaceStats()
+  {
+    int num = new int();
+    for (int index = 0; index < 4; ++index)
+      GameScript.tempLevelStat[index] = GameScript.tempLevelStat[index] + MenuScript.raceStats[index];
+  }
 
-	    // Check if the dragon counter is less than 1
-	    if (GameScript.dragonCounter < 1)
-	        return;
+  public virtual IEnumerator ScourgeMaskTick() {
+    yield return new WaitForSeconds(5f);
+    if (MenuScript.pHat == 17)
+    {
+      //goto IL_003f;
+    }
+    player.SendMessage("TD", 1);
+    yield return new WaitForSeconds(115f);
+  }
 
-	    // Reset the dragon counter
-	    GameScript.dragonCounter = 0;
+  public virtual IEnumerator TikiCheck() {
+    yield return new WaitForSeconds(1f);
+    if (MenuScript.pHat == 10)
+    {
+      int no = UnityEngine.Random.Range(0, 2);
+      if (no == 0)
+      {
+        player.SendMessage("TD", 1);
+      }
+      else
+      {
+        HP += 3;
+        var pot =
+          (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position,
+            Quaternion.identity);
+        pot.SendMessage("SD", 3);
+        LoadHearts();
+      }
+    }
+  }
 
-	    // Instantiate the "scourgeDragon" game object using the Network system
-	    Network.Instantiate(
-	        Resources.Load("e/scourgeDragon"),
-	        new Vector3(GameScript.player.transform.position.x, GameScript.player.transform.position.y - 30f, 0.0f),
-	        Quaternion.identity,
-	        0
-	    );
-	}
+  public virtual IEnumerator RecoverMana() {
+    yield return new WaitForSeconds(manaWait);
+    if (MAG < MAXMAG)
+    {
+      MAG++;
+      LoadMana();
+      GUImana.GetComponent<Animation>().Play();
+      if (MenuScript.pHat == 18)
+      {
+        if (UnityEngine.Random.Range(0, 5) == 0 && HP < MAXHP)
+        {
+          HP++;
+          LoadHearts();
+        }
+      }
+    }
+  }
 
-	public virtual void DetectRes()
-	{
-	    if (Camera.main.aspect >= 1.7f)
-	    {
-	        Camera.main.orthographicSize = 12f;
-	    }
-	    else if (Camera.main.aspect >= 1.5f)
-	    {
-	        Camera.main.orthographicSize = 13f;
-	    }
-	    else if (Camera.main.aspect >= 1.3f)
-	    {
-	        Camera.main.orthographicSize = 14.5f;
-	    }
-	    else if (Camera.main.aspect >= 1.25f)
-	    {
-	        Camera.main.orthographicSize = 15.2f;
-	    }
-	}
+  public virtual void SetStartingItems()
+  {
+    int num = new int();
+    for (int index = 0; index < 3; ++index)
+    {
+      if (MenuScript.startingItemID[index] != 8888)
+      {
+        if (MenuScript.startingItemID[index] == 9999)
+        {
+          int id = UnityEngine.Random.Range(0, 54);
+          if (id == 49 || id == 11)
+            id = 9;
+          switch (id)
+          {
+            case 13:
+              id = 5;
+              break;
+            case 14:
+              id = 4;
+              break;
+            default:
+              if (id == 32 || id == 35 || (id == 36 || id == 37))
+              {
+                id = 4;
+                break;
+              }
+              switch (id)
+              {
+                case 33:
+                  id = 5;
+                  break;
+                case 34:
+                  id = 5;
+                  break;
+              }
+              break;
+          }
+          GameScript.inventory[index] = new Item(id, 1, new int[4], 0.0f, (GameObject) null);
+        }
+        else
+          GameScript.inventory[index] = MenuScript.startingItemID[index] < 500 ? new Item(MenuScript.startingItemID[index], 1, new int[4], 0.0f, (GameObject) null) : new Item(MenuScript.startingItemID[index], 1, this.GetGearStats(MenuScript.startingItemID[index]), this.GetMaxDurability(MenuScript.startingItemID[index]), (GameObject) null);
+      }
+    }
+  }
 
-	public virtual IEnumerator Timer()
-	{
-	    return new GameScript.$Timer$1521(this).GetEnumerator();
-	}
+  public virtual IEnumerator ScourgeBoss(int d) {
+    throw new NotImplementedException();
+  }
 
-	public virtual void Awake()
-	{
-	  GameScript.usedAltar = false;
-	  Application.targetFrameRate = 60;
-	  GameScript.drumATK = 0;
-	  GameScript.drumDEX = 0;
-	  GameScript.drumMAG = 0;
-
-	  if (Network.isServer)
-	  {
-	      this.StartCoroutine_Auto(this.Timer());
-	  }
-
-	  this.DetectRes();
-	  this.ATKING = false;
-	  this.usingPot = false;
-	  int num1 = 0;
-	  GameScript.win = false;
-	  this.@using = false;
-	  GameScript.finalATKNet = 0;
-	  GameScript.isFloating = false;
-	  GameScript.menuOpen = false;
-	  this.canAttack = true;
-	  this.dead = false;
-	  GameScript.attacking = false;
-	  GameScript.inventoryOpen = false;
-	  this.immobilized = false;
-	  PlayerTriggerScript.isDead = false;
-	  PlayerTriggerScript.canTakeDamage = true;
-	  GameScript.eggCounter = 0;
-	  GameScript.fairyCounter = 0;
-	  GameScript.dragonCounter = 0;
-	  GameScript.DEXBonus = 0;
-	  GameScript.rage = false;
-	  PlayerControllerN.downed = false;
-	  GameScript.manaWait = 10;
-	  this.RefreshSkills();
-	  if (!GameScript.isInitialized)
-	  {
-	      GameScript.bossDefeated = false;
-	      GameScript.isShopping = false;
-	      GameScript.isCooking = false;
-	      GameScript.inventoryOpen = false;
-	      GameScript.takingDamage = false;
-	      GameScript.readyPlayers = 0;
-	      GameScript.win = false;
-	      GameScript.interacted = false;
-	      GameScript.hitsTaken = 0;
-	      GameScript.arrowsShot = 0;
-	      GameScript.curGold = 0;
-	      GameScript.potsUsed = 0;
-	      GameScript.timer = 0;
-	      GameScript.selectingSkill = false;
-	      GameScript.curBiome = 0;
-	      GameScript.finalBoss = 0;
-	      GameScript.skill[0] = 0;
-	      GameScript.skill[1] = 0;
-	      GameScript.skill[2] = 0;
-	      GameScript.districtLevel = 1;
-	      GameScript.count = 0;
-	      GameScript.exp = 0.0f;
-	      GameScript.maxEXP = 8f;
-	      GameScript.hunger = MenuScript.curTrait[1] == 10 || MenuScript.curTrait[2] == 10 ? 12 : 8;
-	      GameScript.playerLevel = 1;
-	      GameScript.tempStats = new int[15];
-	      for (int index = 0; index < 15; ++index)
-	          GameScript.tempStats[index] = 0;
-
-	      GameScript.tempGearStat = new int[4];
-	      GameScript.tempLevelStat = new int[4];
-	      GameScript.tempPlayerStat = new int[4];
-	      for (int index = 0; index < 4; ++index)
-	      {
-	          GameScript.tempGearStat[index] = 0;
-	          GameScript.tempLevelStat[index] = 0;
-	          GameScript.tempPlayerStat[index] = 0;
-	      }
-
-	      GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
-	      GameScript.HP = GameScript.MAXHP;
-	      GameScript.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
-	      GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
-	      GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
-	      GameScript.SPD = (float)((double)GameScript.DEX * 0.05000000074505806 + 7.5999999046325684);
-	      if (MenuScript.pHat == 9)
-	          GameScript.SPD += 4f;
-
-	      this.SetRaceStats();
-	      this.SetStartingItems();
-
-	      switch (GameScript.districtLevel)
-	      {
-	          case 20:
-	              GameScript.finalBoss = 1;
-	              break;
-	          case 21:
-	              GameScript.curBiome = 19;
-	              GameScript.isTown = false;
-	              break;
-	      }
-
-	      GameScript.curBiome = 0;
-	      GameScript.isInitialized = true;
-	  }
-	  else
-	  {
-	      ++GameScript.districtLevel;
-	      if (GameScript.districtLevel == 10)
-	          MenuScript.canUnlockRace[7] = 1;
-
-	      if (GameScript.selectingSkill)
-	          this.SkillMenu();
-
-	      GameScript.MAXHP = MenuScript.playerStat[0] + GameScript.tempPlayerStat[0] + GameScript.tempLevelStat[0];
-	      GameScript.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
-	      GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
-	      GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
-	      GameScript.SPD = (float)((double)GameScript.DEX * 0.05000000074505806 + 7.5999999046325684);
-	      if (MenuScript.pHat == 9)
-	          GameScript.SPD += 4f;
-
-	      this.RefreshGold();
-
-	      switch (GameScript.districtLevel)
-	      {
-	          case 20:
-	              GameScript.finalBoss = 1;
-	              break;
-	          case 21:
-	              GameScript.curBiome = 19;
-	              GameScript.isTown = false;
-	              break;
-	      }
-	  }
-
-	  this.select.transform.localPosition = this.GetSelectPos((object) GameScript.curActiveSlot);
-	  this.UpdateHunger();
-	  GameScript.facingLeft = false;
-	  this.dead = false;
-	  string curName = MenuScript.curName;
-	  Vector3 position = new Vector3(2f, 2f, 0.0f);
-	  switch (GameScript.curBiome)
-	  {
-	    case 1:
-	      MenuScript.canUnlockHat[6] = 1;
-	      break;
-	    case 2:
-	      MenuScript.canUnlockHat[7] = 1;
-	      break;
-	    case 3:
-	      MenuScript.canUnlockHat[15] = 1;
-	      break;
-	    case 5:
-	      MenuScript.canUnlockHat[13] = 1;
-	      break;
-	    case 6:
-	      MenuScript.canUnlockHat[16] = 1;
-	      break;
-	    case 7:
-	      MenuScript.canUnlockHat[10] = 1;
-	      break;
-	    case 9:
-	      MenuScript.canUnlockRace[10] = 1;
-	      break;
-	    case 19:
-	      MenuScript.canUnlockHat[17] = 1;
-	      break;
-	  }
-	  GameScript.door[0] = 0;
-	  GameScript.door[1] = 0;
-	  GameScript.door[2] = 0;
-	  if (GameScript.changingScene)
-	    ;
-	  if (!(bool) (UnityEngine.Object) GameScript.player)
-	  {
-	    GameScript.player = (GameObject) Network.Instantiate(Resources.Load("playerN"), position, Quaternion.identity, 0);
-	    if (GameScript.player.GetComponent<NetworkView>().isMine)
-	    {
-	      int num7 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
-	      int armor = PlayerControllerN.armor;
-	      int offhand = PlayerControllerN.offhand;
-	      GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num7, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
-	      GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object) MenuScript.curName);
-	    }
-	  }
-	  else if (GameScript.player.GetComponent<NetworkView>().isMine)
-	  {
-	    int num8 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
-	    int armor = PlayerControllerN.armor;
-	    int offhand = PlayerControllerN.offhand;
-	    GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num8, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
-	    GameScript.player.GetComponent<NetworkView>().RPC("AssignName", RPCMode.All, (object) MenuScript.curName);
-	  }
-	  GameScript.player.SendMessage("Initialize");
-	  if (GameScript.player.GetComponent<NetworkView>().isMine)
-	  {
-	    this.trait[1].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[1]), typeof (Material));
-	    this.trait[2].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[2]), typeof (Material));
-	    if (GameScript.hunger == 0)
-	      GameScript.hunger = this.maxHunger;
-	    this.UpdateHunger();
-	  }
-	  this.@base = GameObject.Find("base");
-	  this.head = GameObject.Find("head");
-	  this.head2 = GameObject.Find("head2");
-	  this.body = GameObject.Find("body");
-	  this.arm1 = GameObject.Find("arm1");
-	  this.arm2 = GameObject.Find("arm2");
-	  this.leg = GameObject.Find("leg");
-	  this.weapon = GameObject.Find("item");
-	  this.hasCurTown = PlayerPrefs.GetInt("hasTown");
-	  GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
-	  this.UpdateCharacterWeapon();
-	  this.StartCoroutine_Auto(this.GenerateText());
-	  this.GenerateLevelName();
-	  this.StartCoroutine_Auto(this.ScourgeMaskTick());
-	  GameScript.player.transform.position = new Vector3(0.0f, -1.5f, 0.0f);
-	  GameScript.player.SendMessage("Initialize");
-	  if (GameScript.player.GetComponent<NetworkView>().isMine)
-	  {
-	    this.trait[1].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[1]), typeof (Material));
-	    this.trait[2].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("t/t", (object) MenuScript.curTrait[2]), typeof (Material));
-	    if (GameScript.hunger == 0)
-	      GameScript.hunger = this.maxHunger;
-	    this.UpdateHunger();
-	  }
-	  Camera.main.SendMessage("SetPlayer", (object) GameScript.player);
-	  this.weapon = GameObject.Find("weapon");
-	  this.UpdateCharacterWeapon();
-	  GameScript.isInstance = true;
-	  if (!GameScript.isTown)
-	  {
-	    if (Network.isServer)
-	      this.StartCoroutine_Auto(this.GenerateLevel());
-	  }
-	  else if (Network.isServer)
-	    this.StartCoroutine_Auto(this.SpawnTownNetwork());
-	  if ((bool) (UnityEngine.Object) GameScript.player)
-	  {
-	    Camera.main.SendMessage("SetPlayer", (object) GameScript.player.gameObject);
-	    GameScript.player.SendMessage("Initialize");
-	  }
-	  this.RefreshActionBar();
-	  this.maxStamina += this.STA;
-	  this.RefreshPlayerStats();
-	  this.StartCoroutine_Auto(this.RecoverMana());
-	  if (Network.isServer && GameScript.curBiome == 19)
-	    Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0.0f, 0.0f), Quaternion.identity, 0);
-	  this.LoadEXP();
-	  this.StartCoroutine_Auto(this.TikiCheck());
-	  this.LoadSTA();
-	  if (MenuScript.companion == 1)
-	    this.HealC();
-	  else if (MenuScript.companion == 3)
-	    GameScript.SPD *= 2f;
-	  else if (MenuScript.companion == 9)
-	    GameScript.SPD *= 3f;
-	  if (MenuScript.companion != 5)
-	    return;
-	  this.StartCoroutine_Auto(this.RegenManaComp());
-	}
-
-
-	public virtual IEnumerator RegenManaComp()
-	{
-	    return new GameScript.$RegenManaComp$1524(this).GetEnumerator();
-	}
-
-	public virtual void HealC()
-	{
-	    GameScript.HP = Mathf.Min(GameScript.HP + 1, GameScript.MAXHP);
-	}
-
-	public virtual void SetRaceStats()
-	{
-	    for (int index = 0; index < 4; ++index)
-	    {
-	        GameScript.tempLevelStat[index] += MenuScript.raceStats[index];
-	    }
-	}
-
-	public virtual IEnumerator ScourgeMaskTick()
-	{
-	    return new GameScript.$ScourgeMaskTick$1527().GetEnumerator();
-	}
-
-	public virtual IEnumerator TikiCheck()
-	{
-	    return new GameScript.$TikiCheck$1528(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator RecoverMana()
-	{
-	    return new GameScript.$RecoverMana$1533(this).GetEnumerator();
-	}
-
-	public virtual void SetStartingItems()
-	{
-	    for (int index = 0; index < 3; ++index)
-	    {
-	        if (MenuScript.startingItemID[index] != 8888)
-	        {
-	            if (MenuScript.startingItemID[index] == 9999)
-	            {
-	                int id = UnityEngine.Random.Range(0, 54);
-	                if (id == 49 || id == 11)
-	                    id = 9;
-
-	                switch (id)
-	                {
-	                    case 13:
-	                        id = 5;
-	                        break;
-	                    case 14:
-	                        id = 4;
-	                        break;
-	                    default:
-	                        if (id == 32 || id == 35 || id == 36 || id == 37)
-	                        {
-	                            id = 4;
-	                            break;
-	                        }
-	                        switch (id)
-	                        {
-	                            case 33:
-	                                id = 5;
-	                                break;
-	                            case 34:
-	                                id = 5;
-	                                break;
-	                        }
-	                        break;
-	                }
-
-	                GameScript.inventory[index] = new Item(id, 1, new int[4], 0.0f, null);
-	            }
-	            else
-	            {
-	                if (MenuScript.startingItemID[index] < 500)
-	                {
-	                    GameScript.inventory[index] = new Item(MenuScript.startingItemID[index], 1, new int[4], 0.0f, null);
-	                }
-	                else
-	                {
-	                    int[] gearStats = this.GetGearStats(MenuScript.startingItemID[index]);
-	                    float maxDurability = this.GetMaxDurability(MenuScript.startingItemID[index]);
-	                    GameScript.inventory[index] = new Item(MenuScript.startingItemID[index], 1, gearStats, maxDurability, null);
-	                }
-	            }
-	        }
-	    }
-	}
-
-  public virtual IEnumerator ScourgeBoss(int d) => (IEnumerator) new GameScript.\u0024ScourgeBoss\u00241537(d).GetEnumerator();
-
-  public virtual IEnumerator Write(int num) => (IEnumerator) new GameScript.\u0024Write\u00241541(num, this).GetEnumerator();
+  public virtual IEnumerator Write(int num) {
+    MonoBehaviour.print("WRITING");
+    string textToWrite = null;
+    int newNum = num;
+    if (newNum == 0)
+    {
+      textToWrite = "Your " + this.GetGearName(inventory[curActiveSlot].id) + " is about to break.";
+    }
+    else if (newNum == 1)
+    {
+      textToWrite = "Your stomach begins to grumble.";
+    }
+    else if (newNum == 2)
+    {
+      textToWrite = "You are starving.";
+    }
+    else if (newNum == 3)
+    {
+      textToWrite = "You feel uneasy.";
+    }
+    else if (newNum == 4)
+    {
+      textToWrite = "A slight breeze brushes against your face.";
+    }
+    else if (newNum == 5)
+    {
+      this.GlobalWrite(0);
+    }
+    else if (newNum == 6)
+    {
+      textToWrite = "You feel as if the Scourge are watching you...";
+    }
+    else if (newNum == 7)
+    {
+      textToWrite = "You've awakened the Broodmother...";
+    }
+    else
+    {
+      textToWrite = string.Empty;
+    }
+    if (!string.IsNullOrEmpty(textToWrite))
+    {
+      this.txtStatus2.gameObject.SetActive(true);
+      this.txtStatus2.text = textToWrite;
+      yield return new WaitForSeconds(2f);
+    }
+    this.txtStatus2.text = " ";
+    yield return 0;
+  }
 
   public virtual void GlobalWrite(int a)
   {
@@ -1036,7 +1351,7 @@ public GameScript()
     txtStatus2.text = string.Empty;
   }
 
- public virtual void GenerateLevelName()
+  public virtual void GenerateLevelName()
   {
     string lhs = GameScript.curBiome == 19 ? "The Scourge Lair" : $"District {districtLevel}: ";
     string rhs;
@@ -1241,7 +1556,7 @@ public GameScript()
         str2 = "flower";
         break;
     }
-    return UnityEngine.Random.Range(0, 2) == 0 ? RuntimeServices.op_Addition(str1, str2) : RuntimeServices.op_Addition(str2, str1);
+    return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
   }
 
   public virtual string GetDungeonPrefix()
@@ -1322,7 +1637,7 @@ public GameScript()
         str2 = "flower";
         break;
     }
-    return UnityEngine.Random.Range(0, 2) == 0 ? RuntimeServices.op_Addition(str1, str2) : RuntimeServices.op_Addition(str2, str1);
+    return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
   }
 
   public virtual string GetCavePrefix()
@@ -1403,12 +1718,41 @@ public GameScript()
         str2 = "flower";
         break;
     }
-    return UnityEngine.Random.Range(0, 2) == 0 ? RuntimeServices.op_Addition(str1, str2) : RuntimeServices.op_Addition(str2, str1);
+    return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
   }
 
-  public virtual IEnumerator Start() => (IEnumerator) new GameScript.\u0024Start\u00241561(this).GetEnumerator();
+  public virtual IEnumerator Start() {
+    StartCoroutine(StaminaStart());
+    menuOpen = false;
+    LoadHearts();
+    LoadMana();
+    yield return new WaitForSeconds(1f);
+    isReturning = false;
+    RefreshGold();
+  }
 
-  public virtual IEnumerator StaminaStart() => (IEnumerator) new GameScript.\u0024StaminaStart\u00241564(this).GetEnumerator();
+  public virtual IEnumerator StaminaStart() {
+    int ppp = playerLevel;
+    if (ppp <= 4)
+    {
+      maxStamina = 4;
+    }
+    else if (ppp <= 12)
+    {
+      maxStamina = ppp;
+    }
+    else
+    {
+      maxStamina = 12;
+    }
+    stamina = maxStamina;
+    if (!(stamina >= (float)maxStamina))
+    {
+      stamina += 1f;
+      LoadSTA();
+    }
+    yield return new WaitForSeconds(1f);
+  }
 
   public virtual void LoadSTA()
   {
@@ -1417,15 +1761,15 @@ public GameScript()
     int num1 = new int();
     float maxStamina = (float) this.maxStamina;
     float stamina = this.stamina;
-    this.txtBarInfo[3].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) this.stamina, "/"), (object) this.maxStamina);
+    this.txtBarInfo[3].text = $"{this.stamina}/{this.maxStamina}";
     float num2 = maxStamina * 0.3f;
     Vector3 localScale1 = this.barBack[3].transform.localScale;
-    double num3 = (double) (localScale1.x = num2);
-    Vector3 vector3_1 = this.barBack[3].transform.localScale = localScale1;
+    localScale1.x = num2;
+    this.barBack[3].transform.localScale = localScale1;
     float num4 = stamina * 0.3f;
     Vector3 localScale2 = this.barFill[3].transform.localScale;
-    double num5 = (double) (localScale2.x = num4);
-    Vector3 vector3_2 = this.barFill[3].transform.localScale = localScale2;
+    localScale2.x = num4;
+    this.barFill[3].transform.localScale = localScale2;
   }
 
   public virtual void DecreaseHunger()
@@ -1441,10 +1785,10 @@ public GameScript()
       switch (GameScript.hunger)
       {
         case 0:
-          this.StartCoroutine_Auto(this.Write(2));
+          this.StartCoroutine(this.Write(2));
           break;
         case 3:
-          this.StartCoroutine_Auto(this.Write(1));
+          this.StartCoroutine(this.Write(1));
           break;
       }
     }
@@ -1454,7 +1798,7 @@ public GameScript()
   public virtual void ShowSkillDesc(int a)
   {
     this.txtSkillDesc.text = this.GetSkillDesc(a);
-    this.txtSkillName.text = RuntimeServices.op_Addition(string.Empty, this.GetSkillName(a));
+    this.txtSkillName.text = $"{this.GetSkillName(a)}";
     this.skillDesc.SetActive(true);
   }
 
@@ -1469,7 +1813,7 @@ public GameScript()
   {
     if (GameScript.hunger > this.maxHunger)
       GameScript.hunger = this.maxHunger;
-    this.txtBarInfo[2].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.hunger, "/"), (object) this.maxHunger);
+    this.txtBarInfo[2].text = $"{hunger}/{maxHunger}";
     float num1 = (float) this.maxHunger * 0.3f;
     Vector3 localScale1 = this.barBack[2].transform.localScale;
     double num2 = (double) (localScale1.x = num1);
@@ -1562,66 +1906,78 @@ public GameScript()
     GameScript.exitObj.SendMessage("Open");
   }
 
-  public virtual IEnumerator WriteEgg() => (IEnumerator) new GameScript.\u0024WriteEgg\u00241568(this).GetEnumerator();
+  public virtual IEnumerator WriteEgg() {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator AddInput(int a) => (IEnumerator) new GameScript.\u0024AddInput\u00241571(a, this).GetEnumerator();
+  public virtual IEnumerator AddInput(int a) {
+    throw new NotImplementedException();
+  }
 
   public virtual void CheckInput()
   {
     int num = new int();
     string lhs = string.Empty;
     for (int index = 0; index < 7; ++index)
-      lhs = RuntimeServices.op_Addition(lhs, RuntimeServices.op_Addition(string.Empty, (object) this.inputString[index]));
-    switch (lhs)
+      lhs = $"{lhs}{this.inputString[index]}";
+    string str = lhs;
+    if (str == "1131313")
     {
-      case "1131313":
-        this.txtInput.text = "Cat Form";
-        this.CatForm();
-        break;
-      case "1414131":
-        this.txtInput.text = "Unlocked Sean Hat";
-        MenuScript.canUnlockHat[23] = 1;
-        break;
-      case "4431321":
-        this.txtInput.text = "Title Set";
-        this.SetTitle(1);
-        break;
-      case "3311323":
-        this.txtInput.text = "Title Set";
-        this.SetTitle(2);
-        break;
-      case "4141222":
-        this.txtInput.text = "Title Set";
-        this.SetTitle(3);
-        break;
-      case "2334344":
-        this.txtInput.text = "Title Set";
-        this.SetTitle(4);
-        break;
-      case "1123111":
-        this.txtInput.text = "Title Set";
-        this.SetTitle(5);
-        break;
-      case "1123122":
-        this.txtInput.text = "Title Set";
-        this.SetTitle(6);
-        break;
-      case "3313134":
-        this.txtInput.text = "Emote!";
-        this.Exclusive();
-        break;
-      case "4441142":
-        this.txtInput.text = "Death Unlocked";
-        this.DeathAnim();
-        break;
-      case "1234123":
-        this.txtInput.text = "Jared's Bear Hat";
-        this.BearHat();
-        break;
-      default:
-        this.txtInput.text = "Invalid Code";
-        break;
+      this.txtInput.text = "Cat Form";
+      this.CatForm();
     }
+    else if (str == "1414131")
+    {
+      this.txtInput.text = "Unlocked Sean Hat";
+      MenuScript.canUnlockHat[23] = 1;
+    }
+    else if (str == "4431321")
+    {
+      this.txtInput.text = "Title Set";
+      this.SetTitle(1);
+    }
+    else if (str == "3311323")
+    {
+      this.txtInput.text = "Title Set";
+      this.SetTitle(2);
+    }
+    else if (str == "4141222")
+    {
+      this.txtInput.text = "Title Set";
+      this.SetTitle(3);
+    }
+    else if (str == "2334344")
+    {
+      this.txtInput.text = "Title Set";
+      this.SetTitle(4);
+    }
+    else if (str == "1123111")
+    {
+      this.txtInput.text = "Title Set";
+      this.SetTitle(5);
+    }
+    else if (str == "1123122")
+    {
+      this.txtInput.text = "Title Set";
+      this.SetTitle(6);
+    }
+    else if (str == "3313134")
+    {
+      this.txtInput.text = "Emote!";
+      this.Exclusive();
+    }
+    else if (str == "4441142")
+    {
+      this.txtInput.text = "Death Unlocked";
+      this.DeathAnim();
+    }
+    else if (str == "1234123")
+    {
+      this.txtInput.text = "Jared's Bear Hat";
+      this.BearHat();
+    }
+    else
+      this.txtInput.text = "Invalid Code";
   }
 
   public virtual void BearHat() => GameScript.player.GetComponent<NetworkView>().RPC("SetBearHat", RPCMode.All);
@@ -1700,7 +2056,7 @@ public GameScript()
   public virtual void Update()
   {
     if (GameScript.eggCounter >= 3 && !this.writingEgg)
-      this.StartCoroutine_Auto(this.WriteEgg());
+      this.StartCoroutine(this.WriteEgg());
     if (UnityEngine.Input.GetKeyDown(KeyCode.P) && GameScript.debugMode)
       GameScript.districtLevel = 20;
     if (UnityEngine.Input.GetKeyDown(KeyCode.I) && GameScript.debugMode)
@@ -1777,7 +2133,7 @@ public GameScript()
       Screen.SetResolution(1920, 1080, true);
     if (UnityEngine.Input.GetButtonDown("Inventory") && !this.dead)
       this.OpenInventory();
-    int slot1;
+    int slot1 = 0;
     if (GameScript.inventoryOpen)
     {
       this.rayCursor = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
@@ -1885,35 +2241,27 @@ public GameScript()
           else
             this.SelectSkill(3);
         }
-        switch (name)
+        string str = name;
+        if (str == "bLeave")
+          this.LeaveTown();
+        else if (str == "bStay")
         {
-          case "bLeave":
-            this.LeaveTown();
-            break;
-          case "bStay":
-            GameScript.menuOpen = false;
-            this.menuLeaveTown.SetActive(false);
-            this.menuReturnTown.SetActive(false);
-            break;
-          case "bReturn":
-            this.ReturnTown();
-            break;
-          case "0":
-            this.StartCoroutine_Auto(this.SelectReward(0));
-            break;
-          case "1":
-            this.StartCoroutine_Auto(this.SelectReward(1));
-            break;
-          case "2":
-            this.StartCoroutine_Auto(this.SelectReward(2));
-            break;
-          case "3":
-            this.StartCoroutine_Auto(this.SelectReward(3));
-            break;
-          case "bClose":
-            this.CloseReward();
-            break;
+          GameScript.menuOpen = false;
+          this.menuLeaveTown.SetActive(false);
+          this.menuReturnTown.SetActive(false);
         }
+        else if (str == "bReturn")
+          this.ReturnTown();
+        else if (str == "0")
+          this.StartCoroutine(this.SelectReward(0));
+        else if (str == "1")
+          this.StartCoroutine(this.SelectReward(1));
+        else if (str == "2")
+          this.StartCoroutine(this.SelectReward(2));
+        else if (str == "3")
+          this.StartCoroutine(this.SelectReward(3));
+        else if (str == "bClose")
+          this.CloseReward();
       }
     }
     if (UnityEngine.Input.GetButtonDown("Melee Attack") && GameScript.inventoryOpen && !this.shifting)
@@ -1940,13 +2288,13 @@ public GameScript()
         else if (gameObject.name == "sell" && this.holdingItem)
           this.SellItem();
         else if (gameObject.name == "b1")
-          this.StartCoroutine_Auto(this.AddInput(1));
+          this.StartCoroutine(this.AddInput(1));
         else if (gameObject.name == "b2")
-          this.StartCoroutine_Auto(this.AddInput(2));
+          this.StartCoroutine(this.AddInput(2));
         else if (gameObject.name == "b3")
-          this.StartCoroutine_Auto(this.AddInput(3));
+          this.StartCoroutine(this.AddInput(3));
         else if (gameObject.name == "b4")
-          this.StartCoroutine_Auto(this.AddInput(4));
+          this.StartCoroutine(this.AddInput(4));
         else if (gameObject.layer == 10 && gameObject.tag != "sIcon" && gameObject.tag != "tIcon")
         {
           int slot2 = int.Parse(gameObject.tag);
@@ -1969,7 +2317,7 @@ public GameScript()
               this.SwapItem(slot2);
             else if (slot2 == 22 && this.itemSelected.id >= 900 && this.itemSelected.id < 950)
               this.SwapItem(slot2);
-            else if ((slot2 == 24 || slot2 == 25) && this.itemSelected.id >= 950 && this.itemSelected.id < 1000)
+            else if ((slot2 == 24 || slot2 == 25) && (this.itemSelected.id >= 950 && this.itemSelected.id < 1000))
               this.SwapItem(slot2);
             else if (slot2 < 20)
               this.SwapItem(slot2);
@@ -1977,26 +2325,26 @@ public GameScript()
         }
         else if (gameObject.layer == 30)
         {
-          int slot3 = int.Parse(gameObject.name);
-          if (!this.holdingItem && GameScript.npcInventory[slot3].id != 0)
-            this.SelectItemNPC(slot3);
-          else if (this.holdingItem && GameScript.npcInventory[slot3].id == 0)
-            this.PlaceItemNPC(slot3, gameObject);
-          else if (this.holdingItem && GameScript.npcInventory[slot3].id < 500)
+          int slot2 = int.Parse(gameObject.name);
+          if (!this.holdingItem && GameScript.npcInventory[slot2].id != 0)
+            this.SelectItemNPC(slot2);
+          else if (this.holdingItem && GameScript.npcInventory[slot2].id == 0)
+            this.PlaceItemNPC(slot2, gameObject);
+          else if (this.holdingItem && GameScript.npcInventory[slot2].id < 500)
           {
-            if (GameScript.npcInventory[slot3].id == this.itemSelected.id)
-              this.CombineItemNPC(slot3);
+            if (GameScript.npcInventory[slot2].id == this.itemSelected.id)
+              this.CombineItemNPC(slot2);
             else
-              this.SwapItemNPC(slot3);
+              this.SwapItemNPC(slot2);
           }
-          else if (this.holdingItem && GameScript.npcInventory[slot3].id >= 500)
+          else if (this.holdingItem && GameScript.npcInventory[slot2].id >= 500)
           {
-            if (slot3 == 20 && this.itemSelected.id >= 700 && this.itemSelected.id < 800)
-              this.SwapItemNPC(slot3);
-            else if (slot3 == 21 && this.itemSelected.id >= 800 && this.itemSelected.id < 900)
-              this.SwapItemNPC(slot3);
-            else if (slot3 < 20)
-              this.SwapItemNPC(slot3);
+            if (slot2 == 20 && this.itemSelected.id >= 700 && this.itemSelected.id < 800)
+              this.SwapItemNPC(slot2);
+            else if (slot2 == 21 && this.itemSelected.id >= 800 && this.itemSelected.id < 900)
+              this.SwapItemNPC(slot2);
+            else if (slot2 < 20)
+              this.SwapItemNPC(slot2);
           }
         }
       }
@@ -2022,35 +2370,35 @@ public GameScript()
         GameObject gameObject = this.hit.transform.gameObject;
         if (gameObject.layer == 10)
         {
-          int slot4 = int.Parse(gameObject.tag);
-          if (!this.holdingItem && GameScript.inventory[slot4].id != 0 && slot4 < 28)
-            this.SelectHalfItem(slot4);
-          else if (!this.holdingItem && GameScript.inventory[slot4].id != 0 && slot4 >= 28)
-            this.SelectOneItem(slot4);
-          else if (this.holdingItem && GameScript.inventory[slot4].id == 0 && slot4 != 20 && slot4 != 21 && slot4 != 22 && slot4 != 24 && slot4 != 25)
-            this.PlaceOneItem(slot4, gameObject);
-          else if (this.holdingItem && GameScript.inventory[slot4].id == this.itemSelected.id && slot4 >= 28)
-            this.AddOneItemHolding(slot4);
-          else if (this.holdingItem && GameScript.inventory[slot4].id == this.itemSelected.id)
-            this.AddOneItem(slot4);
+          int slot2 = int.Parse(gameObject.tag);
+          if (!this.holdingItem && GameScript.inventory[slot2].id != 0 && slot2 < 28)
+            this.SelectHalfItem(slot2);
+          else if (!this.holdingItem && GameScript.inventory[slot2].id != 0 && slot2 >= 28)
+            this.SelectOneItem(slot2);
+          else if (this.holdingItem && GameScript.inventory[slot2].id == 0 && (slot2 != 20 && slot2 != 21) && (slot2 != 22 && slot2 != 24 && slot2 != 25))
+            this.PlaceOneItem(slot2, gameObject);
+          else if (this.holdingItem && GameScript.inventory[slot2].id == this.itemSelected.id && slot2 >= 28)
+            this.AddOneItemHolding(slot2);
+          else if (this.holdingItem && GameScript.inventory[slot2].id == this.itemSelected.id)
+            this.AddOneItem(slot2);
         }
         else if (gameObject.layer == 30)
         {
-          int slot5 = int.Parse(gameObject.name);
-          if (!this.holdingItem && GameScript.npcInventory[slot5].id != 0 && slot5 < 11)
-            this.SelectHalfItemNPC(slot5);
-          else if (!this.holdingItem && GameScript.npcInventory[slot5].id != 0 && slot5 == 11)
-            this.SelectOneItemNPC(slot5);
-          else if (this.holdingItem && GameScript.npcInventory[slot5].id == 0 && slot5 < 11)
-            this.PlaceOneItemNPC(slot5, gameObject);
-          else if (this.holdingItem && GameScript.npcInventory[slot5].id == this.itemSelected.id && slot5 == 11)
-            this.AddOneItemHoldingNPC(slot5);
-          else if (this.holdingItem && GameScript.npcInventory[slot5].id == this.itemSelected.id)
-            this.AddOneItemNPC(slot5);
+          int slot2 = int.Parse(gameObject.name);
+          if (!this.holdingItem && GameScript.npcInventory[slot2].id != 0 && slot2 < 11)
+            this.SelectHalfItemNPC(slot2);
+          else if (!this.holdingItem && GameScript.npcInventory[slot2].id != 0 && slot2 == 11)
+            this.SelectOneItemNPC(slot2);
+          else if (this.holdingItem && GameScript.npcInventory[slot2].id == 0 && slot2 < 11)
+            this.PlaceOneItemNPC(slot2, gameObject);
+          else if (this.holdingItem && GameScript.npcInventory[slot2].id == this.itemSelected.id && slot2 == 11)
+            this.AddOneItemHoldingNPC(slot2);
+          else if (this.holdingItem && GameScript.npcInventory[slot2].id == this.itemSelected.id)
+            this.AddOneItemNPC(slot2);
         }
       }
     }
-    else if (UnityEngine.Input.GetButtonDown("Melee Attack") && GameScript.inventoryOpen && this.shifting && !this.holdingItem)
+    else if (UnityEngine.Input.GetButtonDown("Melee Attack") && GameScript.inventoryOpen && (this.shifting && !this.holdingItem))
     {
       this.ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
       if (Physics.Raycast(this.ray, out this.hit, 20f))
@@ -2070,14 +2418,14 @@ public GameScript()
                 this.firstItemSelected = (Item) null;
                 this.selectCraft1.SetActive(false);
               }
-              else if (!RuntimeServices.EqualityOperator((object) this.firstItemSelected, (object) null))
+              else if (firstItemSelected == null)
               {
                 this.crafting = true;
                 this.secondItemSelected = GameScript.inventory[slot1];
                 this.secondItemSelectedSlot = index;
                 this.selectCraft2.SetActive(true);
                 this.selectCraft2.transform.position = this.inventorySlot[index].transform.position;
-                this.StartCoroutine_Auto(this.Craft());
+                this.StartCoroutine(this.Craft());
               }
               else
               {
@@ -2091,8 +2439,8 @@ public GameScript()
         }
       }
     }
-    else if (UnityEngine.Input.GetButtonDown("Use Item") && !GameScript.inventoryOpen && !this.isDead && !this.immobilized && !this.usingItem)
-      this.StartCoroutine_Auto(this.UseItem(GameScript.curActiveSlot));
+    else if (UnityEngine.Input.GetButtonDown("Use Item") && !GameScript.inventoryOpen && (!this.isDead && !this.immobilized) && !this.usingItem)
+      this.StartCoroutine(this.UseItem(GameScript.curActiveSlot));
     else if (UnityEngine.Input.GetButtonDown("Melee Attack") && !GameScript.inventoryOpen)
     {
       this.ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
@@ -2112,25 +2460,20 @@ public GameScript()
           else
             this.SelectSkill(3);
         }
-        switch (gameObject.name)
+        string name = gameObject.name;
+        if (name == "bResume")
+          this.Resume();
+        else if (name == "bOptions")
+          this.Options();
+        else if (name == "bMenu")
+          this.StartCoroutine(this.Menuu());
+        else if (name == "bQuit")
         {
-          case "bResume":
-            this.Resume();
-            break;
-          case "bOptions":
-            this.Options();
-            break;
-          case "bMenu":
-            this.StartCoroutine_Auto(this.Menuu());
-            break;
-          case "bQuit":
-            this.SaveStats();
-            this.StartCoroutine_Auto(this.Menuu());
-            break;
-          case "bAgain":
-            this.Again();
-            break;
+          this.SaveStats();
+          this.StartCoroutine(this.Menuu());
         }
+        else if (name == "bAgain")
+          this.Again();
       }
     }
     if ((double) UnityEngine.Input.GetAxis("mS") > 0.0 && !this.dead)
@@ -2184,7 +2527,9 @@ public GameScript()
     this.sSelected.SetActive(false);
   }
 
-  public virtual IEnumerator Craft() => (IEnumerator) new GameScript.\u0024Craft\u00241576(this).GetEnumerator();
+  public virtual IEnumerator Craft() {
+    throw new NotImplementedException();
+  }
 
   public virtual void SaveStats()
   {
@@ -2193,8 +2538,8 @@ public GameScript()
     for (int s = 0; s < 15; ++s)
       this.tempEXP += this.ConvertToEXP(s, (float) GameScript.tempStats[s]);
     PlayerPrefs.SetInt("aEXP", MenuScript.accountEXP);
-    for (int rhs = 0; rhs < 15; ++rhs)
-      PlayerPrefs.SetInt(RuntimeServices.op_Addition("stat", (object) rhs), GameScript.tempStats[rhs] + PlayerPrefs.GetInt(RuntimeServices.op_Addition("stat", (object) rhs)));
+    for (int index = 0; index < 15; ++index)
+      PlayerPrefs.SetInt($"stat{index}", GameScript.tempStats[index] + PlayerPrefs.GetInt($"stat{index}"));
     MenuScript.curScore = (int) ((double) this.tempEXP * 2.0);
     if (MenuScript.curScore > PlayerPrefs.GetInt("hScore"))
       PlayerPrefs.SetInt("hScore", MenuScript.curScore);
@@ -2239,7 +2584,7 @@ public GameScript()
 
   public virtual bool ChanceHat(int a)
   {
-    MonoBehaviour.print((object) RuntimeServices.op_Addition((object) a, " is hat "));
+    MonoBehaviour.print((object) $"{a}, is hat");
     int max;
     switch (a)
     {
@@ -2303,30 +2648,30 @@ public GameScript()
     {
       if (MenuScript.raceUnlock[a] < 3 && MenuScript.canUnlockRace[a] == 1 && this.ChanceRace(a))
       {
-        int rhs = UnityEngine.Random.Range(0, 50);
-        while (this.reward[rhs] != 0)
+        int index = UnityEngine.Random.Range(0, 50);
+        while (this.reward[index] != 0)
         {
-          ++rhs;
-          if (rhs > 49)
-            rhs = 0;
+          ++index;
+          if (index > 49)
+            index = 0;
         }
-        this.reward[rhs] = a + 1;
-        MonoBehaviour.print((object) RuntimeServices.op_Addition("temp is ", (object) rhs));
+        this.reward[index] = a + 1;
+        MonoBehaviour.print($"temp is {index}");
         this.isVariant[a] = MenuScript.raceUnlock[a] > 0;
       }
     }
-    for (int index3 = 1; index3 < 10; ++index3)
+    for (int index1 = 1; index1 < 10; ++index1)
     {
-      if (MenuScript.companionUnlock[index3] == 0 && MenuScript.canUnlockCompanion[index3] == 1)
+      if (MenuScript.companionUnlock[index1] == 0 && MenuScript.canUnlockCompanion[index1] == 1)
       {
-        int index4 = UnityEngine.Random.Range(0, 50);
-        while (this.reward[index4] != 0)
+        int index2 = UnityEngine.Random.Range(0, 50);
+        while (this.reward[index2] != 0)
         {
-          ++index4;
-          if (index4 > 49)
-            index4 = 0;
+          ++index2;
+          if (index2 > 49)
+            index2 = 0;
         }
-        this.reward[index4] = index3 + 100;
+        this.reward[index2] = index1 + 100;
       }
     }
     for (int a = 0; a < 25; ++a)
@@ -2354,15 +2699,25 @@ public GameScript()
     this.rewardShade.SetActive(false);
   }
 
-  public virtual IEnumerator SelectReward(int c) => (IEnumerator) new GameScript.\u0024SelectReward\u00241594(c, this).GetEnumerator();
+  public virtual IEnumerator SelectReward(int c) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UnlockHat(int h) => (IEnumerator) new GameScript.\u0024UnlockHat\u00241602(h, this).GetEnumerator();
+  public virtual IEnumerator UnlockHat(int h) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UnlockComp(int h) => (IEnumerator) new GameScript.\u0024UnlockComp\u00241607(h, this).GetEnumerator();
+  public virtual IEnumerator UnlockComp(int h) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UnlockVariant(int r) => (IEnumerator) new GameScript.\u0024UnlockVariant\u00241612(r, this).GetEnumerator();
+  public virtual IEnumerator UnlockVariant(int r) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UnlockRace(int h) => (IEnumerator) new GameScript.\u0024UnlockRace\u00241617(h, this).GetEnumerator();
+  public virtual IEnumerator UnlockRace(int h) {
+    throw new NotImplementedException();
+  }
 
   public virtual string GetHatName(int a)
   {
@@ -2539,18 +2894,18 @@ public GameScript()
 
   public virtual int GetNextReward()
   {
-    int num = new int();
-    int nextReward = 0;
+    int num1 = new int();
+    int num2 = 0;
     for (int index = 0; index < 50; ++index)
     {
       if (this.reward[index] > 0)
       {
-        nextReward = this.reward[index];
+        num2 = this.reward[index];
         this.reward[index] = 0;
         break;
       }
     }
-    return nextReward;
+    return num2;
   }
 
   public virtual float ConvertToEXP(int s, float v)
@@ -2623,10 +2978,14 @@ public GameScript()
   {
   }
 
-  public virtual IEnumerator Menuu() => (IEnumerator) new GameScript.\u0024Menuu\u00241622(this).GetEnumerator();
+  public virtual IEnumerator Menuu() {
+    throw new NotImplementedException();
+  }
 
   [RPC]
-  public virtual IEnumerator AgainN() => (IEnumerator) new GameScript.\u0024AgainN\u00241625(this).GetEnumerator();
+  public virtual IEnumerator AgainN() {
+    throw new NotImplementedException();
+  }
 
   public virtual void Again()
   {
@@ -2654,7 +3013,9 @@ public GameScript()
     GameScript.player.GetComponent<NetworkView>().RPC("LoadLevel", RPCMode.All, (object) 1, (object) true);
   }
 
-  public virtual IEnumerator SpawnTownNetwork() => (IEnumerator) new GameScript.\u0024SpawnTownNetwork\u00241628(this).GetEnumerator();
+  public virtual IEnumerator SpawnTownNetwork() {
+    throw new NotImplementedException();
+  }
 
   public virtual void SetBGNetwork(int tBiome)
   {
@@ -2662,38 +3023,38 @@ public GameScript()
 
   public virtual Vector3 GetHousePos(int a)
   {
-    Vector3 housePos = new Vector3();
+    Vector3 vector3 = new Vector3();
     switch (a)
     {
       case 0:
-        housePos = new Vector3(-9f, 3.5f, 1.5f);
+        vector3 = new Vector3(-9f, 3.5f, 1.5f);
         break;
       case 1:
-        housePos = new Vector3(-5f, 3.5f, 1.5f);
+        vector3 = new Vector3(-5f, 3.5f, 1.5f);
         break;
       case 2:
-        housePos = new Vector3(5f, 3.5f, 1.5f);
+        vector3 = new Vector3(5f, 3.5f, 1.5f);
         break;
       case 3:
-        housePos = new Vector3(9f, 3.5f, 1.5f);
+        vector3 = new Vector3(9f, 3.5f, 1.5f);
         break;
       case 4:
-        housePos = new Vector3(-9f, -4f, 1.5f);
+        vector3 = new Vector3(-9f, -4f, 1.5f);
         break;
       case 5:
-        housePos = new Vector3(-5f, -4f, 1.5f);
+        vector3 = new Vector3(-5f, -4f, 1.5f);
         break;
       case 6:
-        housePos = new Vector3(0.0f, -4f, 1.5f);
+        vector3 = new Vector3(0.0f, -4f, 1.5f);
         break;
       case 7:
-        housePos = new Vector3(5f, -4f, 1.5f);
+        vector3 = new Vector3(5f, -4f, 1.5f);
         break;
       case 8:
-        housePos = new Vector3(9f, -4f, 1.5f);
+        vector3 = new Vector3(9f, -4f, 1.5f);
         break;
     }
-    return housePos;
+    return vector3;
   }
 
   public virtual void UseMana(int m)
@@ -2703,21 +3064,37 @@ public GameScript()
     this.LoadMana();
   }
 
-  public virtual IEnumerator ThrowPoison() => (IEnumerator) new GameScript.\u0024ThrowPoison\u00241638(this).GetEnumerator();
+  public virtual IEnumerator ThrowPoison() {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator ThrowDagger(int a) => (IEnumerator) new GameScript.\u0024ThrowDagger\u00241642(a, this).GetEnumerator();
+  public virtual IEnumerator ThrowDagger(int a) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator ThrowRock() => (IEnumerator) new GameScript.\u0024ThrowRock\u00241653(this).GetEnumerator();
+  public virtual IEnumerator ThrowRock() {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UseTotalBiscuit() => (IEnumerator) new GameScript.\u0024UseTotalBiscuit\u00241657(this).GetEnumerator();
+  public virtual IEnumerator UseTotalBiscuit() {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UseHPPotion(int heal) => (IEnumerator) new GameScript.\u0024UseHPPotion\u00241660(heal, this).GetEnumerator();
+  public virtual IEnumerator UseHPPotion(int heal) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UseManaPotion(int heal) => (IEnumerator) new GameScript.\u0024UseManaPotion\u00241666(heal, this).GetEnumerator();
+  public virtual IEnumerator UseManaPotion(int heal) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UseDrum(int drum) => (IEnumerator) new GameScript.\u0024UseDrum\u00241672(drum, this).GetEnumerator();
+  public virtual IEnumerator UseDrum(int drum) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator UseItem(int slot) => (IEnumerator) new GameScript.\u0024UseItem\u00241677(slot, this).GetEnumerator();
+  public virtual IEnumerator UseItem(int slot) {
+    throw new NotImplementedException();
+  }
 
   [RPC]
   public virtual void Poop(Vector3 pos)
@@ -2731,7 +3108,7 @@ public GameScript()
     if (GameScript.attacking)
       return;
     GameScript.attacking = true;
-    this.StartCoroutine_Auto(this.MeleeAttack());
+    this.StartCoroutine(this.MeleeAttack());
   }
 
   public virtual void UseKey()
@@ -2755,7 +3132,7 @@ public GameScript()
 
   public virtual void Bolt()
   {
-    MonoBehaviour.print((object) RuntimeServices.op_Addition((object) MenuScript.pHat, " curhat"));
+    MonoBehaviour.print((object) $"{MenuScript.pHat} curhat");
     if (GameScript.MAG < 1)
       return;
     if (MenuScript.pHat == 11)
@@ -2784,11 +3161,110 @@ public GameScript()
     this.GUImana.GetComponent<Animation>().Play();
   }
 
-  public virtual IEnumerator MeleeAttack() => (IEnumerator) new GameScript.\u0024MeleeAttack\u00241738(this).GetEnumerator();
+  public virtual IEnumerator MeleeAttack() {
+    float _0024temp_00241739;
 
-  public virtual IEnumerator v() => (IEnumerator) new GameScript.\u0024v\u00241746().GetEnumerator();
+			int _0024nuu_00241740;
 
-  public virtual IEnumerator KnockBack(Transform h) => (IEnumerator) new GameScript.\u0024KnockBack\u00241747(h).GetEnumerator();
+			int _0024id_00241741;
+
+			GameObject _0024gg_00241742;
+
+			GameObject _0024f_00241743;
+
+          _0024temp_00241739 = default(float);
+					if (canAttack && HP > 0 && !isCat)
+					{
+						ATKING = true;
+						attacking = true;
+						canAttack = false;
+						@using = true;
+						_0024temp_00241739 = SPD;
+						SPD *= 0.5f;
+						PlayerController.mode = 3;
+						player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, atkAnim);
+						if (MenuScript.pHat == 19)
+						{
+							_0024nuu_00241740 = UnityEngine.Random.Range(0, 10);
+							if (_0024nuu_00241740 == 0)
+							{
+								vBonus = ATK;
+								player.GetComponent<NetworkView>().RPC("VN", RPCMode.All, 1);
+							}
+						}
+						yield return new WaitForSeconds(atkWait);
+					}
+					PlayerControllerN.aCube.SetActive(true);
+					_0024id_00241741 = inventory[curActiveSlot].id;
+					if (_0024id_00241741 == 565 && MAG >= 1)
+					{
+						UseMana(1);
+						Network.Instantiate(Resources.Load("haz/fE"), PlayerControllerN.aCube.transform.position, Quaternion.identity, 0);
+					}
+					else if (_0024id_00241741 == 568)
+					{
+						Ice();
+					}
+					else if (_0024id_00241741 == 569)
+					{
+						Fireball();
+					}
+					else if (_0024id_00241741 == 570)
+					{
+						Bolt();
+					}
+					if (MenuScript.pHat == 8 && _0024id_00241741 == 0 && MAG >= 1)
+					{
+						UseMana(1);
+						_0024gg_00241742 = (GameObject)Network.Instantiate(Resources.Load("rckP"), new Vector3(PlayerControllerN.aCube.transform.position.x, player.transform.position.y + 35f, 0f), Quaternion.identity, 0);
+						_0024gg_00241742.GetComponent<NetworkView>().RPC("SetH", RPCMode.All, MAXMAG);
+					}
+					else if (MenuScript.pHat == 16 && _0024id_00241741 == 0 && MAG >= 1)
+					{
+						UseMana(1);
+						_0024f_00241743 = null;
+						if (facingLeft)
+						{
+							_0024f_00241743 = (GameObject)Network.Instantiate(Resources.Load("proj/fireballL"), player.transform.position, Quaternion.identity, 0);
+						}
+						else
+						{
+							_0024f_00241743 = (GameObject)Network.Instantiate(Resources.Load("proj/fireballR"), player.transform.position, Quaternion.identity, 0);
+						}
+						_0024f_00241743.SendMessage("Set", MAXMAG);
+					}
+					else if (MenuScript.pHat == 21 && _0024id_00241741 == 0 && MAG > 0)
+					{
+						if (facingLeft)
+						{
+							Network.Instantiate(Resources.Load("e/summon"), player.transform.position, Quaternion.Euler(0f, 180f, 0f), 0);
+						}
+						else
+						{
+							Network.Instantiate(Resources.Load("e/summon"), player.transform.position, Quaternion.Euler(0f, 0f, 0f), 0);
+						}
+						UseMana(1);
+					}
+					yield return new WaitForSeconds(0.2f);
+					PlayerControllerN.aCube.SetActive(false);
+					if (vBonus > 0)
+					{
+						StartCoroutine_Auto(v());
+					}
+					SPD = _0024temp_00241739;
+					canAttack = true;
+					@using = false;
+					attacking = false;
+					ATKING = false;
+  }
+
+  public virtual IEnumerator v() {
+    throw new NotImplementedException();
+  }
+
+  public virtual IEnumerator KnockBack(Transform h) {
+    throw new NotImplementedException();
+  }
 
   public virtual void SelectOneItemNPC(int slot)
   {
@@ -3075,10 +3551,10 @@ public GameScript()
         if (GameScript.player.GetComponent<NetworkView>().isMine)
         {
           PlayerControllerN.armor = 0;
-          int num6 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+          int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
           int armor = PlayerControllerN.armor;
           int offhand = PlayerControllerN.offhand;
-          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num6, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
         }
         for (int index = 0; index < 4; ++index)
         {
@@ -3091,11 +3567,11 @@ public GameScript()
         if (GameScript.player.GetComponent<NetworkView>().isMine)
         {
           PlayerControllerN.offhand = 0;
-          int num7 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+          int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
           int armor = PlayerControllerN.armor;
           int offhand = PlayerControllerN.offhand;
-          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num7, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
-          this.inventoryQ[slot].text = RuntimeServices.op_Addition(string.Empty, (object) GameScript.inventory[slot].q);
+          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+          this.inventoryQ[slot].text = $"{inventory[slot].q}";
         }
         for (int index = 0; index < 4; ++index)
         {
@@ -3126,10 +3602,10 @@ public GameScript()
 
   public virtual void UpdateHoldingItem()
   {
-    this.sSelected.GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("i/i", (object) this.itemSelected.id));
+    this.sSelected.GetComponent<Renderer>().material = (Material) Resources.Load($"i/i{this.itemSelected.id}");
     this.sSelected.SetActive(true);
     if (this.itemSelected.q > 1)
-      this.selectedQ.text = RuntimeServices.op_Addition(string.Empty, (object) this.itemSelected.q);
+      this.selectedQ.text = $"{this.itemSelected.q}";
     else
       this.selectedQ.text = string.Empty;
   }
@@ -3218,23 +3694,21 @@ public GameScript()
   {
     if (GameScript.npcInventory[0].id != 0 && GameScript.npcInventory[1].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[0].id, "c"), (object) GameScript.npcInventory[1].id);
+      string str1 = $"{npcInventory[0].id}c{npcInventory[1].id}";
       this.lowestQ = GameScript.npcInventory[0].q >= GameScript.npcInventory[1].q ? GameScript.npcInventory[1].q : GameScript.npcInventory[0].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "4c4")
+        this.CraftShow(12, this.lowestQ, 11);
+      else if (str2 == "5c5")
+        this.CraftShow(13, this.lowestQ, 11);
+      else if (str2 == "6c6")
       {
-        case "4c4":
-          this.CraftShow(12, this.lowestQ, 11);
-          break;
-        case "5c5":
-          this.CraftShow(13, this.lowestQ, 11);
-          break;
-        case "6c6":
-          this.CraftShow(14, this.lowestQ, 11);
-          break;
-        default:
-          GameScript.npcInventory[11] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(14, this.lowestQ, 11);
+      }
+      else
+      {
+        GameScript.npcInventory[11] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3248,29 +3722,25 @@ public GameScript()
   {
     if (GameScript.npcInventory[0].id != 0 && GameScript.npcInventory[1].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[0].id, "c"), (object) GameScript.npcInventory[1].id);
+      string str1 = $"{npcInventory[0].id}c{npcInventory[1].id}";
       this.lowestQ = GameScript.npcInventory[0].q >= GameScript.npcInventory[1].q ? GameScript.npcInventory[1].q : GameScript.npcInventory[0].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "82c39")
+        this.CraftShow(83, this.lowestQ, 11);
+      else if (str2 == "82c51")
+        this.CraftShow(84, this.lowestQ, 11);
+      else if (str2 == "82c12")
+        this.CraftShow(85, this.lowestQ, 11);
+      else if (str2 == "82c13")
+        this.CraftShow(86, this.lowestQ, 11);
+      else if (str2 == "82c14")
       {
-        case "82c39":
-          this.CraftShow(83, this.lowestQ, 11);
-          break;
-        case "82c51":
-          this.CraftShow(84, this.lowestQ, 11);
-          break;
-        case "82c12":
-          this.CraftShow(85, this.lowestQ, 11);
-          break;
-        case "82c13":
-          this.CraftShow(86, this.lowestQ, 11);
-          break;
-        case "82c14":
-          this.CraftShow(87, this.lowestQ, 11);
-          break;
-        default:
-          GameScript.npcInventory[11] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(87, this.lowestQ, 11);
+      }
+      else
+      {
+        GameScript.npcInventory[11] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3284,29 +3754,25 @@ public GameScript()
   {
     if (GameScript.npcInventory[0].id != 0 && GameScript.npcInventory[1].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[0].id, "c"), (object) GameScript.npcInventory[1].id);
+      string str1 = $"{GameScript.npcInventory[0].id}c{npcInventory[1].id}";
       this.lowestQ = GameScript.npcInventory[0].q >= GameScript.npcInventory[1].q ? GameScript.npcInventory[1].q : GameScript.npcInventory[0].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "94c39")
+        this.CraftShow(88, this.lowestQ, 11);
+      else if (str2 == "94c51")
+        this.CraftShow(89, this.lowestQ, 11);
+      else if (str2 == "94c12")
+        this.CraftShow(90, this.lowestQ, 11);
+      else if (str2 == "94c13")
+        this.CraftShow(91, this.lowestQ, 11);
+      else if (str2 == "94c14")
       {
-        case "94c39":
-          this.CraftShow(88, this.lowestQ, 11);
-          break;
-        case "94c51":
-          this.CraftShow(89, this.lowestQ, 11);
-          break;
-        case "94c12":
-          this.CraftShow(90, this.lowestQ, 11);
-          break;
-        case "94c13":
-          this.CraftShow(91, this.lowestQ, 11);
-          break;
-        case "94c14":
-          this.CraftShow(92, this.lowestQ, 11);
-          break;
-        default:
-          GameScript.npcInventory[11] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(92, this.lowestQ, 11);
+      }
+      else
+      {
+        GameScript.npcInventory[11] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3320,34 +3786,30 @@ public GameScript()
   {
     if (GameScript.npcInventory[2].id != 0 && GameScript.npcInventory[3].id != 0 && GameScript.npcInventory[4].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[2].id, "c"), (object) GameScript.npcInventory[3].id), "c"), (object) GameScript.npcInventory[4].id);
+      string str1 = $"{npcInventory[2].id}c{npcInventory[3].id}c{npcInventory[4].id}";
       int num = new int();
       this.lowestQ = GameScript.npcInventory[2].q;
       if (GameScript.npcInventory[3].q < this.lowestQ)
         this.lowestQ = GameScript.npcInventory[3].q;
       if (GameScript.npcInventory[4].q < this.lowestQ)
         this.lowestQ = GameScript.npcInventory[4].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "83c83c83")
+        this.CraftShow(705, 1, 12);
+      else if (str2 == "84c84c84")
+        this.CraftShow(706, 1, 12);
+      else if (str2 == "85c85c85")
+        this.CraftShow(707, 1, 12);
+      else if (str2 == "86c86c86")
+        this.CraftShow(708, 1, 12);
+      else if (str2 == "87c87c87")
       {
-        case "83c83c83":
-          this.CraftShow(705, 1, 12);
-          break;
-        case "84c84c84":
-          this.CraftShow(706, 1, 12);
-          break;
-        case "85c85c85":
-          this.CraftShow(707, 1, 12);
-          break;
-        case "86c86c86":
-          this.CraftShow(708, 1, 12);
-          break;
-        case "87c87c87":
-          this.CraftShow(709, 1, 12);
-          break;
-        default:
-          GameScript.npcInventory[12] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(709, 1, 12);
+      }
+      else
+      {
+        GameScript.npcInventory[12] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3361,34 +3823,30 @@ public GameScript()
   {
     if (GameScript.npcInventory[2].id != 0 && GameScript.npcInventory[3].id != 0 && GameScript.npcInventory[4].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[2].id, "c"), (object) GameScript.npcInventory[3].id), "c"), (object) GameScript.npcInventory[4].id);
+      string str1 = $"{npcInventory[2].id}c{npcInventory[3].id}c{npcInventory[4].id}";
       int num = new int();
       this.lowestQ = GameScript.npcInventory[2].q;
       if (GameScript.npcInventory[3].q < this.lowestQ)
         this.lowestQ = GameScript.npcInventory[3].q;
       if (GameScript.npcInventory[4].q < this.lowestQ)
         this.lowestQ = GameScript.npcInventory[4].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "88c88c88")
+        this.CraftShow(710, 1, 12);
+      else if (str2 == "89c89c89")
+        this.CraftShow(711, 1, 12);
+      else if (str2 == "90c90c90")
+        this.CraftShow(712, 1, 12);
+      else if (str2 == "91c91c91")
+        this.CraftShow(713, 1, 12);
+      else if (str2 == "92c92c92")
       {
-        case "88c88c88":
-          this.CraftShow(710, 1, 12);
-          break;
-        case "89c89c89":
-          this.CraftShow(711, 1, 12);
-          break;
-        case "90c90c90":
-          this.CraftShow(712, 1, 12);
-          break;
-        case "91c91c91":
-          this.CraftShow(713, 1, 12);
-          break;
-        case "92c92c92":
-          this.CraftShow(714, 1, 12);
-          break;
-        default:
-          GameScript.npcInventory[12] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(714, 1, 12);
+      }
+      else
+      {
+        GameScript.npcInventory[12] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3402,34 +3860,30 @@ public GameScript()
   {
     if (GameScript.npcInventory[2].id != 0 && GameScript.npcInventory[3].id != 0 && GameScript.npcInventory[4].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[2].id, "c"), (object) GameScript.npcInventory[3].id), "c"), (object) GameScript.npcInventory[4].id);
+      string str1 = $"{npcInventory[2].id}c{npcInventory[3].id}c{npcInventory[4].id}";
       int num = new int();
       this.lowestQ = GameScript.npcInventory[2].q;
       if (GameScript.npcInventory[3].q < this.lowestQ)
         this.lowestQ = GameScript.npcInventory[3].q;
       if (GameScript.npcInventory[4].q < this.lowestQ)
         this.lowestQ = GameScript.npcInventory[4].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "12c12c12")
+        this.CraftShow(700, 1, 12);
+      else if (str2 == "13c13c13")
+        this.CraftShow(701, 1, 12);
+      else if (str2 == "14c14c14")
+        this.CraftShow(702, 1, 12);
+      else if (str2 == "39c39c39")
+        this.CraftShow(703, 1, 12);
+      else if (str2 == "51c51c51")
       {
-        case "12c12c12":
-          this.CraftShow(700, 1, 12);
-          break;
-        case "13c13c13":
-          this.CraftShow(701, 1, 12);
-          break;
-        case "14c14c14":
-          this.CraftShow(702, 1, 12);
-          break;
-        case "39c39c39":
-          this.CraftShow(703, 1, 12);
-          break;
-        case "51c51c51":
-          this.CraftShow(704, 1, 12);
-          break;
-        default:
-          GameScript.npcInventory[12] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(704, 1, 12);
+      }
+      else
+      {
+        GameScript.npcInventory[12] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3443,7 +3897,7 @@ public GameScript()
   {
     if (GameScript.npcInventory[5].id != 0 && GameScript.npcInventory[6].id != 0 && GameScript.npcInventory[7].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[5].id, "c"), (object) GameScript.npcInventory[6].id), "c"), (object) GameScript.npcInventory[7].id);
+      string str1 = $"{npcInventory[5].id}c{npcInventory[6].id}c{npcInventory[7].id}";
       int num = new int();
       this.lowestQ = GameScript.npcInventory[5].q;
       if (this.lowestQ <= GameScript.npcInventory[6].q)
@@ -3452,29 +3906,25 @@ public GameScript()
       if (this.lowestQ <= GameScript.npcInventory[6].q)
         ;
       this.lowestQ = GameScript.npcInventory[6].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "83c83c83")
+        this.CraftShow(805, 1, 13);
+      else if (str2 == "84c84c84")
+        this.CraftShow(806, 1, 13);
+      else if (str2 == "85c85c85")
+        this.CraftShow(807, 1, 13);
+      else if (str2 == "86c86c86")
+        this.CraftShow(808, 1, 13);
+      else if (str2 == "87c87c87")
       {
-        case "83c83c83":
-          this.CraftShow(805, 1, 13);
-          break;
-        case "84c84c84":
-          this.CraftShow(806, 1, 13);
-          break;
-        case "85c85c85":
-          this.CraftShow(807, 1, 13);
-          break;
-        case "86c86c86":
-          this.CraftShow(808, 1, 13);
-          break;
-        case "87c87c87":
-          this.CraftShow(809, 1, 13);
-          break;
-        default:
-          GameScript.npcInventory[13] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          this.RefreshLeatherworker();
-          this.RefreshTailor();
-          break;
+        this.CraftShow(809, 1, 13);
+      }
+      else
+      {
+        GameScript.npcInventory[13] = this.EmptyItem();
+        this.RefreshBlacksmith();
+        this.RefreshLeatherworker();
+        this.RefreshTailor();
       }
     }
     else
@@ -3490,7 +3940,7 @@ public GameScript()
   {
     if (GameScript.npcInventory[5].id != 0 && GameScript.npcInventory[6].id != 0 && GameScript.npcInventory[7].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[5].id, "c"), (object) GameScript.npcInventory[6].id), "c"), (object) GameScript.npcInventory[7].id);
+      string str1 = $"{npcInventory[5].id}c{npcInventory[6].id}c{npcInventory[7].id}";
       int num = new int();
       this.lowestQ = GameScript.npcInventory[5].q;
       if (this.lowestQ <= GameScript.npcInventory[6].q)
@@ -3499,29 +3949,25 @@ public GameScript()
       if (this.lowestQ <= GameScript.npcInventory[6].q)
         ;
       this.lowestQ = GameScript.npcInventory[6].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "88c88c88")
+        this.CraftShow(810, 1, 13);
+      else if (str2 == "89c89c89")
+        this.CraftShow(811, 1, 13);
+      else if (str2 == "90c90c90")
+        this.CraftShow(812, 1, 13);
+      else if (str2 == "91c91c91")
+        this.CraftShow(813, 1, 13);
+      else if (str2 == "92c92c92")
       {
-        case "88c88c88":
-          this.CraftShow(810, 1, 13);
-          break;
-        case "89c89c89":
-          this.CraftShow(811, 1, 13);
-          break;
-        case "90c90c90":
-          this.CraftShow(812, 1, 13);
-          break;
-        case "91c91c91":
-          this.CraftShow(813, 1, 13);
-          break;
-        case "92c92c92":
-          this.CraftShow(814, 1, 13);
-          break;
-        default:
-          GameScript.npcInventory[13] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          this.RefreshLeatherworker();
-          this.RefreshTailor();
-          break;
+        this.CraftShow(814, 1, 13);
+      }
+      else
+      {
+        GameScript.npcInventory[13] = this.EmptyItem();
+        this.RefreshBlacksmith();
+        this.RefreshLeatherworker();
+        this.RefreshTailor();
       }
     }
     else
@@ -3537,7 +3983,7 @@ public GameScript()
   {
     if (GameScript.npcInventory[5].id != 0 && GameScript.npcInventory[6].id != 0 && GameScript.npcInventory[7].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[5].id, "c"), (object) GameScript.npcInventory[6].id), "c"), (object) GameScript.npcInventory[7].id);
+      string str1 = $"{npcInventory[5].id}c{npcInventory[6].id}c{npcInventory[7].id}";
       int num = new int();
       this.lowestQ = GameScript.npcInventory[5].q;
       if (this.lowestQ <= GameScript.npcInventory[6].q)
@@ -3546,27 +3992,23 @@ public GameScript()
       if (this.lowestQ <= GameScript.npcInventory[6].q)
         ;
       this.lowestQ = GameScript.npcInventory[6].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "12c12c12")
+        this.CraftShow(800, 1, 13);
+      else if (str2 == "13c13c13")
+        this.CraftShow(801, 1, 13);
+      else if (str2 == "14c14c14")
+        this.CraftShow(802, 1, 13);
+      else if (str2 == "39c39c39")
+        this.CraftShow(803, 1, 13);
+      else if (str2 == "51c51c51")
       {
-        case "12c12c12":
-          this.CraftShow(800, 1, 13);
-          break;
-        case "13c13c13":
-          this.CraftShow(801, 1, 13);
-          break;
-        case "14c14c14":
-          this.CraftShow(802, 1, 13);
-          break;
-        case "39c39c39":
-          this.CraftShow(803, 1, 13);
-          break;
-        case "51c51c51":
-          this.CraftShow(804, 1, 13);
-          break;
-        default:
-          GameScript.npcInventory[13] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(804, 1, 13);
+      }
+      else
+      {
+        GameScript.npcInventory[13] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3580,7 +4022,7 @@ public GameScript()
   {
     if (GameScript.npcInventory[8].id != 0 && GameScript.npcInventory[9].id != 0 && GameScript.npcInventory[10].id != 0)
     {
-      string str = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.npcInventory[8].id, "c"), (object) GameScript.npcInventory[9].id), "c"), (object) GameScript.npcInventory[10].id);
+      string str1 = $"{npcInventory[8].id}c{npcInventory[9].id}c{npcInventory[10].id}";
       int num = new int();
       this.lowestQ = GameScript.npcInventory[8].q;
       if (this.lowestQ <= GameScript.npcInventory[9].q)
@@ -3589,27 +4031,23 @@ public GameScript()
       if (this.lowestQ <= GameScript.npcInventory[10].q)
         ;
       this.lowestQ = GameScript.npcInventory[10].q;
-      switch (str)
+      string str2 = str1;
+      if (str2 == "12c12c12")
+        this.CraftShow(900, 1, 14);
+      else if (str2 == "13c13c13")
+        this.CraftShow(901, 1, 14);
+      else if (str2 == "14c14c14")
+        this.CraftShow(902, 1, 14);
+      else if (str2 == "39c39c39")
+        this.CraftShow(903, 1, 14);
+      else if (str2 == "51c51c51")
       {
-        case "12c12c12":
-          this.CraftShow(900, 1, 14);
-          break;
-        case "13c13c13":
-          this.CraftShow(901, 1, 14);
-          break;
-        case "14c14c14":
-          this.CraftShow(902, 1, 14);
-          break;
-        case "39c39c39":
-          this.CraftShow(903, 1, 14);
-          break;
-        case "51c51c51":
-          this.CraftShow(904, 1, 14);
-          break;
-        default:
-          GameScript.npcInventory[14] = this.EmptyItem();
-          this.RefreshBlacksmith();
-          break;
+        this.CraftShow(904, 1, 14);
+      }
+      else
+      {
+        GameScript.npcInventory[14] = this.EmptyItem();
+        this.RefreshBlacksmith();
       }
     }
     else
@@ -3661,10 +4099,10 @@ public GameScript()
             if (GameScript.player.GetComponent<NetworkView>().isMine)
             {
               PlayerControllerN.armor = GameScript.inventory[slot].id;
-              int num6 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+              int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
               int armor = PlayerControllerN.armor;
               int offhand = PlayerControllerN.offhand;
-              GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num6, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+              GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
             }
             for (int index = 0; index < 4; ++index)
               GameScript.tempGearStat[index] = GameScript.tempGearStat[index] + GameScript.inventory[slot].e[index];
@@ -3685,10 +4123,10 @@ public GameScript()
             if (GameScript.player.GetComponent<NetworkView>().isMine)
             {
               PlayerControllerN.offhand = GameScript.inventory[slot].id;
-              int num7 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+              int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
               int armor = PlayerControllerN.armor;
               int offhand = PlayerControllerN.offhand;
-              GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num7, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+              GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
             }
             this.itemSelected = this.EmptyItem();
             this.sSelected.SetActive(false);
@@ -3702,7 +4140,7 @@ public GameScript()
             this.holdingItem = false;
             GameScript.inventory[slot] = this.itemSelected;
             this.itemSelected = this.EmptyItem();
-            this.inventoryQ[slot].text = RuntimeServices.op_Addition(string.Empty, (object) GameScript.inventory[slot].q);
+            this.inventoryQ[slot].text = $"{inventory[slot].q}";
             this.sSelected.SetActive(false);
             this.RefreshInventory();
             break;
@@ -3773,8 +4211,8 @@ public GameScript()
       if (GameScript.npcInventory[index].id != 0)
       {
         this.bSmithObject[index].GetComponent<Renderer>().enabled = true;
-        this.bSmithObject[index].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("i/i", (object) GameScript.npcInventory[index].id));
-        this.bSmithText[index].text = GameScript.npcInventory[index].q <= 1 || GameScript.npcInventory[index].id >= 500 ? string.Empty : RuntimeServices.op_Addition(string.Empty, (object) GameScript.npcInventory[index].q);
+        this.bSmithObject[index].GetComponent<Renderer>().material = (Material) Resources.Load($"i/i{npcInventory[index].id}");
+        this.bSmithText[index].text = GameScript.npcInventory[index].q <= 1 || GameScript.npcInventory[index].id >= 500 ? string.Empty : $"{npcInventory[index].q}";
       }
       else
       {
@@ -3796,8 +4234,8 @@ public GameScript()
       if (GameScript.npcInventory[index].id != 0)
       {
         this.bSmithObject[index].GetComponent<Renderer>().enabled = true;
-        this.bSmithObject[index].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("i/i", (object) GameScript.npcInventory[index].id));
-        this.bSmithText[index].text = GameScript.npcInventory[index].q <= 1 || GameScript.npcInventory[index].id >= 500 ? string.Empty : RuntimeServices.op_Addition(string.Empty, (object) GameScript.npcInventory[index].q);
+        this.bSmithObject[index].GetComponent<Renderer>().material = (Material) Resources.Load($"i/i{npcInventory[index].id}");
+        this.bSmithText[index].text = GameScript.npcInventory[index].q <= 1 || GameScript.npcInventory[index].id >= 500 ? string.Empty : $"{npcInventory[index].q}";
       }
       else
       {
@@ -3819,8 +4257,8 @@ public GameScript()
       if (GameScript.npcInventory[index].id != 0)
       {
         this.bSmithObject[index].GetComponent<Renderer>().enabled = true;
-        this.bSmithObject[index].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("i/i", (object) GameScript.npcInventory[index].id));
-        this.bSmithText[index].text = GameScript.npcInventory[index].q <= 1 || GameScript.npcInventory[index].id >= 500 ? string.Empty : RuntimeServices.op_Addition(string.Empty, (object) GameScript.npcInventory[index].q);
+        this.bSmithObject[index].GetComponent<Renderer>().material = (Material) Resources.Load($"i/i{npcInventory[index].id}");
+        this.bSmithText[index].text = GameScript.npcInventory[index].q <= 1 || GameScript.npcInventory[index].id >= 500 ? string.Empty : $"{npcInventory[index].q}";
       }
       else
       {
@@ -4259,10 +4697,10 @@ public GameScript()
         if (GameScript.player.GetComponent<NetworkView>().isMine)
         {
           PlayerControllerN.armor = GameScript.inventory[slot].id;
-          int num6 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+          int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
           int armor = PlayerControllerN.armor;
           int offhand = PlayerControllerN.offhand;
-          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num6, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
           break;
         }
         break;
@@ -4275,10 +4713,10 @@ public GameScript()
         if (GameScript.player.GetComponent<NetworkView>().isMine)
         {
           PlayerControllerN.offhand = GameScript.inventory[slot].id;
-          int num7 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
+          int num5 = PlayerControllerN.helm <= 0 ? MenuScript.pVariant : PlayerControllerN.helm;
           int armor = PlayerControllerN.armor;
           int offhand = PlayerControllerN.offhand;
-          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num7, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
+          GameScript.player.GetComponent<NetworkView>().RPC("UpdateAppearance", RPCMode.All, (object) num5, (object) armor, (object) MenuScript.pRace, (object) offhand, (object) MenuScript.pHat);
           break;
         }
         break;
@@ -4417,24 +4855,24 @@ public GameScript()
   {
     int num = new int();
     this.DeleteInventory();
-    for (int rhs = 0; rhs < 31; ++rhs)
+    for (int index = 0; index < 31; ++index)
     {
-      GameScript.inventory[rhs].id = PlayerPrefs.GetInt(RuntimeServices.op_Addition("id", (object) rhs));
-      GameScript.inventory[rhs].q = PlayerPrefs.GetInt(RuntimeServices.op_Addition("q", (object) rhs));
-      GameScript.inventory[rhs].d = PlayerPrefs.GetInt(RuntimeServices.op_Addition("d", (object) rhs));
+      GameScript.inventory[index].id = PlayerPrefs.GetInt($"id{index}");
+      GameScript.inventory[index].q = PlayerPrefs.GetInt($"q{index}");
+      GameScript.inventory[index].d = PlayerPrefs.GetInt($"d{index}");
     }
   }
 
   public virtual void SaveInventory()
   {
     int num = new int();
-    for (int rhs = 0; rhs < 31; ++rhs)
+    for (int index = 0; index < 31; ++index)
     {
-      if (GameScript.inventory[rhs] != null)
+      if (GameScript.inventory[index] != null)
       {
-        PlayerPrefs.SetInt(RuntimeServices.op_Addition("id", (object) rhs), GameScript.inventory[rhs].id);
-        PlayerPrefs.SetInt(RuntimeServices.op_Addition("q", (object) rhs), GameScript.inventory[rhs].q);
-        PlayerPrefs.SetInt(RuntimeServices.op_Addition("d", (object) rhs), GameScript.inventory[rhs].d);
+        PlayerPrefs.SetInt($"id{index}", GameScript.inventory[index].id);
+        PlayerPrefs.SetInt($"q{index}", GameScript.inventory[index].q);
+        PlayerPrefs.SetInt($"d{index}", GameScript.inventory[index].d);
       }
     }
   }
@@ -4449,7 +4887,7 @@ public GameScript()
     numArray[2] = numArray[2] + GameScript.drumDEX;
     numArray[3] = numArray[3] + GameScript.drumMAG;
     for (int a = 0; a < 4; ++a)
-      this.txtPlayerStat[a].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition(this.GetStatName(a), ": "), (object) numArray[a]);
+      this.txtPlayerStat[a].text = $"{this.GetStatName(a)}: {numArray[a]}";
     GameScript.MAXHP = numArray[0] <= 0 ? 1 : numArray[0];
     GameScript.MAXMAG = numArray[3];
     this.LoadHearts();
@@ -4489,7 +4927,7 @@ public GameScript()
       }
       for (int index = 0; index < 20; ++index)
       {
-        if (GameScript.inventory[index].id == item.id && GameScript.inventory[index].q < 99 || GameScript.inventory[index].id == item.id && GameScript.inventory[index].id >= 52 && GameScript.inventory[index].id <= 56 && GameScript.inventory[index].q < 999)
+        if (GameScript.inventory[index].id == item.id && GameScript.inventory[index].q < 99 || GameScript.inventory[index].id == item.id && GameScript.inventory[index].id >= 52 && (GameScript.inventory[index].id <= 56 && GameScript.inventory[index].q < 999))
         {
           GameScript.inventory[index].q += item.q;
           num2 = 1;
@@ -4547,7 +4985,7 @@ public GameScript()
       this.gearStats.SetActive(true);
       this.txtDesc.gameObject.SetActive(false);
       this.txtInfoName[0].text = this.GetGearName(id);
-      this.txtDur.text = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition("Durability: ", (object) GameScript.inventory[slot].d), "/"), (object) this.GetMaxDurability(id));
+      this.txtDur.text = $"Durability: {inventory[slot].d}/{GetMaxDurability(id)}";
       if (GameScript.inventory[slot].tier == 3)
         this.txtInfoName[0].gameObject.GetComponent<Renderer>().material.color = Color.magenta;
       else if (GameScript.inventory[slot].tier == 2)
@@ -4561,17 +4999,17 @@ public GameScript()
       {
         if (GameScript.inventory[slot].e[a] > 0)
         {
-          this.txtGearStat[a].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition(this.GetStatName(a), "+ "), (object) GameScript.inventory[slot].e[a]);
+          this.txtGearStat[a].text = $"{this.GetStatName(a)}+ {inventory[slot].e[a]}";
           this.txtGearStat[a].gameObject.GetComponent<Renderer>().material.color = Color.green;
         }
         else if (GameScript.inventory[slot].e[a] < 0)
         {
-          this.txtGearStat[a].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition(this.GetStatName(a), string.Empty), (object) GameScript.inventory[slot].e[a]);
+          this.txtGearStat[a].text = $"{this.GetStatName(a)}{inventory[slot].e[a]}";
           this.txtGearStat[a].gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
         else
         {
-          this.txtGearStat[a].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition(this.GetStatName(a), "+ "), (object) 0);
+          this.txtGearStat[a].text = $"{this.GetStatName(a)}+ {0}";
           this.txtGearStat[a].gameObject.GetComponent<Renderer>().material.color = Color.white;
         }
       }
@@ -4618,7 +5056,7 @@ public GameScript()
 
   public virtual void SelectSlot(int a)
   {
-    if (this.@using || this.usingItem || this.usingPot || this.ATKING)
+    if (this.@using || this.usingItem || (this.usingPot || this.ATKING))
       return;
     GameScript.curActiveSlot = a;
     this.UpdateCharacterWeapon();
@@ -4627,7 +5065,7 @@ public GameScript()
 
   public virtual void Scroll(int dir)
   {
-    if (this.@using || this.usingItem || this.usingPot || this.ATKING)
+    if (this.@using || this.usingItem || (this.usingPot || this.ATKING))
       return;
     if (dir == 0)
     {
@@ -4647,19 +5085,19 @@ public GameScript()
 
   public virtual Vector3 GetSelectPos(object slot)
   {
-    Vector3 selectPos = new Vector3();
+    Vector3 vector3 = new Vector3();
     object lhs = slot;
-    if (RuntimeServices.EqualityOperator(lhs, (object) 0))
-      selectPos = new Vector3(-18.75f, 11.05f, 8.75f);
-    else if (RuntimeServices.EqualityOperator(lhs, (object) 1))
-      selectPos = new Vector3(-16.85f, 11.05f, 8.75f);
-    else if (RuntimeServices.EqualityOperator(lhs, (object) 2))
-      selectPos = new Vector3(-15f, 11.05f, 8.75f);
-    else if (RuntimeServices.EqualityOperator(lhs, (object) 3))
-      selectPos = new Vector3(-13.15f, 11.05f, 8.75f);
-    else if (RuntimeServices.EqualityOperator(lhs, (object) 4))
-      selectPos = new Vector3(-11.25f, 11.05f, 8.75f);
-    return selectPos;
+    if (lhs.Equals(0))
+      vector3 = new Vector3(-18.75f, 11.05f, 8.75f);
+    else if (lhs.Equals(1))
+      vector3 = new Vector3(-16.85f, 11.05f, 8.75f);
+    else if (lhs.Equals(2))
+      vector3 = new Vector3(-15f, 11.05f, 8.75f);
+    else if (lhs.Equals(3))
+      vector3 = new Vector3(-13.15f, 11.05f, 8.75f);
+    else if (lhs.Equals(4))
+      vector3 = new Vector3(-11.25f, 11.05f, 8.75f);
+    return vector3;
   }
 
   public virtual void Close()
@@ -4686,11 +5124,11 @@ public GameScript()
 
   public virtual void SetTextInfo()
   {
-    this.txtName.text = RuntimeServices.op_Addition(string.Empty, MenuScript.curName);
-    this.txtLevel.text = RuntimeServices.op_Addition("Lv.", (object) GameScript.playerLevel);
-    this.txtBarInfo[0].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.HP, "/"), (object) GameScript.MAXHP);
-    this.txtBarInfo[1].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.MAG, "/"), (object) GameScript.MAXMAG);
-    this.txtBarInfo[3].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) this.stamina, "/"), (object) this.maxStamina);
+    this.txtName.text = $"{MenuScript.curName}";
+    this.txtLevel.text = $"Lv.{playerLevel}";
+    this.txtBarInfo[0].text = $"{HP}/{MAXHP}";
+    this.txtBarInfo[1].text = $"{MAG}/{MAXMAG}";
+    this.txtBarInfo[3].text = $"{this.stamina}/{this.maxStamina}";
   }
 
   public virtual void OpenInventory()
@@ -4755,8 +5193,8 @@ public GameScript()
       if (GameScript.inventory[index].id != 0)
       {
         this.inventorySlot[index].GetComponent<Renderer>().enabled = true;
-        this.inventorySlot[index].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("i/i", (object) GameScript.inventory[index].id));
-        this.inventoryQ[index].text = GameScript.inventory[index].q <= 1 ? string.Empty : RuntimeServices.op_Addition(string.Empty, (object) GameScript.inventory[index].q);
+        this.inventorySlot[index].GetComponent<Renderer>().material = (Material) Resources.Load($"i/i{inventory[index].id}");
+        this.inventoryQ[index].text = GameScript.inventory[index].q <= 1 ? string.Empty : $"{inventory[index].q}";
       }
       else
       {
@@ -4773,16 +5211,16 @@ public GameScript()
       if (GameScript.inventory[index].id != 0)
       {
         this.inventorySlot[index].GetComponent<Renderer>().enabled = true;
-        this.inventorySlot[index].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("i/i", (object) GameScript.inventory[index].id));
+        this.inventorySlot[index].GetComponent<Renderer>().material = (Material) Resources.Load($"i/i{inventory[index].id}");
         if (GameScript.inventory[index].q > 1)
         {
           if (index < 20 || index > 25)
-            this.inventoryQ[index].text = RuntimeServices.op_Addition(string.Empty, (object) GameScript.inventory[index].q);
+            this.inventoryQ[index].text = $"{inventory[index].q}";
         }
         else if (index < 20 || index > 25)
           this.inventoryQ[index].text = string.Empty;
         if (index == 23)
-          this.inventoryQ[index].text = GameScript.inventory[index].q <= 1 ? string.Empty : RuntimeServices.op_Addition(string.Empty, (object) GameScript.inventory[index].q);
+          this.inventoryQ[index].text = GameScript.inventory[index].q <= 1 ? string.Empty : $"{inventory[index].q}";
       }
       else
       {
@@ -4795,21 +5233,139 @@ public GameScript()
     }
   }
 
-  public virtual IEnumerator GenerateLevel() => (IEnumerator) new GameScript.\u0024GenerateLevel\u00241760(this).GetEnumerator();
+  public virtual IEnumerator GenerateLevel() {
+          int enterHeight = 0;
+					int exitHeight = 0;
+					int type = default(int);
+					int height = 0;
+					curZone = 0;
+					if (Network.isServer && !generatingLevel)
+					{
+						generatingLevel = true;
+						Network.Instantiate(Resources.Load("z/zEntrance"), new Vector3(0f, 0f, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+						int randInt = UnityEngine.Random.Range(4, 6);
+						for (int i = 0; i < randInt; i++)
+						{
+							if (curBiome != 8 && curBiome != 9)
+							{
+								type = UnityEngine.Random.Range(1, 9);
+							}
+							else if (curBiome == 8)
+							{
+								type = UnityEngine.Random.Range(1, 3);
+							}
+							else if (curBiome == 9)
+							{
+								type = UnityEngine.Random.Range(1, 4);
+								if (type == 3)
+								{
+									type = 7;
+								}
+							}
+							if (type == 1)
+							{
+								enterHeight -= 8;
+							}
+							else if (type == 2)
+							{
+								enterHeight += 8;
+							}
+							else if (type == 3)
+							{
+								enterHeight -= 8;
+							}
+							else if (type == 4)
+							{
+								enterHeight += 8;
+							}
+							else if (type == 5)
+							{
+								enterHeight -= 8;
+							}
+							else if (type == 6)
+							{
+								enterHeight += 8;
+							}
+							else if (type == 7)
+							{
+								enterHeight += 0;
+							}
+							else if (type == 8)
+							{
+								enterHeight += 0;
+							}
+							else if (type == 9)
+							{
+								enterHeight += 8;
+							}
+							else if (type == 10)
+							{
+								enterHeight += 0;
+							}
+							height = exitHeight + enterHeight;
+							Network.Instantiate(Resources.Load("z/zone" + type), new Vector3(i * 64 + 40, height, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+							if (type == 1)
+							{
+								exitHeight -= 8;
+							}
+							else if (type == 2)
+							{
+								exitHeight += 8;
+							}
+							else if (type == 3)
+							{
+								exitHeight -= 8;
+							}
+							else if (type == 4)
+							{
+								exitHeight += 8;
+							}
+							else if (type == 5)
+							{
+								exitHeight -= 8;
+							}
+							else if (type == 6)
+							{
+								exitHeight += 8;
+							}
+							else if (type == 7)
+							{
+								exitHeight += 0;
+							}
+							else if (type == 8)
+							{
+								exitHeight += 0;
+							}
+							else if (type == 9)
+							{
+								exitHeight += 0;
+							}
+							else if (type == 10)
+							{
+								exitHeight -= 8;
+							}
+							curZone++;
+						}
+						height = exitHeight + enterHeight;
+						Network.Instantiate(Resources.Load("z/zExit"), new Vector3(curZone * 64 + 16, height, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+						yield return new WaitForSeconds(5f);
+					}
+					generatingLevel = false;
+  }
 
   public virtual void SetMusic(int a) => this.musicBox.SendMessage(nameof (SetMusic), (object) a);
 
   public virtual void LoadMana()
   {
-    this.txtBarInfo[1].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.MAG, "/"), (object) GameScript.MAXMAG);
-    float num1 = (float) GameScript.MAXMAG * 0.2f;
+    this.txtBarInfo[1].text = $"{GameScript.MAG}/{MAXMAG}";
+    float num1 = MAXMAG * 0.2f;
     Vector3 localScale1 = this.barBack[1].transform.localScale;
-    double num2 = (double) (localScale1.x = num1);
-    Vector3 vector3_1 = this.barBack[1].transform.localScale = localScale1;
-    float num3 = (float) GameScript.MAG * 0.2f;
+    localScale1.x = num1;
+    this.barBack[1].transform.localScale = localScale1;
+    float num3 = MAG * 0.2f;
     Vector3 localScale2 = this.barFill[1].transform.localScale;
-    double num4 = (double) (localScale2.x = num3);
-    Vector3 vector3_2 = this.barFill[1].transform.localScale = localScale2;
+    localScale2.x = num3;
+    this.barFill[1].transform.localScale = localScale2;
   }
 
   public virtual void LoadHearts()
@@ -4819,7 +5375,7 @@ public GameScript()
     if (GameScript.HP > GameScript.MAXHP)
       GameScript.HP = GameScript.MAXHP;
     if ((bool) (UnityEngine.Object) this.txtBarInfo[0])
-      this.txtBarInfo[0].text = RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) GameScript.HP, "/"), (object) GameScript.MAXHP);
+      this.txtBarInfo[0].text = $"{GameScript.HP}/{MAXHP}";
     if (!(bool) (UnityEngine.Object) this.barBack[0] || !(bool) (UnityEngine.Object) this.barFill[0])
       return;
     float num1 = (float) GameScript.MAXHP * 0.2f;
@@ -4832,27 +5388,33 @@ public GameScript()
     Vector3 vector3_2 = this.barFill[0].transform.localScale = localScale2;
   }
 
-  public virtual IEnumerator Die() => (IEnumerator) new GameScript.\u0024Die\u00241771(this).GetEnumerator();
+  public virtual IEnumerator Die() {
+    throw new NotImplementedException();
+  }
 
   public virtual void ShowTimer()
   {
     int timer = GameScript.timer;
-    int rhs1 = 0;
-    int rhs2 = 0;
+    int num1 = 0;
+    int num2 = 0;
     for (; timer >= 60; timer -= 60)
-      ++rhs1;
-    for (; rhs1 >= 60; rhs1 -= 60)
-      ++rhs2;
+      ++num1;
+    for (; num1 >= 60; num1 -= 60)
+      ++num2;
     if ((bool) (UnityEngine.Object) this.txtTimer)
-      this.txtTimer.text = RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition("Total Time: ", (object) rhs2), ":"), (object) rhs1), ":"), (object) timer);
-    if (rhs2 > 1 || !GameScript.win)
+      this.txtTimer.text = $"Total Time: {num2}:{num1}:{timer}";
+    if (num2 > 1 || !GameScript.win)
       return;
     MenuScript.canUnlockRace[6] = 1;
   }
 
-  public virtual IEnumerator ShowStats() => (IEnumerator) new GameScript.\u0024ShowStats\u00241776(this).GetEnumerator();
+  public virtual IEnumerator ShowStats() {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator ShowEXP() => (IEnumerator) new GameScript.\u0024ShowEXP\u00241780(this).GetEnumerator();
+  public virtual IEnumerator ShowEXP() {
+    throw new NotImplementedException();
+  }
 
   public virtual int GetCurEXP(int pLevel)
   {
@@ -4864,40 +5426,42 @@ public GameScript()
 
   public virtual int GetLevelCap(int pLevel)
   {
-    int levelCap = 100;
-    int num = new int();
+    int num1 = 100;
+    int num2 = new int();
     for (int index = 1; index < pLevel; ++index)
-      levelCap = (int) ((double) levelCap * 1.2000000476837158);
+      num1 = (int) ((double) num1 * 1.20000004768372);
     if (pLevel == 0)
-      levelCap = 0;
-    return levelCap;
+      num1 = 0;
+    return num1;
   }
 
   public virtual int GetTotalEXP(int lvl)
   {
-    int num = new int();
-    int totalExp = new int();
+    int num1 = new int();
+    int num2 = new int();
     for (int pLevel = 0; pLevel < lvl; ++pLevel)
-      totalExp += this.GetLevelCap(pLevel);
-    return totalExp;
+      num2 += this.GetLevelCap(pLevel);
+    return num2;
   }
 
   public virtual int GetPlayerLevel()
   {
     int accountExp = this.accountEXP;
-    int playerLevel = 0;
-    int num1 = new int();
-    int num2 = 100;
+    int num1 = 0;
+    int num2 = new int();
+    int num3 = 100;
     while (accountExp >= 0)
     {
-      accountExp -= num2;
-      num2 = (int) ((double) num2 * 1.2000000476837158);
-      ++playerLevel;
+      accountExp -= num3;
+      num3 = (int) ((double) num3 * 1.20000004768372);
+      ++num1;
     }
-    return playerLevel;
+    return num1;
   }
 
-  public virtual IEnumerator StatShow(int a) => (IEnumerator) new GameScript.\u0024StatShow\u00241787(a, this).GetEnumerator();
+  public virtual IEnumerator StatShow(int a) {
+    throw new NotImplementedException();
+  }
 
   public virtual string GetStatsName(int a)
   {
@@ -4956,14 +5520,14 @@ public GameScript()
     PlayerControllerN.offhand = 0;
     if ((bool) (UnityEngine.Object) GameScript.player)
       GameScript.player.SendMessage("UpdateOffhand", (object) MenuScript.pBody, SendMessageOptions.DontRequireReceiver);
-    for (int rhs = 0; rhs < 31; ++rhs)
+    for (int index = 0; index < 31; ++index)
     {
-      PlayerPrefs.SetInt(RuntimeServices.op_Addition("id", (object) rhs), 0);
-      PlayerPrefs.SetInt(RuntimeServices.op_Addition("q", (object) rhs), 0);
-      PlayerPrefs.SetInt(RuntimeServices.op_Addition("e", (object) rhs), 0);
-      PlayerPrefs.SetInt(RuntimeServices.op_Addition("d", (object) rhs), 0);
-      if (rhs < 20)
-        PlayerPrefs.SetInt(RuntimeServices.op_Addition("e", (object) rhs), 0);
+      PlayerPrefs.SetInt($"id{index}", 0);
+      PlayerPrefs.SetInt($"q{index}", 0);
+      PlayerPrefs.SetInt($"e{index}", 0);
+      PlayerPrefs.SetInt($"d{index}", 0);
+      if (index < 20)
+        PlayerPrefs.SetInt($"e{index}", 0);
     }
     PlayerPrefs.SetInt("cLevel", 0);
   }
@@ -5103,7 +5667,7 @@ public GameScript()
     if (Network.isClient || Network.isServer)
       GameScript.player.GetComponent<NetworkView>().RPC("uI", RPCMode.All, (object) GameScript.inventory[GameScript.curActiveSlot].id);
     else
-      this.weapon.GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("iE/i", (object) GameScript.inventory[GameScript.curActiveSlot].id));
+      this.weapon.GetComponent<Renderer>().material = (Material) Resources.Load($"iE/i{inventory[GameScript.curActiveSlot].id}");
     SphereCollider component = (SphereCollider) GameScript.aSphere.GetComponent(typeof (SphereCollider));
     if (id >= 500 && id < 560)
     {
@@ -5118,9 +5682,9 @@ public GameScript()
     else if (id >= 560 && id < 580)
     {
       this.atkAnim = "a2";
-      float num4 = 0.7f;
+      float num2 = 0.7f;
       Vector3 center = component.center;
-      double num5 = (double) (center.x = num4);
+      double num3 = (double) (center.x = num2);
       Vector3 vector3 = component.center = center;
       component.radius = 1f;
       this.atkWait = 1f;
@@ -5128,18 +5692,18 @@ public GameScript()
     else if (id >= 600 && id < 650)
     {
       this.atkAnim = "a1";
-      float num6 = 0.4f;
+      float num2 = 0.4f;
       Vector3 center = component.center;
-      double num7 = (double) (center.x = num6);
+      double num3 = (double) (center.x = num2);
       Vector3 vector3 = component.center = center;
       component.radius = 0.6f;
       this.atkWait = 0.45f;
     }
     else
     {
-      float num8 = 0.1f;
+      float num2 = 0.1f;
       Vector3 center = component.center;
-      double num9 = (double) (center.x = num8);
+      double num3 = (double) (center.x = num2);
       Vector3 vector3 = component.center = center;
       component.radius = 0.6f;
       this.atkAnim = "a1";
@@ -5518,43 +6082,45 @@ public GameScript()
   {
     GameScript.interacting = true;
     int num = 0;
-    switch (GameScript.interacter)
+    string interacter = GameScript.interacter;
+    if (interacter == "n1")
     {
-      case "n1":
-        this.txtNPCName.text = "Grognar the Blacksmith";
-        this.menuBlacksmith.GetComponent<Renderer>().material = this.blacksmithMenu;
-        this.menuBlacksmith.SetActive(true);
-        this.RefreshBlacksmith();
-        this.npcInteract = 1;
-        GameScript.interacted = true;
-        break;
-      case "n3":
-        this.menuBlacksmith.SetActive(true);
-        this.SetLeatherworker();
-        this.RefreshLeatherworker();
-        this.npcInteract = 3;
-        GameScript.interacted = true;
-        break;
-      case "n4":
-        this.menuBlacksmith.SetActive(true);
-        this.SetTailor();
-        this.RefreshTailor();
-        this.npcInteract = 4;
-        GameScript.interacted = true;
-        break;
-      case "n5":
-        this.menuHoarder.SetActive(true);
-        this.npcInteract = 5;
-        GameScript.interacted = true;
-        break;
-      case "n6":
-        this.Altar();
-        num = 1;
-        break;
-      default:
-        num = 1;
-        break;
+      this.txtNPCName.text = "Grognar the Blacksmith";
+      this.menuBlacksmith.GetComponent<Renderer>().material = this.blacksmithMenu;
+      this.menuBlacksmith.SetActive(true);
+      this.RefreshBlacksmith();
+      this.npcInteract = 1;
+      GameScript.interacted = true;
     }
+    else if (interacter == "n3")
+    {
+      this.menuBlacksmith.SetActive(true);
+      this.SetLeatherworker();
+      this.RefreshLeatherworker();
+      this.npcInteract = 3;
+      GameScript.interacted = true;
+    }
+    else if (interacter == "n4")
+    {
+      this.menuBlacksmith.SetActive(true);
+      this.SetTailor();
+      this.RefreshTailor();
+      this.npcInteract = 4;
+      GameScript.interacted = true;
+    }
+    else if (interacter == "n5")
+    {
+      this.menuHoarder.SetActive(true);
+      this.npcInteract = 5;
+      GameScript.interacted = true;
+    }
+    else if (interacter == "n6")
+    {
+      this.Altar();
+      num = 1;
+    }
+    else
+      num = 1;
     if (GameScript.inventoryOpen || num != 0)
       return;
     this.OpenInventory();
@@ -5636,14 +6202,18 @@ public GameScript()
     this.LoadEXP();
   }
 
-  public virtual IEnumerator AdditionalStat(int a) => (IEnumerator) new GameScript.\u0024AdditionalStat\u00241794(a, this).GetEnumerator();
+  public virtual IEnumerator AdditionalStat(int a) {
+    throw new NotImplementedException();
+  }
 
-  public virtual IEnumerator ShowLUP(int a) => (IEnumerator) new GameScript.\u0024ShowLUP\u00241799(a, this).GetEnumerator();
+  public virtual IEnumerator ShowLUP(int a) {
+    throw new NotImplementedException();
+  }
 
   public virtual void LevelUp()
   {
     ++GameScript.playerLevel;
-    this.txtLevel.text = RuntimeServices.op_Addition("Lv: ", (object) GameScript.playerLevel);
+    this.txtLevel.text = $"Lv: {GameScript.playerLevel}";
     int num1 = new int();
     for (int a = 0; a < 4; ++a)
     {
@@ -5652,7 +6222,7 @@ public GameScript()
         if (GameScript.playerLevel % 2 == 0)
         {
           GameScript.tempLevelStat[a] = GameScript.tempLevelStat[a] + 1;
-          this.StartCoroutine_Auto(this.ShowLUP(a));
+          this.StartCoroutine(this.ShowLUP(a));
           if (a == 0)
             ++GameScript.HP;
         }
@@ -5662,7 +6232,7 @@ public GameScript()
         if (GameScript.playerLevel % 4 == 0)
         {
           GameScript.tempLevelStat[a] = GameScript.tempLevelStat[a] + 1;
-          this.StartCoroutine_Auto(this.ShowLUP(a));
+          this.StartCoroutine(this.ShowLUP(a));
           if (a == 0)
             ++GameScript.HP;
         }
@@ -5670,7 +6240,7 @@ public GameScript()
       else if (GameScript.playerLevel % 3 == 0)
       {
         GameScript.tempLevelStat[a] = GameScript.tempLevelStat[a] + 1;
-        this.StartCoroutine_Auto(this.ShowLUP(a));
+        this.StartCoroutine(this.ShowLUP(a));
         if (a == 0)
           ++GameScript.HP;
       }
@@ -5686,7 +6256,7 @@ public GameScript()
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
           GameScript.tempLevelStat[1] = GameScript.tempLevelStat[1] + 1;
-          this.StartCoroutine_Auto(this.AdditionalStat(1));
+          this.StartCoroutine(this.AdditionalStat(1));
           break;
         }
         break;
@@ -5694,7 +6264,7 @@ public GameScript()
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
           GameScript.tempLevelStat[2] = GameScript.tempLevelStat[2] + 1;
-          this.StartCoroutine_Auto(this.AdditionalStat(2));
+          this.StartCoroutine(this.AdditionalStat(2));
           break;
         }
         break;
@@ -5702,7 +6272,7 @@ public GameScript()
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
           GameScript.tempLevelStat[3] = GameScript.tempLevelStat[3] + 1;
-          this.StartCoroutine_Auto(this.AdditionalStat(3));
+          this.StartCoroutine(this.AdditionalStat(3));
           break;
         }
         break;
@@ -5711,7 +6281,7 @@ public GameScript()
         {
           int a = UnityEngine.Random.Range(0, 4);
           GameScript.tempLevelStat[a] = GameScript.tempLevelStat[a] + 1;
-          this.StartCoroutine_Auto(this.AdditionalStat(a));
+          this.StartCoroutine(this.AdditionalStat(a));
           break;
         }
         break;
@@ -5720,7 +6290,7 @@ public GameScript()
     this.ATK = MenuScript.playerStat[1] + GameScript.tempPlayerStat[1] + GameScript.tempLevelStat[1];
     GameScript.MAXMAG = MenuScript.playerStat[3] + GameScript.tempPlayerStat[3] + GameScript.tempLevelStat[3] + GameScript.tempGearStat[3];
     GameScript.DEX = MenuScript.playerStat[2] + GameScript.tempPlayerStat[2] + GameScript.tempLevelStat[2] + GameScript.tempGearStat[2];
-    GameScript.SPD = (float) ((double) GameScript.DEX * 0.05000000074505806 + 7.5999999046325684);
+    GameScript.SPD = (float) ((double) GameScript.DEX * 0.0500000007450581 + 7.59999990463257);
     if (MenuScript.companion == 3)
       GameScript.SPD *= 2f;
     if (MenuScript.pHat == 9)
@@ -5745,8 +6315,8 @@ public GameScript()
     this.GetComponent<AudioSource>().PlayOneShot((AudioClip) Resources.Load("Au/SKILL", typeof (AudioClip)));
     int num2 = a + UnityEngine.Random.Range(1, 6);
     int num3 = new int();
-    int lhs = 0;
     int num4 = 0;
+    int num5 = 0;
     for (int index = 0; index < 3; ++index)
     {
       if (index == GameScript.curSkill)
@@ -5759,14 +6329,14 @@ public GameScript()
           num2 = a + 1;
       }
       if (GameScript.skill[index] > 5 && GameScript.skill[index] < 11)
-        ++lhs;
-      if (GameScript.skill[index] >= 1 && GameScript.skill[index] <= 5)
         ++num4;
+      if (GameScript.skill[index] >= 1 && GameScript.skill[index] <= 5)
+        ++num5;
     }
-    MonoBehaviour.print((object) RuntimeServices.op_Addition((object) lhs, " IS SKILL count"));
-    if (lhs > 2)
-      MenuScript.canUnlockHat[11] = 1;
+    MonoBehaviour.print((object) $"{num4} IS SKILL count");
     if (num4 > 2)
+      MenuScript.canUnlockHat[11] = 1;
+    if (num5 > 2)
       MenuScript.canUnlockHat[19] = 1;
     this.RefreshSkills();
     switch (GameScript.curSkill)
@@ -5795,7 +6365,7 @@ public GameScript()
       if (GameScript.skill[index] > 0)
       {
         this.skillObj[index].SetActive(true);
-        this.skillObj[index].GetComponent<Renderer>().material = (Material) Resources.Load(RuntimeServices.op_Addition("sI/s", (object) GameScript.skill[index]));
+        this.skillObj[index].GetComponent<Renderer>().material = (Material) Resources.Load($"sI/s{skill[index]}");
       }
       else
         this.skillObj[index].SetActive(false);
@@ -5804,63 +6374,65 @@ public GameScript()
 
   public virtual float GetSkillCooldown(int a)
   {
-    int num = new int();
-    int skillCooldown;
+    int num1 = new int();
+    int num2;
     switch (a)
     {
       case 1:
-        skillCooldown = 200;
+        num2 = 200;
         break;
       case 2:
-        skillCooldown = 400;
+        num2 = 400;
         break;
       case 3:
-        skillCooldown = 400;
+        num2 = 400;
         break;
       case 4:
-        skillCooldown = 400;
+        num2 = 400;
         break;
       case 5:
-        skillCooldown = 150;
+        num2 = 150;
         break;
       case 6:
-        skillCooldown = 400;
+        num2 = 400;
         break;
       case 7:
-        skillCooldown = 200;
+        num2 = 200;
         break;
       case 8:
-        skillCooldown = 350;
+        num2 = 350;
         break;
       case 9:
-        skillCooldown = 150;
+        num2 = 150;
         break;
       case 10:
-        skillCooldown = 200;
+        num2 = 200;
         break;
       case 11:
-        skillCooldown = 400;
+        num2 = 400;
         break;
       case 12:
-        skillCooldown = 150;
+        num2 = 150;
         break;
       case 13:
-        skillCooldown = 150;
+        num2 = 150;
         break;
       case 14:
-        skillCooldown = 150;
+        num2 = 150;
         break;
       case 15:
-        skillCooldown = 150;
+        num2 = 150;
         break;
       default:
-        skillCooldown = 150;
+        num2 = 150;
         break;
     }
-    return (float) skillCooldown;
+    return (float) num2;
   }
 
-  public virtual IEnumerator SkillTick(int a, float max) => (IEnumerator) new GameScript.\u0024SkillTick\u00241804(a, max, this).GetEnumerator();
+  public virtual IEnumerator SkillTick(int a, float max) {
+    throw new NotImplementedException();
+  }
 
   public virtual void UseSkill(int b)
   {
@@ -5870,7 +6442,7 @@ public GameScript()
     this.skillObj[b].GetComponent<Animation>().Play();
     int skillCooldown = (int) this.GetSkillCooldown(a);
     this.skillCooldown[b] = (float) skillCooldown;
-    this.StartCoroutine_Auto(this.SkillTick(b, (float) skillCooldown));
+    this.StartCoroutine(this.SkillTick(b, (float) skillCooldown));
     switch (a)
     {
       case 1:
@@ -5885,7 +6457,7 @@ public GameScript()
         GameScript.rage = true;
         GameScript.player.GetComponent<NetworkView>().RPC("Rage", RPCMode.All, (object) 1);
         ((GameObject) Network.Instantiate(Resources.Load("text"), GameScript.player.transform.position, Quaternion.identity, 0)).GetComponent<NetworkView>().RPC("SDSN", RPCMode.All, (object) "I'M SO ANGRY!");
-        this.StartCoroutine_Auto(this.RageTick());
+        this.StartCoroutine(this.RageTick());
         break;
       case 3:
         Network.Instantiate(Resources.Load("skill/Charge"), GameScript.player.transform.position, Quaternion.identity, 0);
@@ -5911,7 +6483,7 @@ public GameScript()
         GameScript.clair = true;
         GameScript.player.GetComponent<NetworkView>().RPC("Clair", RPCMode.All, (object) 1);
         ((GameObject) Network.Instantiate(Resources.Load("text"), GameScript.player.transform.position, Quaternion.identity, 0)).GetComponent<NetworkView>().RPC("SDSN", RPCMode.All, (object) "I'M FOCUSED!");
-        this.StartCoroutine_Auto(this.ManaTick());
+        this.StartCoroutine(this.ManaTick());
         break;
       case 8:
         Vector3 euler2 = (double) Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= (double) GameScript.player.transform.position.x ? new Vector3(0.0f, 180f, 0.0f) : new Vector3(0.0f, 0.0f, 0.0f);
@@ -5938,15 +6510,15 @@ public GameScript()
         }
         else
         {
-          Ray ray3 = new Ray(GameScript.player.transform.position, new Vector3(-1f, 0.0f, 0.0f));
-          Vector3 vector3_5 = new Vector3(GameScript.player.transform.position.x - 8f, GameScript.player.transform.position.y, 0.0f);
-          if (!Physics.Raycast(ray3, out hitInfo, 8.4f, layerMask))
+          Ray ray2 = new Ray(GameScript.player.transform.position, new Vector3(-1f, 0.0f, 0.0f));
+          Vector3 vector3_3 = new Vector3(GameScript.player.transform.position.x - 8f, GameScript.player.transform.position.y, 0.0f);
+          if (!Physics.Raycast(ray2, out hitInfo, 8.4f, layerMask))
           {
-            GameScript.player.transform.position = vector3_5;
-            int num7 = 0;
-            Vector3 velocity3 = GameScript.player.GetComponent<Rigidbody>().velocity;
-            double num8 = (double) (velocity3.x = (float) num7);
-            Vector3 vector3_6 = GameScript.player.GetComponent<Rigidbody>().velocity = velocity3;
+            GameScript.player.transform.position = vector3_3;
+            int num5 = 0;
+            Vector3 velocity2 = GameScript.player.GetComponent<Rigidbody>().velocity;
+            double num6 = (double) (velocity2.x = (float) num5);
+            Vector3 vector3_4 = GameScript.player.GetComponent<Rigidbody>().velocity = velocity2;
           }
         }
         Network.Instantiate(Resources.Load("warp"), GameScript.player.transform.position, Quaternion.Euler(0.0f, 180f, 180f), 0);
@@ -5958,23 +6530,23 @@ public GameScript()
       case 11:
         GameScript.player.GetComponent<NetworkView>().RPC("Roar", RPCMode.All, (object) 1);
         ((GameObject) Network.Instantiate(Resources.Load("text"), GameScript.player.transform.position, Quaternion.identity, 0)).GetComponent<NetworkView>().RPC("SDSN", RPCMode.All, (object) "RAAAAH");
-        this.StartCoroutine_Auto(this.RoarTick());
+        this.StartCoroutine(this.RoarTick());
         break;
       case 12:
         GameScript.multishot = true;
         break;
       case 13:
-        int num9 = 38;
-        Vector3 velocity4 = GameScript.player.GetComponent<Rigidbody>().velocity;
-        double num10 = (double) (velocity4.y = (float) num9);
-        Vector3 vector3_7 = GameScript.player.GetComponent<Rigidbody>().velocity = velocity4;
+        int num7 = 38;
+        Vector3 velocity3 = GameScript.player.GetComponent<Rigidbody>().velocity;
+        double num8 = (double) (velocity3.y = (float) num7);
+        Vector3 vector3_5 = GameScript.player.GetComponent<Rigidbody>().velocity = velocity3;
         ((GameObject) Network.Instantiate(Resources.Load("skill/dArrow"), GameScript.player.transform.position, Quaternion.identity, 0)).SendMessage("Set", (object) GameScript.finalATK);
         GameScript.player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, (object) "dj");
         ((GameObject) Network.Instantiate(Resources.Load("text"), GameScript.player.transform.position, Quaternion.identity, 0)).GetComponent<NetworkView>().RPC("SDSN", RPCMode.All, (object) "WOOHOO!");
         break;
       case 14:
-        Vector3 vector3_8 = new Vector3(Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x, Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).y, 0.0f);
-        this.GetComponent<NetworkView>().RPC("Wisp", RPCMode.All, (object) vector3_8);
+        Vector3 vector3_6 = new Vector3(Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x, Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).y, 0.0f);
+        this.GetComponent<NetworkView>().RPC("Wisp", RPCMode.All, (object) vector3_6);
         break;
       case 15:
         Vector3 euler3 = (double) Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= (double) GameScript.player.transform.position.x ? new Vector3(0.0f, 180f, 0.0f) : new Vector3(0.0f, 0.0f, 0.0f);
@@ -5986,236 +6558,423 @@ public GameScript()
   [RPC]
   public virtual void Wisp(Vector3 mP) => UnityEngine.Object.Instantiate(Resources.Load("skill/wisp"), mP, Quaternion.identity);
 
-  public virtual IEnumerator RageTick() => (IEnumerator) new GameScript.\u0024RageTick\u00241814().GetEnumerator();
-
-  public virtual IEnumerator RoarTick() => (IEnumerator) new GameScript.\u0024RoarTick\u00241815().GetEnumerator();
-
-  public virtual IEnumerator FloatTick() => (IEnumerator) new GameScript.\u0024FloatTick\u00241816().GetEnumerator();
-
-  public virtual IEnumerator ManaTick() => (IEnumerator) new GameScript.\u0024ManaTick\u00241817(this).GetEnumerator();
-
-  public class ItemId
-  {
-      private Dictionary<int, string> itemNames = new Dictionary<int, string>
-      {
-        { 1, "Wood" },
-        { 2, "Wooden Plank" },
-        { 3, "Wooden Stick" },
-        { 4, "Ironite Ore" },
-        { 5, "Goldium Ore" },
-        { 6, "Diamonite Ore" },
-        { 7, "Raw Meat" },
-        { 8, "Cooked Meat" },
-        { 9, "Herb" },
-        { 10, "Shroom" },
-        { 11, "Root" },
-        { 12, "Ironite Bar" },
-        { 13, "Goldium Bar" },
-        { 14, "Diamonite Bar" },
-        { 15, "HP Potion" },
-        { 16, "Mana Potion" },
-        { 17, "Vial of Poison" },
-        { 18, "Monster Bone" },
-        { 19, "Monster Hide" },
-        { 20, "Monster Pelt" },
-        { 21, "Raw Chicken" },
-        { 22, "Cooked Chicken" },
-        { 23, "Spider Web" },
-        { 24, "Sword Hilt" },
-        { 25, "Wooden Blade" },
-        { 26, "Axe Handle" },
-        { 27, "Pick Handle" },
-        { 28, "Unstrung Bow" },
-        { 29, "String" },
-        { 30, "Fire Bug" },
-        { 31, "Thunder Bug" },
-        { 32, "Ironite Blade" },
-        { 33, "Goldmium Blade" },
-        { 34, "Diamonite Blade" },
-        { 35, "Ironite Great Blade" },
-        { 36, "Goldium Great Blade" },
-        { 37, "Diamonite Great Blade" },
-        { 38, "Stone" },
-        { 39, "Refined Stone" },
-        { 40, "Stone Blade" },
-        { 41, "Stone Great Blade" },
-        { 42, "Big HP Potion" },
-        { 43, "Big Mana Potion" },
-        { 44, "Mysterious Potion" },
-        { 45, "Big Mysterious Potion" },
-        { 46, "Total Biscuit" },
-        { 47, "Coal" },
-        { 48, "Firestarter" },
-        { 49, "Mystery Key" },
-        { 50, "Bone Blade" },
-        { 51, "Refined Bone" },
-        { 52, "Bone Arrow" },
-        { 53, "Stone Arrow" },
-        { 54, "Ironite Arrow" },
-        { 55, "Goldium Arrow" },
-        { 56, "Diamonite Arrow" },
-        { 57, "Dragonite Arrow" },
-        { 58, "Adamantite Arrow" },
-        { 59, "Obsidian Arrow" },
-        { 60, "Crystalite Fragment" },
-        { 61, "Crystalite Shard" },
-        { 62, "Dragonite Ore" },
-        { 63, "Dragonite Bar" },
-        { 64, "Adamantite Ore" },
-        { 65, "Adamantite Bar" },
-        { 66, "Obsidian Ore" },
-        { 67, "Obsidian Bar" },
-        { 68, "Net" },
-        { 69, "Fire Gem I" },
-        { 70, "Thunder Gem I" },
-        { 71, "Ice Gem I" },
-        { 72, "Stone Dagger" },
-        { 73, "Bone Dagger" },
-        { 74, "Ironite Dagger" },
-        { 75, "Goldium Dagger" },
-        { 76, "Diamonite Dagger" },
-        { 77, "Tribal Drum" },
-        { 78, "Drum of Strength" },
-        { 79, "Drum of Dexterity" },
-        { 80, "Drum of Wisdom" },
-        { 81, "Ice Bug" },
-        { 82, "Refined Leather" },
-        { 83, "Rugged Leather" },
-        { 84, "Tribal Leather" },
-        { 85, "Elegant Leather" },
-        { 86, "Royal Leather" },
-        { 87, "Luminous Leather" },
-        { 88, "Rugged Fabric" },
-        { 89, "Tribal Fabric" },
-        { 90, "Elegant Fabric" },
-        { 91, "Royal Fabric" },
-        { 92, "Luminous Fabric" },
-        { 94, "Refined Cloth" },
-        { 95, "Spirit Gem" },
-      };
-
-
-      public virtual string GetItemName(int id)
-      {
-          if (itemNames.TryGetValue(id, out string itemName))
-          {
-              return itemName;
-          }
-          return "NULL";
-      }
+  public virtual IEnumerator RageTick() {
+    throw new NotImplementedException();
   }
 
+  public virtual IEnumerator RoarTick() {
+    throw new NotImplementedException();
+  }
 
-  public class GearId
+  public virtual IEnumerator FloatTick() {
+    throw new NotImplementedException();
+  }
+
+  public virtual IEnumerator ManaTick() {
+    throw new NotImplementedException();
+  }
+
+  public virtual string GetItemName(int id)
   {
-    private Dictionary<int, string> gearNames = new Dictionary<int, string>
+    switch (id)
     {
-      { 500, "Wooden Sword" },
-      { 501, "Wooden Axe" },
-      { 502, "Wooden Pick" },
-      { 503, "Ironite Sword" },
-      { 504, "Ironite Axe" },
-      { 505, "Ironite Pick" },
-      { 506, "Goldium Sword" },
-      { 507, "Goldium Axe" },
-      { 508, "Goldium Pick" },
-      { 509, "Diamonite Sword" },
-      { 510, "Diamonite Axe" },
-      { 511, "Diamonite Pick" },
-      { 512, "Stone Sword" },
-      { 513, "Stone Axe" },
-      { 514, "Stone Pick" },
-      { 515, "Wooden Bow" },
-      { 516, "Bone Sword" },
-      { 517, "Bone Axe" },
-      { 518, "Bone Pick" },
-      { 519, "Wooden Club" },
-      { 520, "Lightbringer" },
-      { 521, "Scourge Blade" },
-      { 522, "Dragonite Pick" },
-      { 523, "Wightslayer" },
-      { 524, "Adamantite Axe" },
-      { 525, "Adamantite Pick" },
-      { 526, "Spellblade" },
-      { 527, "Obsidian Axe" },
-      { 528, "Obsidian Pick" },
-      { 529, "Bug Net" },
-      { 530, "Crystal Bow" },
-      { 531, "Emerald Katana" },
-      { 532, "Emerald Combat Axe" },
-      { 533, "Obsidian Sword" },
-      { 534, "Laser Sword" },
-      { 535, "Laser Crossbow" },
-      { 536, "Fire Bow" },
-      { 550, "Giant Fish" },
-      { 560, "Ironite Great Axe" },
-      { 561, "Goldium Great Axe" },
-      { 562, "Diamonite Great Axe" },
-      { 563, "Stone Great Axe" },
-      { 564, "Hellswrath" },
-      { 565, "The Philibuster" },
-      { 566, "Jelly Blade" },
-      { 567, "Zweihander" },
-      { 568, "Icebrand" },
-      { 569, "Firebrand" },
-      { 570, "Thunderbrand" },
-      { 600, "Fireball" },
-      { 601, "Bolt" },
-      { 602, "Frostshard" },
-      { 603, "Summon Zombie" },
-      { 700, "Ironite Helm" },
-      { 701, "Goldium Helm" },
-      { 702, "Diamonite Helm" },
-      { 703, "Stone Helm" },
-      { 704, "Bone Helm" },
-      { 705, "Rugged Cap" },
-      { 706, "Tribal Cap" },
-      { 707, "Elegant Cap" },
-      { 708, "Royal Cap" },
-      { 709, "Luminous Cap" },
-      { 710, "Rugged Hood" },
-      { 711, "Tribal Hood" },
-      { 712, "Elegant Hood" },
-      { 713, "Royal Hood" },
-      { 714, "Luminous Hood" },
-      { 800, "Ironite Armor" },
-      { 801, "Goldium Armor" },
-      { 802, "Diamonite Armor" },
-      { 803, "Stone Armor" },
-      { 804, "Bone Armor" },
-      { 805, "Rugged Cloak" },
-      { 806, "Tribal Cloak" },
-      { 807, "Elegant Cloak" },
-      { 808, "Royal Cloak" },
-      { 809, "Luminous Cloak" },
-      { 810, "Rugged Robes" },
-      { 811, "Tribal Robes" },
-      { 812, "Elegant Robes" },
-      { 813, "Royal Robes" },
-      { 814, "Luminous Robes" },
-      { 900, "Ironite Shield" },
-      { 901, "Goldium Shield" },
-      { 902, "Diamonite Shield" },
-      { 903, "Stone Shield" },
-      { 904, "Bone Shield" },
-      { 905, "Ryvenrath's Scale" },
-      { 906, "Paladin Guard" },
-      { 907, "Scourge Shield" },
-      { 950, "Ring of Power" },
-      { 951, "Ring of Wisdom" },
-      { 952, "Ring of Nature" },
-      { 953, "Ring of Life" },
-      { 954, "Ring of Rage" },
-      { 955, "Ring of Insanity" },
-      { 956, "Archer's Ring" },
-      { 957, "Ring of Balance" },
-    }
-    public virtual string GetGearName(int id)
-    {
-      if (gearNames.TryGetValue(id, out string gearName))
-    {
-        return gearName;
-    }
-    return "NULL";
+      case 1:
+        return "Wood";
+      case 2:
+        return "Wooden Plank";
+      case 3:
+        return "Wooden Stick";
+      case 4:
+        return "Ironite Ore";
+      case 5:
+        return "Goldium Ore";
+      case 6:
+        return "Diamonite Ore";
+      case 7:
+        return "Raw Meat";
+      case 8:
+        return "Cooked Meat";
+      case 9:
+        return "Herb";
+      case 10:
+        return "Shroom";
+      case 11:
+        return "Root";
+      case 12:
+        return "Ironite Bar";
+      case 13:
+        return "Goldium Bar";
+      case 14:
+        return "Diamonite Bar";
+      case 15:
+        return "HP Potion";
+      case 16:
+        return "Mana Potion";
+      case 17:
+        return "Vial of Poison";
+      case 18:
+        return "Monster Bone";
+      case 19:
+        return "Monster Hide";
+      case 20:
+        return "Monster Pelt";
+      case 21:
+        return "Raw Chicken";
+      case 22:
+        return "Cooked Chicken";
+      case 23:
+        return "Spider Web";
+      case 24:
+        return "Sword Hilt";
+      case 25:
+        return "Wooden Blade";
+      case 26:
+        return "Axe Handle";
+      case 27:
+        return "Pick Handle";
+      case 28:
+        return "Unstrung Bow";
+      case 29:
+        return "String";
+      case 30:
+        return "Fire Bug";
+      case 31:
+        return "Thunder Bug";
+      case 32:
+        return "Ironite Blade";
+      case 33:
+        return "Goldmium Blade";
+      case 34:
+        return "Diamonite Blade";
+      case 35:
+        return "Ironite Great Blade";
+      case 36:
+        return "Goldium Great Blade";
+      case 37:
+        return "Diamonite Great Blade";
+      case 38:
+        return "Stone";
+      case 39:
+        return "Refined Stone";
+      case 40:
+        return "Stone Blade";
+      case 41:
+        return "Stone Great Blade";
+      case 42:
+        return "Big HP Potion";
+      case 43:
+        return "Big Mana Potion";
+      case 44:
+        return "Mysterious Potion";
+      case 45:
+        return "Big Mysterious Potion";
+      case 46:
+        return "Total Biscuit";
+      case 47:
+        return "Coal";
+      case 48:
+        return "Firestarter";
+      case 49:
+        return "Mystery Key";
+      case 50:
+        return "Bone Blade";
+      case 51:
+        return "Refined Bone";
+      case 52:
+        return "Bone Arrow";
+      case 53:
+        return "Stone Arrow";
+      case 54:
+        return "Ironite Arrow";
+      case 55:
+        return "Goldium Arrow";
+      case 56:
+        return "Diamonite Arrow";
+      case 57:
+        return "Dragonite Arrow";
+      case 58:
+        return "Adamantite Arrow";
+      case 59:
+        return "Obsidian Arrow";
+      case 60:
+        return "Crystalite Fragment";
+      case 61:
+        return "Crystalite Shard";
+      case 62:
+        return "Dragonite Ore";
+      case 63:
+        return "Dragonite Bar";
+      case 64:
+        return "Adamantite Ore";
+      case 65:
+        return "Adamantite Bar";
+      case 66:
+        return "Obsidian Ore";
+      case 67:
+        return "Obsidian Bar";
+      case 68:
+        return "Net";
+      case 69:
+        return "Fire Gem I";
+      case 70:
+        return "Thunder Gem I";
+      case 71:
+        return "Ice Gem I";
+      case 72:
+        return "Stone Dagger";
+      case 73:
+        return "Bone Dagger";
+      case 74:
+        return "Ironite Dagger";
+      case 75:
+        return "Goldium Dagger";
+      case 76:
+        return "Diamonite Dagger";
+      case 77:
+        return "Tribal Drum";
+      case 78:
+        return "Drum of Strength";
+      case 79:
+        return "Drum of Dexterity";
+      case 80:
+        return "Drum of Wisdom";
+      case 81:
+        return "Ice Bug";
+      case 82:
+        return "Refined Leather";
+      case 83:
+        return "Rugged Leather";
+      case 84:
+        return "Tribal Leather";
+      case 85:
+        return "Elegant Leather";
+      case 86:
+        return "Royal Leather";
+      case 87:
+        return "Luminous Leather";
+      case 88:
+        return "Rugged Fabric";
+      case 89:
+        return "Tribal Fabric";
+      case 90:
+        return "Elegant Fabric";
+      case 91:
+        return "Royal Fabric";
+      case 92:
+        return "Luminous Fabric";
+      case 94:
+        return "Refined Cloth";
+      case 95:
+        return "Spirit Gem";
+      default:
+        return "NULL";
     }
   }
+
+  public virtual string GetGearName(int id)
+  {
+    switch (id)
+    {
+      case 500:
+        return "Wooden Sword";
+      case 501:
+        return "Wooden Axe";
+      case 502:
+        return "Wooden Pick";
+      case 503:
+        return "Ironite Sword";
+      case 504:
+        return "Ironite Axe";
+      case 505:
+        return "Ironite Pick";
+      case 506:
+        return "Goldium Sword";
+      case 507:
+        return "Goldium Axe";
+      case 508:
+        return "Goldium Pick";
+      case 509:
+        return "Diamonite Sword";
+      case 510:
+        return "Diamonite Axe";
+      case 511:
+        return "Diamonite Pick";
+      case 512:
+        return "Stone Sword";
+      case 513:
+        return "Stone Axe";
+      case 514:
+        return "Stone Pick";
+      case 515:
+        return "Wooden Bow";
+      case 516:
+        return "Bone Sword";
+      case 517:
+        return "Bone Axe";
+      case 518:
+        return "Bone Pick";
+      case 519:
+        return "Wooden Club";
+      case 520:
+        return "Lightbringer";
+      case 521:
+        return "Scourge Blade";
+      case 522:
+        return "Dragonite Pick";
+      case 523:
+        return "Wightslayer";
+      case 524:
+        return "Adamantite Axe";
+      case 525:
+        return "Adamantite Pick";
+      case 526:
+        return "Spellblade";
+      case 527:
+        return "Obsidian Axe";
+      case 528:
+        return "Obsidian Pick";
+      case 529:
+        return "Bug Net";
+      case 530:
+        return "Crystal Bow";
+      case 531:
+        return "Emerald Katana";
+      case 532:
+        return "Emerald Combat Axe";
+      case 533:
+        return "Obsidian Sword";
+      case 534:
+        return "Laser Sword";
+      case 535:
+        return "Laser Crossbow";
+      case 536:
+        return "Fire Bow";
+      case 550:
+        return "Giant Fish";
+      case 560:
+        return "Ironite Great Axe";
+      case 561:
+        return "Goldium Great Axe";
+      case 562:
+        return "Diamonite Great Axe";
+      case 563:
+        return "Stone Great Axe";
+      case 564:
+        return "Hellswrath";
+      case 565:
+        return "The Philibuster";
+      case 566:
+        return "Jelly Blade";
+      case 567:
+        return "Zweihander";
+      case 568:
+        return "Icebrand";
+      case 569:
+        return "Firebrand";
+      case 570:
+        return "Thunderbrand";
+      case 600:
+        return "Fireball";
+      case 601:
+        return "Bolt";
+      case 602:
+        return "Frostshard";
+      case 603:
+        return "Summon Zombie";
+      case 700:
+        return "Ironite Helm";
+      case 701:
+        return "Goldium Helm";
+      case 702:
+        return "Diamonite Helm";
+      case 703:
+        return "Stone Helm";
+      case 704:
+        return "Bone Helm";
+      case 705:
+        return "Rugged Cap";
+      case 706:
+        return "Tribal Cap";
+      case 707:
+        return "Elegant Cap";
+      case 708:
+        return "Royal Cap";
+      case 709:
+        return "Luminous Cap";
+      case 710:
+        return "Rugged Hood";
+      case 711:
+        return "Tribal Hood";
+      case 712:
+        return "Elegant Hood";
+      case 713:
+        return "Royal Hood";
+      case 714:
+        return "Luminous Hood";
+      case 800:
+        return "Ironite Armor";
+      case 801:
+        return "Goldium Armor";
+      case 802:
+        return "Diamonite Armor";
+      case 803:
+        return "Stone Armor";
+      case 804:
+        return "Bone Armor";
+      case 805:
+        return "Rugged Cloak";
+      case 806:
+        return "Tribal Cloak";
+      case 807:
+        return "Elegant Cloak";
+      case 808:
+        return "Royal Cloak";
+      case 809:
+        return "Luminous Cloak";
+      case 810:
+        return "Rugged Robes";
+      case 811:
+        return "Tribal Robes";
+      case 812:
+        return "Elegant Robes";
+      case 813:
+        return "Royal Robes";
+      case 814:
+        return "Luminous Robes";
+      case 900:
+        return "Ironite Shield";
+      case 901:
+        return "Goldium Shield";
+      case 902:
+        return "Diamonite Shield";
+      case 903:
+        return "Stone Shield";
+      case 904:
+        return "Bone Shield";
+      case 905:
+        return "Ryvenrath's Scale";
+      case 906:
+        return "Paladin Guard";
+      case 907:
+        return "Scourge Shield";
+      case 950:
+        return "Ring of Power";
+      case 951:
+        return "Ring of Wisdom";
+      case 952:
+        return "Ring of Nature";
+      case 953:
+        return "Ring of Life";
+      case 954:
+        return "Ring of Rage";
+      case 955:
+        return "Ring of Insanity";
+      case 956:
+        return "Archer's Ring";
+      case 957:
+        return "Ring of Balance";
+      default:
+        return "NULL";
+    }
+  }
+}
