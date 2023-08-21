@@ -6210,7 +6210,7 @@ public GameScript()
       { 955, "Ring of Insanity" },
       { 956, "Archer's Ring" },
       { 957, "Ring of Balance" },
-    }
+    };
     public virtual string GetGearName(int id)
         {
           if (gearNames.TryGetValue(id, out string gearName))
@@ -6218,7 +6218,7 @@ public GameScript()
             return gearName;
         }
 
-        Debug.LogError("Gear id doesn't exist")
+        Debug.LogError("Gear id doesn't exist");
      return "NULL";
     }
   }
