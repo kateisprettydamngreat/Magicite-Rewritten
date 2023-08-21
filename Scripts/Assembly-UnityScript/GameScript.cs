@@ -6105,7 +6105,7 @@ public GameScript()
           Debug.LogError("Item id doesn't exist")
        return "NULL";
       }
-
+  }
 
   public class GearId
   {
