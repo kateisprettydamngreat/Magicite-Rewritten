@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -6771,210 +6772,116 @@ public class GameScript : MonoBehaviour
     }
   }
 
-  public virtual string GetGearName(int id)
-  {
-    switch (id)
+  private Dictionary<int, string> gearNames = new Dictionary<int, string>
     {
-      case 500:
-        return "Wooden Sword";
-      case 501:
-        return "Wooden Axe";
-      case 502:
-        return "Wooden Pick";
-      case 503:
-        return "Ironite Sword";
-      case 504:
-        return "Ironite Axe";
-      case 505:
-        return "Ironite Pick";
-      case 506:
-        return "Goldium Sword";
-      case 507:
-        return "Goldium Axe";
-      case 508:
-        return "Goldium Pick";
-      case 509:
-        return "Diamonite Sword";
-      case 510:
-        return "Diamonite Axe";
-      case 511:
-        return "Diamonite Pick";
-      case 512:
-        return "Stone Sword";
-      case 513:
-        return "Stone Axe";
-      case 514:
-        return "Stone Pick";
-      case 515:
-        return "Wooden Bow";
-      case 516:
-        return "Bone Sword";
-      case 517:
-        return "Bone Axe";
-      case 518:
-        return "Bone Pick";
-      case 519:
-        return "Wooden Club";
-      case 520:
-        return "Lightbringer";
-      case 521:
-        return "Scourge Blade";
-      case 522:
-        return "Dragonite Pick";
-      case 523:
-        return "Wightslayer";
-      case 524:
-        return "Adamantite Axe";
-      case 525:
-        return "Adamantite Pick";
-      case 526:
-        return "Spellblade";
-      case 527:
-        return "Obsidian Axe";
-      case 528:
-        return "Obsidian Pick";
-      case 529:
-        return "Bug Net";
-      case 530:
-        return "Crystal Bow";
-      case 531:
-        return "Emerald Katana";
-      case 532:
-        return "Emerald Combat Axe";
-      case 533:
-        return "Obsidian Sword";
-      case 534:
-        return "Laser Sword";
-      case 535:
-        return "Laser Crossbow";
-      case 536:
-        return "Fire Bow";
-      case 550:
-        return "Giant Fish";
-      case 560:
-        return "Ironite Great Axe";
-      case 561:
-        return "Goldium Great Axe";
-      case 562:
-        return "Diamonite Great Axe";
-      case 563:
-        return "Stone Great Axe";
-      case 564:
-        return "Hellswrath";
-      case 565:
-        return "The Philibuster";
-      case 566:
-        return "Jelly Blade";
-      case 567:
-        return "Zweihander";
-      case 568:
-        return "Icebrand";
-      case 569:
-        return "Firebrand";
-      case 570:
-        return "Thunderbrand";
-      case 600:
-        return "Fireball";
-      case 601:
-        return "Bolt";
-      case 602:
-        return "Frostshard";
-      case 603:
-        return "Summon Zombie";
-      case 700:
-        return "Ironite Helm";
-      case 701:
-        return "Goldium Helm";
-      case 702:
-        return "Diamonite Helm";
-      case 703:
-        return "Stone Helm";
-      case 704:
-        return "Bone Helm";
-      case 705:
-        return "Rugged Cap";
-      case 706:
-        return "Tribal Cap";
-      case 707:
-        return "Elegant Cap";
-      case 708:
-        return "Royal Cap";
-      case 709:
-        return "Luminous Cap";
-      case 710:
-        return "Rugged Hood";
-      case 711:
-        return "Tribal Hood";
-      case 712:
-        return "Elegant Hood";
-      case 713:
-        return "Royal Hood";
-      case 714:
-        return "Luminous Hood";
-      case 800:
-        return "Ironite Armor";
-      case 801:
-        return "Goldium Armor";
-      case 802:
-        return "Diamonite Armor";
-      case 803:
-        return "Stone Armor";
-      case 804:
-        return "Bone Armor";
-      case 805:
-        return "Rugged Cloak";
-      case 806:
-        return "Tribal Cloak";
-      case 807:
-        return "Elegant Cloak";
-      case 808:
-        return "Royal Cloak";
-      case 809:
-        return "Luminous Cloak";
-      case 810:
-        return "Rugged Robes";
-      case 811:
-        return "Tribal Robes";
-      case 812:
-        return "Elegant Robes";
-      case 813:
-        return "Royal Robes";
-      case 814:
-        return "Luminous Robes";
-      case 900:
-        return "Ironite Shield";
-      case 901:
-        return "Goldium Shield";
-      case 902:
-        return "Diamonite Shield";
-      case 903:
-        return "Stone Shield";
-      case 904:
-        return "Bone Shield";
-      case 905:
-        return "Ryvenrath's Scale";
-      case 906:
-        return "Paladin Guard";
-      case 907:
-        return "Scourge Shield";
-      case 950:
-        return "Ring of Power";
-      case 951:
-        return "Ring of Wisdom";
-      case 952:
-        return "Ring of Nature";
-      case 953:
-        return "Ring of Life";
-      case 954:
-        return "Ring of Rage";
-      case 955:
-        return "Ring of Insanity";
-      case 956:
-        return "Archer's Ring";
-      case 957:
-        return "Ring of Balance";
-      default:
-        return "NULL";
+      { 500, "Wooden Sword" },
+      { 501, "Wooden Axe" },
+      { 502, "Wooden Pick" },
+      { 503, "Ironite Sword" },
+      { 504, "Ironite Axe" },
+      { 505, "Ironite Pick" },
+      { 506, "Goldium Sword" },
+      { 507, "Goldium Axe" },
+      { 508, "Goldium Pick" },
+      { 509, "Diamonite Sword" },
+      { 510, "Diamonite Axe" },
+      { 511, "Diamonite Pick" },
+      { 512, "Stone Sword" },
+      { 513, "Stone Axe" },
+      { 514, "Stone Pick" },
+      { 515, "Wooden Bow" },
+      { 516, "Bone Sword" },
+      { 517, "Bone Axe" },
+      { 518, "Bone Pick" },
+      { 519, "Wooden Club" },
+      { 520, "Lightbringer" },
+      { 521, "Scourge Blade" },
+      { 522, "Dragonite Pick" },
+      { 523, "Wightslayer" },
+      { 524, "Adamantite Axe" },
+      { 525, "Adamantite Pick" },
+      { 526, "Spellblade" },
+      { 527, "Obsidian Axe" },
+      { 528, "Obsidian Pick" },
+      { 529, "Bug Net" },
+      { 530, "Crystal Bow" },
+      { 531, "Emerald Katana" },
+      { 532, "Emerald Combat Axe" },
+      { 533, "Obsidian Sword" },
+      { 534, "Laser Sword" },
+      { 535, "Laser Crossbow" },
+      { 536, "Fire Bow" },
+      { 550, "Giant Fish" },
+      { 560, "Ironite Great Axe" },
+      { 561, "Goldium Great Axe" },
+      { 562, "Diamonite Great Axe" },
+      { 563, "Stone Great Axe" },
+      { 564, "Hellswrath" },
+      { 565, "The Philibuster" },
+      { 566, "Jelly Blade" },
+      { 567, "Zweihander" },
+      { 568, "Icebrand" },
+      { 569, "Firebrand" },
+      { 570, "Thunderbrand" },
+      { 600, "Fireball" },
+      { 601, "Bolt" },
+      { 602, "Frostshard" },
+      { 603, "Summon Zombie" },
+      { 700, "Ironite Helm" },
+      { 701, "Goldium Helm" },
+      { 702, "Diamonite Helm" },
+      { 703, "Stone Helm" },
+      { 704, "Bone Helm" },
+      { 705, "Rugged Cap" },
+      { 706, "Tribal Cap" },
+      { 707, "Elegant Cap" },
+      { 708, "Royal Cap" },
+      { 709, "Luminous Cap" },
+      { 710, "Rugged Hood" },
+      { 711, "Tribal Hood" },
+      { 712, "Elegant Hood" },
+      { 713, "Royal Hood" },
+      { 714, "Luminous Hood" },
+      { 800, "Ironite Armor" },
+      { 801, "Goldium Armor" },
+      { 802, "Diamonite Armor" },
+      { 803, "Stone Armor" },
+      { 804, "Bone Armor" },
+      { 805, "Rugged Cloak" },
+      { 806, "Tribal Cloak" },
+      { 807, "Elegant Cloak" },
+      { 808, "Royal Cloak" },
+      { 809, "Luminous Cloak" },
+      { 810, "Rugged Robes" },
+      { 811, "Tribal Robes" },
+      { 812, "Elegant Robes" },
+      { 813, "Royal Robes" },
+      { 814, "Luminous Robes" },
+      { 900, "Ironite Shield" },
+      { 901, "Goldium Shield" },
+      { 902, "Diamonite Shield" },
+      { 903, "Stone Shield" },
+      { 904, "Bone Shield" },
+      { 905, "Ryvenrath's Scale" },
+      { 906, "Paladin Guard" },
+      { 907, "Scourge Shield" },
+      { 950, "Ring of Power" },
+      { 951, "Ring of Wisdom" },
+      { 952, "Ring of Nature" },
+      { 953, "Ring of Life" },
+      { 954, "Ring of Rage" },
+      { 955, "Ring of Insanity" },
+      { 956, "Archer's Ring" },
+      { 957, "Ring of Balance" },
+    };
+    public virtual string GetGearName(int id)
+        {
+          if (gearNames.TryGetValue(id, out string gearName))
+        {
+            return gearName;
+        }
+
+        Debug.LogError("Gear id doesn't exist");
+     return "NULL";
     }
-  }
 }
