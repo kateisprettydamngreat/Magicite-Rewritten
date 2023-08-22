@@ -1409,9 +1409,28 @@ public GameScript()
   public virtual IEnumerator Start() => (IEnumerator) new GameScript.\u0024Start\u00241561(this).GetEnumerator();
 
   public virtual IEnumerator StaminaStart()
-  {
-      return new GameScript.StaminaStart(this).GetEnumerator();
-  }
+	{
+		int num = playerLevel;
+		if (num <= 4)
+		{
+			maxStamina = 4;
+		}
+		else if (num <= 12)
+		{
+			maxStamina = num;
+		}
+		else
+		{
+			maxStamina = 12;
+		}
+		stamina = maxStamina;
+		if (!(stamina >= (float)maxStamina))
+		{
+			stamina += 1f;
+			LoadSTA();
+		}
+		yield return new WaitForSeconds(1f);
+	}
 
   public virtual void LoadSTA()
   {
