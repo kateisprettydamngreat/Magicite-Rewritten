@@ -1408,7 +1408,10 @@ public GameScript()
 
   public virtual IEnumerator Start() => (IEnumerator) new GameScript.\u0024Start\u00241561(this).GetEnumerator();
 
-  public virtual IEnumerator StaminaStart() => (IEnumerator) new GameScript.\u0024StaminaStart\u00241564(this).GetEnumerator();
+  public virtual IEnumerator StaminaStart()
+  {
+      return new GameScript.StaminaStart(this).GetEnumerator();
+  }
 
   public virtual void LoadSTA()
   {
