@@ -1562,7 +1562,10 @@ public GameScript()
     GameScript.exitObj.SendMessage("Open");
   }
 
-  public virtual IEnumerator WriteEgg() => (IEnumerator) new GameScript.\u0024WriteEgg\u00241568(this).GetEnumerator();
+  public virtual IEnumerator WriteEgg()
+  {
+      return new GameScript.WriteEgg(this).GetEnumerator();
+  }
 
   public virtual IEnumerator AddInput(int a) => (IEnumerator) new GameScript.\u0024AddInput\u00241571(a, this).GetEnumerator();
 
