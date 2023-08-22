@@ -1756,22 +1756,33 @@ public class GameScript : MonoBehaviour
   }
 
   public virtual void LoadSTA()
-  {
-    int playerLevel = GameScript.playerLevel;
-    this.maxStamina = playerLevel > 4 ? (playerLevel > 12 ? 12 : playerLevel) : 4;
-    int num1 = new int();
-    float maxStamina = (float) this.maxStamina;
-    float stamina = this.stamina;
-    this.txtBarInfo[3].text = $"{this.stamina}/{this.maxStamina}";
-    float num2 = maxStamina * 0.3f;
-    Vector3 localScale1 = this.barBack[3].transform.localScale;
-    localScale1.x = num2;
-    this.barBack[3].transform.localScale = localScale1;
-    float num4 = stamina * 0.3f;
-    Vector3 localScale2 = this.barFill[3].transform.localScale;
-    localScale2.x = num4;
-    this.barFill[3].transform.localScale = localScale2;
-  }
+	{
+		int num = GameScript.playerLevel;
+		if (num <= 4)
+		{
+			this.maxStamina = 4;
+		}
+		else if (num <= 12)
+		{
+			this.maxStamina = num;
+		}
+		else
+		{
+			this.maxStamina = 12;
+		}
+		int num2 = 0;
+		float num3 = (float)this.maxStamina;
+		float num4 = this.stamina;
+		this.txtBarInfo[3].text = this.stamina + "/" + this.maxStamina;
+		float num5 = num3 * 0.3f;
+		Vector3 localScale = this.barBack[3].transform.localScale;
+		float num6 = (localScale.x = num5);
+		Vector3 vector = (this.barBack[3].transform.localScale = localScale);
+		float num7 = num4 * 0.3f;
+		Vector3 localScale2 = this.barFill[3].transform.localScale;
+		float num8 = (localScale2.x = num7);
+		Vector3 vector2 = (this.barFill[3].transform.localScale = localScale2);
+	}
 
   public virtual void DecreaseHunger()
   {
