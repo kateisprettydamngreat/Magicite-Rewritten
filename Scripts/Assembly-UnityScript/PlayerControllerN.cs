@@ -2675,10 +2675,14 @@ public class PlayerControllerN : MonoBehaviour
 	{
 		GameScript.timer = a;
 	}
-
+	private bool lastloggedisTown = true;
 	public virtual void Update()
 	{
-		MonoBehaviour.print("GameScript.isTown: " + GameScript.isTown);
+		if (GameScript.isTown != lastloggedisTown)
+		{
+			MonoBehaviour.print("GameScript.isTown: " + GameScript.isTown);
+			lastloggedisTown = GameScript.isTown;
+		}
 		if (GameScript.win && !won)
 		{
 			won = true;
@@ -3399,16 +3403,16 @@ public class PlayerControllerN : MonoBehaviour
 		Vector3 vector = default(Vector3);
 		return a switch
 		{
-			0 => new Vector3(-9f, 3f, 1f), 
-			1 => new Vector3(-5f, 3f, 1f), 
-			2 => new Vector3(5f, 3f, 1f), 
-			3 => new Vector3(9f, 3f, 1f), 
-			4 => new Vector3(-9f, -4.5f, 1f), 
-			5 => new Vector3(-5f, -4.5f, 1f), 
-			6 => new Vector3(0f, -4.5f, 1f), 
-			7 => new Vector3(5f, -4.5f, 1f), 
-			8 => new Vector3(9f, -4.5f, 1f), 
-			_ => vector, 
+			0 => new Vector3(-9f, 3f, 1f),
+			1 => new Vector3(-5f, 3f, 1f),
+			2 => new Vector3(5f, 3f, 1f),
+			3 => new Vector3(9f, 3f, 1f),
+			4 => new Vector3(-9f, -4.5f, 1f),
+			5 => new Vector3(-5f, -4.5f, 1f),
+			6 => new Vector3(0f, -4.5f, 1f),
+			7 => new Vector3(5f, -4.5f, 1f),
+			8 => new Vector3(9f, -4.5f, 1f),
+			_ => vector,
 		};
 	}
 
