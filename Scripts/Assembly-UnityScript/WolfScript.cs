@@ -47,7 +47,7 @@ public class WolfScript : MonoBehaviour
 	{
 		if (GetComponent<NetworkView>().isMine)
 		{
-			StartCoroutine(Exile()); 
+			StartCoroutine(Exile());
 			yield return new WaitForSeconds(3f);
 			Network.Destroy(this.GetComponent<NetworkView>().viewID);
 			Network.RemoveRPCs(this.GetComponent<NetworkView>().viewID);
