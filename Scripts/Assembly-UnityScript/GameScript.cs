@@ -1133,7 +1133,13 @@ public class GameScript : MonoBehaviour
   }
 
   public virtual IEnumerator RegenManaComp() {
-    throw new NotImplementedException();
+        yield return new WaitForSeconds(1.5f);
+
+        if (MAG < MAXMAG)
+        {
+            MAG++;
+            LoadMana();
+        }
   }
 
   public virtual void HealC()
