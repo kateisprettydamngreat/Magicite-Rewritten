@@ -46,9 +46,9 @@ internal sealed class Craft : GenericGenerator<WaitForSeconds>
         case 1:
           return false;
         case 2:
-          this.craft=RuntimeServices.op_Addition(RuntimeServices.op_Addition((object) this.self_.firstItemSelected.id, "c"), (object) this.self_.secondItemSelected.id);
-          this.c1=this.self_.firstItemSelected.id;
-          this.c2=this.self_.secondItemSelected.id;
+          int c1 = Math.Min(this.self_.firstItemSelected.id, this.self_.secondItemSelected.id);
+          int c2 = Math.Max(this.self_.firstItemSelected.id, this.self_.secondItemSelected.id);
+          Tuple<int, int> craftCombination = Tuple.Create(c1, c2);
           this.newItem=(Item) null;
           this.newID=0;
           this.newQ=new int();
@@ -136,7 +136,16 @@ internal sealed class Craft : GenericGenerator<WaitForSeconds>
           { Tuple.Create(9, 11), 44 }, // Herb + Root = Mysterious Potion
           { Tuple.Create(10, 11), 44 }, // Shroom + Root = Mysterious Potion
         };
-
+       if (craftToNewID.TryGetValue(craftCombination, out int newID))
+        {
+            // Perform the crafting logic using the newID
+            // ...
+        }
+        else
+        {
+            // Craft combination not found in the dictionary
+            this.canCraft = false;
+        }
           else
             this.canCraft=false;
           if (this.newID >= 600 && this.newID <= 605)
