@@ -8,7 +8,6 @@ internal sealed class Craft : GenericGenerator<WaitForSeconds>
     this.self_ = self_;
   }
 
-  // Method GetEnumerator with token 060003D8
   public override IEnumerator<WaitForSeconds> GetEnumerator()
   {
     return (IEnumerator<WaitForSeconds>) new GameScript.Craft.(this.self_);
@@ -54,240 +53,130 @@ internal sealed class Craft : GenericGenerator<WaitForSeconds>
           this.newID = 0;
           this.newQ = new int();
           MonoBehaviour.print((object) RuntimeServices.op_Addition(RuntimeServices.op_Addition(RuntimeServices.op_Addition("crafting ", (object) this.c1), " "), (object) this.c2));
-          if (this.c1 == 1 && this.c2 == 1)
-            this.newID = 2;
-          else if (this.c1 == 2 && this.c2 == 2)
-            this.newID = 25;
-          else if (this.c1 == 2 && this.c2 == 3)
-            this.newID = 24;
-          else if (this.c1 == 3 && this.c2 == 2)
-            this.newID = 24;
-          else if (this.c1 == 3 && this.c2 == 3)
-            this.newID = 26;
-          else if (this.c1 == 9 && this.c2 == 9)
-            this.newID = 15;
-          else if (this.c1 == 25 && this.c2 == 26)
-            this.newID = 501;
-          else if (this.c1 == 26 && this.c2 == 25)
-            this.newID = 501;
-          else if (this.c1 == 24 && this.c2 == 25)
-            this.newID = 500;
-          else if (this.c1 == 25 && this.c2 == 24)
-            this.newID = 500;
-          else if (this.c1 == 3 && this.c2 == 26)
-            this.newID = 27;
-          else if (this.c1 == 26 && this.c2 == 3)
-            this.newID = 27;
-          else if (this.c1 == 27 && this.c2 == 25)
-            this.newID = 502;
-          else if (this.c1 == 25 && this.c2 == 27)
-            this.newID = 502;
-          else if (this.c1 == 38 && this.c2 == 38)
-            this.newID = 39;
-          else if (this.c1 == 39 && this.c2 == 39)
-            this.newID = 40;
-          else if (this.c1 == 24 && this.c2 == 40)
-            this.newID = 512;
-          else if (this.c1 == 40 && this.c2 == 24)
-            this.newID = 512;
-          else if (this.c1 == 40 && this.c2 == 26)
-            this.newID = 513;
-          else if (this.c1 == 26 && this.c2 == 40)
-            this.newID = 513;
-          else if (this.c1 == 40 && this.c2 == 27)
-            this.newID = 514;
-          else if (this.c1 == 27 && this.c2 == 40)
-            this.newID = 514;
-          else if (this.c1 == 18 && this.c2 == 18)
-            this.newID = 51;
-          else if (this.c1 == 71 && this.c2 == 3)
-            this.newID = 602;
-          else if (this.c1 == 3 && this.c2 == 71)
-            this.newID = 602;
-          else if (this.c1 == 18 && this.c2 == 50)
-            this.newID = 517;
-          else if (this.c1 == 50 && this.c2 == 18)
-            this.newID = 517;
-          else if (this.c1 == 19 && this.c2 == 19)
-            this.newID = 82;
-          else if (this.c1 == 20 && this.c2 == 20)
-            this.newID = 94;
-          else if (this.c1 == 81 && this.c2 == 81)
-            this.newID = 71;
-          else if (this.c1 == 2 && this.c2 == 82)
-            this.newID = 77;
-          else if (this.c1 == 82 && this.c2 == 2)
-            this.newID = 77;
-          else if (this.c1 == 77 && this.c2 == 30)
-            this.newID = 78;
-          else if (this.c1 == 30 && this.c2 == 77)
-            this.newID = 78;
-          else if (this.c1 == 77 && this.c2 == 31)
-            this.newID = 79;
-          else if (this.c1 == 31 && this.c2 == 77)
-            this.newID = 79;
-          else if (this.c1 == 77 && this.c2 == 81)
-            this.newID = 80;
-          else if (this.c1 == 81 && this.c2 == 77)
-            this.newID = 80;
-          else if (this.c1 == 69 && this.c2 == 3)
-            this.newID = 600;
-          else if (this.c1 == 3 && this.c2 == 69)
-            this.newID = 600;
-          else if (this.c1 == 70 && this.c2 == 3)
-            this.newID = 601;
-          else if (this.c1 == 3 && this.c2 == 70)
-            this.newID = 601;
-          else if (this.c1 == 30 && this.c2 == 30)
-            this.newID = 69;
-          else if (this.c1 == 31 && this.c2 == 31)
-            this.newID = 70;
-          else if (this.c1 == 26 && this.c2 == 50)
-            this.newID = 517;
-          else if (this.c1 == 50 && this.c2 == 26)
-            this.newID = 517;
-          else if (this.c1 == 24 && this.c2 == 50)
-            this.newID = 516;
-          else if (this.c1 == 50 && this.c2 == 24)
-            this.newID = 516;
-          else if (this.c1 == 60 && this.c2 == 60)
-            this.newID = 61;
-          else if (this.c1 == 51 && this.c2 == 51)
-            this.newID = 50;
-          else if (this.c1 == 27 && this.c2 == 50)
-            this.newID = 518;
-          else if (this.c1 == 50 && this.c2 == 27)
-            this.newID = 518;
-          else if (this.c1 == 29 && this.c2 == 29)
-            this.newID = 68;
-          else if (this.c1 == 27 && this.c2 == 3)
-            this.newID = 28;
-          else if (this.c1 == 3 && this.c2 == 27)
-            this.newID = 28;
-          else if (this.c1 == 28 && this.c2 == 29)
-            this.newID = 515;
-          else if (this.c1 == 29 && this.c2 == 28)
-            this.newID = 515;
-          else if (this.c1 == 12 && this.c2 == 12)
-            this.newID = 32;
-          else if (this.c1 == 13 && this.c2 == 13)
-            this.newID = 33;
-          else if (this.c1 == 14 && this.c2 == 14)
-            this.newID = 34;
-          else if (this.c1 == 39 && this.c2 == 39)
-            this.newID = 40;
-          else if (this.c1 == 32 && this.c2 == 24)
-            this.newID = 503;
-          else if (this.c1 == 24 && this.c2 == 32)
-            this.newID = 503;
-          else if (this.c1 == 32 && this.c2 == 26)
-            this.newID = 504;
-          else if (this.c1 == 26 && this.c2 == 32)
-            this.newID = 504;
-          else if (this.c1 == 32 && this.c2 == 27)
-            this.newID = 505;
-          else if (this.c1 == 27 && this.c2 == 32)
-            this.newID = 505;
-          else if (this.c1 == 24 && this.c2 == 33)
-            this.newID = 506;
-          else if (this.c1 == 33 && this.c2 == 24)
-            this.newID = 506;
-          else if (this.c1 == 33 && this.c2 == 26)
-            this.newID = 507;
-          else if (this.c1 == 26 && this.c2 == 33)
-            this.newID = 507;
-          else if (this.c1 == 33 && this.c2 == 27)
-            this.newID = 508;
-          else if (this.c1 == 27 && this.c2 == 33)
-            this.newID = 508;
-          else if (this.c1 == 24 && this.c2 == 34)
-            this.newID = 509;
-          else if (this.c1 == 34 && this.c2 == 24)
-            this.newID = 509;
-          else if (this.c1 == 34 && this.c2 == 26)
-            this.newID = 510;
-          else if (this.c1 == 26 && this.c2 == 34)
-            this.newID = 510;
-          else if (this.c1 == 34 && this.c2 == 27)
-            this.newID = 511;
-          else if (this.c1 == 27 && this.c2 == 34)
-            this.newID = 511;
-          else if (this.c1 == 26 && this.c2 == 35)
-            this.newID = 560;
-          else if (this.c1 == 35 && this.c2 == 26)
-            this.newID = 560;
-          else if (this.c1 == 26 && this.c2 == 36)
-            this.newID = 561;
-          else if (this.c1 == 36 && this.c2 == 26)
-            this.newID = 561;
-          else if (this.c1 == 26 && this.c2 == 37)
-            this.newID = 562;
-          else if (this.c1 == 37 && this.c2 == 26)
-            this.newID = 562;
-          else if (this.c1 == 26 && this.c2 == 41)
-            this.newID = 563;
-          else if (this.c1 == 41 && this.c2 == 26)
-            this.newID = 563;
-          else if (this.c1 == 567 && this.c2 == 71)
-            this.newID = 568;
-          else if (this.c1 == 71 && this.c2 == 567)
-            this.newID = 568;
-          else if (this.c1 == 567 && this.c2 == 69)
-            this.newID = 569;
-          else if (this.c1 == 69 && this.c2 == 567)
-            this.newID = 569;
-          else if (this.c1 == 567 && this.c2 == 70)
-            this.newID = 570;
-          else if (this.c1 == 70 && this.c2 == 567)
-            this.newID = 570;
-          else if (this.c1 == 32 && this.c2 == 32)
-            this.newID = 35;
-          else if (this.c1 == 33 && this.c2 == 33)
-            this.newID = 36;
-          else if (this.c1 == 34 && this.c2 == 34)
-            this.newID = 37;
-          else if (this.c1 == 40 && this.c2 == 40)
-            this.newID = 41;
-          else if (this.c1 == 68 && this.c2 == 3)
-            this.newID = 529;
-          else if (this.c1 == 3 && this.c2 == 68)
-            this.newID = 529;
-          else if (this.c1 == 15 && this.c2 == 15)
-            this.newID = 42;
-          else if (this.c1 == 16 && this.c2 == 16)
-            this.newID = 43;
-          else if (this.c1 == 44 && this.c2 == 44)
-            this.newID = 45;
-          else if (this.c1 == 10 && this.c2 == 10)
-            this.newID = 16;
-          else if (this.c1 == 23 && this.c2 == 23)
-            this.newID = 29;
-          else if (this.c1 == 39 && this.c2 == 3)
-            this.newID = 53;
-          else if (this.c1 == 3 && this.c2 == 39)
-            this.newID = 53;
-          else if (this.c1 == 12 && this.c2 == 3)
-            this.newID = 54;
-          else if (this.c1 == 3 && this.c2 == 12)
-            this.newID = 54;
-          else if (this.c1 == 13 && this.c2 == 3)
-            this.newID = 55;
-          else if (this.c1 == 3 && this.c2 == 13)
-            this.newID = 55;
-          else if (this.c1 == 51 && this.c2 == 3)
-            this.newID = 52;
-          else if (this.c1 == 3 && this.c2 == 51)
-            this.newID = 52;
-          else if (this.c1 == 3 && this.c2 == 14)
-            this.newID = 56;
-          else if (this.c1 == 14 && this.c2 == 3)
-            this.newID = 56;
-          else if (this.c1 == 47 && this.c2 == 47 || this.c1 == 38 && this.c2 == 47 || this.c1 == 47 && this.c2 == 38)
-            this.newID = 48;
-          else if (this.c1 == 9 && this.c2 == 10 || this.c1 == 10 && this.c2 == 9 || this.c1 == 9 && this.c2 == 11 || this.c1 == 11 && this.c2 == 9 || this.c1 == 10 && this.c2 == 11 || this.c1 == 11 && this.c2 == 10)
-            this.newID = 44;
-          else if (this.c1 == 44 && this.c2 == 44)
-            this.newID = 45;
+
+        Dictionary<Tuple<int, int>, int> craftToNewID = new Dictionary<Tuple<int, int>, int>
+        {
+          { Tuple.Create(1, 1), 2 }, //Wood+Wood=Wooden Plank
+          { Tuple.Create(2, 2), 25 }, //Wooden Plank+Wooden Plank=Wooden Stick
+          { Tuple.Create(2, 3), 24 }, //Wooden Plank+Wooden Stick=Sword Hilt
+          { Tuple.Create(3, 3), 26 }, //Wooden Stick+Wooden Stick=Axe Handle
+          { Tuple.Create(9, 9), 15 }, //Herb+Herb=HP Potion
+          { Tuple.Create(25, 26), 501 },
+          { Tuple.Create(26, 25), 501 },
+          { Tuple.Create(24, 25), 500 },
+          { Tuple.Create(25, 24), 500 },
+          { Tuple.Create(3, 26), 27 },
+          { Tuple.Create(26, 3), 27 },
+          { Tuple.Create(27, 25), 502 },
+          { Tuple.Create(25, 27), 502 },
+          { Tuple.Create(38, 38), 39 },
+          { Tuple.Create(39, 39), 40 },
+          { Tuple.Create(24, 40), 512 },
+          { Tuple.Create(40, 24), 512 },
+          { Tuple.Create(40, 26), 513 },
+          { Tuple.Create(26, 40), 513 },
+          { Tuple.Create(40, 27), 514 },
+          { Tuple.Create(27, 40), 514 },
+          { Tuple.Create(18, 18), 51 },
+          { Tuple.Create(71, 3), 602 },
+          { Tuple.Create(3, 71), 602 },
+          { Tuple.Create(18, 50), 517 },
+          { Tuple.Create(50, 18), 517 },
+          { Tuple.Create(19, 19), 82 },
+          { Tuple.Create(20, 20), 94 },
+          { Tuple.Create(81, 81), 71 },
+          { Tuple.Create(2, 82), 77 },
+          { Tuple.Create(82, 2), 77 },
+          { Tuple.Create(77, 30), 78 },
+          { Tuple.Create(30, 77), 78 },
+          { Tuple.Create(77, 31), 79 },
+          { Tuple.Create(31, 77), 79 },
+          { Tuple.Create(77, 81), 80 },
+          { Tuple.Create(81, 77), 80 },
+          { Tuple.Create(69, 3), 600 },
+          { Tuple.Create(3, 69), 600 },
+          { Tuple.Create(70, 3), 601 },
+          { Tuple.Create(3, 70), 601 },
+          { Tuple.Create(30, 30), 69 },
+          { Tuple.Create(31, 31), 70 },
+          { Tuple.Create(26, 50), 517 },
+          { Tuple.Create(50, 26), 517 },
+          { Tuple.Create(24, 50), 516 },
+          { Tuple.Create(50, 24), 516 },
+          { Tuple.Create(60, 60), 61 },
+          { Tuple.Create(51, 51), 50 },
+          { Tuple.Create(27, 50), 518 },
+          { Tuple.Create(50, 27), 518 },
+          { Tuple.Create(29, 29), 68 },
+          { Tuple.Create(27, 3), 28 },
+          { Tuple.Create(3, 27), 28 },
+          { Tuple.Create(28, 29), 515 },
+          { Tuple.Create(29, 28), 515 },
+          { Tuple.Create(12, 12), 32 },
+          { Tuple.Create(13, 13), 33 },
+          { Tuple.Create(14, 14), 34 },
+          { Tuple.Create(39, 39), 40 },
+          { Tuple.Create(32, 24), 503 },
+          { Tuple.Create(24, 32), 503 },
+          { Tuple.Create(32, 26), 504 },
+          { Tuple.Create(26, 32), 504 },
+          { Tuple.Create(32, 27), 505 },
+          { Tuple.Create(27, 32), 505 },
+          { Tuple.Create(24, 33), 506 },
+          { Tuple.Create(33, 24), 506 },
+          { Tuple.Create(33, 26), 507 },
+          { Tuple.Create(26, 33), 507 },
+          { Tuple.Create(33, 27), 508 },
+          { Tuple.Create(27, 33), 508 },
+          { Tuple.Create(24, 34), 509 },
+          { Tuple.Create(34, 24), 509 },
+          { Tuple.Create(34, 26), 510 },
+          { Tuple.Create(26, 34), 510 },
+          { Tuple.Create(34, 27), 511 },
+          { Tuple.Create(27, 34), 511 },
+          { Tuple.Create(26, 35), 560 },
+          { Tuple.Create(35, 26), 560 },
+          { Tuple.Create(26, 36), 561 },
+          { Tuple.Create(36, 26), 561 },
+          { Tuple.Create(26, 37), 562 },
+          { Tuple.Create(37, 26), 562 },
+          { Tuple.Create(26, 41), 563 },
+          { Tuple.Create(41, 26), 563 },
+          { Tuple.Create(567, 71), 568 },
+          { Tuple.Create(71, 567), 568 },
+          { Tuple.Create(567, 69), 569 },
+          { Tuple.Create(69, 567), 569 },
+          { Tuple.Create(567, 70), 570 },
+          { Tuple.Create(70, 567), 570 },
+          { Tuple.Create(32, 32), 35 },
+          { Tuple.Create(33, 33), 36 },
+          { Tuple.Create(34, 34), 37 },
+          { Tuple.Create(40, 40), 41 },
+          { Tuple.Create(68, 3), 529 },
+          { Tuple.Create(3, 68), 529 },
+          { Tuple.Create(15, 15), 42 },
+          { Tuple.Create(16, 16), 43 },
+          { Tuple.Create(44, 44), 45 },
+          { Tuple.Create(10, 10), 16 },
+          { Tuple.Create(23, 23), 29 },
+          { Tuple.Create(39, 3), 53 },
+          { Tuple.Create(3, 39), 53 },
+          { Tuple.Create(12, 3), 54 },
+          { Tuple.Create(3, 12), 54 },
+          { Tuple.Create(13, 3), 55 },
+          { Tuple.Create(3, 13), 55 },
+          { Tuple.Create(51, 3), 52 },
+          { Tuple.Create(3, 51), 52 },
+          { Tuple.Create(3, 14), 56 },
+          { Tuple.Create(14, 3), 56 },
+          { Tuple.Create(44, 44), 45 },
+          { Tuple.Create(47, 47), 48 },
+          { Tuple.Create(38, 47), 48 },
+          { Tuple.Create(9, 10), 44 },
+          { Tuple.Create(9, 11), 44 },
+          { Tuple.Create(10, 11), 44 },
+        };
+
           else
             this.canCraft = false;
           if (this.newID >= 600 && this.newID <= 605)
