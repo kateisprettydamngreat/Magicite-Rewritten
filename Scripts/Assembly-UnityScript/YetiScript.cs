@@ -1,114 +1,142 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Networking;
-//It works, except for the NetCode.
+
 public class YetiScript : EnemyScript
 {
     public GameObject ballL;
     public GameObject ballR;
+
     private RaycastHit hit;
     private int num;
 
     private void Start()
     {
-        //if (isServer)
-        //{
-        //    Initialize();
-        //}
+        StartCoroutine(StartCoroutine());
     }
 
-    //[ClientRpc]
-    private void RpcATK()
+    [RPC]
+    private IEnumerator ATK()
     {
-        StartCoroutine(ATKCoroutine());
+        yield return StartCoroutine(AttackCoroutine());
     }
 
-    //[ClientRpc]
-    private void RpcAttackCheck()
+    private IEnumerator AttackCheck()
     {
-        StartCoroutine(AttackCheckCoroutine());
+        yield return StartCoroutine(AttackCheckCoroutine());
     }
 
-    private void Initialize()
+    private IEnumerator StartCoroutine()
     {
-        Animation animation = @base.GetComponent<Animation>();
-        animation["i"].layer = 0;
-        animation["a"].layer = 1;
-        animation["i"].speed = 0.5f;
+        @base.GetComponent<Animation>()["i"].layer = 0;
+        @base.GetComponent<Animation>()["a"].layer = 1;
+        @base.GetComponent<Animation>()["i"].speed = 0.5f;
 
-        int[] drops = new int[3];
-        drops[0] = 1;
+        int[] drops = new int[] { 1, 0, 0 };
+        SetStats(20, 2, 1, 8, 6f, drops, UnityEngine.Random.Range(3, 20), 6);
 
-        SetStats(20, 2, 1, 8, 6f, drops, Random.Range(3, 20), 6);
+        yield return StartCoroutine(AttackCheck());
     }
 
-    private IEnumerator ATKCoroutine()
+    private IEnumerator AttackCoroutine()
     {
-        yield return new WaitForSeconds(0.3f);
-        PerformAttack();
-    }
+        Vector3 startPos;
+        Ray ray;
+        Ray ray2;
+        int num;
+        WaitForSeconds waitForSeconds;
 
-    private IEnumerator AttackCheckCoroutine()
-    {
-        yield return new WaitForSeconds(0.3f);
-        PerformAttackCheck();
-    }
-
-    private void PerformAttack()
-    {
-        Vector3 startPos = new Vector3(t.position.x, t.position.y - 0.3f, 0f);
-        Ray ray = new Ray(startPos, Vector3.right);
-        Ray ray2 = new Ray(startPos, Vector3.left);
+        startPos = new Vector3(t.position.x, t.position.y - 0.3f, 0f);
+        ray = new Ray(startPos, new Vector3(1f, 0f, 0f));
+        ray2 = new Ray(startPos, new Vector3(-1f, 0f, 0f));
 
         if (Physics.Raycast(ray, out hit, 20f, 256))
         {
             attacking = true;
+            num = Random.Range(0, 5);
             @base.GetComponent<Animation>().Play("a");
             e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            /*if (isServer)
+
+            if (Network.isServer)
             {
-                NetworkServer.Spawn(Instantiate(ballR, t.position, Quaternion.identity));
-            }*/
+                Network.Instantiate(ballR, t.position, Quaternion.identity, 0);
+            }
+
+            waitForSeconds = new WaitForSeconds(2f);
+            yield return waitForSeconds;
+
+            if (Network.isServer)
+            {
+                Network.Instantiate(ballL, t.position, Quaternion.identity, 0);
+            }
+
+            waitForSeconds = new WaitForSeconds(2f);
+            yield return waitForSeconds;
+
+            attacking = false;
+            waitForSeconds = new WaitForSeconds(0.3f);
+            yield return waitForSeconds;
         }
         else if (Physics.Raycast(ray2, out hit, 20f, 256))
         {
             attacking = true;
             @base.GetComponent<Animation>().Play("a");
-            e.transform.rotation = Quaternion.identity;
-            /*if (isServer)
+            e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+            if (Network.isServer)
             {
-                NetworkServer.Spawn(Instantiate(ballL, t.position, Quaternion.identity));
-            }*/
+                Network.Instantiate(ballL, t.position, Quaternion.identity, 0);
+            }
+
+            waitForSeconds = new WaitForSeconds(2f);
+            yield return waitForSeconds;
+
+            attacking = false;
+            waitForSeconds = new WaitForSeconds(0.3f);
+            yield return waitForSeconds;
         }
     }
 
-    private void PerformAttackCheck()
+    private IEnumerator AttackCheckCoroutine()
     {
-        Vector3 startPos = new Vector3(t.position.x, t.position.y - 0.3f, 0f);
-        Ray ray = new Ray(startPos, Vector3.right);
-        Ray ray2 = new Ray(startPos, Vector3.left);
+        Vector3 startPos;
+        Ray ray;
+        Ray ray2;
+        int num;
+        WaitForSeconds waitForSeconds;
+
+        startPos = new Vector3(t.position.x, t.position.y - 0.3f, 0f);
+        ray = new Ray(startPos, new Vector3(1f, 0f, 0f));
+        ray2 = new Ray(startPos, new Vector3(-1f, 0f, 0f));
 
         if (!attacking)
         {
             if (Physics.Raycast(ray, out hit, 20f, 256))
             {
-                attacking = true;
+                num = Random.Range(0, 5);
+
+                if (Network.isServer)
+                {
+                    r.velocity = new Vector3(r.velocity.x, 20f, r.velocity.z);
+                }
+
                 @base.GetComponent<Animation>().Play("a");
                 e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                /*if (isServer)
-                {
-                    NetworkServer.Spawn(Instantiate(ballR, t.position, Quaternion.identity));
-                }*/
+
+                waitForSeconds = new WaitForSeconds(0.3f);
+                yield return waitForSeconds;
             }
             else if (Physics.Raycast(ray2, out hit, 20f, 256))
             {
-                attacking = true;
-                @base.GetComponent<Animation>().Play("a");
-                e.transform.rotation = Quaternion.identity;
-                /*if (isServer)
+                if (Network.isServer)
                 {
-                    NetworkServer.Spawn(Instantiate(ballL, t.position, Quaternion.identity));
-                }*/
+                    r.velocity = new Vector3(r.velocity.x, 20f, r.velocity.z);
+                }
+
+                @base.GetComponent<Animation>().Play("a");
+                e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+                waitForSeconds = new WaitForSeconds(0.3f);
+                yield return waitForSeconds;
             }
         }
     }
