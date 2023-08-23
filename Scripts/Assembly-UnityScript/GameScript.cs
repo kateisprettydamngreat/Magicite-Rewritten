@@ -378,10 +378,10 @@ public GameScript()
 		{
 				item.id,
 				item.q,
-				0,
-				0,
-				0,
-				0,
+				item.e[0],
+				item.e[1],
+				item.e[2],
+				item.e[3],
 				100
 		};
 
