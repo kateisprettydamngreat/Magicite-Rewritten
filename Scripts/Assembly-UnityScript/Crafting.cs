@@ -17,47 +17,29 @@ internal sealed class Craft : GenericGenerator<WaitForSeconds>
   [Serializable]
   internal sealed class \u0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
   {
-    // Field $canCraft$1577 with token 040003B3
     internal bool canCraft;
-    // Field $craft$1578 with token 040003B4
     internal string craft;
-    // Field $c1$1579 with token 040003B5
     internal int c1;
-    // Field $c2$1580 with token 040003B6
     internal int c2;
-    // Field $newItem$1581 with token 040003B7
     internal Item newItem;
-    // Field $newID$1582 with token 040003B8
     internal int newID;
-    // Field $newQ$1583 with token 040003B9
     internal int newQ;
-    // Field $i$1584 with token 040003BA
     internal int i;
-    // Field $pood$1585 with token 040003BB
     internal int pood;
-    // Field $lowestQ$1586 with token 040003BC
     internal int lowestQ;
-    // Field $aTemp$1587 with token 040003BD
     internal int aTemp;
-    // Field $tempForge$1588 with token 040003BE
     internal float tempForge;
-    // Field $luckCount$1589 with token 040003BF
     internal int luckCount;
-    // Field $bonusStat$1590 with token 040003C0
     internal int bonusStat;
-    // Field $num1$1591 with token 040003C1
     internal int num1;
-    // Field $self_$1592 with token 040003C2
     internal GameScript self_;
 
-    // Method .ctor with token 060003D9
     public \u0024(/*Parameter with token 08000195*/GameScript self_)
     {
       base.\u002Ector();
       this.self_ = self_;
     }
 
-    // Method MoveNext with token 060003DA
     public override bool MoveNext()
     {
       switch (this._state)
