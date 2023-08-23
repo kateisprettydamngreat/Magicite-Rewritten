@@ -1251,9 +1251,37 @@ public class GameScript : MonoBehaviour
     }
   }
 
-  public virtual IEnumerator ScourgeBoss(int d) {
-    throw new NotImplementedException();
-  }
+	public virtual IEnumerator SpawnScourgeBoss(int d)
+	{
+			yield return new WaitForSeconds(1f);
+
+			string enemy = null;
+
+			switch (d)
+			{
+					case 5:
+							enemy = "abyssalTitan";
+							break;
+					case 10:
+					case 15:
+							enemy = "scourgeKnight";
+							break;
+			}
+
+			if (!GameScript.isTown)
+			{
+					if (!string.IsNullOrEmpty(enemy))
+					{
+							if (GameScript.exitObj != null)
+							{
+									GameScript.exitObj.SendMessage("Close");
+							}
+
+							Network.Instantiate(Resources.Load("e/" + enemy), new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity, 0);
+					}
+					yield return new WaitForSeconds(1f);
+			}
+	}
 
   public virtual IEnumerator Write(int num) {
     MonoBehaviour.print("WRITING");
