@@ -2727,10 +2727,27 @@ public class GameScript : MonoBehaviour
     throw new NotImplementedException();
   }
 
-  public virtual IEnumerator UnlockRace(int h) {
-    throw new NotImplementedException();
-  }
+	private IEnumerator UnlockRaceCoroutine(int raceIndex)
+	{
+			rewardTop.SetActive(true);
+			rewardBot.SetActive(true);
+			yield return new WaitForSeconds(1f);
 
+			txtRewardTop[0].text = "NEW RACE UNLOCKED!";
+			rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("r/r" + (raceIndex - 1) + "h0");
+			MenuScript.raceUnlock[raceIndex - 1] = 1;
+			PlayerPrefs.SetInt("rU" + (raceIndex - 1), 1);
+			txtRewardBot[0].text = GetRaceName(raceIndex - 1);
+			txtRewardTop[1].text = txtRewardTop[0].text;
+			txtRewardBot[1].text = txtRewardBot[0].text;
+			rewardShade.SetActive(true);
+			yield return new WaitForSeconds(0.2f);
+	}
+
+	public void UnlockRace(int raceIndex)
+	{
+			StartCoroutine(UnlockRaceCoroutine(raceIndex));
+	}
   public virtual string GetHatName(int a)
   {
     switch (a)
