@@ -1952,13 +1952,47 @@ public class GameScript : MonoBehaviour
     GameScript.exitObj.SendMessage("Open");
   }
 
-  public virtual IEnumerator WriteEgg() {
-    throw new NotImplementedException();
-  }
+	public virtual IEnumerator WriteEgg()
+	{
+			yield return new WaitForSeconds(2f);
 
-  public virtual IEnumerator AddInput(int a) {
-    throw new NotImplementedException();
-  }
+			writingEgg = true;
+			StartCoroutine_Auto(Write(7));
+
+			yield return new WaitForSeconds(2f);
+
+			writingEgg = false;
+	}
+
+	public virtual IEnumerator AddInput(int a)
+	{
+			yield return new WaitForSeconds(0.2f);
+
+			if (!addingInput)
+			{
+					GetComponent<AudioSource>().PlayOneShot(audioSelect2);
+					cheatButton[a - 1].GetComponent<Animation>().Play();
+
+					if (inputCount == 0)
+					{
+							txtInput.text = string.Empty;
+					}
+
+					addingInput = true;
+					inputString[inputCount] = a;
+					inputCount++;
+					txtInput.text += a;
+
+					if (inputCount == 7)
+					{
+							yield return new WaitForSeconds(0.2f);
+					}
+			}
+			else
+			{
+					addingInput = false;
+			}
+	}
 
   public virtual void CheckInput()
   {
