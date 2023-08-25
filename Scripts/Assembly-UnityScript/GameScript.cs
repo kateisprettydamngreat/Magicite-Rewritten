@@ -1432,328 +1432,181 @@ public class GameScript : MonoBehaviour
     GameScript.player.GetComponent<NetworkView>().RPC("SetZoneName", RPCMode.All, (object) str);
   }
 
-  public virtual string GetForestPrefix()
-  {
-    int num1 = UnityEngine.Random.Range(0, 10);
-    int num2 = UnityEngine.Random.Range(0, 10);
-    string lhs = (string) null;
-    string rhs = (string) null;
-    switch (num1)
+    public virtual string GetForestPrefix()
     {
-      case 0:
-        lhs = "Thorn";
-        break;
-      case 1:
-        lhs = "Bush";
-        break;
-      case 2:
-        lhs = "Leaf";
-        break;
-      case 3:
-        lhs = "Vine";
-        break;
-      case 4:
-        lhs = "Rock";
-        break;
-      case 5:
-        lhs = "Earth";
-        break;
-      case 6:
-        lhs = "Toad";
-        break;
-      case 7:
-        lhs = "Green";
-        break;
-      case 8:
-        lhs = "Tree";
-        break;
-      case 9:
-        lhs = "Deep";
-        break;
-      case 10:
-        lhs = "Lush";
-        break;
+        // Define dictionaries for lhs and rhs prefixes directly within the method
+        var lhsPrefixes = new Dictionary<int, string>
+        {
+            { 0, "Thorn" },
+            { 1, "Bush" },
+            { 2, "Leaf" },
+            { 3, "Vine" },
+            { 4, "Rock" },
+            { 5, "Earth" },
+            { 6, "Toad" },
+            { 7, "Green" },
+            { 8, "Tree" },
+            { 9, "Deep" },
+            { 10, "Lush" }
+        };
+
+        var rhsPrefixes = new Dictionary<int, string>
+        {
+            { 0, "vale" },
+            { 1, "wreath" },
+            { 2, "night" },
+            { 3, "fire" },
+            { 4, "roar" },
+            { 5, "fang" },
+            { 6, "road" },
+            { 7, "wild" },
+            { 8, "wood" },
+            { 9, "grand" },
+            { 10, "flower" }
+        };
+
+        int num1 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+        int num2 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+
+        string lhs = lhsPrefixes[num1];
+        string rhs = rhsPrefixes[num2];
+
+        return $"{lhs}{rhs}";
     }
-    switch (num2)
-    {
-      case 0:
-        rhs = "vale";
-        break;
-      case 1:
-        rhs = "wreath";
-        break;
-      case 2:
-        rhs = "night";
-        break;
-      case 3:
-        rhs = "fire";
-        break;
-      case 4:
-        rhs = "roar";
-        break;
-      case 5:
-        rhs = "fang";
-        break;
-      case 6:
-        rhs = "road";
-        break;
-      case 7:
-        rhs = "wild";
-        break;
-      case 8:
-        rhs = "wood";
-        break;
-      case 9:
-        rhs = "grand";
-        break;
-      case 10:
-        rhs = "flower";
-        break;
-    }
-    return $"{lhs}{rhs}";
+}
   }
 
-  public virtual string GetTundraPrefix()
-  {
-    int num1 = UnityEngine.Random.Range(0, 10);
-    int num2 = UnityEngine.Random.Range(0, 10);
-    string str1 = (string) null;
-    string str2 = (string) null;
-    switch (num1)
+using System;
+using UnityEngine;
+
+public class YourClass
+{
+    public virtual string GetTundraPrefix()
     {
-      case 0:
-        str1 = "Thorn";
-        break;
-      case 1:
-        str1 = "Bush";
-        break;
-      case 2:
-        str1 = "Leaf";
-        break;
-      case 3:
-        str1 = "Vine";
-        break;
-      case 4:
-        str1 = "Rock";
-        break;
-      case 5:
-        str1 = "Earth";
-        break;
-      case 6:
-        str1 = "Toad";
-        break;
-      case 7:
-        str1 = "Green";
-        break;
-      case 8:
-        str1 = "Tree";
-        break;
-      case 9:
-        str1 = "Deep";
-        break;
-      case 10:
-        str1 = "Lush";
-        break;
+        // These suck, let's make them actually tundra-y?
+        var str1Prefixes = new Dictionary<int, string>
+        {
+            { 0, "Thorn" },
+            { 1, "Bush" },
+            { 2, "Leaf" },
+            { 3, "Vine" },
+            { 4, "Rock" },
+            { 5, "Earth" },
+            { 6, "Toad" },
+            { 7, "Green" },
+            { 8, "Tree" },
+            { 9, "Deep" },
+            { 10, "Lush" }
+        };
+
+        var str2Prefixes = new Dictionary<int, string>
+        {
+            { 0, "vale" },
+            { 1, "wreath" },
+            { 2, "night" },
+            { 3, "fire" },
+            { 4, "roar" },
+            { 5, "fang" },
+            { 6, "road" },
+            { 7, "wild" },
+            { 8, "wood" },
+            { 9, "grand" },
+            { 10, "flower" }
+        };
+
+        int num1 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+        int num2 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+
+        string str1 = str1Prefixes[num1];
+        string str2 = str2Prefixes[num2];
+
+        return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
     }
-    switch (num2)
-    {
-      case 0:
-        str2 = "vale";
-        break;
-      case 1:
-        str2 = "wreath";
-        break;
-      case 2:
-        str2 = "night";
-        break;
-      case 3:
-        str2 = "fire";
-        break;
-      case 4:
-        str2 = "roar";
-        break;
-      case 5:
-        str2 = "fang";
-        break;
-      case 6:
-        str2 = "road";
-        break;
-      case 7:
-        str2 = "wild";
-        break;
-      case 8:
-        str2 = "wood";
-        break;
-      case 9:
-        str2 = "grand";
-        break;
-      case 10:
-        str2 = "flower";
-        break;
-    }
-    return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
-  }
+}
+
 
   public virtual string GetDungeonPrefix()
   {
-    int num1 = UnityEngine.Random.Range(0, 10);
-    int num2 = UnityEngine.Random.Range(0, 10);
-    string str1 = (string) null;
-    string str2 = (string) null;
-    switch (num1)
-    {
-      case 0:
-        str1 = "Thorn";
-        break;
-      case 1:
-        str1 = "Bush";
-        break;
-      case 2:
-        str1 = "Leaf";
-        break;
-      case 3:
-        str1 = "Vine";
-        break;
-      case 4:
-        str1 = "Rock";
-        break;
-      case 5:
-        str1 = "Earth";
-        break;
-      case 6:
-        str1 = "Toad";
-        break;
-      case 7:
-        str1 = "Green";
-        break;
-      case 8:
-        str1 = "Tree";
-        break;
-      case 9:
-        str1 = "Deep";
-        break;
-      case 10:
-        str1 = "Lush";
-        break;
-    }
-    switch (num2)
-    {
-      case 0:
-        str2 = "vale";
-        break;
-      case 1:
-        str2 = "wreath";
-        break;
-      case 2:
-        str2 = "night";
-        break;
-      case 3:
-        str2 = "fire";
-        break;
-      case 4:
-        str2 = "roar";
-        break;
-      case 5:
-        str2 = "fang";
-        break;
-      case 6:
-        str2 = "road";
-        break;
-      case 7:
-        str2 = "wild";
-        break;
-      case 8:
-        str2 = "wood";
-        break;
-      case 9:
-        str2 = "grand";
-        break;
-      case 10:
-        str2 = "flower";
-        break;
-    }
-    return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
+        var str1Prefixes = new Dictionary<int, string>
+        //MAKE NAMES GOOD
+        {
+            { 0, "Thorn" },
+            { 1, "Bush" },
+            { 2, "Leaf" },
+            { 3, "Vine" },
+            { 4, "Rock" },
+            { 5, "Earth" },
+            { 6, "Toad" },
+            { 7, "Green" },
+            { 8, "Tree" },
+            { 9, "Deep" },
+            { 10, "Lush" }
+        };
+
+        var str2Prefixes = new Dictionary<int, string>
+        {
+            { 0, "vale" },
+            { 1, "wreath" },
+            { 2, "night" },
+            { 3, "fire" },
+            { 4, "roar" },
+            { 5, "fang" },
+            { 6, "road" },
+            { 7, "wild" },
+            { 8, "wood" },
+            { 9, "grand" },
+            { 10, "flower" }
+        };
+
+        int num1 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+        int num2 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+
+        string str1 = str1Prefixes[num1];
+        string str2 = str2Prefixes[num2];
+
+        return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
   }
 
   public virtual string GetCavePrefix()
   {
-    int num1 = UnityEngine.Random.Range(0, 10);
-    int num2 = UnityEngine.Random.Range(0, 10);
-    string str1 = (string) null;
-    string str2 = (string) null;
-    switch (num1)
-    {
-      case 0:
-        str1 = "Thorn";
-        break;
-      case 1:
-        str1 = "Bush";
-        break;
-      case 2:
-        str1 = "Leaf";
-        break;
-      case 3:
-        str1 = "Vine";
-        break;
-      case 4:
-        str1 = "Rock";
-        break;
-      case 5:
-        str1 = "Earth";
-        break;
-      case 6:
-        str1 = "Toad";
-        break;
-      case 7:
-        str1 = "Green";
-        break;
-      case 8:
-        str1 = "Tree";
-        break;
-      case 9:
-        str1 = "Deep";
-        break;
-      case 10:
-        str1 = "Lush";
-        break;
-    }
-    switch (num2)
-    {
-      case 0:
-        str2 = "vale";
-        break;
-      case 1:
-        str2 = "wreath";
-        break;
-      case 2:
-        str2 = "night";
-        break;
-      case 3:
-        str2 = "fire";
-        break;
-      case 4:
-        str2 = "roar";
-        break;
-      case 5:
-        str2 = "fang";
-        break;
-      case 6:
-        str2 = "road";
-        break;
-      case 7:
-        str2 = "wild";
-        break;
-      case 8:
-        str2 = "wood";
-        break;
-      case 9:
-        str2 = "grand";
-        break;
-      case 10:
-        str2 = "flower";
-        break;
-    }
-    return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
+    //SERIOUSLY
+        var str1Prefixes = new Dictionary<int, string>
+        {
+            { 0, "Thorn" },
+            { 1, "Bush" },
+            { 2, "Leaf" },
+            { 3, "Vine" },
+            { 4, "Rock" },
+            { 5, "Earth" },
+            { 6, "Toad" },
+            { 7, "Green" },
+            { 8, "Tree" },
+            { 9, "Deep" },
+            { 10, "Lush" }
+        };
+
+        var str2Prefixes = new Dictionary<int, string>
+        {
+            { 0, "vale" },
+            { 1, "wreath" },
+            { 2, "night" },
+            { 3, "fire" },
+            { 4, "roar" },
+            { 5, "fang" },
+            { 6, "road" },
+            { 7, "wild" },
+            { 8, "wood" },
+            { 9, "grand" },
+            { 10, "flower" }
+        };
+
+        int num1 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+        int num2 = UnityEngine.Random.Range(0, 11); // Change range to include upper bound
+
+        string str1 = str1Prefixes[num1];
+        string str2 = str2Prefixes[num2];
+
+        return UnityEngine.Random.Range(0, 2) == 0 ? $"{str1}{str2}" : $"{str2}{str1}";
   }
 
   public virtual IEnumerator Start() {
