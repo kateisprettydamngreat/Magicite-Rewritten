@@ -2677,12 +2677,6 @@ public class PlayerControllerN : MonoBehaviour
 	}
 	public virtual void Update()
 	{
-		private bool lastloggedisTown = true;
-		if (GameScript.isTown != lastloggedisTown)
-		{
-			MonoBehaviour.print("GameScript.isTown: " + GameScript.isTown);
-			lastloggedisTown = GameScript.isTown;
-		}
 		if (GameScript.win && !won)
 		{
 			won = true;
