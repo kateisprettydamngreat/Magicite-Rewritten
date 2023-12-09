@@ -4,5 +4,5 @@ Magicite rewritten is a fan-led overhaul of Magicite in it's entirety. Primary g
 
 For deephaven!
 
-Join our discord, or even our dev team! https://discord.gg/bcHxcJdF5
+Join our discord, or even our dev team! https://discord.gg/kbWqfZU
 (dm k8rgrl on discord if invite expires)
