@@ -453,7 +453,7 @@ public class NPCScript : MonoBehaviour
         }
 
         yield return new WaitForSeconds(UnityEngine.Random.Range(5, 11));
-    }
+    }}
 
 
 	[RPC]
