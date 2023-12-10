@@ -32,6 +32,7 @@ public class NPCScript : MonoBehaviour
 	private Rigidbody r;
 	private int GOLD;
 	private bool canMove;
+	
 	[Serializable]
 	internal sealed class _0024TalkN_00242092 : GenericGenerator<WaitForSeconds>
 	{
@@ -85,6 +86,11 @@ public class NPCScript : MonoBehaviour
 			return new _0024(_0024a_00242095, _0024self__00242096);
 		}
 	}
+	[RPC]
+	public virtual IEnumerator TalkN(string a)
+	{
+		return new _0024TalkN_00242092(a, this).GetEnumerator();
+	}
 
 	[Serializable]
 	internal sealed class _0024Start_00242097 : GenericGenerator<Coroutine>
@@ -135,6 +141,10 @@ public class NPCScript : MonoBehaviour
 			return new _0024(_0024self__00242099);
 		}
 	}
+	public virtual IEnumerator Start()
+	{
+		return new _0024Start_00242097(this).GetEnumerator();
+	}	
 
 	[Serializable]
 	internal sealed class _0024TDN_00242100 : GenericGenerator<WaitForSeconds>
@@ -207,6 +217,11 @@ public class NPCScript : MonoBehaviour
 		{
 			return new _0024(_0024dmg_00242104, _0024self__00242105);
 		}
+	}
+	[RPC]
+	public virtual IEnumerator TDN(int dmg)
+	{
+		return new _0024TDN_00242100(dmg, this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -288,6 +303,11 @@ public class NPCScript : MonoBehaviour
 			return new _0024(_0024dmg_00242112, _0024self__00242113);
 		}
 	}
+	[RPC]
+	public virtual IEnumerator TDN2(int dmg)
+	{
+		return new _0024TDN2_00242106(dmg, this).GetEnumerator();
+	}
 
 	[Serializable]
 	internal sealed class _0024Move_00242114 : GenericGenerator<WaitForSeconds>
@@ -347,6 +367,40 @@ public class NPCScript : MonoBehaviour
 			return new _0024(_0024self__00242116);
 		}
 	}
+	public virtual IEnumerator Move()
+	{
+		return new _0024Move_00242114(this).GetEnumerator();
+	}
+
+	[RPC]
+	public virtual IEnumerator<WaitForSeconds> Talk(int a) {
+    while (true) {
+        string message = null;
+
+        switch(a) {
+            case 1:
+                message = "Smelt your ores!";
+                break;
+            case 3:
+                message = "Refine your Monster Hide!";
+                break;
+            case 4:
+                message = "Craft fancy fabrics!";
+                break;
+            case 5:
+                message = "Sell me your treasure!";
+                break;
+            default:
+                yield break; // Exit the coroutine for unknown cases
+        }
+
+        if (Network.isServer) {
+            this.GetComponent<NetworkView>().RPC("TalkN", RPCMode.All, message);
+        }
+
+        yield return new WaitForSeconds(UnityEngine.Random.Range(5, 11));
+    }}
+//Now exiting: enumeration station
 
 	public NPCScript()
 	{
@@ -398,47 +452,6 @@ public class NPCScript : MonoBehaviour
 	}
 
 	[RPC]
-	public virtual IEnumerator<WaitForSeconds> Talk(int a) {
-    while (true) {
-        string message = null;
-
-        switch(a) {
-            case 1:
-                message = "Smelt your ores!";
-                break;
-            case 3:
-                message = "Refine your Monster Hide!";
-                break;
-            case 4:
-                message = "Craft fancy fabrics!";
-                break;
-            case 5:
-                message = "Sell me your treasure!";
-                break;
-            default:
-                yield break; // Exit the coroutine for unknown cases
-        }
-
-        if (Network.isServer) {
-            this.GetComponent<NetworkView>().RPC("TalkN", RPCMode.All, message);
-        }
-
-        yield return new WaitForSeconds(UnityEngine.Random.Range(5, 11));
-    }}
-
-
-	[RPC]
-	public virtual IEnumerator TalkN(string a)
-	{
-		return new _0024TalkN_00242092(a, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00242097(this).GetEnumerator();
-	}
-
-	[RPC]
 	public virtual void O()
 	{
 		int num = 0;
@@ -462,18 +475,6 @@ public class NPCScript : MonoBehaviour
 				GetComponent<NetworkView>().RPC("TDN2", RPCMode.All, dmg);
 			}
 		}
-	}
-
-	[RPC]
-	public virtual IEnumerator TDN(int dmg)
-	{
-		return new _0024TDN_00242100(dmg, this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator TDN2(int dmg)
-	{
-		return new _0024TDN2_00242106(dmg, this).GetEnumerator();
 	}
 
 	public virtual void Die()
@@ -515,11 +516,6 @@ public class NPCScript : MonoBehaviour
 	{
 		altarObj.SetActive(value: false);
 		altarCoin.SetActive(value: false);
-	}
-
-	public virtual IEnumerator Move()
-	{
-		return new _0024Move_00242114(this).GetEnumerator();
 	}
 
 	[RPC]
