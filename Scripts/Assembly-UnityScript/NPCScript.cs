@@ -45,59 +45,15 @@ public class NPCScript : MonoBehaviour
 		}
 	}
 	[Serializable]
-	internal sealed class _0024Start_00242097 : GenericGenerator<Coroutine>
-	{
-		[Serializable]
-	
-		internal sealed class _0024 : GenericGeneratorEnumerator<Coroutine>, IEnumerator
-		{
-			internal NPCScript _0024self__00242098;
-
-			public _0024(NPCScript self_)
-			{
-				_0024self__00242098 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242098.isAltar)
-					{
-						goto case 2;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 2:
-					result = (Yield(2, _0024self__00242098.StartCoroutine_Auto(_0024self__00242098.Move())) ? 1 : 0);
-					break;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal NPCScript _0024self__00242099;
-
-		public _0024Start_00242097(NPCScript self_)
-		{
-			_0024self__00242099 = self_;
-		}
-
-		public override IEnumerator<Coroutine> GetEnumerator()
-		{
-			return new _0024(_0024self__00242099);
-		}
-	}
 	public virtual IEnumerator Start()
 	{
-		return new _0024Start_00242097(this).GetEnumerator();
-	}	
+		if (!isAltar)
+		{
+			yield break;
+		}
 
+		yield return StartCoroutine_Auto(Move());
+	}
 	[Serializable]
 	internal sealed class _0024TDN_00242100 : GenericGenerator<WaitForSeconds>
 	{
