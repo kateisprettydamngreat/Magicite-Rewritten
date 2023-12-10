@@ -9,11 +9,10 @@ using UnityEngine;
 public class NPCScript : MonoBehaviour
 {
 	[Serializable]
-	[CompilerGenerated]
 	internal sealed class _0024TalkN_00242092 : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
-		[CompilerGenerated]
+	
 		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
 			internal string _0024a_00242093;
@@ -64,11 +63,10 @@ public class NPCScript : MonoBehaviour
 	}
 
 	[Serializable]
-	[CompilerGenerated]
 	internal sealed class _0024Start_00242097 : GenericGenerator<Coroutine>
 	{
 		[Serializable]
-		[CompilerGenerated]
+	
 		internal sealed class _0024 : GenericGeneratorEnumerator<Coroutine>, IEnumerator
 		{
 			internal NPCScript _0024self__00242098;
@@ -115,11 +113,10 @@ public class NPCScript : MonoBehaviour
 	}
 
 	[Serializable]
-	[CompilerGenerated]
 	internal sealed class _0024TDN_00242100 : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
-		[CompilerGenerated]
+	
 		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
 			internal int _0024i_00242101;
@@ -189,11 +186,10 @@ public class NPCScript : MonoBehaviour
 	}
 
 	[Serializable]
-	[CompilerGenerated]
 	internal sealed class _0024TDN2_00242106 : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
-		[CompilerGenerated]
+	
 		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
 			internal GameObject _0024n2_00242107;
@@ -270,11 +266,10 @@ public class NPCScript : MonoBehaviour
 	}
 
 	[Serializable]
-	[CompilerGenerated]
 	internal sealed class _0024Move_00242114 : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
-		[CompilerGenerated]
+	
 		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
 			internal NPCScript _0024self__00242115;
