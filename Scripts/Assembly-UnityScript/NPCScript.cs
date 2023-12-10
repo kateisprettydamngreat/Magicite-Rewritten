@@ -521,10 +521,34 @@ public class NPCScript : MonoBehaviour
 	}
 
 	[RPC]
-	public virtual IEnumerator Talk(int a)
-	{
-		return new _0024Talk_00242087(a, this).GetEnumerator();
-	}
+	public virtual IEnumerator<WaitForSeconds> Talk(int a) {
+    while (true) {
+        string message = null;
+
+        switch(a) {
+            case 1:
+                message = "Smelt your ores!";
+                break;
+            case 3:
+                message = "Refine your Monster Hide!";
+                break;
+            case 4:
+                message = "Craft fancy fabrics!";
+                break;
+            case 5:
+                message = "Sell me your treasure!";
+                break;
+            default:
+                yield break; // Exit the coroutine for unknown cases
+        }
+
+        if (Network.isServer) {
+            this.GetComponent<NetworkView>().RPC("TalkN", RPCMode.All, message);
+        }
+
+        yield return new WaitForSeconds(UnityEngine.Random.Range(5, 11));
+    }
+}
 
 	[RPC]
 	public virtual IEnumerator TalkN(string a)
