@@ -8,6 +8,30 @@ using UnityEngine;
 [Serializable]
 public class NPCScript : MonoBehaviour
 {
+	public GameObject altarCoin;
+	private bool disabled;
+	public GameObject altarObj;
+	public GameObject[] stand;
+	public TextMesh txtTalk;
+	public bool isMerchant;
+	public bool isBlacksmith;
+	public bool isTailor;
+	public bool isLeatherworker;
+	public bool isTreasureHunter;
+	public bool isAltar;
+	private int pos;
+	private Transform t;
+	private int moving;
+	private int maxHP;
+	private int hp;
+	private bool takingDamage;
+	public GameObject @base;
+	public GameObject base2;
+	public float speed;
+	public Transform npc;
+	private Rigidbody r;
+	private int GOLD;
+	private bool canMove;
 	[Serializable]
 	internal sealed class _0024TalkN_00242092 : GenericGenerator<WaitForSeconds>
 	{
@@ -323,54 +347,6 @@ public class NPCScript : MonoBehaviour
 			return new _0024(_0024self__00242116);
 		}
 	}
-
-	public GameObject altarCoin;
-
-	private bool disabled;
-
-	public GameObject altarObj;
-
-	public GameObject[] stand;
-
-	public TextMesh txtTalk;
-
-	public bool isMerchant;
-
-	public bool isBlacksmith;
-
-	public bool isTailor;
-
-	public bool isLeatherworker;
-
-	public bool isTreasureHunter;
-
-	public bool isAltar;
-
-	private int pos;
-
-	private Transform t;
-
-	private int moving;
-
-	private int maxHP;
-
-	private int hp;
-
-	private bool takingDamage;
-
-	public GameObject @base;
-
-	public GameObject base2;
-
-	public float speed;
-
-	public Transform npc;
-
-	private Rigidbody r;
-
-	private int GOLD;
-
-	private bool canMove;
 
 	public NPCScript()
 	{
