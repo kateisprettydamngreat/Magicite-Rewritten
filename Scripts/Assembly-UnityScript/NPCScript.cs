@@ -33,65 +33,17 @@ public class NPCScript : MonoBehaviour
 	private int GOLD;
 	private bool canMove;
 	
-	[Serializable]
-	internal sealed class _0024TalkN_00242092 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-	
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal string _0024a_00242093;
-
-			internal NPCScript _0024self__00242094;
-
-			public _0024(string a, NPCScript self_)
-			{
-				_0024a_00242093 = a;
-				_0024self__00242094 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242094.txtTalk.text = _0024a_00242093 + string.Empty;
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242094.txtTalk.text = string.Empty;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal string _0024a_00242095;
-
-		internal NPCScript _0024self__00242096;
-
-		public _0024TalkN_00242092(string a, NPCScript self_)
-		{
-			_0024a_00242095 = a;
-			_0024self__00242096 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00242095, _0024self__00242096);
-		}
-	}
 	[RPC]
 	public virtual IEnumerator TalkN(string a)
 	{
-		return new _0024TalkN_00242092(a, this).GetEnumerator();
+		while (true)
+		{
+			txtTalk.text = a + string.Empty;
+			yield return new WaitForSeconds(2f);
+			txtTalk.text = string.Empty;
+			yield return null;
+		}
 	}
-
 	[Serializable]
 	internal sealed class _0024Start_00242097 : GenericGenerator<Coroutine>
 	{
