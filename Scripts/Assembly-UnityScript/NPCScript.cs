@@ -579,4 +579,4 @@ public class NPCScript : MonoBehaviour
 	{
 	}
 
-	}
+}
