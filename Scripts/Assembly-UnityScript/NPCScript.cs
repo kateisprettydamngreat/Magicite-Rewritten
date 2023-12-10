@@ -82,89 +82,29 @@ public class NPCScript : MonoBehaviour
 
 		yield return null;
 	}
-	[Serializable]
-	internal sealed class _0024TDN2_00242106 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-	
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024n2_00242107;
 
-			internal int _0024_0024691_00242108;
-
-			internal Vector3 _0024_0024692_00242109;
-
-			internal int _0024dmg_00242110;
-
-			internal NPCScript _0024self__00242111;
-
-			public _0024(int dmg, NPCScript self_)
-			{
-				_0024dmg_00242110 = dmg;
-				_0024self__00242111 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024n2_00242107 = (GameObject)UnityEngine.Object.Instantiate((GameObject)Resources.Load("TD", typeof(GameObject)), _0024self__00242111.t.position, Quaternion.identity);
-					_0024n2_00242107.SendMessage("SD", _0024dmg_00242110);
-					_0024self__00242111.@base.GetComponent<Animation>().Play();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					if (_0024self__00242111.hp < 1)
-					{
-						goto IL_014c;
-					}
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-				{
-					_0024self__00242111.@base.GetComponent<Animation>().Stop();
-					_0024self__00242111.takingDamage = false;
-					int num = (_0024_0024691_00242108 = 0);
-					Vector3 vector = (_0024_0024692_00242109 = _0024self__00242111.@base.transform.localPosition);
-					float num2 = (_0024_0024692_00242109.z = _0024_0024691_00242108);
-					Vector3 vector3 = (_0024self__00242111.@base.transform.localPosition = _0024_0024692_00242109);
-					goto IL_014c;
-				}
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_014c:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024dmg_00242112;
-
-		internal NPCScript _0024self__00242113;
-
-		public _0024TDN2_00242106(int dmg, NPCScript self_)
-		{
-			_0024dmg_00242112 = dmg;
-			_0024self__00242113 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024dmg_00242112, _0024self__00242113);
-		}
-	}
 	[RPC]
-	public virtual IEnumerator TDN2(int dmg)
+	public IEnumerator TDN2(int dmg)
 	{
-		return new _0024TDN2_00242106(dmg, this).GetEnumerator();
+		GameObject n2 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("TD", typeof(GameObject)), t.position, Quaternion.identity);
+		n2.SendMessage("SD", dmg);
+		@base.GetComponent<Animation>().Play();
+
+		yield return new WaitForSeconds(0.2f);
+
+		if (hp >= 1)
+		{
+			yield return new WaitForSeconds(0.2f);
+			@base.GetComponent<Animation>().Stop();
+			takingDamage = false;
+			Vector3 originalPosition = @base.transform.localPosition;
+			originalPosition.z = 0;
+			@base.transform.localPosition = originalPosition;
+		}
+		else
+		{
+			yield return null;
+		}
 	}
 
 	[Serializable]
