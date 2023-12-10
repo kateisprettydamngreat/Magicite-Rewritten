@@ -386,11 +386,11 @@ public class NPCScript : MonoBehaviour
 		}
 		else if (isAltar)
 		{
-			Initializ();
+			InitializeAltar();
 		}
 	}
 
-	public virtual void Initializ()
+	public virtual void InitializeAltar()
 	{
 		int num = UnityEngine.Random.Range(0, 8);
 		altarObj.GetComponent<Renderer>().material = (Material)Resources.Load("altar" + num);
