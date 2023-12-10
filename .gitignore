@@ -1,2 +1,21 @@
 
 *.editorconfig
+Magicite-Rewritten.sln
+Scripts/Assembly-CSharp/obj/Assembly-CSharp.csproj.nuget.dgspec.json
+Scripts/Assembly-CSharp/obj/Assembly-CSharp.csproj.nuget.g.props
+Scripts/Assembly-CSharp/obj/Assembly-CSharp.csproj.nuget.g.targets
+Scripts/Assembly-CSharp/obj/project.assets.json
+Scripts/Assembly-CSharp/obj/project.nuget.cache
+Scripts/Assembly-CSharp/obj/Debug/net35/Assembly-CSharp.assets.cache
+Scripts/Assembly-CSharp-firstpass/obj/Assembly-CSharp-firstpass.csproj.nuget.dgspec.json
+Scripts/Assembly-CSharp-firstpass/obj/Assembly-CSharp-firstpass.csproj.nuget.g.props
+Scripts/Assembly-CSharp-firstpass/obj/Assembly-CSharp-firstpass.csproj.nuget.g.targets
+Scripts/Assembly-CSharp-firstpass/obj/project.assets.json
+Scripts/Assembly-CSharp-firstpass/obj/project.nuget.cache
+Scripts/Assembly-CSharp-firstpass/obj/Debug/net35/Assembly-CSharp-firstpass.assets.cache
+Scripts/Assembly-UnityScript-firstpass/obj/Assembly-UnityScript-firstpass.csproj.nuget.dgspec.json
+Scripts/Assembly-UnityScript-firstpass/obj/Assembly-UnityScript-firstpass.csproj.nuget.g.props
+Scripts/Assembly-UnityScript-firstpass/obj/Assembly-UnityScript-firstpass.csproj.nuget.g.targets
+Scripts/Assembly-UnityScript-firstpass/obj/project.assets.json
+Scripts/Assembly-UnityScript-firstpass/obj/project.nuget.cache
+Scripts/Assembly-UnityScript-firstpass/obj/Debug/net35/Assembly-UnityScript-firstpass.assets.cache
