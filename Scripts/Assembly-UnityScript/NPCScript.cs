@@ -565,18 +565,4 @@ public class NPCScript : MonoBehaviour
 	{
 		GetComponent<NetworkView>().viewID = id;
 	}
-
-	public virtual void Knock(Vector3 p)
-	{
-	}
-
-	[RPC]
-	public virtual void KnockN(Vector3 p)
-	{
-	}
-
-	public virtual void K(bool l)
-	{
-	}
-
 }
