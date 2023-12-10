@@ -44,7 +44,7 @@ public class NPCScript : MonoBehaviour
 			yield return null;
 		}
 	}
-	[Serializable]
+
 	public virtual IEnumerator Start()
 	{
 		if (!isAltar)
@@ -54,84 +54,34 @@ public class NPCScript : MonoBehaviour
 
 		yield return StartCoroutine_Auto(Move());
 	}
-	[Serializable]
-	internal sealed class _0024TDN_00242100 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-	
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00242101;
-
-			internal int _0024dmg_00242102;
-
-			internal NPCScript _0024self__00242103;
-
-			public _0024(int dmg, NPCScript self_)
-			{
-				_0024dmg_00242102 = dmg;
-				_0024self__00242103 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242103.takingDamage = true;
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242103.hp -= _0024dmg_00242102;
-					_0024i_00242101 = default(int);
-					if (_0024self__00242103.hp < 1)
-					{
-						for (_0024i_00242101 = 0; _0024i_00242101 < _0024self__00242103.GOLD; _0024i_00242101++)
-						{
-							Network.Instantiate(Resources.Load("c"), _0024self__00242103.t.position, Quaternion.identity, 0);
-						}
-						if (Network.isServer)
-						{
-							Network.RemoveRPCs(_0024self__00242103.GetComponent<NetworkView>().viewID);
-							Network.Destroy(_0024self__00242103.GetComponent<NetworkView>().viewID);
-						}
-					}
-					else
-					{
-						_0024self__00242103.takingDamage = false;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024dmg_00242104;
-
-		internal NPCScript _0024self__00242105;
-
-		public _0024TDN_00242100(int dmg, NPCScript self_)
-		{
-			_0024dmg_00242104 = dmg;
-			_0024self__00242105 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024dmg_00242104, _0024self__00242105);
-		}
-	}
 	[RPC]
 	public virtual IEnumerator TDN(int dmg)
 	{
-		return new _0024TDN_00242100(dmg, this).GetEnumerator();
-	}
+		takingDamage = true;
+		yield return new WaitForSeconds(0.2f);
 
+		hp -= dmg;
+		int i;
+		if (hp < 1)
+		{
+			for (i = 0; i < GOLD; i++)
+			{
+				Network.Instantiate(Resources.Load("c"), t.position, Quaternion.identity, 0);
+			}
+
+			if (Network.isServer)
+			{
+				Network.RemoveRPCs(GetComponent<NetworkView>().viewID);
+				Network.Destroy(GetComponent<NetworkView>().viewID);
+			}
+		}
+		else
+		{
+			takingDamage = false;
+		}
+
+		yield return null;
+	}
 	[Serializable]
 	internal sealed class _0024TDN2_00242106 : GenericGenerator<WaitForSeconds>
 	{
