@@ -107,67 +107,23 @@ public class NPCScript : MonoBehaviour
 		}
 	}
 
-	[Serializable]
-	internal sealed class _0024Move_00242114 : GenericGenerator<WaitForSeconds>
+	public IEnumerator Move()
 	{
-		[Serializable]
-	
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal NPCScript _0024self__00242115;
+		canMove = true;
 
-			public _0024(NPCScript self_)
-			{
-				_0024self__00242115 = self_;
-			}
+		yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3));
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242115.canMove = true;
-					result = (Yield(2, new WaitForSeconds(UnityEngine.Random.Range(1, 3))) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242115.canMove = false;
-					result = (Yield(3, new WaitForSeconds(UnityEngine.Random.Range(1, 10))) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00242115.canMove = true;
-					result = (Yield(4, new WaitForSeconds(UnityEngine.Random.Range(1, 4))) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00242115.canMove = false;
-					result = (Yield(5, new WaitForSeconds(UnityEngine.Random.Range(1, 10))) ? 1 : 0);
-					break;
-				case 5:
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+		canMove = false;
 
-		internal NPCScript _0024self__00242116;
+		yield return new WaitForSeconds(UnityEngine.Random.Range(1, 10));
 
-		public _0024Move_00242114(NPCScript self_)
-		{
-			_0024self__00242116 = self_;
-		}
+		canMove = true;
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242116);
-		}
-	}
-	public virtual IEnumerator Move()
-	{
-		return new _0024Move_00242114(this).GetEnumerator();
+		yield return new WaitForSeconds(UnityEngine.Random.Range(1, 4));
+
+		canMove = false;
+
+		yield return new WaitForSeconds(UnityEngine.Random.Range(1, 10));
 	}
 
 	[RPC]
