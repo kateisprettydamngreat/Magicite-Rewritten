@@ -7,32 +7,28 @@ using UnityEngine;
 [Serializable]
 public class AttackCube : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-public IEnumerator Start()
-{
-    if (!gameScript)
-    {
-        gameScript = GameObject.Find("GameManager").GetComponent<GameScript>();
-    }
+	public IEnumerator Start()
+	{
+		if (!gameScript)
+		{
+			gameScript = GameObject.Find("GameManager").GetComponent<GameScript>();
+		}
 
-    yield return new WaitForSeconds(1f);
-}
+		yield return new WaitForSeconds(1f);
+	}
 
-	[Serializable]
-	[CompilerGenerated]
-public IEnumerator Anim()
-{
-    int numIterations = 3;
-    float offsetIncrement = 0.25f;
-    float waitTime = 0.05f;
+	public IEnumerator Anim()
+	{
+		int numIterations = 3;
+		float offsetIncrement = 0.25f;
+		float waitTime = 0.05f;
 
-    for (int i = 0; i < numIterations; i++)
-    {
-        atkAnim.GetComponent<Renderer>().material.mainTextureOffset += new Vector2(offsetIncrement, 0);
-        yield return new WaitForSeconds(waitTime);
-    }
-}
+		for (int i = 0; i < numIterations; i++)
+		{
+			atkAnim.GetComponent<Renderer>().material.mainTextureOffset += new Vector2(offsetIncrement, 0);
+			yield return new WaitForSeconds(waitTime);
+		}
+	}
 	public GameObject player;
 
 	public GameObject critObj;
