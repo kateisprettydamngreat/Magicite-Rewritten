@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
@@ -10,142 +9,30 @@ public class AttackCube : MonoBehaviour
 {
 	[Serializable]
 	[CompilerGenerated]
-	internal sealed class _0024Start_00241202 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal AttackCube _0024self__00241203;
+public IEnumerator Start()
+{
+    if (!gameScript)
+    {
+        gameScript = GameObject.Find("GameManager").GetComponent<GameScript>();
+    }
 
-			public _0024(AttackCube self_)
-			{
-				_0024self__00241203 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241203.gameScript)
-					{
-						_0024self__00241203.gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
-					}
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal AttackCube _0024self__00241204;
-
-		public _0024Start_00241202(AttackCube self_)
-		{
-			_0024self__00241204 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241204);
-		}
-	}
+    yield return new WaitForSeconds(1f);
+}
 
 	[Serializable]
 	[CompilerGenerated]
-	internal sealed class _0024Anim_00241205 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00241206;
+public IEnumerator Anim()
+{
+    int numIterations = 3;
+    float offsetIncrement = 0.25f;
+    float waitTime = 0.05f;
 
-			internal int _0024_0024409_00241207;
-
-			internal Vector2 _0024_0024410_00241208;
-
-			internal float _0024_0024411_00241209;
-
-			internal Vector2 _0024_0024412_00241210;
-
-			internal int _0024_0024413_00241211;
-
-			internal Vector2 _0024_0024414_00241212;
-
-			internal AttackCube _0024self__00241213;
-
-			public _0024(AttackCube self_)
-			{
-				_0024self__00241213 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				int num5;
-				Vector2 vector7;
-				float num6;
-				Vector2 vector9;
-				switch (_state)
-				{
-				default:
-				{
-					_0024i_00241206 = default(int);
-					int num = (_0024_0024409_00241207 = 0);
-					Vector2 vector = (_0024_0024410_00241208 = _0024self__00241213.atkAnim.GetComponent<Renderer>().material.mainTextureOffset);
-					float num2 = (_0024_0024410_00241208.x = _0024_0024409_00241207);
-					Vector2 vector3 = (_0024self__00241213.atkAnim.GetComponent<Renderer>().material.mainTextureOffset = _0024_0024410_00241208);
-					_0024i_00241206 = 0;
-					goto IL_0154;
-				}
-				case 2:
-					_0024i_00241206++;
-					goto IL_0154;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0154:
-					if (_0024i_00241206 < 3)
-					{
-						float num3 = (_0024_0024411_00241209 = _0024self__00241213.atkAnim.GetComponent<Renderer>().material.mainTextureOffset.x + 0.25f);
-						Vector2 vector4 = (_0024_0024412_00241210 = _0024self__00241213.atkAnim.GetComponent<Renderer>().material.mainTextureOffset);
-						float num4 = (_0024_0024412_00241210.x = _0024_0024411_00241209);
-						Vector2 vector6 = (_0024self__00241213.atkAnim.GetComponent<Renderer>().material.mainTextureOffset = _0024_0024412_00241210);
-						result = (Yield(2, new WaitForSeconds(0.05f)) ? 1 : 0);
-						break;
-					}
-					num5 = (_0024_0024413_00241211 = 0);
-					vector7 = (_0024_0024414_00241212 = _0024self__00241213.atkAnim.GetComponent<Renderer>().material.mainTextureOffset);
-					num6 = (_0024_0024414_00241212.x = _0024_0024413_00241211);
-					vector9 = (_0024self__00241213.atkAnim.GetComponent<Renderer>().material.mainTextureOffset = _0024_0024414_00241212);
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal AttackCube _0024self__00241214;
-
-		public _0024Anim_00241205(AttackCube self_)
-		{
-			_0024self__00241214 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241214);
-		}
-	}
-
+    for (int i = 0; i < numIterations; i++)
+    {
+        atkAnim.GetComponent<Renderer>().material.mainTextureOffset += new Vector2(offsetIncrement, 0);
+        yield return new WaitForSeconds(waitTime);
+    }
+}
 	public GameObject player;
 
 	public GameObject critObj;
@@ -186,18 +73,8 @@ public class AttackCube : MonoBehaviour
 		cameraScript = (CameraScript)Camera.main.gameObject.GetComponent("CameraScript");
 	}
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00241202(this).GetEnumerator();
-	}
-
 	public virtual void OnEnable()
 	{
-	}
-
-	public virtual IEnumerator Anim()
-	{
-		return new _0024Anim_00241205(this).GetEnumerator();
 	}
 
 	public virtual void OnTriggerEnter(Collider c)
