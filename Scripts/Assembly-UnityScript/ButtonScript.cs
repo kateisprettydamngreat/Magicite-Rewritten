@@ -28,3 +28,4 @@ public class ButtonScript : MonoBehaviour
 	{
 		shade.SetActive(value: false);
 	}
+}
