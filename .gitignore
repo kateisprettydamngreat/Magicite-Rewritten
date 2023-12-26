@@ -19,3 +19,4 @@ Scripts/Assembly-UnityScript-firstpass/obj/Assembly-UnityScript-firstpass.csproj
 Scripts/Assembly-UnityScript-firstpass/obj/project.assets.json
 Scripts/Assembly-UnityScript-firstpass/obj/project.nuget.cache
 Scripts/Assembly-UnityScript-firstpass/obj/Debug/net35/Assembly-UnityScript-firstpass.assets.cache
+.config/dotnet-tools.json
