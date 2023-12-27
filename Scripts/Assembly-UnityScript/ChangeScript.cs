@@ -8,3 +8,4 @@ public class ChangeScript : MonoBehaviour
 	{
 		Application.LoadLevel(2);
 	}
+}
