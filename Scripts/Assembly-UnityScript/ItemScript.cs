@@ -2,145 +2,53 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class ItemScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Exile_00241922 : GenericGenerator<WaitForSeconds>
+	public IEnumerator Exile() 
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal ItemScript _0024self__00241923;
-
-			public _0024(ItemScript self_)
-			{
-				_0024self__00241923 = self_;
+		if (!exiling) {
+			exiling = true;
+			t.position = new Vector3(0f, 0f, -500f); 
+			yield return new WaitForSeconds(4f);
+			
+			if (Network.isServer) {
+				Network.Destroy(GetComponent<NetworkView>().viewID);
+				Network.RemoveRPCs(GetComponent<NetworkView>().viewID); 
 			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241923.exiling)
-					{
-						_0024self__00241923.exiling = true;
-						_0024self__00241923.t.position = new Vector3(0f, 0f, -500f);
-						result = (Yield(2, new WaitForSeconds(4f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0099;
-				case 2:
-					if (Network.isServer)
-					{
-						Network.Destroy(_0024self__00241923.GetComponent<NetworkView>().viewID);
-						Network.RemoveRPCs(_0024self__00241923.GetComponent<NetworkView>().viewID);
-					}
-					goto IL_0099;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0099:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal ItemScript _0024self__00241924;
-
-		public _0024Exile_00241922(ItemScript self_)
-		{
-			_0024self__00241924 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241924);
 		}
 	}
+    public IEnumerator Start()
+    {
+        int result;
+        if (!dropped && (isLocal || Network.isServer))
+        {
+            r.AddForce(new Vector3(UnityEngine.Random.Range(-1, 2), 1f, 0f) * 200f);
+            int num = UnityEngine.Random.Range(5, 9);
+            Vector3 vector = r.velocity;
+            float num2 = vector.y = num;
+            r.velocity = vector;
+        }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00241925 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024647_00241926;
+        yield return new WaitForSeconds(0.3f);
 
-			internal Vector3 _0024_0024648_00241927;
+        @base.GetComponent<Collider>().enabled = true;
+        can = true;
 
-			internal ItemScript _0024self__00241928;
+        yield return new WaitForSeconds(30f);
 
-			public _0024(ItemScript self_)
-			{
-				_0024self__00241928 = self_;
-			}
+        if (!isLocal)
+        {
+            StartCoroutine(Exile());
+        }
+        else
+        {
+            UnityEngine.Object.Destroy(gameObject);
+        }
+    }
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241928.dropped && (_0024self__00241928.isLocal || Network.isServer))
-					{
-						_0024self__00241928.r.AddForce(new Vector3(UnityEngine.Random.Range(-1, 2), 1f, 0f) * 200f);
-						int num = (_0024_0024647_00241926 = UnityEngine.Random.Range(5, 9));
-						Vector3 vector = (_0024_0024648_00241927 = _0024self__00241928.r.velocity);
-						float num2 = (_0024_0024648_00241927.y = _0024_0024647_00241926);
-						Vector3 vector3 = (_0024self__00241928.r.velocity = _0024_0024648_00241927);
-					}
-					result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241928.@base.GetComponent<Collider>().enabled = true;
-					_0024self__00241928.can = true;
-					result = (Yield(3, new WaitForSeconds(30f)) ? 1 : 0);
-					break;
-				case 3:
-					if (!_0024self__00241928.isLocal)
-					{
-						_0024self__00241928.StartCoroutine_Auto(_0024self__00241928.Exile());
-					}
-					else
-					{
-						UnityEngine.Object.Destroy(_0024self__00241928.gameObject);
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal ItemScript _0024self__00241929;
-
-		public _0024Start_00241925(ItemScript self_)
-		{
-			_0024self__00241929 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241929);
-		}
-	}
 
 	public bool dropped;
 
@@ -185,11 +93,6 @@ public class ItemScript : MonoBehaviour
 		r = GetComponent<Rigidbody>();
 	}
 
-	[RPC]
-	public virtual IEnumerator Exile()
-	{
-		return new _0024Exile_00241922(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void DR()
@@ -197,10 +100,6 @@ public class ItemScript : MonoBehaviour
 		dropped = true;
 	}
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00241925(this).GetEnumerator();
-	}
 
 	public virtual void Update()
 	{
