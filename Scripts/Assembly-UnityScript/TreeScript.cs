@@ -2,105 +2,202 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class TreeScript : MonoBehaviour
 {
-	public IEnumerator ExileRoutine() 
+	[Serializable]
+	[CompilerGenerated]
+	internal sealed class _0024Exile_00242667 : GenericGenerator<WaitForSeconds>
 	{
-		if (!exiling) 
+		[Serializable]
+		[CompilerGenerated]
+		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
-			exiling = true;
-			transform.position = new Vector3(0f, 0f, -500f);
-			
-			yield return new WaitForSeconds(4f);
-			
-			if (Network.isServer) 
+			internal TreeScript _0024self__00242668;
+
+			public _0024(TreeScript self_)
 			{
-				Network.Destroy(GetComponent<NetworkView>().viewID);
-				Network.RemoveRPCs(GetComponent<NetworkView>().viewID);        
+				_0024self__00242668 = self_;
 			}
+
+			public override bool MoveNext()
+			{
+				int result;
+				switch (_state)
+				{
+				default:
+					if (!_0024self__00242668.exiling)
+					{
+						_0024self__00242668.exiling = true;
+						_0024self__00242668.transform.position = new Vector3(0f, 0f, -500f);
+						result = (Yield(2, new WaitForSeconds(4f)) ? 1 : 0);
+						break;
+					}
+					goto IL_0099;
+				case 2:
+					if (Network.isServer)
+					{
+						Network.Destroy(_0024self__00242668.GetComponent<NetworkView>().viewID);
+						Network.RemoveRPCs(_0024self__00242668.GetComponent<NetworkView>().viewID);
+					}
+					goto IL_0099;
+				case 1:
+					{
+						result = 0;
+						break;
+					}
+					IL_0099:
+					YieldDefault(1);
+					goto case 1;
+				}
+				return (byte)result != 0;
+			}
+		}
+
+		internal TreeScript _0024self__00242669;
+
+		public _0024Exile_00242667(TreeScript self_)
+		{
+			_0024self__00242669 = self_;
+		}
+
+		public override IEnumerator<WaitForSeconds> GetEnumerator()
+		{
+			return new _0024(_0024self__00242669);
 		}
 	}
 
-	public IEnumerator TakeDamageCoroutine(int damage)
+	[Serializable]
+	[CompilerGenerated]
+	internal sealed class _0024TD2_00242670 : GenericGenerator<WaitForSeconds>
 	{
-		bool canHit = false;
-		
-		if (damage > 10)
+		[Serializable]
+		[CompilerGenerated]
+		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
-			damage -= 10;
-			trait = true;
-		}
-		else
-		{
-			trait = false; 
-		}
+			internal bool _0024canHit_00242671;
 
-		int i = 0;
-		GameObject d = null; 
-		int[] stats = null;
-		Item item = new Item(1, 1, new int[4], 0f, null);
+			internal int _0024i_00242672;
 
-		if (trait)
-		{
-			hp -= 2;
-			canHit = true;
-		}
-		else if (damage > 0) 
-		{
-			hp--;
-			canHit = true;
-		}
+			internal GameObject _0024d_00242673;
 
-		if (canHit)
-		{
-			base.GetComponent<Animation>().Play();
-			
-			yield return new WaitForSeconds(0.1f);
-			
-			if (hp <= 0)
+			internal int[] _0024stats_00242674;
+
+			internal Item _0024item_00242675;
+
+			internal int _0024dmg_00242676;
+
+			internal TreeScript _0024self__00242677;
+
+			public _0024(int dmg, TreeScript self_)
 			{
-				GameScript.tempStats[5] += 1;
-				if (GameScript.tempStats[5] >= 3)
-				{
-					MenuScript.canUnlockRace[0] = 1;
-				}
+				_0024dmg_00242676 = dmg;
+				_0024self__00242677 = self_;
 			}
 
-			if (hp <= 0)
+			public override bool MoveNext()
 			{
-				for (i = 0; i < damage; i++) 
+				int result;
+				switch (_state)
 				{
-					item.id = 1;
-					d = Instantiate(Resources.Load("iLocal"), t.position, Quaternion.identity);
-					stats = new int[]{ item.id, item.q, 0, 0, 0, 0, 0 };
-					d.SendMessage("InitL", stats);
-					
-					item.id = 3;
-					d = Instantiate(Resources.Load("iLocal"), t.position, Quaternion.identity);
-					stats = new int[]{ item.id, item.q, 0, 0, 0, 0, 0 };
-					d.SendMessage("InitL", stats);
-				}
-				
-				if (Network.isServer)
-				{
-					if (height > 1)
+				default:
+					_0024canHit_00242671 = false;
+					if (_0024dmg_00242676 > 10)
 					{
-						GetComponent<NetworkView>().RPC("UA", RPCMode.All);
+						_0024dmg_00242676 -= 10;
+						_0024self__00242677.trait = true;
 					}
-					else 
+					else
 					{
-						GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
+						_0024self__00242677.trait = false;
 					}
+					_0024i_00242672 = default(int);
+					_0024d_00242673 = null;
+					_0024stats_00242674 = null;
+					if (_0024self__00242677.trait)
+					{
+						_0024self__00242677.hp -= 2;
+						_0024canHit_00242671 = true;
+					}
+					else if (_0024dmg_00242676 > 0)
+					{
+						_0024self__00242677.hp--;
+						_0024canHit_00242671 = true;
+					}
+					if (_0024canHit_00242671)
+					{
+						_0024self__00242677.@base.GetComponent<Animation>().Play();
+						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
+						break;
+					}
+					goto IL_02d9;
+				case 2:
+					if (_0024self__00242677.hp <= 0)
+					{
+						GameScript.tempStats[5] = GameScript.tempStats[5] + 1;
+						if (GameScript.tempStats[5] >= 3)
+						{
+							MenuScript.canUnlockRace[0] = 1;
+						}
+					}
+					if (_0024self__00242677.hp <= 0)
+					{
+						_0024item_00242675 = new Item(1, 1, new int[4], 0f, null);
+						for (_0024i_00242672 = 0; _0024i_00242672 < _0024dmg_00242676; _0024i_00242672++)
+						{
+							_0024item_00242675.id = 1;
+							_0024d_00242673 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), _0024self__00242677.t.position, Quaternion.identity);
+							_0024stats_00242674 = new int[7] { _0024item_00242675.id, _0024item_00242675.q, 0, 0, 0, 0, 0 };
+							_0024d_00242673.SendMessage("InitL", _0024stats_00242674);
+							_0024item_00242675.id = 3;
+							_0024d_00242673 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), _0024self__00242677.t.position, Quaternion.identity);
+							_0024stats_00242674 = new int[7] { _0024item_00242675.id, _0024item_00242675.q, 0, 0, 0, 0, 0 };
+							_0024d_00242673.SendMessage("InitL", _0024stats_00242674);
+						}
+						if (Network.isServer)
+						{
+							if (_0024self__00242677.height > 1)
+							{
+								_0024self__00242677.GetComponent<NetworkView>().RPC("UA", RPCMode.All);
+							}
+							else
+							{
+								_0024self__00242677.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
+							}
+						}
+					}
+					goto IL_02d9;
+				case 1:
+					{
+						result = 0;
+						break;
+					}
+					IL_02d9:
+					YieldDefault(1);
+					goto case 1;
 				}
+				return (byte)result != 0;
 			}
 		}
 
-		yield return null;
+		internal int _0024dmg_00242678;
+
+		internal TreeScript _0024self__00242679;
+
+		public _0024TD2_00242670(int dmg, TreeScript self_)
+		{
+			_0024dmg_00242678 = dmg;
+			_0024self__00242679 = self_;
+		}
+
+		public override IEnumerator<WaitForSeconds> GetEnumerator()
+		{
+			return new _0024(_0024dmg_00242678, _0024self__00242679);
+		}
 	}
-
 
 	public Material treeTop;
 
@@ -202,5 +299,16 @@ public class TreeScript : MonoBehaviour
 		}
 	}
 
+	[RPC]
+	public virtual IEnumerator Exile()
+	{
+		return new _0024Exile_00242667(this).GetEnumerator();
+	}
+
+	[RPC]
+	public virtual IEnumerator TD2(int dmg)
+	{
+		return new _0024TD2_00242670(dmg, this).GetEnumerator();
+	}
 
 	}
