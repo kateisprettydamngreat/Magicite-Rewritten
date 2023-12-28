@@ -28,30 +28,30 @@ public class TreeScript : MonoBehaviour
 
 	[Serializable]
 	[CompilerGenerated]
-	internal sealed class _0024TD2_00242670 : GenericGenerator<WaitForSeconds>
+	internal sealed class TreeDamageCoroutine : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
 		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		internal sealed class TreeDamageCoroutineEnumerator : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
-			internal bool _0024canHit_00242671;
+			internal bool canHit;
 
-			internal int _0024i_00242672;
+			internal int i;
 
-			internal GameObject _0024d_00242673;
+			internal GameObject droppedItem;
 
-			internal int[] _0024stats_00242674;
+			internal int[] itemStats;
 
-			internal Item _0024item_00242675;
+			internal Item item;
 
-			internal int _0024dmg_00242676;
+			internal int damage;
 
-			internal TreeScript _0024self__00242677;
+			internal TreeScript self;
 
-			public _0024(int dmg, TreeScript self_)
+			public TreeDamageCoroutineEnumerator(int dmg, TreeScript self_)
 			{
-				_0024dmg_00242676 = dmg;
-				_0024self__00242677 = self_;
+				damage = dmg;
+				self = self_;
 			}
 
 			public override bool MoveNext()
@@ -60,38 +60,38 @@ public class TreeScript : MonoBehaviour
 				switch (_state)
 				{
 				default:
-					_0024canHit_00242671 = false;
-					if (_0024dmg_00242676 > 10)
+					canHit = false;
+					if (damage > 10)
 					{
-						_0024dmg_00242676 -= 10;
-						_0024self__00242677.trait = true;
+						damage -= 10;
+						self.trait = true;
 					}
 					else
 					{
-						_0024self__00242677.trait = false;
+						self.trait = false;
 					}
-					_0024i_00242672 = default(int);
-					_0024d_00242673 = null;
-					_0024stats_00242674 = null;
-					if (_0024self__00242677.trait)
+					i = default(int);
+					droppedItem = null;
+					itemStats = null;
+					if (self.trait)
 					{
-						_0024self__00242677.hp -= 2;
-						_0024canHit_00242671 = true;
+						self.hp -= 2;
+						canHit = true;
 					}
-					else if (_0024dmg_00242676 > 0)
+					else if (damage > 0)
 					{
-						_0024self__00242677.hp--;
-						_0024canHit_00242671 = true;
+						self.hp--;
+						canHit = true;
 					}
-					if (_0024canHit_00242671)
+					if (canHit)
 					{
-						_0024self__00242677.@base.GetComponent<Animation>().Play();
+						self.@base.GetComponent<Animation>().Play();
 						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
 						break;
 					}
 					goto IL_02d9;
 				case 2:
-					if (_0024self__00242677.hp <= 0)
+					if (self.hp <= 0)
 					{
 						GameScript.tempStats[5] = GameScript.tempStats[5] + 1;
 						if (GameScript.tempStats[5] >= 3)
@@ -99,29 +99,29 @@ public class TreeScript : MonoBehaviour
 							MenuScript.canUnlockRace[0] = 1;
 						}
 					}
-					if (_0024self__00242677.hp <= 0)
+					if (self.hp <= 0)
 					{
-						_0024item_00242675 = new Item(1, 1, new int[4], 0f, null);
-						for (_0024i_00242672 = 0; _0024i_00242672 < _0024dmg_00242676; _0024i_00242672++)
+						item = new Item(1, 1, new int[4], 0f, null);
+						for (i = 0; i < damage; i++)
 						{
-							_0024item_00242675.id = 1;
-							_0024d_00242673 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), _0024self__00242677.t.position, Quaternion.identity);
-							_0024stats_00242674 = new int[7] { _0024item_00242675.id, _0024item_00242675.q, 0, 0, 0, 0, 0 };
-							_0024d_00242673.SendMessage("InitL", _0024stats_00242674);
-							_0024item_00242675.id = 3;
-							_0024d_00242673 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), _0024self__00242677.t.position, Quaternion.identity);
-							_0024stats_00242674 = new int[7] { _0024item_00242675.id, _0024item_00242675.q, 0, 0, 0, 0, 0 };
-							_0024d_00242673.SendMessage("InitL", _0024stats_00242674);
+							item.id = 1;
+							droppedItem = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), self.t.position, Quaternion.identity);
+							itemStats = new int[7] { item.id, item.q, 0, 0, 0, 0, 0 };
+							droppedItem.SendMessage("InitL", itemStats);
+							item.id = 3;
+							droppedItem = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), self.t.position, Quaternion.identity);
+							itemStats = new int[7] { item.id, item.q, 0, 0, 0, 0, 0 };
+							droppedItem.SendMessage("InitL", itemStats);
 						}
 						if (Network.isServer)
 						{
-							if (_0024self__00242677.height > 1)
+							if (self.height > 1)
 							{
-								_0024self__00242677.GetComponent<NetworkView>().RPC("UA", RPCMode.All);
+								self.GetComponent<NetworkView>().RPC("UA", RPCMode.All);
 							}
 							else
 							{
-								_0024self__00242677.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
+								self.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
 							}
 						}
 					}
@@ -139,25 +139,25 @@ public class TreeScript : MonoBehaviour
 			}
 		}
 
-		internal int _0024dmg_00242678;
+		internal int damage;
 
-		internal TreeScript _0024self__00242679;
+		internal TreeScript treeScript;
 
-		public _0024TD2_00242670(int dmg, TreeScript self_)
+		public TreeDamageCoroutine(int dmg, TreeScript self_)
 		{
-			_0024dmg_00242678 = dmg;
-			_0024self__00242679 = self_;
+			damage = dmg;
+			treeScript = self_;
 		}
 
 		public override IEnumerator<WaitForSeconds> GetEnumerator()
 		{
-			return new _0024(_0024dmg_00242678, _0024self__00242679);
+			return new TreeDamageCoroutineEnumerator(damage, treeScript);
 		}
 	}
 	[RPC]
 	public virtual IEnumerator TD2(int dmg)
 	{
-		return new _0024TD2_00242670(dmg, this).GetEnumerator();
+		return new TreeDamageCoroutine(dmg, this).GetEnumerator();
 	}
 
 	public Material treeTop;
