@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
@@ -26,139 +25,77 @@ public class TreeScript : MonoBehaviour
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class TreeDamageCoroutine : GenericGenerator<WaitForSeconds>
+	[RPC]
+	public virtual IEnumerator TD2(int damage) 
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class TreeDamageCoroutineEnumerator : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		bool canHit = false;
+
+		if (damage > 10) 
 		{
-			internal bool canHit;
+			damage -= 10;
+			trait = true;
+		}
+		else 
+		{
+			trait = false;
+		}
 
-			internal int i;
+		int i;
+		GameObject droppedItem;
+		int[] itemStats;
+		
+		if (trait) 
+		{
+			hp -= 2;
+			canHit = true;
+		}
+		else if (damage > 0) 
+		{
+			hp--;
+			canHit = true; 
+		}
 
-			internal GameObject droppedItem;
-
-			internal int[] itemStats;
-
-			internal Item item;
-
-			internal int damage;
-
-			internal TreeScript self;
-
-			public TreeDamageCoroutineEnumerator(int dmg, TreeScript self_)
+		if (canHit) 
+		{
+			@base.GetComponent<Animation>().Play();
+			yield return new WaitForSeconds(0.1f);
+		}
+		
+		if (hp <= 0) 
 			{
-				damage = dmg;
-				self = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
+				GameScript.tempStats[5] = GameScript.tempStats[5] + 1;
+				if (GameScript.tempStats[5] >= 3)
 				{
-				default:
-					canHit = false;
-					if (damage > 10)
+					MenuScript.canUnlockRace[0] = 1;
+				}
+				Item item = new Item(1, 1, new int[4], 0f, null);
+				for (i = 0; i < damage; i++)
+				{
+					item.id = 1;
+					droppedItem = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), this.t.position, Quaternion.identity);
+					itemStats = new int[7] { item.id, item.q, 0, 0, 0, 0, 0 };
+					droppedItem.SendMessage("InitL", itemStats);
+					item.id = 3;
+					droppedItem = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), this.t.position, Quaternion.identity);
+					itemStats = new int[7] { item.id, item.q, 0, 0, 0, 0, 0 };
+					droppedItem.SendMessage("InitL", itemStats);
+				}
+				if (Network.isServer)
+				{
+					if (this.height > 1)
 					{
-						damage -= 10;
-						self.trait = true;
+						this.GetComponent<NetworkView>().RPC("UA", RPCMode.All);
 					}
 					else
 					{
-						self.trait = false;
+						this.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
 					}
-					i = default(int);
-					droppedItem = null;
-					itemStats = null;
-					if (self.trait)
-					{
-						self.hp -= 2;
-						canHit = true;
-					}
-					else if (damage > 0)
-					{
-						self.hp--;
-						canHit = true;
-					}
-					if (canHit)
-					{
-						self.@base.GetComponent<Animation>().Play();
-						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_02d9;
-				case 2:
-					if (self.hp <= 0)
-					{
-						GameScript.tempStats[5] = GameScript.tempStats[5] + 1;
-						if (GameScript.tempStats[5] >= 3)
-						{
-							MenuScript.canUnlockRace[0] = 1;
-						}
-					}
-					if (self.hp <= 0)
-					{
-						item = new Item(1, 1, new int[4], 0f, null);
-						for (i = 0; i < damage; i++)
-						{
-							item.id = 1;
-							droppedItem = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), self.t.position, Quaternion.identity);
-							itemStats = new int[7] { item.id, item.q, 0, 0, 0, 0, 0 };
-							droppedItem.SendMessage("InitL", itemStats);
-							item.id = 3;
-							droppedItem = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), self.t.position, Quaternion.identity);
-							itemStats = new int[7] { item.id, item.q, 0, 0, 0, 0, 0 };
-							droppedItem.SendMessage("InitL", itemStats);
-						}
-						if (Network.isServer)
-						{
-							if (self.height > 1)
-							{
-								self.GetComponent<NetworkView>().RPC("UA", RPCMode.All);
-							}
-							else
-							{
-								self.GetComponent<NetworkView>().RPC("Exile", RPCMode.All);
-							}
-						}
-					}
-					goto IL_02d9;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_02d9:
-					YieldDefault(1);
-					goto case 1;
 				}
-				return (byte)result != 0;
 			}
-		}
 
-		internal int damage;
-
-		internal TreeScript treeScript;
-
-		public TreeDamageCoroutine(int dmg, TreeScript self_)
-		{
-			damage = dmg;
-			treeScript = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new TreeDamageCoroutineEnumerator(damage, treeScript);
-		}
+		yield return null;
 	}
-	[RPC]
-	public virtual IEnumerator TD2(int dmg)
-	{
-		return new TreeDamageCoroutine(dmg, this).GetEnumerator();
-	}
+
 
 	public Material treeTop;
 
