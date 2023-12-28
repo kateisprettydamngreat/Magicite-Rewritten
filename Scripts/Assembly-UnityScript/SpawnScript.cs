@@ -8,118 +8,73 @@ using UnityEngine;
 [Serializable]
 public class SpawnScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024SpawnTown_00242576 : GenericGenerator<WaitForSeconds>
+	public IEnumerator SpawnTown() 
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (Network.isServer && !spawningTown) 
 		{
-			internal int _0024i_00242577;
-
-			internal int _0024num_00242578;
-
-			internal int _0024nn_00242579;
-
-			internal int _0024b_00242580;
-
-			internal SpawnScript _0024self__00242581;
-
-			public _0024(SpawnScript self_)
+			spawningTown = true;
+			print("SPAWNSCRIPT SPAWNING TOWN");
+			
+			int i = default(int);
+			curTownStyle = Random.Range(0, 1);
+			
+			Network.Instantiate(Resources.Load("npc/npc" + 1), slot[1].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("house/hBlacksmith"), slot[1].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("npc/npc" + 2), slot[3].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("npc/npc" + 3), slot[6].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("house/hLeatherworker"), slot[6].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("npc/npc" + 4), slot[12].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("house/hTailor"), slot[12].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("npc/npc" + 2), slot[9].transform.position, Quaternion.identity, 0); 
+			Network.Instantiate(Resources.Load("npc/npc" + 5), slot[14].transform.position, Quaternion.identity, 0);
+			Network.Instantiate(Resources.Load("house/hHoarder"), slot[14].transform.position, Quaternion.identity, 0);
+			
+			for (i = 0; i < slot.Length - 2; i += 3) 
 			{
-				_0024self__00242581 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
+				if (slot[i] != null) 
 				{
-				default:
-					if (Network.isServer && !_0024self__00242581.spawningTown)
+					int num = Random.Range(0, 3);
+					if (num < 2 && Network.isServer)
 					{
-						_0024self__00242581.spawningTown = true;
-						MonoBehaviour.print("SPAWNSCRIPT SPAWNING TOWN");
-						_0024i_00242577 = default(int);
-						_0024self__00242581.curTownStyle = UnityEngine.Random.Range(0, 1);
-						Network.Instantiate(Resources.Load("npc/npc" + 1), _0024self__00242581.slot[1].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("house/hBlacksmith"), _0024self__00242581.slot[1].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("npc/npc" + 2), _0024self__00242581.slot[3].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("npc/npc" + 3), _0024self__00242581.slot[6].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("house/hLeatherworker"), _0024self__00242581.slot[6].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("npc/npc" + 4), _0024self__00242581.slot[12].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("house/hTailor"), _0024self__00242581.slot[12].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("npc/npc" + 2), _0024self__00242581.slot[9].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("npc/npc" + 5), _0024self__00242581.slot[14].transform.position, Quaternion.identity, 0);
-						Network.Instantiate(Resources.Load("house/hHoarder"), _0024self__00242581.slot[14].transform.position, Quaternion.identity, 0);
-						for (_0024i_00242577 = 0; _0024i_00242577 < _0024self__00242581.slot.Length - 2; _0024i_00242577 += 3)
+						if (Network.isServer && i != 9 && i != 10)  
 						{
-							if (_0024self__00242581.slot[_0024i_00242577] != null)
-							{
-								_0024num_00242578 = UnityEngine.Random.Range(0, 3);
-								if (_0024num_00242578 < 2 && Network.isServer)
-								{
-									if (Network.isServer && _0024i_00242577 != 9 && _0024i_00242577 != 10)
-									{
-										Network.Instantiate(Resources.Load("npc/m" + 1), _0024self__00242581.slot[_0024i_00242577].transform.position, Quaternion.identity, 0);
-										Network.Instantiate(Resources.Load("house/h" + UnityEngine.Random.Range(1, 3) + "s1"), _0024self__00242581.slot[_0024i_00242577].transform.position, Quaternion.identity, 0);
-									}
-								}
-								else
-								{
-									_0024nn_00242579 = UnityEngine.Random.Range(0, 3);
-									if (_0024nn_00242579 == 0)
-									{
-										Network.Instantiate(Resources.Load("e/chick"), _0024self__00242581.slot[_0024i_00242577].transform.position, Quaternion.identity, 0);
-										Network.Instantiate(Resources.Load("e/chick"), _0024self__00242581.slot[_0024i_00242577].transform.position, Quaternion.identity, 0);
-									}
-									else if (_0024nn_00242579 == 1)
-									{
-										Network.Instantiate(Resources.Load("e/chick"), _0024self__00242581.slot[_0024i_00242577].transform.position, Quaternion.identity, 0);
-									}
-								}
-							}
-						}
-						for (_0024i_00242577 = 0; _0024i_00242577 < _0024self__00242581.top.Length; _0024i_00242577++)
-						{
-							if (_0024self__00242581.top[_0024i_00242577] != null)
-							{
-								_0024b_00242580 = UnityEngine.Random.Range(0, 3);
-								if (_0024b_00242580 == 0)
-								{
-									_0024self__00242581.SpawnTopLantern(_0024self__00242581.top[_0024i_00242577].transform.TransformPoint(Vector3.right));
-								}
-							}
+							Network.Instantiate(Resources.Load("npc/m" + 1), slot[i].transform.position, Quaternion.identity, 0);
+							Network.Instantiate(Resources.Load("house/h" + Random.Range(1, 3) + "s1"), slot[i].transform.position, Quaternion.identity, 0);
 						}
 					}
-					result = (Yield(2, new WaitForSeconds(5f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242581.spawningTown = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
+					else 
+					{
+						int nn = Random.Range(0, 3);
+						if (nn == 0)  
+						{
+							Network.Instantiate(Resources.Load("e/chick"), slot[i].transform.position, Quaternion.identity, 0);
+							Network.Instantiate(Resources.Load("e/chick"), slot[i].transform.position, Quaternion.identity, 0);
+						}
+						else if (nn == 1)   
+						{
+							Network.Instantiate(Resources.Load("e/chick"), slot[i].transform.position, Quaternion.identity, 0); 
+						}
+					}
 				}
-				return (byte)result != 0;
 			}
-		}
+			
+			for (i = 0; i < top.Length; i++)
+			{
+				if (top[i] != null)  
+				{
+					int b = Random.Range(0, 3);
+					if (b == 0)
+					{
+						SpawnTopLantern(top[i].transform.TransformPoint(Vector3.right));
+					}
+				}
+			}
 
-		internal SpawnScript _0024self__00242582;
-
-		public _0024SpawnTown_00242576(SpawnScript self_)
-		{
-			_0024self__00242582 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242582);
+			yield return new WaitForSeconds(5f);
+			
+			spawningTown = false;
 		}
 	}
-
 	public GameObject[] particle;
 
 	public GameObject[] slot;
@@ -218,11 +173,6 @@ public class SpawnScript : MonoBehaviour
 		particle[GameScript.curBiome].SetActive(value: true);
 		GetComponent<Renderer>().material = (Material)Resources.Load("lv/b" + c + "lv" + t);
 		bg.GetComponent<Renderer>().material = (Material)Resources.Load("bg/bg" + c);
-	}
-
-	public virtual IEnumerator SpawnTown()
-	{
-		return new _0024SpawnTown_00242576(this).GetEnumerator();
 	}
 
 	public virtual void SpawnDesert()
