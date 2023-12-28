@@ -8,65 +8,21 @@ using UnityEngine;
 [Serializable]
 public class TreeScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Exile_00242667 : GenericGenerator<WaitForSeconds>
+	[RPC]
+	public IEnumerator Exile() 
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (!exiling)
 		{
-			internal TreeScript _0024self__00242668;
-
-			public _0024(TreeScript self_)
+			exiling = true;
+			transform.position = new Vector3(0f, 0f, -500f);
+			
+			yield return new WaitForSeconds(4f);
+			
+			if (Network.isServer) 
 			{
-				_0024self__00242668 = self_;
+				Network.Destroy(GetComponent<NetworkView>().viewID);
+				Network.RemoveRPCs(GetComponent<NetworkView>().viewID);
 			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242668.exiling)
-					{
-						_0024self__00242668.exiling = true;
-						_0024self__00242668.transform.position = new Vector3(0f, 0f, -500f);
-						result = (Yield(2, new WaitForSeconds(4f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0099;
-				case 2:
-					if (Network.isServer)
-					{
-						Network.Destroy(_0024self__00242668.GetComponent<NetworkView>().viewID);
-						Network.RemoveRPCs(_0024self__00242668.GetComponent<NetworkView>().viewID);
-					}
-					goto IL_0099;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0099:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal TreeScript _0024self__00242669;
-
-		public _0024Exile_00242667(TreeScript self_)
-		{
-			_0024self__00242669 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242669);
 		}
 	}
 
@@ -198,6 +154,11 @@ public class TreeScript : MonoBehaviour
 			return new _0024(_0024dmg_00242678, _0024self__00242679);
 		}
 	}
+	[RPC]
+	public virtual IEnumerator TD2(int dmg)
+	{
+		return new _0024TD2_00242670(dmg, this).GetEnumerator();
+	}
 
 	public Material treeTop;
 
@@ -299,16 +260,7 @@ public class TreeScript : MonoBehaviour
 		}
 	}
 
-	[RPC]
-	public virtual IEnumerator Exile()
-	{
-		return new _0024Exile_00242667(this).GetEnumerator();
-	}
 
-	[RPC]
-	public virtual IEnumerator TD2(int dmg)
-	{
-		return new _0024TD2_00242670(dmg, this).GetEnumerator();
-	}
+
 
 	}
