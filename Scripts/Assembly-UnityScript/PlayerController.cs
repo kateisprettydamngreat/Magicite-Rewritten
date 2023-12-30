@@ -8,85 +8,33 @@ using UnityEngine;
 [Serializable]
 public class PlayerController : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00242162 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerController _0024self__00242163;
-
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242163 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (armor > 0)
-					{
-						b = armor;
-					}
-					else
-					{
-						b = MenuScript.pBody;
-					}
-					if (h != 0)
-					{
-						if (helm > 0)
-						{
-							h = helm;
-						}
-						else
-						{
-							h = MenuScript.pVariant;
-						}
-					}
-					else
-					{
-						h = MenuScript.pVariant;
-					}
-					race = MenuScript.pRace;
-					_0024self__00242163.UpdateAppearance();
-					goto IL_0092;
-				case 2:
-					_0024self__00242163.gameScript.DecreaseHunger();
-					goto IL_0092;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0092:
-					result = (Yield(2, new WaitForSeconds(60f)) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242164;
-
-		public _0024Start_00242162(PlayerController self_)
-		{
-			_0024self__00242164 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242164);
-		}
-	}
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00242162(this).GetEnumerator();
-	}
+    public virtual IEnumerator Start() {
+        int b, h = 0;
+        if (armor > 0) {
+            b = armor;
+        }
+        else {
+            b = MenuScript.pBody;  
+        }
+        if (h != 0) {
+            if (helm > 0) {
+                h = helm;
+            }
+            else {
+                h = MenuScript.pVariant;
+            }
+        }
+        else {
+            h = MenuScript.pVariant;
+        }
+        race = MenuScript.pRace;
+        UpdateAppearance();
+        
+        while (true) {
+            yield return new WaitForSeconds(60f);
+            gameScript.DecreaseHunger();
+        }
+    }
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Leavee_00242165 : GenericGenerator<WaitForSeconds>
@@ -1172,6 +1120,7 @@ public class PlayerController : MonoBehaviour
 		mBonus += a;
 		GetComponent<NetworkView>().RPC("mWeaponsN", RPCMode.All, a);
 	}
+
 
 	public virtual void UpdateHead(int hh)
 	{
