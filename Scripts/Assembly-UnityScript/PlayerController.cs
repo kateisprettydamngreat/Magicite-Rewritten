@@ -83,7 +83,10 @@ public class PlayerController : MonoBehaviour
 			return new _0024(_0024self__00242164);
 		}
 	}
-
+	public virtual IEnumerator Start()
+	{
+		return new _0024Start_00242162(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Leavee_00242165 : GenericGenerator<WaitForSeconds>
@@ -146,7 +149,10 @@ public class PlayerController : MonoBehaviour
 			return new _0024(_0024self__00242167);
 		}
 	}
-
+	public virtual IEnumerator Leavee()
+	{
+		return new _0024Leavee_00242165(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Offledge_00242168 : GenericGenerator<WaitForSeconds>
@@ -222,7 +228,10 @@ public class PlayerController : MonoBehaviour
 			return new _0024(_0024self__00242170);
 		}
 	}
-
+	public virtual IEnumerator Offledge()
+	{
+		return new _0024Offledge_00242168(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Dash_00242171 : GenericGenerator<WaitForSeconds>
@@ -338,7 +347,10 @@ public class PlayerController : MonoBehaviour
 			return new _0024(_0024a_00242182, _0024self__00242183);
 		}
 	}
-
+	public virtual IEnumerator Dash(int a)
+	{
+		return new _0024Dash_00242171(a, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ShieldN_00242184 : GenericGenerator<WaitForSeconds>
@@ -402,6 +414,11 @@ public class PlayerController : MonoBehaviour
 		{
 			return new _0024(_0024self__00242186);
 		}
+	}
+	[RPC]
+	public virtual IEnumerator ShieldN()
+	{
+		return new _0024ShieldN_00242184(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -470,7 +487,11 @@ public class PlayerController : MonoBehaviour
 			return new _0024(_0024self__00242189);
 		}
 	}
-
+	[RPC]
+	public virtual IEnumerator FloatN()
+	{
+		return new _0024FloatN_00242187(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ChargeN_00242190 : GenericGenerator<WaitForSeconds>
@@ -534,6 +555,11 @@ public class PlayerController : MonoBehaviour
 		{
 			return new _0024(_0024self__00242192);
 		}
+	}
+	[RPC]
+	public virtual IEnumerator ChargeN()
+	{
+		return new _0024ChargeN_00242190(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -606,7 +632,11 @@ public class PlayerController : MonoBehaviour
 			return new _0024(_0024a_00242196, _0024self__00242197);
 		}
 	}
-
+	[RPC]
+	public virtual IEnumerator mWeaponsN(int a)
+	{
+		return new _0024mWeaponsN_00242193(a, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Jump_00242198 : GenericGenerator<WaitForSeconds>
@@ -680,6 +710,10 @@ public class PlayerController : MonoBehaviour
 		{
 			return new _0024(_0024self__00242204);
 		}
+	}
+	public virtual IEnumerator Jump()
+	{
+		return new _0024Jump_00242198(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -771,6 +805,11 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public virtual IEnumerator DoubleJump()
+	{
+		return new _0024DoubleJump_00242205(this).GetEnumerator();
+	}
+
 	public PlayerController()
 	{
 		txtName = new TextMesh[2];
@@ -838,10 +877,6 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00242162(this).GetEnumerator();
-	}
 
 	public virtual void Update()
 	{
@@ -1095,37 +1130,10 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator Leavee()
-	{
-		return new _0024Leavee_00242165(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Offledge()
-	{
-		return new _0024Offledge_00242168(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Dash(int a)
-	{
-		return new _0024Dash_00242171(a, this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator ShieldN()
-	{
-		return new _0024ShieldN_00242184(this).GetEnumerator();
-	}
-
 	public virtual void Shield()
 	{
 		PlayerTriggerScript.ShieldDEF += 4;
 		GetComponent<NetworkView>().RPC("ShieldN", RPCMode.All);
-	}
-
-	[RPC]
-	public virtual IEnumerator FloatN()
-	{
-		return new _0024FloatN_00242187(this).GetEnumerator();
 	}
 
 	public virtual void Float()
@@ -1152,11 +1160,6 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	[RPC]
-	public virtual IEnumerator ChargeN()
-	{
-		return new _0024ChargeN_00242190(this).GetEnumerator();
-	}
 
 	public virtual void Charge()
 	{
@@ -1164,26 +1167,10 @@ public class PlayerController : MonoBehaviour
 		GetComponent<NetworkView>().RPC("ChargeN", RPCMode.All);
 	}
 
-	[RPC]
-	public virtual IEnumerator mWeaponsN(int a)
-	{
-		return new _0024mWeaponsN_00242193(a, this).GetEnumerator();
-	}
-
 	public virtual void mWeapons(int a)
 	{
 		mBonus += a;
 		GetComponent<NetworkView>().RPC("mWeaponsN", RPCMode.All, a);
-	}
-
-	public virtual IEnumerator Jump()
-	{
-		return new _0024Jump_00242198(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator DoubleJump()
-	{
-		return new _0024DoubleJump_00242205(this).GetEnumerator();
 	}
 
 	public virtual void UpdateHead(int hh)
@@ -1260,6 +1247,7 @@ public class PlayerController : MonoBehaviour
 			StartCoroutine_Auto(trigger.TD(dMG));
 		}
 	}
+
 	public GameObject blood;
 	public GameObject particleRoar;
 	public GameObject particleFloat;
