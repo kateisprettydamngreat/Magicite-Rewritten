@@ -771,176 +771,6 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public GameObject blood;
-
-	public GameObject particleRoar;
-
-	public GameObject particleFloat;
-
-	[NonSerialized]
-	public static int mBonus;
-
-	private int floatCounter;
-
-	public GameObject mWeapon;
-
-	public GameObject shieldObj;
-
-	public GameObject particleClair;
-
-	private int chargeBoost;
-
-	public GameObject particleCharge;
-
-	public GameObject particleRage;
-
-	[NonSerialized]
-	public static bool isBoss;
-
-	[NonSerialized]
-	public static int mode;
-
-	[NonSerialized]
-	public static int interact;
-
-	[NonSerialized]
-	public static bool facingRight;
-
-	[NonSerialized]
-	public static GameObject aCube;
-
-	[NonSerialized]
-	public static GameObject lUp;
-
-	[NonSerialized]
-	public static int b;
-
-	[NonSerialized]
-	public static int h;
-
-	[NonSerialized]
-	public static int race;
-
-	[NonSerialized]
-	public static int o;
-
-	[NonSerialized]
-	public static int helm;
-
-	[NonSerialized]
-	public static int armor;
-
-	[NonSerialized]
-	public static int offhand;
-
-	private bool charging;
-
-	private bool offledge;
-
-	public AudioClip themeCave;
-
-	public AudioClip themeTown;
-
-	public GameObject levelUpObj;
-
-	public GameObject attackCube;
-
-	public GameObject pop;
-
-	public GameObject @base;
-
-	public GameObject p;
-
-	public GameObject head;
-
-	public GameObject head2;
-
-	public GameObject body;
-
-	public GameObject arm1;
-
-	public GameObject arm2;
-
-	public GameObject leg;
-
-	public GameObject weapon;
-
-	public GameObject offHand;
-
-	public TextMesh[] txtName;
-
-	public AudioClip audioDash;
-
-	public bool attacking;
-
-	public bool cantMove;
-
-	public bool running;
-
-	private bool moving;
-
-	private int cc;
-
-	private bool jA;
-
-	private bool djA;
-
-	private GameScript gameScript;
-
-	private bool canMove;
-
-	private Vector3 newPos;
-
-	private Vector3 newPos2;
-
-	private Ray ray;
-
-	private RaycastHit hit;
-
-	private int mask;
-
-	private LayerMask m;
-
-	private bool dead;
-
-	private PlayerTriggerScript trigger;
-
-	private bool dashing;
-
-	private int jumping;
-
-	private Ray[] rays;
-
-	private float gravity;
-
-	private bool grounded;
-
-	private Transform t;
-
-	private Rigidbody r;
-
-	private FadeInOut fade;
-
-	private bool canDoubleJump;
-
-	private bool canBoost;
-
-	private bool canBoost2;
-
-	private Ray r1U;
-
-	private Ray r2U;
-
-	private Ray r1D;
-
-	private Ray r2D;
-
-	private bool cantLeft;
-
-	private bool cantRight;
-
-	private int itemPurchasing;
-
 	public PlayerController()
 	{
 		txtName = new TextMesh[2];
@@ -1430,5 +1260,83 @@ public class PlayerController : MonoBehaviour
 			StartCoroutine_Auto(trigger.TD(dMG));
 		}
 	}
+	public GameObject blood;
+	public GameObject particleRoar;
+	public GameObject particleFloat;
+	[NonSerialized] public static int mBonus;
+	private int floatCounter;
+	public GameObject mWeapon;
+	public GameObject shieldObj;
+	public GameObject particleClair;
+	private int chargeBoost;
+	public GameObject particleCharge;
+	public GameObject particleRage;
+	[NonSerialized] public static bool isBoss;
+	[NonSerialized] public static int mode;
+	[NonSerialized] public static int interact;
+	[NonSerialized] public static bool facingRight;
+	[NonSerialized] public static GameObject aCube;
+	[NonSerialized] public static GameObject lUp;
+	[NonSerialized] public static int b;
+	[NonSerialized] public static int h;
+	[NonSerialized] public static int race;
+	[NonSerialized] public static int o;
+	[NonSerialized] public static int helm;
+	[NonSerialized] public static int armor;
+	[NonSerialized] public static int offhand;
+	private bool charging;
+	private bool offledge;
+	public AudioClip themeCave;
+	public AudioClip themeTown;
+	public GameObject levelUpObj;
+	public GameObject attackCube;
+	public GameObject pop;
+	public GameObject @base;
+	public GameObject p;
+	public GameObject head;
+	public GameObject head2;
+	public GameObject body;
+	public GameObject arm1;
+	public GameObject arm2;
+	public GameObject leg;
+	public GameObject weapon;
+	public GameObject offHand;
+	public TextMesh[] txtName;
+	public AudioClip audioDash;
+	public bool attacking;
+	public bool cantMove;
+	public bool running;
+	private bool moving;
+	private int cc;
+	private bool jA;
+	private bool djA;
+	private GameScript gameScript;
+	private bool canMove;
+	private Vector3 newPos;
+	private Vector3 newPos2;
+	private Ray ray;
+	private RaycastHit hit;
+	private int mask;
+	private LayerMask m;
+	private bool dead;
+	private PlayerTriggerScript trigger;
+	private bool dashing;
+	private int jumping;
+	private Ray[] rays;
+	private float gravity;
+	private bool grounded;
+	private Transform t;
+	private Rigidbody r;
+	private FadeInOut fade;
+	private bool canDoubleJump;
+	private bool canBoost;
+	private bool canBoost2;
+	private Ray r1U;
+	private Ray r2U;
+	private Ray r1D;
+	private Ray r2D;
+	private bool cantLeft;
+	private bool cantRight;
+	private int itemPurchasing;
 
 	}
