@@ -132,77 +132,25 @@ public class PlayerController : MonoBehaviour
             }
         }
 	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024FloatN_00242187 : GenericGenerator<WaitForSeconds>
+
+    [RPC]
+    public IEnumerator FloatN()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerController _0024self__00242188;
-
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242188 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242188.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242188.particleFloat.SetActive(value: true);
-						result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-						break;
-					}
-					goto IL_00be;
-				case 2:
-					_0024self__00242188.floatCounter--;
-					if (_0024self__00242188.floatCounter < 0)
-					{
-						_0024self__00242188.floatCounter = 0;
-					}
-					if (_0024self__00242188.floatCounter == 0)
-					{
-						_0024self__00242188.particleFloat.SetActive(value: false);
-						_0024self__00242188.GetComponent<Rigidbody>().useGravity = true;
-						GameScript.isFloating = false;
-					}
-					goto IL_00be;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00be:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242189;
-
-		public _0024FloatN_00242187(PlayerController self_)
-		{
-			_0024self__00242189 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242189);
-		}
+        if (GetComponent<NetworkView>().isMine)
+        {
+            particleFloat.SetActive(true);
+            yield return new WaitForSeconds(10f);
+            floatCounter--;
+            if (floatCounter <= 0)
+            {
+                floatCounter = 0;
+                particleFloat.SetActive(false);
+                GetComponent<Rigidbody>().useGravity = true;
+                GameScript.isFloating = false;
+            }
+        }
 	}
-	[RPC]
-	public virtual IEnumerator FloatN()
-	{
-		return new _0024FloatN_00242187(this).GetEnumerator();
-	}
+    
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ChargeN_00242190 : GenericGenerator<WaitForSeconds>
