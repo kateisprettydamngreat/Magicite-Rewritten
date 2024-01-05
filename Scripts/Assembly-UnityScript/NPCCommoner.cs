@@ -61,7 +61,10 @@ public class NPCCommoner : MonoBehaviour
 			return new _0024(_0024self__00242033);
 		}
 	}
-
+	public virtual IEnumerator Talk()
+	{
+		return new _0024Talk_00242031(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024SaySomething_00242034 : GenericGenerator<WaitForSeconds>
@@ -164,7 +167,11 @@ public class NPCCommoner : MonoBehaviour
 			return new _0024(_0024a_00242039, _0024self__00242040);
 		}
 	}
-
+	[RPC]
+	public virtual IEnumerator SaySomething(int a)
+	{
+		return new _0024SaySomething_00242034(a, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Start_00242041 : GenericGenerator<Coroutine>
@@ -201,6 +208,11 @@ public class NPCCommoner : MonoBehaviour
 		{
 			return new _0024(_0024self__00242043);
 		}
+	}
+
+	public virtual IEnumerator Start()
+	{
+		return new _0024Start_00242041(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -281,7 +293,11 @@ public class NPCCommoner : MonoBehaviour
 			return new _0024(_0024dmg_00242048, _0024self__00242049);
 		}
 	}
-
+	[RPC]
+	public virtual IEnumerator TDN(int dmg)
+	{
+		return new _0024TDN_00242044(dmg, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024TDN2_00242050 : GenericGenerator<WaitForSeconds>
@@ -362,7 +378,11 @@ public class NPCCommoner : MonoBehaviour
 			return new _0024(_0024dmg_00242056, _0024self__00242057);
 		}
 	}
-
+	[RPC]
+	public virtual IEnumerator TDN2(int dmg)
+	{
+		return new _0024TDN2_00242050(dmg, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Move_00242058 : GenericGenerator<WaitForSeconds>
@@ -442,7 +462,10 @@ public class NPCCommoner : MonoBehaviour
 			return new _0024(_0024self__00242061);
 		}
 	}
-
+	public virtual IEnumerator Move()
+	{
+		return new _0024Move_00242058(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024KnockN_00242062 : GenericGenerator<WaitForSeconds>
@@ -527,7 +550,11 @@ public class NPCCommoner : MonoBehaviour
 			return new _0024(_0024p_00242071, _0024self__00242072);
 		}
 	}
-
+	[RPC]
+	public virtual IEnumerator KnockN(Vector3 p)
+	{
+		return new _0024KnockN_00242062(p, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024K_00242073 : GenericGenerator<WaitForEndOfFrame>
@@ -623,6 +650,10 @@ public class NPCCommoner : MonoBehaviour
 			return new _0024(_0024l_00242085, _0024self__00242086);
 		}
 	}
+	public virtual IEnumerator K(bool l)
+	{
+		return new _0024K_00242073(l, this).GetEnumerator();
+	}
 
 	private int pos;
 
@@ -684,17 +715,6 @@ public class NPCCommoner : MonoBehaviour
 		t = transform;
 	}
 
-	public virtual IEnumerator Talk()
-	{
-		return new _0024Talk_00242031(this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator SaySomething(int a)
-	{
-		return new _0024SaySomething_00242034(a, this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void SetAppearance(int r, int v)
 	{
@@ -732,11 +752,6 @@ public class NPCCommoner : MonoBehaviour
 		return 6;
 	}
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00242041(this).GetEnumerator();
-	}
-
 	public virtual void TD(int dmg)
 	{
 		if (!takingDamage)
@@ -744,18 +759,6 @@ public class NPCCommoner : MonoBehaviour
 			GetComponent<NetworkView>().RPC("TDN", RPCMode.All, dmg);
 			GetComponent<NetworkView>().RPC("TDN2", RPCMode.All, dmg);
 		}
-	}
-
-	[RPC]
-	public virtual IEnumerator TDN(int dmg)
-	{
-		return new _0024TDN_00242044(dmg, this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator TDN2(int dmg)
-	{
-		return new _0024TDN2_00242050(dmg, this).GetEnumerator();
 	}
 
 	public virtual void Die()
@@ -787,11 +790,6 @@ public class NPCCommoner : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator Move()
-	{
-		return new _0024Move_00242058(this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void DieN(NetworkViewID id)
 	{
@@ -811,16 +809,4 @@ public class NPCCommoner : MonoBehaviour
 	{
 		GetComponent<NetworkView>().RPC("KnockN", RPCMode.All, p);
 	}
-
-	[RPC]
-	public virtual IEnumerator KnockN(Vector3 p)
-	{
-		return new _0024KnockN_00242062(p, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator K(bool l)
-	{
-		return new _0024K_00242073(l, this).GetEnumerator();
-	}
-
 	}
