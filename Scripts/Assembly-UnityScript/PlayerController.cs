@@ -150,151 +150,39 @@ public class PlayerController : MonoBehaviour
             }
         }
 	}
-    
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeN_00242190 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerController _0024self__00242191;
 
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242191 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242191.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242191.particleCharge.SetActive(value: true);
-						result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-						break;
-					}
-					goto IL_00a7;
-				case 2:
-					_0024self__00242191.chargeBoost -= 4;
-					if (_0024self__00242191.chargeBoost < 0)
-					{
-						_0024self__00242191.chargeBoost = 0;
-					}
-					if (_0024self__00242191.chargeBoost == 0)
-					{
-						_0024self__00242191.particleCharge.SetActive(value: false);
-					}
-					goto IL_00a7;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00a7:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242192;
-
-		public _0024ChargeN_00242190(PlayerController self_)
-		{
-			_0024self__00242192 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242192);
-		}
-	}
 	[RPC]
-	public virtual IEnumerator ChargeN()
+	public IEnumerator ChargeN()
 	{
-		return new _0024ChargeN_00242190(this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024mWeaponsN_00242193 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (GetComponent<NetworkView>().isMine)
 		{
-			internal int _0024a_00242194;
-
-			internal PlayerController _0024self__00242195;
-
-			public _0024(int a, PlayerController self_)
+			particleCharge.SetActive(true);
+			yield return new WaitForSeconds(10f);
+			chargeBoost = Mathf.Max(0, chargeBoost - 4);
+			if (chargeBoost == 0)
 			{
-				_0024a_00242194 = a;
-				_0024self__00242195 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242195.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242195.mWeapon.SetActive(value: true);
-						result = (Yield(2, new WaitForSeconds(20f)) ? 1 : 0);
-						break;
-					}
-					goto IL_008e;
-				case 2:
-					mBonus -= _0024a_00242194;
-					if (mBonus < 0)
-					{
-						mBonus = 0;
-					}
-					if (mBonus == 0)
-					{
-						_0024self__00242195.mWeapon.SetActive(value: false);
-					}
-					goto IL_008e;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_008e:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
+				particleCharge.SetActive(false);
 			}
 		}
-
-		internal int _0024a_00242196;
-
-		internal PlayerController _0024self__00242197;
-
-		public _0024mWeaponsN_00242193(int a, PlayerController self_)
-		{
-			_0024a_00242196 = a;
-			_0024self__00242197 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00242196, _0024self__00242197);
-		}
 	}
+
 	[RPC]
-	public virtual IEnumerator mWeaponsN(int a)
+	public IEnumerator mWeaponsN(int a)
 	{
-		return new _0024mWeaponsN_00242193(a, this).GetEnumerator();
+		if (GetComponent<NetworkView>().isMine)
+		{
+			mWeapon.SetActive(true);
+			yield return new WaitForSeconds(20f);
+			mBonus -= a;
+			if (mBonus < 0)
+			{
+				mBonus = 0;
+			}
+			if (mBonus == 0)
+			{
+				mWeapon.SetActive(false);
+			}
+		}
 	}
 	[Serializable]
 	[CompilerGenerated]
