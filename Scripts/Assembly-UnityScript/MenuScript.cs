@@ -44,90 +44,47 @@ public class MenuScript : MonoBehaviour
         barEXP.localScale = scale;
     }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Play_00241986 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal bool _0024useNat_00241987;
+    public IEnumerator Play()
+    {
+        fade.fadeOut();
+        yield return new WaitForSeconds(0.2f);
 
-			internal MenuScript _0024self__00241988;
+        fade.fadeIn();
+        enteringIP = false;
+        menuMain.SetActive(false);
+        menuMultiplayer.SetActive(false);
 
-			public _0024(MenuScript self_)
-			{
-				_0024self__00241988 = self_;
-			}
+        if (!Network.isClient)
+        {
+            try
+            {
+                port = int.Parse(txtPort.text);
+            }
+            catch (Exception)
+            {
+                port = 7777;
+            }
+            bool useNat = !Network.HavePublicAddress();
+            Network.InitializeServer(10, port, useNat);
+            print("Initialized Server" + txtIP[0].text + " Port:" + port);
+        }
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241988.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241988.fade.fadeIn();
-					_0024self__00241988.enteringIP = false;
-					_0024self__00241988.menuMain.SetActive(value: false);
-					_0024self__00241988.menuMultiplayer.SetActive(value: false);
-					if (!Network.isClient)
-					{
-						try
-						{
-							_0024self__00241988.port = int.Parse(_0024self__00241988.txtPort.text);
-						}
-						catch (Exception)
-						{
-							_0024self__00241988.port = 7777;
-						}
-						_0024useNat_00241987 = !Network.HavePublicAddress();
-						Network.InitializeServer(10, _0024self__00241988.port, useNat: false);
-						MonoBehaviour.print("Initialized Server" + _0024self__00241988.txtIP[0].text + " Port:" + _0024self__00241988.port);
-					}
-					curTrait[1] = UnityEngine.Random.Range(1, _0024self__00241988.MAX_TRAITS);
-					curTrait[2] = UnityEngine.Random.Range(1, _0024self__00241988.MAX_TRAITS);
-					if (curTrait[2] == curTrait[1] && curTrait[2] == _0024self__00241988.MAX_TRAITS - 1)
-					{
-						curTrait[2] = 1;
-					}
-					else if (curTrait[2] == curTrait[1])
-					{
-						curTrait[2] = curTrait[2] + 1;
-					}
-					((Renderer)_0024self__00241988.trait1.GetComponent(typeof(Renderer))).material = (Material)Resources.Load("t/t" + curTrait[1], typeof(Material));
-					((Renderer)_0024self__00241988.trait2.GetComponent(typeof(Renderer))).material = (Material)Resources.Load("t/t" + curTrait[2], typeof(Material));
-					_0024self__00241988.menuCharacterCreate.SetActive(value: true);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+        int[] curTrait = new int[3]; // Assuming curTrait is declared somewhere in MenuScript
+        curTrait[1] = UnityEngine.Random.Range(1, MAX_TRAITS);
+        curTrait[2] = UnityEngine.Random.Range(1, MAX_TRAITS);
+        if (curTrait[2] == curTrait[1])
+        {
+            curTrait[2] = (curTrait[2] % (MAX_TRAITS - 1)) + 1;
+        }
 
-		internal MenuScript _0024self__00241989;
+        Renderer trait1Renderer = trait1.GetComponent<Renderer>();
+        Renderer trait2Renderer = trait2.GetComponent<Renderer>();
+        trait1Renderer.material = Resources.Load<Material>($"t/t{curTrait[1]}");
+        trait2Renderer.material = Resources.Load<Material>($"t/t{curTrait[2]}");
 
-		public _0024Play_00241986(MenuScript self_)
-		{
-			_0024self__00241989 = self_;
-		}
+        menuCharacterCreate.SetActive(true);
+    }
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241989);
-		}
-	}
-	public virtual IEnumerator Play()
-	{
-		return new _0024Play_00241986(this).GetEnumerator();
-	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Options_00241990 : GenericGenerator<WaitForSeconds>
