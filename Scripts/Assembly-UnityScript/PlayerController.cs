@@ -53,85 +53,25 @@ public class PlayerController : MonoBehaviour
 			gameScript.SaveInventory();
 			Application.LoadLevel(0);
 		}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Offledge_00242168 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerController _0024self__00242169;
+    public virtual IEnumerator Offledge()
+    {
+        offledge = true;
+        yield return new WaitForSeconds(0.2f);
 
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242169 = self_;
-			}
+        if (Physics.Raycast(ray, out hit, 1.5f) && hit.transform.gameObject.layer == 11)
+        {
+            grounded = true;
+            mode = 0;
+            canDoubleJump = true;
+        }
+        else
+        {
+            mode = 2;
+            grounded = false;
+        }
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242169.offledge)
-					{
-						_0024self__00242169.offledge = true;
-						result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-						break;
-					}
-					goto IL_00e7;
-				case 2:
-					if (Physics.Raycast(_0024self__00242169.ray, out _0024self__00242169.hit, 1.5f))
-					{
-						if (_0024self__00242169.hit.transform.gameObject.layer == 11)
-						{
-							_0024self__00242169.grounded = true;
-							mode = 0;
-							_0024self__00242169.canDoubleJump = true;
-						}
-						else
-						{
-							mode = 2;
-							_0024self__00242169.grounded = false;
-						}
-					}
-					else
-					{
-						mode = 2;
-						_0024self__00242169.grounded = false;
-					}
-					_0024self__00242169.offledge = false;
-					goto IL_00e7;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00e7:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242170;
-
-		public _0024Offledge_00242168(PlayerController self_)
-		{
-			_0024self__00242170 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242170);
-		}
-	}
-	public virtual IEnumerator Offledge()
-	{
-		return new _0024Offledge_00242168(this).GetEnumerator();
-	}
+        offledge = false;
+    }
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Dash_00242171 : GenericGenerator<WaitForSeconds>
