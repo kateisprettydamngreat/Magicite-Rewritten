@@ -8,51 +8,61 @@ using UnityEngine;
 [Serializable]
 public class PlayerController : MonoBehaviour
 {
-    public virtual IEnumerator Start() {
+    public virtual IEnumerator Start()
+    {
         int b, h = 0;
-        if (armor > 0) {
+        if (armor > 0)
+        {
             b = armor;
         }
-        else {
-            b = MenuScript.pBody;  
+        else
+        {
+            b = MenuScript.pBody;
         }
-        if (h != 0) {
-            if (helm > 0) {
+        if (h != 0)
+        {
+            if (helm > 0)
+            {
                 h = helm;
             }
-            else {
+            else
+            {
                 h = MenuScript.pVariant;
             }
         }
-        else {
+        else
+        {
             h = MenuScript.pVariant;
         }
         race = MenuScript.pRace;
         UpdateAppearance();
-        
-        while (true) {
+
+        while (true)
+        {
             yield return new WaitForSeconds(60f);
             gameScript.DecreaseHunger();
         }
     }
-	public virtual IEnumerator Leavee()
-		{
-			fade.fadeOut();
-			GameScript.curBiome = GameScript.door[GameScript.curDoor];
-			yield return new WaitForSeconds(0.2f);
 
-			if (GameScript.isTown || GameScript.districtLevel == 21)
-			{
-				GameScript.isTown = false;
-			}
-			else
-			{
-				GameScript.isTown = true;
-			}
+    public virtual IEnumerator Leavee()
+    {
+        fade.fadeOut();
+        GameScript.curBiome = GameScript.door[GameScript.curDoor];
+        yield return new WaitForSeconds(0.2f);
 
-			gameScript.SaveInventory();
-			Application.LoadLevel(0);
-		}
+        if (GameScript.isTown || GameScript.districtLevel == 21)
+        {
+            GameScript.isTown = false;
+        }
+        else
+        {
+            GameScript.isTown = true;
+        }
+
+        gameScript.SaveInventory();
+        Application.LoadLevel(0);
+    }
+
     public virtual IEnumerator Offledge()
     {
         offledge = true;
@@ -72,125 +82,38 @@ public class PlayerController : MonoBehaviour
 
         offledge = false;
     }
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Dash_00242171 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024759_00242172;
 
-			internal Vector3 _0024_0024760_00242173;
+    public IEnumerator Dash(int direction)
+    {
+        AudioClip audioDash;
+        GameScript gameScript;
+        bool dashing;
+        bool grounded;
+        Rigidbody r;
+        Transform t;
 
-			internal int _0024_0024761_00242174;
+        if (gameScript.stamina < 1f)
+        {
+            Instantiate(Resources.Load("noSta"), t.position, Quaternion.identity);
+            yield break;
+        }
+		GetComponent<AudioSource>().PlayOneShot(audioDash);
+        dashing = true;
+        gameScript.Stamina();
+        gameScript.stamina -= 1f;
+        gameScript.LoadSTA();
+        GetComponent<NetworkView>().RPC("po", RPCMode.All, t.position);
 
-			internal Vector3 _0024_0024762_00242175;
+        int dashSpeed = grounded ? 18 : 15;
+        dashSpeed *= direction != 0 ? 1 : -1;
 
-			internal int _0024_0024763_00242176;
+        r.velocity = new Vector3(dashSpeed, r.velocity.y, r.velocity.z);
 
-			internal Vector3 _0024_0024764_00242177;
+        yield return new WaitForSeconds(0.3f);
 
-			internal int _0024_0024765_00242178;
+        dashing = false;
+    }
 
-			internal Vector3 _0024_0024766_00242179;
-
-			internal int _0024a_00242180;
-
-			internal PlayerController _0024self__00242181;
-
-			public _0024(int a, PlayerController self_)
-			{
-				_0024a_00242180 = a;
-				_0024self__00242181 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!(_0024self__00242181.gameScript.stamina < 1f))
-					{
-						_0024self__00242181.GetComponent<AudioSource>().PlayOneShot(_0024self__00242181.audioDash);
-						_0024self__00242181.dashing = true;
-						_0024self__00242181.gameScript.Stamina();
-						_0024self__00242181.gameScript.stamina = _0024self__00242181.gameScript.stamina - 1f;
-						_0024self__00242181.gameScript.LoadSTA();
-						_0024self__00242181.GetComponent<NetworkView>().RPC("po", RPCMode.All, _0024self__00242181.t.position);
-						if (_0024self__00242181.grounded)
-						{
-							if (_0024a_00242180 != 0)
-							{
-								int num = (_0024_0024761_00242174 = 18);
-								Vector3 vector = (_0024_0024762_00242175 = _0024self__00242181.r.velocity);
-								float num2 = (_0024_0024762_00242175.x = _0024_0024761_00242174);
-								Vector3 vector3 = (_0024self__00242181.r.velocity = _0024_0024762_00242175);
-							}
-							else
-							{
-								int num3 = (_0024_0024759_00242172 = -18);
-								Vector3 vector4 = (_0024_0024760_00242173 = _0024self__00242181.r.velocity);
-								float num4 = (_0024_0024760_00242173.x = _0024_0024759_00242172);
-								Vector3 vector6 = (_0024self__00242181.r.velocity = _0024_0024760_00242173);
-							}
-						}
-						else if (_0024a_00242180 != 0)
-						{
-							int num5 = (_0024_0024765_00242178 = 15);
-							Vector3 vector7 = (_0024_0024766_00242179 = _0024self__00242181.r.velocity);
-							float num6 = (_0024_0024766_00242179.x = _0024_0024765_00242178);
-							Vector3 vector9 = (_0024self__00242181.r.velocity = _0024_0024766_00242179);
-						}
-						else
-						{
-							int num7 = (_0024_0024763_00242176 = -15);
-							Vector3 vector10 = (_0024_0024764_00242177 = _0024self__00242181.r.velocity);
-							float num8 = (_0024_0024764_00242177.x = _0024_0024763_00242176);
-							Vector3 vector12 = (_0024self__00242181.r.velocity = _0024_0024764_00242177);
-						}
-						result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-						break;
-					}
-					UnityEngine.Object.Instantiate(Resources.Load("noSta"), _0024self__00242181.t.position, Quaternion.identity);
-					goto IL_02bd;
-				case 2:
-					_0024self__00242181.dashing = false;
-					goto IL_02bd;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_02bd:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00242182;
-
-		internal PlayerController _0024self__00242183;
-
-		public _0024Dash_00242171(int a, PlayerController self_)
-		{
-			_0024a_00242182 = a;
-			_0024self__00242183 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00242182, _0024self__00242183);
-		}
-	}
-	public virtual IEnumerator Dash(int a)
-	{
-		return new _0024Dash_00242171(a, this).GetEnumerator();
-	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ShieldN_00242184 : GenericGenerator<WaitForSeconds>
