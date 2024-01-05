@@ -184,85 +184,26 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Jump_00242198 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024769_00242199;
+    public IEnumerator Jump()
+    {
+        djA = true;
+        GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP", typeof(AudioClip)));
+        canBoost = true;
+        grounded = false;
 
-			internal Vector3 _0024_0024770_00242200;
+        if (!GameScript.isFloating)
+        {
+            r.velocity = new Vector3(r.velocity.x, 24, r.velocity.z);
+        }
+        else
+        {
+            r.velocity = new Vector3(r.velocity.x, 12, r.velocity.z);
+        }
 
-			internal int _0024_0024771_00242201;
+        yield return new WaitForSeconds(1f);
 
-			internal Vector3 _0024_0024772_00242202;
-
-			internal PlayerController _0024self__00242203;
-
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242203 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242203.djA = true;
-					_0024self__00242203.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP", typeof(AudioClip)));
-					_0024self__00242203.canBoost = true;
-					_0024self__00242203.grounded = false;
-					mode = 2;
-					if (!GameScript.isFloating)
-					{
-						int num = (_0024_0024771_00242201 = 24);
-						Vector3 vector = (_0024_0024772_00242202 = _0024self__00242203.r.velocity);
-						float num2 = (_0024_0024772_00242202.y = _0024_0024771_00242201);
-						Vector3 vector3 = (_0024self__00242203.r.velocity = _0024_0024772_00242202);
-					}
-					else
-					{
-						int num3 = (_0024_0024769_00242199 = 12);
-						Vector3 vector4 = (_0024_0024770_00242200 = _0024self__00242203.r.velocity);
-						float num4 = (_0024_0024770_00242200.y = _0024_0024769_00242199);
-						Vector3 vector6 = (_0024self__00242203.r.velocity = _0024_0024770_00242200);
-					}
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242203.canBoost = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242204;
-
-		public _0024Jump_00242198(PlayerController self_)
-		{
-			_0024self__00242204 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242204);
-		}
-	}
-	public virtual IEnumerator Jump()
-	{
-		return new _0024Jump_00242198(this).GetEnumerator();
-	}
-
+        canBoost = false;
+    }
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024DoubleJump_00242205 : GenericGenerator<WaitForSeconds>
