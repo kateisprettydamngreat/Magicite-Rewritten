@@ -8,138 +8,37 @@ using UnityEngine;
 [Serializable]
 public class GrassScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00241871 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal float _0024_0024627_00241872;
+    public IEnumerator Start()
+    {
+        drop = GetPlantItem(UnityEngine.Random.Range(0, 4));
+        r = @base.GetComponent<Renderer>();
+        yield return new WaitForSeconds(0.5f);
+        float newOffsetX = r.material.mainTextureOffset.x + 0.5f;
+        r.material.mainTextureOffset = new Vector2(newOffsetX, r.material.mainTextureOffset.y);
+    }
 
-			internal Vector2 _0024_0024628_00241873;
-
-			internal GrassScript _0024self__00241874;
-
-			public _0024(GrassScript self_)
-			{
-				_0024self__00241874 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241874.drop = _0024self__00241874.GetPlantItem(UnityEngine.Random.Range(0, 4));
-					_0024self__00241874.r = _0024self__00241874.@base.GetComponent<Renderer>();
-					goto case 2;
-				case 2:
-				{
-					float num = (_0024_0024627_00241872 = _0024self__00241874.r.material.mainTextureOffset.x + 0.5f);
-					Vector2 vector = (_0024_0024628_00241873 = _0024self__00241874.r.material.mainTextureOffset);
-					float num2 = (_0024_0024628_00241873.x = _0024_0024627_00241872);
-					Vector2 vector3 = (_0024self__00241874.r.material.mainTextureOffset = _0024_0024628_00241873);
-					result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				}
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GrassScript _0024self__00241875;
-
-		public _0024Start_00241871(GrassScript self_)
-		{
-			_0024self__00241875 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241875);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Exile_00241876 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GrassScript _0024self__00241877;
-
-			public _0024(GrassScript self_)
-			{
-				_0024self__00241877 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241877.exiling)
-					{
-						_0024self__00241877.exiling = true;
-						_0024self__00241877.transform.position = new Vector3(0f, 0f, -500f);
-						result = (Yield(2, new WaitForSeconds(4f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0099;
-				case 2:
-					if (Network.isServer)
-					{
-						Network.Destroy(_0024self__00241877.GetComponent<NetworkView>().viewID);
-						Network.RemoveRPCs(_0024self__00241877.GetComponent<NetworkView>().viewID);
-					}
-					goto IL_0099;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0099:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GrassScript _0024self__00241878;
-
-		public _0024Exile_00241876(GrassScript self_)
-		{
-			_0024self__00241878 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241878);
-		}
+    [RPC]
+    public IEnumerator Exile()
+    {
+        if (!exiling)
+        {
+            exiling = true;
+            transform.position = new Vector3(0f, 0f, -500f);
+            yield return new WaitForSeconds(4f);
+            if (Network.isServer)
+            {
+                NetworkView networkView = GetComponent<NetworkView>();
+                Network.Destroy(networkView.viewID);
+                Network.RemoveRPCs(networkView.viewID);
+            }
+        }
 	}
 
 	public GameObject @base;
-
 	private Renderer r;
-
 	private int drop;
-
 	private bool exiling;
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00241871(this).GetEnumerator();
-	}
 
 	public virtual void TD(int dmg)
 	{
@@ -147,7 +46,6 @@ public class GrassScript : MonoBehaviour
 		GameObject gameObject = null;
 		GetComponent<NetworkView>().RPC("TD2", RPCMode.All, dmg);
 	}
-
 	[RPC]
 	public virtual void TD2(int dmg)
 	{
@@ -203,13 +101,6 @@ public class GrassScript : MonoBehaviour
 			StartCoroutine_Auto(Exile());
 		}
 	}
-
-	[RPC]
-	public virtual IEnumerator Exile()
-	{
-		return new _0024Exile_00241876(this).GetEnumerator();
-	}
-
 	public virtual int GetPlantItem(int a)
 	{
 		int num = default(int);
@@ -222,5 +113,4 @@ public class GrassScript : MonoBehaviour
 			_ => num, 
 		};
 	}
-
 	}
