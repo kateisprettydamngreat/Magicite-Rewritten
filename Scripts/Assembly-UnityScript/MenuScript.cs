@@ -39,9 +39,9 @@ public class MenuScript : MonoBehaviour
         menuStats.SetActive(true);
         txtAccountLevel.text = "Player Level : " + playerLevel;
         txtCurEXP.text = $"{curEXP}/{levelCap}";
-        Vector3 scale = barEXP.localScale;
+        Vector3 scale = barEXP.transform.localScale;
         scale.x = percent;
-        barEXP.localScale = scale;
+        barEXP.transform.localScale = scale;
     }
 
     public IEnumerator Play()
@@ -85,62 +85,14 @@ public class MenuScript : MonoBehaviour
         menuCharacterCreate.SetActive(true);
     }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Options_00241990 : GenericGenerator<WaitForSeconds>
+	public IEnumerator Options()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal MenuScript _0024self__00241991;
-
-			public _0024(MenuScript self_)
-			{
-				_0024self__00241991 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241991.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241991.fade.fadeIn();
-					_0024self__00241991.menuMain.SetActive(value: false);
-					_0024self__00241991.menuOptions.SetActive(value: true);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MenuScript _0024self__00241992;
-
-		public _0024Options_00241990(MenuScript self_)
-		{
-			_0024self__00241992 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241992);
-		}
+		fade.fadeOut();
+		yield return new WaitForSeconds(0.2f);
+		fade.fadeIn();
+		menuMain.SetActive(false);
+		menuOptions.SetActive(true);
 	}
-
-	public virtual IEnumerator Options()
-	{
-		return new _0024Options_00241990(this).GetEnumerator();
-	}
-
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024RefreshServers_00241993 : GenericGenerator<WaitForSeconds>
