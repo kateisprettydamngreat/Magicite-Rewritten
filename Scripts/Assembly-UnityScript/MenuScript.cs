@@ -82,6 +82,10 @@ public class MenuScript : MonoBehaviour
 			return new _0024(_0024self__00241976);
 		}
 	}
+	public virtual IEnumerator ApplyRes()
+	{
+		return new _0024ApplyRes_00241972(this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -159,6 +163,10 @@ public class MenuScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00241985);
 		}
+	}
+	public virtual IEnumerator Statistics()
+	{
+		return new _0024Statistics_00241977(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -241,7 +249,10 @@ public class MenuScript : MonoBehaviour
 			return new _0024(_0024self__00241989);
 		}
 	}
-
+	public virtual IEnumerator Play()
+	{
+		return new _0024Play_00241986(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Options_00241990 : GenericGenerator<WaitForSeconds>
@@ -291,6 +302,11 @@ public class MenuScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00241992);
 		}
+	}
+
+	public virtual IEnumerator Options()
+	{
+		return new _0024Options_00241990(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -359,7 +375,10 @@ public class MenuScript : MonoBehaviour
 			return new _0024(_0024self__00241996);
 		}
 	}
-
+	public virtual IEnumerator RefreshServers()
+	{
+		return new _0024RefreshServers_00241993(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Done_00241997 : GenericGenerator<WaitForSeconds>
@@ -417,6 +436,10 @@ public class MenuScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00241999);
 		}
+	}
+	public virtual IEnumerator Done()
+	{
+		return new _0024Done_00241997(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -476,6 +499,11 @@ public class MenuScript : MonoBehaviour
 			return new _0024(_0024self__00242002);
 		}
 	}
+	[RPC]
+	public virtual IEnumerator ReadyGame()
+	{
+		return new _0024ReadyGame_00242000(this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -526,37 +554,6 @@ public class MenuScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00242005);
 		}
-	}
-	public virtual IEnumerator ApplyRes()
-	{
-		return new _0024ApplyRes_00241972(this).GetEnumerator();
-	}
-	public virtual IEnumerator Statistics()
-	{
-		return new _0024Statistics_00241977(this).GetEnumerator();
-	}
-	public virtual IEnumerator Play()
-	{
-		return new _0024Play_00241986(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Options()
-	{
-		return new _0024Options_00241990(this).GetEnumerator();
-	}
-	public virtual IEnumerator RefreshServers()
-	{
-		return new _0024RefreshServers_00241993(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Done()
-	{
-		return new _0024Done_00241997(this).GetEnumerator();
-	}
-	[RPC]
-	public virtual IEnumerator ReadyGame()
-	{
-		return new _0024ReadyGame_00242000(this).GetEnumerator();
 	}
 
 	[RPC]
@@ -4263,5 +4260,4 @@ public class MenuScript : MonoBehaviour
 			_ => "NULL", 
 		};
 	}
-
 	}
