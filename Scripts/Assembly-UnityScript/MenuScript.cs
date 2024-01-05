@@ -93,76 +93,22 @@ public class MenuScript : MonoBehaviour
 		menuMain.SetActive(false);
 		menuOptions.SetActive(true);
 	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024RefreshServers_00241993 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00241994;
 
-			internal MenuScript _0024self__00241995;
+    public IEnumerator RefreshServers()
+    {
+        for (int i = 0; i < server.Length; i++)
+        {
+            server[i].SetActive(false);
+            string serverIP = PlayerPrefs.GetString("serverIP" + i);
+            if (!string.IsNullOrEmpty(serverIP))
+            {
+                server[i].SetActive(true);
+                txtServerIP[i].text = serverIP;
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+    }
 
-			public _0024(MenuScript self_)
-			{
-				_0024self__00241995 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024i_00241994 = default(int);
-					for (_0024i_00241994 = 0; _0024i_00241994 < 4; _0024i_00241994++)
-					{
-						_0024self__00241995.server[_0024i_00241994].SetActive(value: false);
-						serverIP[_0024i_00241994] = PlayerPrefs.GetString("serverIP" + _0024i_00241994);
-					}
-					result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-					break;
-				case 2:
-					for (_0024i_00241994 = 0; _0024i_00241994 < 4; _0024i_00241994++)
-					{
-						if (!string.IsNullOrEmpty(serverIP[_0024i_00241994]))
-						{
-							_0024self__00241995.server[_0024i_00241994].SetActive(value: true);
-							_0024self__00241995.txtServerIP[_0024i_00241994].text = string.Empty + serverIP[_0024i_00241994];
-						}
-						else
-						{
-							_0024self__00241995.server[_0024i_00241994].SetActive(value: false);
-						}
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MenuScript _0024self__00241996;
-
-		public _0024RefreshServers_00241993(MenuScript self_)
-		{
-			_0024self__00241996 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241996);
-		}
-	}
-	public virtual IEnumerator RefreshServers()
-	{
-		return new _0024RefreshServers_00241993(this).GetEnumerator();
-	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Done_00241997 : GenericGenerator<WaitForSeconds>
