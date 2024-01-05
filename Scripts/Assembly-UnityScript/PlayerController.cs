@@ -85,12 +85,12 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Dash(int direction)
     {
-        AudioClip audioDash;
-        GameScript gameScript;
-        bool dashing;
-        bool grounded;
-        Rigidbody r;
-        Transform t;
+        AudioClip audioDash = null;
+        GameScript gameScript = null;
+        bool dashing = false;
+        bool grounded = false;
+        Rigidbody r = null;
+        Transform t = null;
 
         if (gameScript.stamina < 1f)
         {
