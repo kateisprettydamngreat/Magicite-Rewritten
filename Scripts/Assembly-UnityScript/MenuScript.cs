@@ -109,68 +109,23 @@ public class MenuScript : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Done_00241997 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal MenuScript _0024self__00241998;
+    public IEnumerator Done()
+    {
+        fade.fadeOut();
+        yield return new WaitForSeconds(0.2f);
 
-			public _0024(MenuScript self_)
-			{
-				_0024self__00241998 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241998.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241998.fade.fadeIn();
-					_0024self__00241998.curHat = 0;
-					_0024self__00241998.curCompanion = 0;
-					_0024self__00241998.curRace = 0;
-					_0024self__00241998.bApply.SetActive(value: false);
-					_0024self__00241998.menuMain.SetActive(value: true);
-					_0024self__00241998.menuStats.SetActive(value: false);
-					_0024self__00241998.menuLobby.SetActive(value: false);
-					_0024self__00241998.menuCharacterCreate.SetActive(value: false);
-					_0024self__00241998.menuOptions.SetActive(value: false);
-					_0024self__00241998.menuMultiplayer.SetActive(value: false);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MenuScript _0024self__00241999;
-
-		public _0024Done_00241997(MenuScript self_)
-		{
-			_0024self__00241999 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241999);
-		}
-	}
-	public virtual IEnumerator Done()
-	{
-		return new _0024Done_00241997(this).GetEnumerator();
-	}
+        fade.fadeIn();
+        curHat = 0;
+        curCompanion = 0;
+        curRace = 0;
+        bApply.SetActive(false);
+        menuMain.SetActive(true);
+        menuStats.SetActive(false);
+        menuLobby.SetActive(false);
+        menuCharacterCreate.SetActive(false);
+        menuOptions.SetActive(false);
+        menuMultiplayer.SetActive(false);
+    }
 
 	[RPC]
 	public IEnumerator ReadyGame()
