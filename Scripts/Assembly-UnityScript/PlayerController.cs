@@ -35,72 +35,24 @@ public class PlayerController : MonoBehaviour
             gameScript.DecreaseHunger();
         }
     }
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Leavee_00242165 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerController _0024self__00242166;
-
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242166 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242166.fade.fadeOut();
-					GameScript.curBiome = GameScript.door[GameScript.curDoor];
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					if (GameScript.isTown)
-					{
-						GameScript.isTown = false;
-					}
-					else if (GameScript.districtLevel == 21)
-					{
-						GameScript.isTown = false;
-					}
-					else
-					{
-						GameScript.isTown = true;
-					}
-					_0024self__00242166.gameScript.SaveInventory();
-					Application.LoadLevel(0);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242167;
-
-		public _0024Leavee_00242165(PlayerController self_)
-		{
-			_0024self__00242167 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242167);
-		}
-	}
 	public virtual IEnumerator Leavee()
-	{
-		return new _0024Leavee_00242165(this).GetEnumerator();
-	}
+		{
+			fade.fadeOut();
+			GameScript.curBiome = GameScript.door[GameScript.curDoor];
+			yield return new WaitForSeconds(0.2f);
+
+			if (GameScript.isTown || GameScript.districtLevel == 21)
+			{
+				GameScript.isTown = false;
+			}
+			else
+			{
+				GameScript.isTown = true;
+			}
+
+			gameScript.SaveInventory();
+			Application.LoadLevel(0);
+		}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Offledge_00242168 : GenericGenerator<WaitForSeconds>
