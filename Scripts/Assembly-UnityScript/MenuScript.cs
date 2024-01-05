@@ -192,62 +192,16 @@ public class MenuScript : MonoBehaviour
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024BeginGame_00242003 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal MenuScript _0024self__00242004;
+    [RPC]
+    public IEnumerator BeginGame()
+    {
+        PlayerPrefs.SetInt("stat0", PlayerPrefs.GetInt("stat0") + 1);
+        fade.fadeOut();
+        yield return new WaitForSeconds(0.2f);
+        SaveCharacter();
+        Application.LoadLevel(2);
+    }
 
-			public _0024(MenuScript self_)
-			{
-				_0024self__00242004 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					PlayerPrefs.SetInt("stat0", PlayerPrefs.GetInt("stat0") + 1);
-					_0024self__00242004.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242004.SaveCharacter();
-					Application.LoadLevel(2);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MenuScript _0024self__00242005;
-
-		public _0024BeginGame_00242003(MenuScript self_)
-		{
-			_0024self__00242005 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242005);
-		}
-	}
-
-	[RPC]
-	public virtual IEnumerator BeginGame()
-	{
-		return new _0024BeginGame_00242003(this).GetEnumerator();
-	}
 
 	[NonSerialized]
 	public static int GameMode;
