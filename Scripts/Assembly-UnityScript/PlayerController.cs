@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
@@ -204,100 +203,37 @@ public class PlayerController : MonoBehaviour
 
         canBoost = false;
     }
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024DoubleJump_00242205 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024773_00242206;
+    public IEnumerator DoubleJump()
+    {
+        if (gameScript.stamina >= 1f)
+        {
+            djA = false;
+            GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP2", typeof(AudioClip)));
+            canBoost = false;
+            canBoost2 = true;
+            gameScript.Stamina();
+            gameScript.stamina -= 1f;
+            gameScript.LoadSTA();
+            GetComponent<NetworkView>().RPC("po", RPCMode.All, t.position);
+            canDoubleJump = false;
 
-			internal Vector3 _0024_0024774_00242207;
+            if (!GameScript.isFloating)
+            {
+                r.velocity = new Vector3(r.velocity.x, 26, r.velocity.z);
+            }
+            else
+            {
+                r.velocity = new Vector3(r.velocity.x, 12, r.velocity.z);
+            }
 
-			internal int _0024_0024775_00242208;
-
-			internal Vector3 _0024_0024776_00242209;
-
-			internal PlayerController _0024self__00242210;
-
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242210 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!(_0024self__00242210.gameScript.stamina < 1f))
-					{
-						_0024self__00242210.djA = false;
-						_0024self__00242210.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP2", typeof(AudioClip)));
-						_0024self__00242210.canBoost = false;
-						_0024self__00242210.canBoost2 = true;
-						_0024self__00242210.gameScript.Stamina();
-						_0024self__00242210.gameScript.stamina = _0024self__00242210.gameScript.stamina - 1f;
-						_0024self__00242210.gameScript.LoadSTA();
-						_0024self__00242210.GetComponent<NetworkView>().RPC("po", RPCMode.All, _0024self__00242210.t.position);
-						_0024self__00242210.canDoubleJump = false;
-						if (!GameScript.isFloating)
-						{
-							int num = (_0024_0024775_00242208 = 26);
-							Vector3 vector = (_0024_0024776_00242209 = _0024self__00242210.r.velocity);
-							float num2 = (_0024_0024776_00242209.y = _0024_0024775_00242208);
-							Vector3 vector3 = (_0024self__00242210.r.velocity = _0024_0024776_00242209);
-						}
-						else
-						{
-							int num3 = (_0024_0024773_00242206 = 12);
-							Vector3 vector4 = (_0024_0024774_00242207 = _0024self__00242210.r.velocity);
-							float num4 = (_0024_0024774_00242207.y = _0024_0024773_00242206);
-							Vector3 vector6 = (_0024self__00242210.r.velocity = _0024_0024774_00242207);
-						}
-						mode = 2;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					UnityEngine.Object.Instantiate(Resources.Load("noSta"), _0024self__00242210.t.position, Quaternion.identity);
-					goto IL_0210;
-				case 2:
-					_0024self__00242210.canBoost2 = false;
-					goto IL_0210;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0210:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242211;
-
-		public _0024DoubleJump_00242205(PlayerController self_)
-		{
-			_0024self__00242211 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242211);
-		}
-	}
-
-	public virtual IEnumerator DoubleJump()
-	{
-		return new _0024DoubleJump_00242205(this).GetEnumerator();
-	}
-
+            yield return new WaitForSeconds(1f);
+            canBoost2 = false;
+        }
+        else
+        {
+            Instantiate(Resources.Load("noSta"), t.position, Quaternion.identity);
+        }
+    }
 	public PlayerController()
 	{
 		txtName = new TextMesh[2];
