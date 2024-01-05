@@ -114,76 +114,24 @@ public class PlayerController : MonoBehaviour
         dashing = false;
     }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ShieldN_00242184 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerController _0024self__00242185;
-
-			public _0024(PlayerController self_)
-			{
-				_0024self__00242185 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242185.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242185.shieldObj.SetActive(value: true);
-						result = (Yield(2, new WaitForSeconds(20f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0089;
-				case 2:
-					PlayerTriggerScript.ShieldDEF -= 4;
-					if (PlayerTriggerScript.ShieldDEF < 0)
-					{
-						PlayerTriggerScript.ShieldDEF = 0;
-					}
-					if (PlayerTriggerScript.ShieldDEF == 0)
-					{
-						_0024self__00242185.shieldObj.SetActive(value: false);
-					}
-					goto IL_0089;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0089:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerController _0024self__00242186;
-
-		public _0024ShieldN_00242184(PlayerController self_)
-		{
-			_0024self__00242186 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242186);
-		}
+    [RPC]
+    public IEnumerator ShieldN()
+    {
+        if (GetComponent<NetworkView>().isMine)
+        {
+            shieldObj.SetActive(true);
+            yield return new WaitForSeconds(20f);
+            PlayerTriggerScript.ShieldDEF -= 4;
+            if (PlayerTriggerScript.ShieldDEF < 0)
+            {
+                PlayerTriggerScript.ShieldDEF = 0;
+            }
+            if (PlayerTriggerScript.ShieldDEF == 0)
+            {
+                shieldObj.SetActive(false);
+            }
+        }
 	}
-	[RPC]
-	public virtual IEnumerator ShieldN()
-	{
-		return new _0024ShieldN_00242184(this).GetEnumerator();
-	}
-
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024FloatN_00242187 : GenericGenerator<WaitForSeconds>
