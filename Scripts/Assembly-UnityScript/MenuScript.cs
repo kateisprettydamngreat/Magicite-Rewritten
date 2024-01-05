@@ -527,6 +527,43 @@ public class MenuScript : MonoBehaviour
 			return new _0024(_0024self__00242005);
 		}
 	}
+	public virtual IEnumerator ApplyRes()
+	{
+		return new _0024ApplyRes_00241972(this).GetEnumerator();
+	}
+	public virtual IEnumerator Statistics()
+	{
+		return new _0024Statistics_00241977(this).GetEnumerator();
+	}
+	public virtual IEnumerator Play()
+	{
+		return new _0024Play_00241986(this).GetEnumerator();
+	}
+
+	public virtual IEnumerator Options()
+	{
+		return new _0024Options_00241990(this).GetEnumerator();
+	}
+	public virtual IEnumerator RefreshServers()
+	{
+		return new _0024RefreshServers_00241993(this).GetEnumerator();
+	}
+
+	public virtual IEnumerator Done()
+	{
+		return new _0024Done_00241997(this).GetEnumerator();
+	}
+	[RPC]
+	public virtual IEnumerator ReadyGame()
+	{
+		return new _0024ReadyGame_00242000(this).GetEnumerator();
+	}
+
+	[RPC]
+	public virtual IEnumerator BeginGame()
+	{
+		return new _0024BeginGame_00242003(this).GetEnumerator();
+	}
 
 	[NonSerialized]
 	public static int GameMode;
@@ -1470,11 +1507,6 @@ public class MenuScript : MonoBehaviour
 				doneConnecting = 0;
 			}
 		}
-	}
-
-	public virtual IEnumerator ApplyRes()
-	{
-		return new _0024ApplyRes_00241972(this).GetEnumerator();
 	}
 
 	public virtual void Variant()
@@ -2652,11 +2684,6 @@ public class MenuScript : MonoBehaviour
 		StartCoroutine_Auto(RefreshServers());
 	}
 
-	public virtual IEnumerator Statistics()
-	{
-		return new _0024Statistics_00241977(this).GetEnumerator();
-	}
-
 	public virtual int GetCurEXP(int pLevel)
 	{
 		int num = accountEXP;
@@ -2713,16 +2740,6 @@ public class MenuScript : MonoBehaviour
 	{
 	}
 
-	public virtual IEnumerator Play()
-	{
-		return new _0024Play_00241986(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Options()
-	{
-		return new _0024Options_00241990(this).GetEnumerator();
-	}
-
 	public virtual void Multiplayer()
 	{
 		menuMultiplayer.SetActive(value: true);
@@ -2730,15 +2747,6 @@ public class MenuScript : MonoBehaviour
 		menuMain.SetActive(value: false);
 	}
 
-	public virtual IEnumerator RefreshServers()
-	{
-		return new _0024RefreshServers_00241993(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Done()
-	{
-		return new _0024Done_00241997(this).GetEnumerator();
-	}
 
 	public virtual void Done2()
 	{
@@ -2869,18 +2877,6 @@ public class MenuScript : MonoBehaviour
 	public virtual Item EmptyItem()
 	{
 		return new Item(0, 0, new int[6], 0f, null);
-	}
-
-	[RPC]
-	public virtual IEnumerator ReadyGame()
-	{
-		return new _0024ReadyGame_00242000(this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator BeginGame()
-	{
-		return new _0024BeginGame_00242003(this).GetEnumerator();
 	}
 
 	public virtual void ChangeRace(int dir)
