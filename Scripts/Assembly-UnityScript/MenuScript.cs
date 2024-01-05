@@ -10,164 +10,39 @@ using UnityScript.Lang;
 [Serializable]
 public class MenuScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ApplyRes_00241972 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024pp_00241973;
+    public IEnumerator ApplyRes()
+    {
+        int pp = GetRes1();
+        int pp2 = GetRes2();
+        y = Screen.fullScreen;
+        Screen.SetResolution(pp, pp2, y);
+        PlayerPrefs.SetInt("res", curRes); // Assuming curRes is defined elsewhere in the class
+        PlayerPrefs.SetInt("FULLSCREEN", y ? 1 : 0);
+        bApply.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        DetectRes();
+    }
 
-			internal int _0024pp2_00241974;
-
-			internal MenuScript _0024self__00241975;
-
-			public _0024(MenuScript self_)
-			{
-				_0024self__00241975 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024pp_00241973 = _0024self__00241975.GetRes1();
-					_0024pp2_00241974 = _0024self__00241975.GetRes2();
-					if (Screen.fullScreen)
-					{
-						_0024self__00241975.y = true;
-					}
-					else
-					{
-						_0024self__00241975.y = false;
-					}
-					Screen.SetResolution(_0024pp_00241973, _0024pp2_00241974, _0024self__00241975.y);
-					PlayerPrefs.SetInt("res", curRes);
-					if (_0024self__00241975.y)
-					{
-						PlayerPrefs.SetInt("FULLSCREEN", 1);
-					}
-					else
-					{
-						PlayerPrefs.SetInt("FULLSCREEN", 0);
-					}
-					_0024self__00241975.bApply.SetActive(value: false);
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241975.DetectRes();
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MenuScript _0024self__00241976;
-
-		public _0024ApplyRes_00241972(MenuScript self_)
-		{
-			_0024self__00241976 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241976);
-		}
-	}
-	public virtual IEnumerator ApplyRes()
-	{
-		return new _0024ApplyRes_00241972(this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Statistics_00241977 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024pLevel_00241978;
-
-			internal float _0024curEXP_00241979;
-
-			internal float _0024cap_00241980;
-
-			internal float _0024percent_00241981;
-
-			internal float _0024_0024665_00241982;
-
-			internal Vector3 _0024_0024666_00241983;
-
-			internal MenuScript _0024self__00241984;
-
-			public _0024(MenuScript self_)
-			{
-				_0024self__00241984 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241984.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-				{
-					_0024self__00241984.fade.fadeIn();
-					_0024self__00241984.txtHighScore[0].text = string.Empty + PlayerPrefs.GetInt("hScore");
-					_0024self__00241984.txtHighScore[1].text = _0024self__00241984.txtHighScore[0].text;
-					_0024pLevel_00241978 = _0024self__00241984.GetPlayerLevel();
-					_0024curEXP_00241979 = _0024self__00241984.GetCurEXP(_0024pLevel_00241978);
-					_0024cap_00241980 = _0024self__00241984.GetLevelCap(_0024pLevel_00241978);
-					_0024percent_00241981 = _0024curEXP_00241979 / _0024cap_00241980 * 8.5f;
-					MonoBehaviour.print("Current Level:" + _0024pLevel_00241978 + " Total EXP:" + accountEXP + " Next Level:" + _0024curEXP_00241979 + "/" + _0024cap_00241980);
-					_0024self__00241984.menuMain.SetActive(value: false);
-					_0024self__00241984.menuStats.SetActive(value: true);
-					_0024self__00241984.txtAccountLevel.text = "Player Level : " + _0024pLevel_00241978;
-					_0024self__00241984.txtCurEXP.text = _0024curEXP_00241979 + "/" + _0024cap_00241980;
-					float num = (_0024_0024665_00241982 = _0024percent_00241981);
-					Vector3 vector = (_0024_0024666_00241983 = _0024self__00241984.barEXP.transform.localScale);
-					float num2 = (_0024_0024666_00241983.x = _0024_0024665_00241982);
-					Vector3 vector3 = (_0024self__00241984.barEXP.transform.localScale = _0024_0024666_00241983);
-					YieldDefault(1);
-					goto case 1;
-				}
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MenuScript _0024self__00241985;
-
-		public _0024Statistics_00241977(MenuScript self_)
-		{
-			_0024self__00241985 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241985);
-		}
-	}
-	public virtual IEnumerator Statistics()
-	{
-		return new _0024Statistics_00241977(this).GetEnumerator();
-	}
+    public IEnumerator Statistics()
+    {
+        fade.fadeOut();
+        yield return new WaitForSeconds(0.2f);
+        fade.fadeIn();
+        txtHighScore[0].text = PlayerPrefs.GetInt("hScore").ToString();
+        txtHighScore[1].text = txtHighScore[0].text;
+        int playerLevel = GetPlayerLevel();
+        float curEXP = GetCurEXP(playerLevel);
+        float levelCap = GetLevelCap(playerLevel);
+        float percent = curEXP / levelCap * 8.5f;
+        MonoBehaviour.print($"Current Level:{playerLevel} Total EXP:{accountEXP} Next Level:{curEXP}/{levelCap}");
+        menuMain.SetActive(false);
+        menuStats.SetActive(true);
+        txtAccountLevel.text = "Player Level : " + playerLevel;
+        txtCurEXP.text = $"{curEXP}/{levelCap}";
+        Vector3 scale = barEXP.localScale;
+        scale.x = percent;
+        barEXP.localScale = scale;
+    }
 
 	[Serializable]
 	[CompilerGenerated]
