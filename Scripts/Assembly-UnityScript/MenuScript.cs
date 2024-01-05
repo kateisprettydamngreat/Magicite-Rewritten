@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
-using Boo.Lang.Runtime;
 using UnityEngine;
 using UnityScript.Lang;
 
@@ -898,7 +896,7 @@ public class MenuScript : MonoBehaviour
 			IEnumerator enumerator = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
 			while (enumerator.MoveNext())
 			{
-				char c = RuntimeServices.UnboxChar(enumerator.Current);
+    			char c = (char)enumerator.Current;
 				if (c == "\b"[0])
 				{
 					if (txtName[0].text.Length != 0)
@@ -922,7 +920,7 @@ public class MenuScript : MonoBehaviour
 			IEnumerator enumerator2 = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
 			while (enumerator2.MoveNext())
 			{
-				char c2 = RuntimeServices.UnboxChar(enumerator2.Current);
+			    char c2 = (char)enumerator2.Current;
 				if (c2 == "\b"[0])
 				{
 					if (txtIP[0].text.Length != 0)
@@ -949,7 +947,7 @@ public class MenuScript : MonoBehaviour
 		IEnumerator enumerator3 = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
 		while (enumerator3.MoveNext())
 		{
-			char c3 = RuntimeServices.UnboxChar(enumerator3.Current);
+		    char c3 = (char)enumerator3.Current;
 			if (c3 == "\b"[0])
 			{
 				if (txtPort.text.Length != 0)
