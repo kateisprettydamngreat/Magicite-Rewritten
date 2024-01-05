@@ -8,119 +8,27 @@ using UnityEngine;
 [Serializable]
 public class MerchantScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00241133 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal MerchantScript _0024self__00241134;
+    public IEnumerator Start()
+    {
+        while (true)
+        {
+            if (Network.isServer)
+            {
+                GetComponent<NetworkView>().RPC("Talkn", RPCMode.All, GetRandomText());
+            }
+            yield return new WaitForSeconds(UnityEngine.Random.Range(3, 12));
+        }
+    }
 
-			public _0024(MerchantScript self_)
-			{
-				_0024self__00241134 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (Network.isServer)
-					{
-						goto IL_0026;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 2:
-					_0024self__00241134.GetComponent<NetworkView>().RPC("Talkn", RPCMode.All, _0024self__00241134.GetRandomText());
-					goto IL_0026;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0026:
-					result = (Yield(2, new WaitForSeconds(UnityEngine.Random.Range(3, 12))) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MerchantScript _0024self__00241135;
-
-		public _0024Start_00241133(MerchantScript self_)
-		{
-			_0024self__00241135 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241135);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Talkn_00241136 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal string _0024s_00241137;
-
-			internal MerchantScript _0024self__00241138;
-
-			public _0024(string s, MerchantScript self_)
-			{
-				_0024s_00241137 = s;
-				_0024self__00241138 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241138.@base.GetComponent<Animation>().Play("t");
-					_0024self__00241138.txtTalk.text = _0024s_00241137;
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241138.txtTalk.text = string.Empty;
-					_0024self__00241138.@base.GetComponent<Animation>().Play("i");
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal string _0024s_00241139;
-
-		internal MerchantScript _0024self__00241140;
-
-		public _0024Talkn_00241136(string s, MerchantScript self_)
-		{
-			_0024s_00241139 = s;
-			_0024self__00241140 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024s_00241139, _0024self__00241140);
-		}
-	}
-
+    [RPC]
+    public IEnumerator Talkn(string s)
+    {
+        GetComponent<Animation>().Play("t");
+        txtTalk.text = s;
+        yield return new WaitForSeconds(2f);
+        txtTalk.text = string.Empty;
+        GetComponent<Animation>().Play("i");
+    }
 	public GameObject @base;
 
 	public GameObject[] stand;
@@ -166,10 +74,6 @@ public class MerchantScript : MonoBehaviour
 	{
 	}
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00241133(this).GetEnumerator();
-	}
 
 	public virtual string GetRandomText()
 	{
@@ -196,11 +100,6 @@ public class MerchantScript : MonoBehaviour
 		return result;
 	}
 
-	[RPC]
-	public virtual IEnumerator Talkn(string s)
-	{
-		return new _0024Talkn_00241136(s, this).GetEnumerator();
-	}
 
 	public virtual void OnDestroy()
 	{
