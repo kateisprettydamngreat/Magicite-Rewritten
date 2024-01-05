@@ -172,67 +172,24 @@ public class MenuScript : MonoBehaviour
 		return new _0024Done_00241997(this).GetEnumerator();
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ReadyGame_00242000 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal MenuScript _0024self__00242001;
-
-			public _0024(MenuScript self_)
-			{
-				_0024self__00242001 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242001.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242001.fade.fadeIn();
-					_0024self__00242001.SaveCharacter();
-					if (_0024self__00242001.noLobby)
-					{
-						_0024self__00242001.StartCoroutine_Auto(_0024self__00242001.BeginGame());
-					}
-					else
-					{
-						_0024self__00242001.MenuLobby();
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal MenuScript _0024self__00242002;
-
-		public _0024ReadyGame_00242000(MenuScript self_)
-		{
-			_0024self__00242002 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242002);
-		}
-	}
 	[RPC]
-	public virtual IEnumerator ReadyGame()
+	public IEnumerator ReadyGame()
 	{
-		return new _0024ReadyGame_00242000(this).GetEnumerator();
+		fade.fadeOut();
+		yield return new WaitForSeconds(0.2f);
+
+		fade.fadeIn();
+		SaveCharacter();
+
+		if (noLobby)
+		{
+			yield return StartCoroutine(BeginGame());
+		}
+		else
+		{
+			MenuLobby();
+			yield return new WaitForSeconds(0.1f);
+		}
 	}
 
 	[Serializable]
