@@ -253,93 +253,33 @@ public class GameScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         writingEgg = false;
     }
+
+    public IEnumerator AddInput(int a)
+    {
+        if (!addingInput)
+        {
+            GetComponent<AudioSource>().PlayOneShot(audioSelect2);
+            cheatButton[a - 1].GetComponent<Animation>().Play();
+            if (inputCount == 0)
+            {
+                txtInput.text = string.Empty;
+            }
+            addingInput = true;
+            inputString[inputCount] = a;
+            inputCount++;
+            txtInput.text += a.ToString();
+            if (inputCount == 7)
+            {
+                yield return new WaitForSeconds(0.2f);
+                CheckInput();
+                inputCount = 0;
+            }
+            addingInput = false;
+        }
+    }
 	
 	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024AddInput_00241571 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024a_00241572;
-
-			internal GameScript _0024self__00241573;
-
-			public _0024(int a, GameScript self_)
-			{
-				_0024a_00241572 = a;
-				_0024self__00241573 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241573.addingInput)
-					{
-						_0024self__00241573.GetComponent<AudioSource>().PlayOneShot(_0024self__00241573.audioSelect2);
-						_0024self__00241573.cheatButton[_0024a_00241572 - 1].GetComponent<Animation>().Play();
-						if (_0024self__00241573.inputCount == 0)
-						{
-							_0024self__00241573.txtInput.text = string.Empty;
-						}
-						_0024self__00241573.addingInput = true;
-						_0024self__00241573.inputString[_0024self__00241573.inputCount] = _0024a_00241572;
-						_0024self__00241573.inputCount++;
-						_0024self__00241573.txtInput.text = _0024self__00241573.txtInput.text + (_0024a_00241572 + string.Empty);
-						if (_0024self__00241573.inputCount == 7)
-						{
-							result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-							break;
-						}
-						goto IL_013f;
-					}
-					goto IL_014b;
-				case 2:
-					_0024self__00241573.CheckInput();
-					_0024self__00241573.inputCount = 0;
-					goto IL_013f;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_014b:
-					YieldDefault(1);
-					goto case 1;
-					IL_013f:
-					_0024self__00241573.addingInput = false;
-					goto IL_014b;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00241574;
-
-		internal GameScript _0024self__00241575;
-
-		public _0024AddInput_00241571(int a, GameScript self_)
-		{
-			_0024a_00241574 = a;
-			_0024self__00241575 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00241574, _0024self__00241575);
-		}
-	}
-	public virtual IEnumerator AddInput(int a)
-	{
-		return new _0024AddInput_00241571(a, this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
+	[CompilerGenerated] //good gods why. 700 LINES OF CODE. I want to commit a felony.
 	internal sealed class _0024Craft_00241576 : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
