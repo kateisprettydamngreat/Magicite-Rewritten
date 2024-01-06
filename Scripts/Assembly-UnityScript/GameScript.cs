@@ -71,74 +71,27 @@ public class GameScript : MonoBehaviour
  		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TikiCheck_00241528 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024noo_00241529;
-
-			internal GameObject _0024pot_00241530;
-
-			internal GameScript _0024self__00241531;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241531 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					if (MenuScript.pHat == 10)
-					{
-						_0024noo_00241529 = UnityEngine.Random.Range(0, 2);
-						if (_0024noo_00241529 == 0)
-						{
-							player.SendMessage("TD", 1);
-						}
-						else
-						{
-							HP += 3;
-							_0024pot_00241530 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity);
-							_0024pot_00241530.SendMessage("SD", 3);
-							_0024self__00241531.LoadHearts();
-						}
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
+    public IEnumerator TikiCheck() // Refactor this! Super innefficient.
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            if (MenuScript.pHat == 10)
+            {
+                int noo = UnityEngine.Random.Range(0, 2);
+                if (noo == 0)
+                {
+                    player.SendMessage("TD", 1);
+                }
+                else
+                {
+                    HP += 3;
+                    GameObject pot = Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity) as GameObject;
+                    pot.SendMessage("SD", 3);
+                    LoadHearts();
+                }
+            }
 		}
-
-		internal GameScript _0024self__00241532;
-
-		public _0024TikiCheck_00241528(GameScript self_)
-		{
-			_0024self__00241532 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241532);
-		}
-	}
-	public virtual IEnumerator TikiCheck()
-	{
-		return new _0024TikiCheck_00241528(this).GetEnumerator();
 	}
 
 	[Serializable]
