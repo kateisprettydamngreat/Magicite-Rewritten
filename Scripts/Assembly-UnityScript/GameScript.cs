@@ -94,72 +94,29 @@ public class GameScript : MonoBehaviour
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024RecoverMana_00241533 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024noo_00241534;
-
-			internal GameScript _0024self__00241535;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241535 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(manaWait)) ? 1 : 0);
-					break;
-				case 2:
-					if (MAG < MAXMAG)
-					{
-						MAG++;
-						_0024self__00241535.LoadMana();
-						_0024self__00241535.GUImana.GetComponent<Animation>().Play();
-						if (MenuScript.pHat == 18)
-						{
-							_0024noo_00241534 = UnityEngine.Random.Range(0, 5);
-							if (_0024noo_00241534 == 0 && HP < MAXHP)
-							{
-								HP++;
-								_0024self__00241535.LoadHearts();
-							}
-						}
-					}
-					goto default;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241536;
-
-		public _0024RecoverMana_00241533(GameScript self_)
-		{
-			_0024self__00241536 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241536);
-		}
+    public IEnumerator RecoverMana()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(manaWait);
+            if (MAG < MAXMAG)
+            {
+                MAG++;
+                LoadMana();
+                GUImana.GetComponent<Animation>().Play();
+                if (MenuScript.pHat == 18)
+                {
+                    int noo = UnityEngine.Random.Range(0, 5);
+                    if (noo == 0 && HP < MAXHP)
+                    {
+                        HP++;
+                        LoadHearts();
+                    }
+                }
+            }
+        }
 	}
-	public virtual IEnumerator RecoverMana()
-	{
-		return new _0024RecoverMana_00241533(this).GetEnumerator();
-	}
+
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ScourgeBoss_00241537 : GenericGenerator<WaitForSeconds>
