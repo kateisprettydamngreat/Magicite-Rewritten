@@ -195,100 +195,32 @@ public class GameScript : MonoBehaviour
         txtStatus2.text = " ";
     }
 	
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024GenerateText_00241555 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024num_00241556;
+    public IEnumerator GenerateText()
+    {
+        while (true)
+        {
+            int num = UnityEngine.Random.Range(0, 5);
+            string tt = num switch
+            {
+                0 => "You feel as if you are being watched...",
+                1 => "You hear a distant rumble...",
+                2 => "There is a foul taste in the air.",
+                3 => "You feel uneasy.",
+                4 => "A slight breeze brushes against your face.",
+                _ => string.Empty,
+            };
 
-			internal string _0024tt_00241557;
+            if (txtStatus2 != null)
+            {
+                txtStatus2.text = tt;
+                yield return new WaitForSeconds(1f);
+                txtStatus2.text = string.Empty;
+            }
 
-			internal int _0024_0024switch_0024182_00241558;
-
-			internal GameScript _0024self__00241559;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241559 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024num_00241556 = UnityEngine.Random.Range(0, 30);
-					_0024tt_00241557 = null;
-					_0024_0024switch_0024182_00241558 = _0024num_00241556;
-					if (_0024_0024switch_0024182_00241558 == 0)
-					{
-						_0024tt_00241557 = "You feel as if you are being watched...";
-					}
-					else if (_0024_0024switch_0024182_00241558 == 1)
-					{
-						_0024tt_00241557 = "You hear a distant rumble...";
-					}
-					else if (_0024_0024switch_0024182_00241558 == 2)
-					{
-						_0024tt_00241557 = "There is a foul taste in the air.";
-					}
-					else if (_0024_0024switch_0024182_00241558 == 3)
-					{
-						_0024tt_00241557 = "You feel uneasy.";
-					}
-					else if (_0024_0024switch_0024182_00241558 == 4)
-					{
-						_0024tt_00241557 = "A slight breeze brushes against your face.";
-					}
-					else
-					{
-						_0024tt_00241557 = string.Empty;
-					}
-					if ((bool)_0024self__00241559.txtStatus2)
-					{
-						_0024self__00241559.txtStatus2.text = _0024tt_00241557;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0126;
-				case 2:
-					_0024self__00241559.txtStatus2.text = string.Empty;
-					goto IL_0126;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0126:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241560;
-
-		public _0024GenerateText_00241555(GameScript self_)
-		{
-			_0024self__00241560 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241560);
-		}
-	}
-	public virtual IEnumerator GenerateText()
-	{
-		return new _0024GenerateText_00241555(this).GetEnumerator();
-	}
-
+            // Wait for a random time before showing the next text
+            yield return new WaitForSeconds(UnityEngine.Random.Range(3, 10));
+        }
+    }
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Start_00241561 : GenericGenerator<WaitForSeconds>
