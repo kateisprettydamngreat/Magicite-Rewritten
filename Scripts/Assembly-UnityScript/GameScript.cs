@@ -117,88 +117,33 @@ public class GameScript : MonoBehaviour
         }
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ScourgeBoss_00241537 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal string _0024enemy_00241538;
+    public IEnumerator ScourgeBoss(int difficulty)
+    {
+        string enemyType = null;
+        if (!isTown)
+        {
+            switch (difficulty)
+            {
+                case 5:
+                    enemyType = "abyssalTitan"; //Abyssal Titan is unimplemented.
+                    break;
+                case 10:
+                case 15:
+                    enemyType = "scourgeKnight";
+                    break;
+                default:
+                    enemyType = "abyssalTitan";
+                    break;
+            }
+            yield return new WaitForSeconds(1f);
 
-			internal int _0024d_00241539;
-
-			public _0024(int d)
-			{
-				_0024d_00241539 = d;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024enemy_00241538 = null;
-					if (!isTown)
-					{
-						if (_0024d_00241539 == 5)
-						{
-							_0024enemy_00241538 = "abyssalTitan";
-						}
-						else if (_0024d_00241539 == 10)
-						{
-							_0024enemy_00241538 = "scourgeKnight";
-						}
-						else if (_0024d_00241539 == 15)
-						{
-							_0024enemy_00241538 = "scourgeKnight";
-						}
-						else
-						{
-							_0024enemy_00241538 = "abyssalTitan";
-						}
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_00e6;
-				case 2:
-					if ((bool)exitObj)
-					{
-						exitObj.SendMessage("Close");
-					}
-					Network.Instantiate(Resources.Load("e/" + _0024enemy_00241538), new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
-					goto IL_00e6;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00e6:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024d_00241540;
-
-		public _0024ScourgeBoss_00241537(int d)
-		{
-			_0024d_00241540 = d;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024d_00241540);
-		}
-	}
-	public virtual IEnumerator ScourgeBoss(int d)
-	{
-		return new _0024ScourgeBoss_00241537(d).GetEnumerator();
-	}
+            if (exitObj)
+            {
+                exitObj.SendMessage("Close");
+            }
+            Network.Instantiate(Resources.Load("e/" + enemyType), new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
+        }
+    }
 
 	[Serializable]
 	[CompilerGenerated]
