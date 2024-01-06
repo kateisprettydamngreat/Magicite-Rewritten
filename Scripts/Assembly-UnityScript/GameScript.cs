@@ -186,73 +186,15 @@ public class GameScript : MonoBehaviour
         }
     }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024WriteFinal_00241548 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal string _0024tt_00241549;
-
-			internal int _0024_0024switch_0024180_00241550;
-
-			internal int _0024a_00241551;
-
-			internal GameScript _0024self__00241552;
-
-			public _0024(int a, GameScript self_)
-			{
-				_0024a_00241551 = a;
-				_0024self__00241552 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024tt_00241549 = null;
-					_0024_0024switch_0024180_00241550 = _0024a_00241551;
-					_0024tt_00241549 = "The Scourge have invaded! Get out!!";
-					_0024self__00241552.txtStatus2.gameObject.SetActive(value: true);
-					_0024self__00241552.txtStatus2.text = _0024tt_00241549;
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241552.txtStatus2.text = " ";
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00241553;
-
-		internal GameScript _0024self__00241554;
-
-		public _0024WriteFinal_00241548(int a, GameScript self_)
-		{
-			_0024a_00241553 = a;
-			_0024self__00241554 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00241553, _0024self__00241554);
-		}
-	}
-	public virtual IEnumerator WriteFinal(int a)
-	{
-		return new _0024WriteFinal_00241548(a, this).GetEnumerator();
-	}
-
+    public IEnumerator WriteFinal(int a)
+    {
+        // Assuming 'a' is used somewhere else in the original context, otherwise it's not needed
+        txtStatus2.gameObject.SetActive(true);
+        txtStatus2.text = "The Scourge have invaded! Get out!!";
+        yield return new WaitForSeconds(2f);
+        txtStatus2.text = " ";
+    }
+	
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024GenerateText_00241555 : GenericGenerator<WaitForSeconds>
