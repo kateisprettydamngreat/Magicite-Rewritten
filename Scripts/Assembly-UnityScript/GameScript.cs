@@ -245,61 +245,15 @@ public class GameScript : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+
+    public IEnumerator WriteEgg()
+    {
+        writingEgg = true;
+        StartCoroutine(Write(7));
+        yield return new WaitForSeconds(2f);
+        writingEgg = false;
+    }
 	
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024WriteEgg_00241568 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameScript _0024self__00241569;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241569 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241569.writingEgg = true;
-					_0024self__00241569.StartCoroutine_Auto(_0024self__00241569.Write(7));
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241569.writingEgg = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241570;
-
-		public _0024WriteEgg_00241568(GameScript self_)
-		{
-			_0024self__00241570 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241570);
-		}
-	}
-	public virtual IEnumerator WriteEgg()
-	{
-		return new _0024WriteEgg_00241568(this).GetEnumerator();
-	}
-
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024AddInput_00241571 : GenericGenerator<WaitForSeconds>
