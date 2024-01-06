@@ -232,77 +232,20 @@ public class GameScript : MonoBehaviour
         isReturning = false;
         RefreshGold();
     }
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024StaminaStart_00241564 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024ppp_00241565;
 
-			internal GameScript _0024self__00241566;
+    public IEnumerator StaminaStart()
+    {
+        maxStamina = Mathf.Clamp(playerLevel, 4, 12);
+        stamina = maxStamina;
 
-			public _0024(GameScript self_)
-			{
-				_0024self__00241566 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024ppp_00241565 = playerLevel;
-					if (_0024ppp_00241565 <= 4)
-					{
-						_0024self__00241566.maxStamina = 4;
-					}
-					else if (_0024ppp_00241565 <= 12)
-					{
-						_0024self__00241566.maxStamina = _0024ppp_00241565;
-					}
-					else
-					{
-						_0024self__00241566.maxStamina = 12;
-					}
-					_0024self__00241566.stamina = _0024self__00241566.maxStamina;
-					goto case 2;
-				case 2:
-					if (!(_0024self__00241566.stamina >= (float)_0024self__00241566.maxStamina))
-					{
-						_0024self__00241566.stamina += 1f;
-						_0024self__00241566.LoadSTA();
-					}
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241567;
-
-		public _0024StaminaStart_00241564(GameScript self_)
-		{
-			_0024self__00241567 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241567);
-		}
-	}
-	public virtual IEnumerator StaminaStart()
-	{
-		return new _0024StaminaStart_00241564(this).GetEnumerator();
-	}
-
+        while (stamina < maxStamina)
+        {
+            stamina += 1f;
+            LoadSTA();
+            yield return new WaitForSeconds(1f);
+        }
+    }
+	
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024WriteEgg_00241568 : GenericGenerator<WaitForSeconds>
