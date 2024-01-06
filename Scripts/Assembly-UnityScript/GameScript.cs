@@ -9,146 +9,44 @@ using UnityEngine;
 [Serializable]
 public class GameScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Invader_00241516 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00241517;
+    public IEnumerator Invader()
+    {
+        int waitTime = UnityEngine.Random.Range(300, 350);
+        if (districtLevel <= 1)
+        {
+            waitTime *= 2;
+        }
+        if (MenuScript.GameMode == 1 && districtLevel < 20)
+        {
+            waitTime = 3;
+            GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/madman", typeof(AudioClip)));
+        }
+        yield return new WaitForSeconds(waitTime);
 
-			internal int _0024waitTime_00241518;
+        StartCoroutine(Write(5));
+        player.GetComponent<NetworkView>().RPC("Boss", RPCMode.All);
+        if (MenuScript.GameMode == 1 && districtLevel < 20)
+        {
+            Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0f, 0f), Quaternion.identity, 0);
+        }
 
-			internal GameScript _0024self__00241519;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241519 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024i_00241517 = default(int);
-					_0024waitTime_00241518 = UnityEngine.Random.Range(300, 350);
-					if (districtLevel <= 1)
-					{
-						_0024waitTime_00241518 *= 2;
-					}
-					if (MenuScript.GameMode == 1 && districtLevel < 20)
-					{
-						_0024waitTime_00241518 = 3;
-						_0024self__00241519.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/madman", typeof(AudioClip)));
-					}
-					result = (Yield(2, new WaitForSeconds(_0024waitTime_00241518)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241519.StartCoroutine_Auto(_0024self__00241519.Write(5));
-					player.GetComponent<NetworkView>().RPC("Boss", RPCMode.All);
-					if (MenuScript.GameMode == 1 && districtLevel < 20)
-					{
-						Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0f, 0f), Quaternion.identity, 0);
-					}
-					_0024i_00241517 = 0;
-					goto IL_0176;
-				case 3:
-					_0024i_00241517++;
-					goto IL_0176;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0176:
-					if (_0024i_00241517 < 5)
-					{
-						Network.Instantiate(Resources.Load("e/invader"), new Vector3(-15f, 15f, 0f), Quaternion.identity, 0);
-						result = (Yield(3, new WaitForSeconds(UnityEngine.Random.Range(3, 8))) ? 1 : 0);
-						break;
-					}
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241520;
-
-		public _0024Invader_00241516(GameScript self_)
-		{
-			_0024self__00241520 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241520);
-		}
-	}
-	public virtual IEnumerator Invader()
-	{
-		return new _0024Invader_00241516(this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Timer_00241521 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameScript _0024self__00241522;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241522 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					if (!_0024self__00241522.dead)
-					{
-						timer++;
-					}
-					goto default;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241523;
-
-		public _0024Timer_00241521(GameScript self_)
-		{
-			_0024self__00241523 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241523);
-		}
-	}
-	public virtual IEnumerator Timer()
-	{
-		return new _0024Timer_00241521(this).GetEnumerator();
-	}
-
+        for (int i = 0; i < 5; i++)
+        {
+            Network.Instantiate(Resources.Load("e/invader"), new Vector3(-15f, 15f, 0f), Quaternion.identity, 0);
+            waitTime = UnityEngine.Random.Range(3, 8);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+  
+    private IEnumerator Timer()
+    {
+        while (!dead)
+        {
+            yield return new WaitForSeconds(1f);
+            timer++;
+        }
+    }
+	
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024RegenManaComp_00241524 : GenericGenerator<WaitForSeconds>
