@@ -1,5 +1,3 @@
-// Assembly-UnityScript, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-// GameScript
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -92,6 +90,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241520);
 		}
 	}
+	public virtual IEnumerator Invader()
+	{
+		return new _0024Invader_00241516(this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -141,6 +143,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00241523);
 		}
+	}
+	public virtual IEnumerator Timer()
+	{
+		return new _0024Timer_00241521(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -193,7 +199,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241526);
 		}
 	}
-
+	public virtual IEnumerator RegenManaComp()
+	{
+		return new _0024RegenManaComp_00241524(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ScourgeMaskTick_00241527 : GenericGenerator<WaitForSeconds>
@@ -238,6 +247,10 @@ public class GameScript : MonoBehaviour
 			//yield-return decompiler failed: Method not found
 			return new _0024();
 		}
+	}
+	public virtual IEnumerator ScourgeMaskTick()
+	{
+		return new _0024ScourgeMaskTick_00241527().GetEnumerator();
 	}
 
 	[Serializable]
@@ -305,6 +318,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241532);
 		}
 	}
+	public virtual IEnumerator TikiCheck()
+	{
+		return new _0024TikiCheck_00241528(this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -368,7 +385,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241536);
 		}
 	}
-
+	public virtual IEnumerator RecoverMana()
+	{
+		return new _0024RecoverMana_00241533(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ScourgeBoss_00241537 : GenericGenerator<WaitForSeconds>
@@ -446,6 +466,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024d_00241540);
 		}
+	}
+	public virtual IEnumerator ScourgeBoss(int d)
+	{
+		return new _0024ScourgeBoss_00241537(d).GetEnumerator();
 	}
 
 	[Serializable]
@@ -554,6 +578,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024num_00241546, _0024self__00241547);
 		}
 	}
+	public virtual IEnumerator Write(int num)
+	{
+		return new _0024Write_00241541(num, this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -616,6 +644,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024a_00241553, _0024self__00241554);
 		}
+	}
+	public virtual IEnumerator WriteFinal(int a)
+	{
+		return new _0024WriteFinal_00241548(a, this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -707,6 +739,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241560);
 		}
 	}
+	public virtual IEnumerator GenerateText()
+	{
+		return new _0024GenerateText_00241555(this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -759,6 +795,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00241563);
 		}
+	}
+	public virtual IEnumerator Start()
+	{
+		return new _0024Start_00241561(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -827,6 +867,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241567);
 		}
 	}
+	public virtual IEnumerator StaminaStart()
+	{
+		return new _0024StaminaStart_00241564(this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -876,6 +920,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00241570);
 		}
+	}
+	public virtual IEnumerator WriteEgg()
+	{
+		return new _0024WriteEgg_00241568(this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -956,6 +1004,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024a_00241574, _0024self__00241575);
 		}
+	}
+	public virtual IEnumerator AddInput(int a)
+	{
+		return new _0024AddInput_00241571(a, this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -1651,6 +1703,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241593);
 		}
 	}
+	public virtual IEnumerator Craft()
+	{
+		return new _0024Craft_00241576(this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -1789,6 +1845,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024c_00241600, _0024self__00241601);
 		}
 	}
+	public virtual IEnumerator SelectReward(int c)
+	{
+		return new _0024SelectReward_00241594(c, this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -1851,6 +1911,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024h_00241605, _0024self__00241606);
 		}
+	}
+	public virtual IEnumerator UnlockHat(int h)
+	{
+		return new _0024UnlockHat_00241602(h, this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -1915,6 +1979,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024h_00241610, _0024self__00241611);
 		}
 	}
+	public virtual IEnumerator UnlockComp(int h)
+	{
+		return new _0024UnlockComp_00241607(h, this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -1978,7 +2046,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024r_00241615, _0024self__00241616);
 		}
 	}
-
+	public virtual IEnumerator UnlockVariant(int r)
+	{
+		return new _0024UnlockVariant_00241612(r, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024UnlockRace_00241617 : GenericGenerator<WaitForSeconds>
@@ -2040,6 +2111,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024h_00241620, _0024self__00241621);
 		}
+	}
+	public virtual IEnumerator UnlockRace(int h)
+	{
+		return new _0024UnlockRace_00241617(h, this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -2115,7 +2190,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241624);
 		}
 	}
-
+	public virtual IEnumerator Menuu()
+	{
+		return new _0024Menuu_00241622(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024AgainN_00241625 : GenericGenerator<WaitForSeconds>
@@ -2178,7 +2256,11 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241627);
 		}
 	}
-
+	[RPC]
+	public virtual IEnumerator AgainN()
+	{
+		return new _0024AgainN_00241625(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024SpawnTownNetwork_00241628 : GenericGenerator<WaitForSeconds>
@@ -2364,7 +2446,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241637);
 		}
 	}
-
+	public virtual IEnumerator SpawnTownNetwork()
+	{
+		return new _0024SpawnTownNetwork_00241628(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ThrowPoison_00241638 : GenericGenerator<WaitForSeconds>
@@ -2435,7 +2520,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241641);
 		}
 	}
-
+	public virtual IEnumerator ThrowPoison()
+	{
+		return new _0024ThrowPoison_00241638(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ThrowDagger_00241642 : GenericGenerator<WaitForSeconds>
@@ -2520,7 +2608,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024a_00241651, _0024self__00241652);
 		}
 	}
-
+	public virtual IEnumerator ThrowDagger(int a)
+	{
+		return new _0024ThrowDagger_00241642(a, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ThrowRock_00241653 : GenericGenerator<WaitForSeconds>
@@ -2585,7 +2676,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241656);
 		}
 	}
-
+	public virtual IEnumerator ThrowRock()
+	{
+		return new _0024ThrowRock_00241653(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024UseTotalBiscuit_00241657 : GenericGenerator<WaitForSeconds>
@@ -2660,7 +2754,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241659);
 		}
 	}
-
+	public virtual IEnumerator UseTotalBiscuit()
+	{
+		return new _0024UseTotalBiscuit_00241657(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024UseHPPotion_00241660 : GenericGenerator<WaitForSeconds>
@@ -2749,7 +2846,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024heal_00241664, _0024self__00241665);
 		}
 	}
-
+	public virtual IEnumerator UseHPPotion(int heal)
+	{
+		return new _0024UseHPPotion_00241660(heal, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024UseManaPotion_00241666 : GenericGenerator<WaitForSeconds>
@@ -2837,6 +2937,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024heal_00241670, _0024self__00241671);
 		}
+	}
+	public virtual IEnumerator UseManaPotion(int heal)
+	{
+		return new _0024UseManaPotion_00241666(heal, this).GetEnumerator();
 	}
 
 	[Serializable]
@@ -2927,7 +3031,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024drum_00241675, _0024self__00241676);
 		}
 	}
-
+	public virtual IEnumerator UseDrum(int drum)
+	{
+		return new _0024UseDrum_00241672(drum, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024UseItem_00241677 : GenericGenerator<WaitForSeconds>
@@ -3730,6 +3837,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024slot_00241736, _0024self__00241737);
 		}
 	}
+	public virtual IEnumerator UseItem(int slot)
+	{
+		return new _0024UseItem_00241677(slot, this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -3877,7 +3988,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241745);
 		}
 	}
-
+	public virtual IEnumerator MeleeAttack()
+	{
+		return new _0024MeleeAttack_00241738(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024v_00241746 : GenericGenerator<WaitForSeconds>
@@ -3913,7 +4027,10 @@ public class GameScript : MonoBehaviour
 			return new _0024();
 		}
 	}
-
+	public virtual IEnumerator v()
+	{
+		return new _0024v_00241746().GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024KnockBack_00241747 : GenericGenerator<WaitForSeconds>
@@ -4010,6 +4127,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024h_00241759);
 		}
+	}
+	public virtual IEnumerator KnockBack(Transform h)
+	{
+		return new _0024KnockBack_00241747(h).GetEnumerator();
 	}
 
 	[Serializable]
@@ -4198,7 +4319,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241770);
 		}
 	}
-
+	public virtual IEnumerator GenerateLevel()
+	{
+		return new _0024GenerateLevel_00241760(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Die_00241771 : GenericGenerator<WaitForSeconds>
@@ -4366,7 +4490,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241775);
 		}
 	}
-
+	public virtual IEnumerator Die()
+	{
+		return new _0024Die_00241771(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ShowStats_00241776 : GenericGenerator<WaitForSeconds>
@@ -4429,7 +4556,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241779);
 		}
 	}
-
+	public virtual IEnumerator ShowStats()
+	{
+		return new _0024ShowStats_00241776(this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024ShowEXP_00241780 : GenericGenerator<WaitForSeconds>
@@ -4510,7 +4640,7 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024self__00241786);
 		}
 	}
-
+//orphan????
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024StatShow_00241787 : GenericGenerator<WaitForSeconds>
@@ -4582,7 +4712,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024a_00241792, _0024self__00241793);
 		}
 	}
-
+	public virtual IEnumerator StatShow(int a)
+	{
+		return new _0024StatShow_00241787(a, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024AdditionalStat_00241794 : GenericGenerator<WaitForSeconds>
@@ -4640,6 +4773,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024a_00241797, _0024self__00241798);
 		}
 	}
+	public virtual IEnumerator AdditionalStat(int a)
+	{
+		return new _0024AdditionalStat_00241794(a, this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -4695,7 +4832,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024a_00241802, _0024self__00241803);
 		}
 	}
-
+	public virtual IEnumerator ShowLUP(int a)
+	{
+		return new _0024ShowLUP_00241799(a, this).GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024SkillTick_00241804 : GenericGenerator<WaitForSeconds>
@@ -4774,6 +4914,10 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024a_00241811, _0024max_00241812, _0024self__00241813);
 		}
 	}
+	public virtual IEnumerator SkillTick(int a, float max)
+	{
+		return new _0024SkillTick_00241804(a, max, this).GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -4810,7 +4954,10 @@ public class GameScript : MonoBehaviour
 			return new _0024();
 		}
 	}
-
+	public virtual IEnumerator RageTick()
+	{
+		return new _0024RageTick_00241814().GetEnumerator();
+	}
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024RoarTick_00241815 : GenericGenerator<WaitForSeconds>
@@ -4854,6 +5001,10 @@ public class GameScript : MonoBehaviour
 			return new _0024();
 		}
 	}
+	public virtual IEnumerator RoarTick()
+	{
+		return new _0024RoarTick_00241815().GetEnumerator();
+	}
 
 	[Serializable]
 	[CompilerGenerated]
@@ -4889,6 +5040,10 @@ public class GameScript : MonoBehaviour
 			//yield-return decompiler failed: Method not found
 			return new _0024();
 		}
+	}
+	public virtual IEnumerator FloatTick()
+	{
+		return new _0024FloatTick_00241816().GetEnumerator();
 	}
 
 	[Serializable]
@@ -4957,6 +5112,10 @@ public class GameScript : MonoBehaviour
 		{
 			return new _0024(_0024self__00241820);
 		}
+	}
+	public virtual IEnumerator ManaTick()
+	{
+		return new _0024ManaTick_00241817(this).GetEnumerator();
 	}
 
 	[NonSerialized]
@@ -5783,11 +5942,6 @@ public class GameScript : MonoBehaviour
 		txtLevel.text = "Lv: " + playerLevel;
 	}
 
-	public virtual IEnumerator Invader()
-	{
-		return new _0024Invader_00241516(this).GetEnumerator();
-	}
-
 	public static void EggCounter()
 	{
 		eggCounter++;
@@ -5836,11 +5990,6 @@ public class GameScript : MonoBehaviour
 		{
 			Camera.main.orthographicSize = 15.2f;
 		}
-	}
-
-	public virtual IEnumerator Timer()
-	{
-		return new _0024Timer_00241521(this).GetEnumerator();
 	}
 
 	public virtual void Awake()
@@ -6189,11 +6338,6 @@ public class GameScript : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator RegenManaComp()
-	{
-		return new _0024RegenManaComp_00241524(this).GetEnumerator();
-	}
-
 	public virtual void HealC()
 	{
 		if (HP + 1 > MAXHP)
@@ -6213,21 +6357,6 @@ public class GameScript : MonoBehaviour
 		{
 			tempLevelStat[num] += MenuScript.raceStats[num];
 		}
-	}
-
-	public virtual IEnumerator ScourgeMaskTick()
-	{
-		return new _0024ScourgeMaskTick_00241527().GetEnumerator();
-	}
-
-	public virtual IEnumerator TikiCheck()
-	{
-		return new _0024TikiCheck_00241528(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator RecoverMana()
-	{
-		return new _0024RecoverMana_00241533(this).GetEnumerator();
 	}
 
 	public virtual void SetStartingItems()
@@ -6280,32 +6409,12 @@ public class GameScript : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator ScourgeBoss(int d)
-	{
-		return new _0024ScourgeBoss_00241537(d).GetEnumerator();
-	}
-
-	public virtual IEnumerator Write(int num)
-	{
-		return new _0024Write_00241541(num, this).GetEnumerator();
-	}
-
 	public virtual void GlobalWrite(int a)
 	{
 		if (Network.isServer)
 		{
 			player.GetComponent<NetworkView>().RPC("WritePlayer", RPCMode.All, a);
 		}
-	}
-
-	public virtual IEnumerator WriteFinal(int a)
-	{
-		return new _0024WriteFinal_00241548(a, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator GenerateText()
-	{
-		return new _0024GenerateText_00241555(this).GetEnumerator();
 	}
 
 	public virtual void GenerateLevelName()
@@ -6657,16 +6766,6 @@ public class GameScript : MonoBehaviour
 		return (UnityEngine.Random.Range(0, 2) != 0) ? (text2 + text) : (text + text2);
 	}
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00241561(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator StaminaStart()
-	{
-		return new _0024StaminaStart_00241564(this).GetEnumerator();
-	}
-
 	public virtual void LoadSTA()
 	{
 		int num = playerLevel;
@@ -6811,16 +6910,6 @@ public class GameScript : MonoBehaviour
 		{
 			exitObj.SendMessage("Open");
 		}
-	}
-
-	public virtual IEnumerator WriteEgg()
-	{
-		return new _0024WriteEgg_00241568(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator AddInput(int a)
-	{
-		return new _0024AddInput_00241571(a, this).GetEnumerator();
 	}
 
 	public virtual void CheckInput()
@@ -7583,11 +7672,6 @@ public class GameScript : MonoBehaviour
 		sSelected.SetActive(value: false);
 	}
 
-	public virtual IEnumerator Craft()
-	{
-		return new _0024Craft_00241576(this).GetEnumerator();
-	}
-
 	public virtual void SaveStats()
 	{
 		int num = default(int);
@@ -7739,31 +7823,6 @@ public class GameScript : MonoBehaviour
 		rewardTop.SetActive(value: false);
 		rewardBot.SetActive(value: false);
 		rewardShade.SetActive(value: false);
-	}
-
-	public virtual IEnumerator SelectReward(int c)
-	{
-		return new _0024SelectReward_00241594(c, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UnlockHat(int h)
-	{
-		return new _0024UnlockHat_00241602(h, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UnlockComp(int h)
-	{
-		return new _0024UnlockComp_00241607(h, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UnlockVariant(int r)
-	{
-		return new _0024UnlockVariant_00241612(r, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UnlockRace(int h)
-	{
-		return new _0024UnlockRace_00241617(h, this).GetEnumerator();
 	}
 
 	public virtual string GetHatName(int a)
@@ -7952,17 +8011,6 @@ public class GameScript : MonoBehaviour
 	{
 	}
 
-	public virtual IEnumerator Menuu()
-	{
-		return new _0024Menuu_00241622(this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator AgainN()
-	{
-		return new _0024AgainN_00241625(this).GetEnumerator();
-	}
-
 	public virtual void Again()
 	{
 		if (Network.isServer)
@@ -7993,11 +8041,6 @@ public class GameScript : MonoBehaviour
 		player.GetComponent<NetworkView>().RPC("LoadLevel", RPCMode.All, 1, true);
 	}
 
-	public virtual IEnumerator SpawnTownNetwork()
-	{
-		return new _0024SpawnTownNetwork_00241628(this).GetEnumerator();
-	}
-
 	public virtual void SetBGNetwork(int tBiome)
 	{
 	}
@@ -8025,46 +8068,6 @@ public class GameScript : MonoBehaviour
 		MAG -= m;
 		barMana.GetComponent<Animation>().Play();
 		LoadMana();
-	}
-
-	public virtual IEnumerator ThrowPoison()
-	{
-		return new _0024ThrowPoison_00241638(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ThrowDagger(int a)
-	{
-		return new _0024ThrowDagger_00241642(a, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ThrowRock()
-	{
-		return new _0024ThrowRock_00241653(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UseTotalBiscuit()
-	{
-		return new _0024UseTotalBiscuit_00241657(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UseHPPotion(int heal)
-	{
-		return new _0024UseHPPotion_00241660(heal, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UseManaPotion(int heal)
-	{
-		return new _0024UseManaPotion_00241666(heal, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UseDrum(int drum)
-	{
-		return new _0024UseDrum_00241672(drum, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator UseItem(int slot)
-	{
-		return new _0024UseItem_00241677(slot, this).GetEnumerator();
 	}
 
 	[RPC]
@@ -8152,21 +8155,6 @@ public class GameScript : MonoBehaviour
 		gameObject = ((!facingLeft) ? ((GameObject)Network.Instantiate(Resources.Load("proj/fireballR"), player.transform.position, Quaternion.identity, 0)) : ((GameObject)Network.Instantiate(Resources.Load("proj/fireballL"), player.transform.position, Quaternion.identity, 0)));
 		gameObject.SendMessage("Set", MAXMAG + drumMAG);
 		GUImana.GetComponent<Animation>().Play();
-	}
-
-	public virtual IEnumerator MeleeAttack()
-	{
-		return new _0024MeleeAttack_00241738(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator v()
-	{
-		return new _0024v_00241746().GetEnumerator();
-	}
-
-	public virtual IEnumerator KnockBack(Transform h)
-	{
-		return new _0024KnockBack_00241747(h).GetEnumerator();
 	}
 
 	public virtual void SelectOneItemNPC(int slot)
@@ -10522,11 +10510,6 @@ public class GameScript : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator GenerateLevel()
-	{
-		return new _0024GenerateLevel_00241760(this).GetEnumerator();
-	}
-
 	public virtual void SetMusic(int a)
 	{
 		musicBox.SendMessage("SetMusic", a);
@@ -10572,11 +10555,6 @@ public class GameScript : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator Die()
-	{
-		return new _0024Die_00241771(this).GetEnumerator();
-	}
-
 	public virtual void ShowTimer()
 	{
 		int num = timer;
@@ -10600,16 +10578,6 @@ public class GameScript : MonoBehaviour
 		{
 			MenuScript.canUnlockRace[6] = 1;
 		}
-	}
-
-	public virtual IEnumerator ShowStats()
-	{
-		return new _0024ShowStats_00241776(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ShowEXP()
-	{
-		return new _0024ShowEXP_00241780(this).GetEnumerator();
 	}
 
 	public virtual int GetCurEXP(int pLevel)
@@ -10662,11 +10630,6 @@ public class GameScript : MonoBehaviour
 			num2++;
 		}
 		return num2;
-	}
-
-	public virtual IEnumerator StatShow(int a)
-	{
-		return new _0024StatShow_00241787(a, this).GetEnumerator();
 	}
 
 	public virtual string GetStatsName(int a)
@@ -11312,16 +11275,6 @@ public class GameScript : MonoBehaviour
 		LoadEXP();
 	}
 
-	public virtual IEnumerator AdditionalStat(int a)
-	{
-		return new _0024AdditionalStat_00241794(a, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ShowLUP(int a)
-	{
-		return new _0024ShowLUP_00241799(a, this).GetEnumerator();
-	}
-
 	public virtual void LevelUp()
 	{
 		playerLevel++;
@@ -11534,11 +11487,6 @@ public class GameScript : MonoBehaviour
 		};
 	}
 
-	public virtual IEnumerator SkillTick(int a, float max)
-	{
-		return new _0024SkillTick_00241804(a, max, this).GetEnumerator();
-	}
-
 	public virtual void UseSkill(int b)
 	{
 		int num = skill[b];
@@ -11702,26 +11650,6 @@ public class GameScript : MonoBehaviour
 	public virtual void Wisp(Vector3 mP)
 	{
 		UnityEngine.Object.Instantiate(Resources.Load("skill/wisp"), mP, Quaternion.identity);
-	}
-
-	public virtual IEnumerator RageTick()
-	{
-		return new _0024RageTick_00241814().GetEnumerator();
-	}
-
-	public virtual IEnumerator RoarTick()
-	{
-		return new _0024RoarTick_00241815().GetEnumerator();
-	}
-
-	public virtual IEnumerator FloatTick()
-	{
-		return new _0024FloatTick_00241816().GetEnumerator();
-	}
-
-	public virtual IEnumerator ManaTick()
-	{
-		return new _0024ManaTick_00241817(this).GetEnumerator();
 	}
 
   private Dictionary<int, string> itemNames = new Dictionary<int, string>
