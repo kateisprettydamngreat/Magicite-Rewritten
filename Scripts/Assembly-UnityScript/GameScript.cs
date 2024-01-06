@@ -46,109 +46,29 @@ public class GameScript : MonoBehaviour
             timer++;
         }
     }
+
+    public IEnumerator RegenManaComp()
+    {
+        while (MAG < MAXMAG)
+        {
+            yield return new WaitForSeconds(1.5f);
+            MAG++;
+            LoadMana();
+        }
+    }
 	
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024RegenManaComp_00241524 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameScript _0024self__00241525;
+    public IEnumerator ScourgeMaskTick()
+    {
+        yield return new WaitForSeconds(5f);
 
-			public _0024(GameScript self_)
-			{
-				_0024self__00241525 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-					break;
-				case 2:
-					if (MAG < MAXMAG)
-					{
-						MAG++;
-						_0024self__00241525.LoadMana();
-					}
-					goto default;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241526;
-
-		public _0024RegenManaComp_00241524(GameScript self_)
-		{
-			_0024self__00241526 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241526);
-		}
-	}
-	public virtual IEnumerator RegenManaComp()
-	{
-		return new _0024RegenManaComp_00241524(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ScourgeMaskTick_00241527 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(5f)) ? 1 : 0);
-					break;
-				case 2:
-					if (MenuScript.pHat == 17)
-					{
-						goto IL_003f;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 3:
-					player.SendMessage("TD", 1);
-					goto IL_003f;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_003f:
-					result = (Yield(3, new WaitForSeconds(115f)) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			//yield-return decompiler failed: Method not found
-			return new _0024();
-		}
-	}
-	public virtual IEnumerator ScourgeMaskTick()
-	{
-		return new _0024ScourgeMaskTick_00241527().GetEnumerator();
+        while (true)
+        {
+            if (menuScript.pHat == 17)
+            {
+                player.SendMessage("TD", 1);
+            }
+            yield return new WaitForSeconds(115f);
+ 		}
 	}
 
 	[Serializable]
