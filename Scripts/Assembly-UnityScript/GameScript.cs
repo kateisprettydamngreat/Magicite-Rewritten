@@ -145,116 +145,46 @@ public class GameScript : MonoBehaviour
         }
     }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Write_00241541 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal string _0024tt_00241542;
+    public IEnumerator Write(int num)
+    {
+        string message = string.Empty;
 
-			internal int _0024_0024switch_0024178_00241543;
+        switch (num)
+        {
+            case 0:
+                message = "Your " + GetGearName(inventory[curActiveSlot].id) + " is about to break.";
+                break;
+            case 1:
+                message = "Your stomach begins to grumble.";
+                break;
+            case 2:
+                message = "You are starving.";
+                break;
+            case 3:
+                message = "You feel uneasy.";
+                break;
+            case 4:
+                message = "A slight breeze brushes against your face.";
+                break;
+            case 5:
+                GlobalWrite(0);
+                break;
+            case 6:
+                message = "You feel as if the Scourge are watching you...";
+                break;
+            case 7:
+                message = "You've awakened the Broodmother...";
+                break;
+        }
 
-			internal int _0024num_00241544;
-
-			internal GameScript _0024self__00241545;
-
-			public _0024(int num, GameScript self_)
-			{
-				_0024num_00241544 = num;
-				_0024self__00241545 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					MonoBehaviour.print("WRITING");
-					_0024tt_00241542 = null;
-					_0024_0024switch_0024178_00241543 = _0024num_00241544;
-					if (_0024_0024switch_0024178_00241543 == 0)
-					{
-						_0024tt_00241542 = "Your " + _0024self__00241545.GetGearName(inventory[curActiveSlot].id) + " is about to break.";
-					}
-					else if (_0024_0024switch_0024178_00241543 == 1)
-					{
-						_0024tt_00241542 = "Your stomach begins to grumble.";
-					}
-					else if (_0024_0024switch_0024178_00241543 == 2)
-					{
-						_0024tt_00241542 = "You are starving.";
-					}
-					else if (_0024_0024switch_0024178_00241543 == 3)
-					{
-						_0024tt_00241542 = "You feel uneasy.";
-					}
-					else if (_0024_0024switch_0024178_00241543 == 4)
-					{
-						_0024tt_00241542 = "A slight breeze brushes against your face.";
-					}
-					else if (_0024_0024switch_0024178_00241543 == 5)
-					{
-						_0024self__00241545.GlobalWrite(0);
-					}
-					else if (_0024_0024switch_0024178_00241543 == 6)
-					{
-						_0024tt_00241542 = "You feel as if the Scourge are watching you...";
-					}
-					else if (_0024_0024switch_0024178_00241543 == 7)
-					{
-						_0024tt_00241542 = "You've awakened the Broodmother...";
-					}
-					else
-					{
-						_0024tt_00241542 = string.Empty;
-					}
-					if (!string.IsNullOrEmpty(_0024tt_00241542))
-					{
-						_0024self__00241545.txtStatus2.gameObject.SetActive(value: true);
-						_0024self__00241545.txtStatus2.text = _0024tt_00241542;
-						result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-						break;
-					}
-					goto IL_01b2;
-				case 2:
-					_0024self__00241545.txtStatus2.text = " ";
-					goto IL_01b2;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_01b2:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024num_00241546;
-
-		internal GameScript _0024self__00241547;
-
-		public _0024Write_00241541(int num, GameScript self_)
-		{
-			_0024num_00241546 = num;
-			_0024self__00241547 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024num_00241546, _0024self__00241547);
-		}
-	}
-	public virtual IEnumerator Write(int num)
-	{
-		return new _0024Write_00241541(num, this).GetEnumerator();
-	}
+        if (!string.IsNullOrEmpty(message))
+        {
+            txtStatus2.gameObject.SetActive(true);
+            txtStatus2.text = message;
+            yield return new WaitForSeconds(2f);
+            txtStatus2.text = " ";
+        }
+    }
 
 	[Serializable]
 	[CompilerGenerated]
