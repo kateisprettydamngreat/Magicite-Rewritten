@@ -976,148 +976,60 @@ public class GameScript : MonoBehaviour
 		return new _0024Craft_00241576(this).GetEnumerator();
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024SelectReward_00241594 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024temp_00241595;
+    public IEnumerator SelectReward(int c)
+    {
+        if (!selectingReward && rewardChest[c] > 0)
+        {
+            selectingReward = true;
+            rewardChestObj[c].GetComponent<Renderer>().material = rewOpened;
+            yield return new WaitForSeconds(0.1f);
 
-			internal int _0024bonusScore_00241596;
+            if (rewardChest[c] == 999)
+            {
+                int bonusScore = GetScoreBonus();
+                GameObject dd = Instantiate(Resources.Load("bonusScore"), rewardChestObj[c].transform.position, Quaternion.identity) as GameObject;
+                dd.SendMessage("SD", bonusScore);
+                MenuScript.curScore += bonusScore;
+                UpdateHighScore();
+                rewardChest[c] = 0;
+            }
+            else if (rewardChest[c] > 200)
+            {
+                int temp = rewardChest[c] - 200;
+                StartCoroutine(UnlockHat(temp));
+                rewardChest[c] = 0;
+            }
+            else if (rewardChest[c] >= 100)
+            {
+                int temp = rewardChest[c] - 100;
+                StartCoroutine(UnlockComp(temp));
+                rewardChest[c] = 0;
+            }
+            else
+            {
+                int race = rewardChest[c];
+                if (MenuScript.raceUnlock[race - 1] > 0)
+                {
+                    if (MenuScript.raceUnlock[race - 1] < 3)
+                    {
+                        StartCoroutine(UnlockVariant(race));
+                    }
+                }
+                else
+                {
+                    StartCoroutine(UnlockRace(race));
+                }
+                rewardChest[c] = 0;
+            }
 
-			internal GameObject _0024dd_00241597;
+            yield return new WaitForSeconds(0.3f);
 
-			internal int _0024c_00241598;
-
-			internal GameScript _0024self__00241599;
-
-			public _0024(int c, GameScript self_)
-			{
-				_0024c_00241598 = c;
-				_0024self__00241599 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241599.selectingReward && _0024self__00241599.rewardChest[_0024c_00241598] > 0)
-					{
-						_0024self__00241599.selectingReward = true;
-						_0024temp_00241595 = default(int);
-						_0024self__00241599.rewardChestObj[_0024c_00241598].GetComponent<Renderer>().material = _0024self__00241599.rewOpened;
-						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0491;
-				case 2:
-					if (_0024self__00241599.rewardChest[_0024c_00241598] == 999)
-					{
-						_0024bonusScore_00241596 = _0024self__00241599.GetScoreBonus();
-						_0024dd_00241597 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("bonusScore"), _0024self__00241599.rewardChestObj[_0024c_00241598].transform.position, Quaternion.identity);
-						_0024dd_00241597.SendMessage("SD", _0024bonusScore_00241596);
-						MenuScript.curScore += _0024bonusScore_00241596;
-						if (MenuScript.curScore > PlayerPrefs.GetInt("hScore"))
-						{
-							PlayerPrefs.SetInt("hScore", MenuScript.curScore);
-						}
-						_0024self__00241599.txtHighScore[0].text = string.Empty + MenuScript.curScore;
-						_0024self__00241599.txtHighScore[1].text = string.Empty + MenuScript.curScore;
-						_0024self__00241599.rewardChest[_0024c_00241598] = 0;
-						result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-						break;
-					}
-					if (_0024self__00241599.rewardChest[_0024c_00241598] > 200)
-					{
-						_0024temp_00241595 = _0024self__00241599.rewardChest[_0024c_00241598];
-						_0024temp_00241595 -= 200;
-						_0024self__00241599.StartCoroutine_Auto(_0024self__00241599.UnlockHat(_0024temp_00241595));
-						_0024self__00241599.rewardChest[_0024c_00241598] = 0;
-						result = (Yield(4, new WaitForSeconds(0.3f)) ? 1 : 0);
-						break;
-					}
-					if (_0024self__00241599.rewardChest[_0024c_00241598] >= 100)
-					{
-						_0024temp_00241595 = _0024self__00241599.rewardChest[_0024c_00241598];
-						_0024temp_00241595 -= 100;
-						_0024self__00241599.StartCoroutine_Auto(_0024self__00241599.UnlockComp(_0024temp_00241595));
-						_0024self__00241599.rewardChest[_0024c_00241598] = 0;
-						result = (Yield(5, new WaitForSeconds(0.3f)) ? 1 : 0);
-						break;
-					}
-					_0024temp_00241595 = _0024self__00241599.rewardChest[_0024c_00241598];
-					if (MenuScript.raceUnlock[_0024temp_00241595 - 1] > 0)
-					{
-						if (MenuScript.raceUnlock[_0024temp_00241595 - 1] < 3)
-						{
-							_0024self__00241599.StartCoroutine_Auto(_0024self__00241599.UnlockVariant(_0024temp_00241595));
-						}
-					}
-					else
-					{
-						_0024self__00241599.StartCoroutine_Auto(_0024self__00241599.UnlockRace(_0024temp_00241595));
-					}
-					_0024self__00241599.rewardChest[_0024c_00241598] = 0;
-					result = (Yield(6, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241599.selectingReward = false;
-					_0024self__00241599.rewardChestObj[_0024c_00241598].GetComponent<Renderer>().material = _0024self__00241599.rewShade;
-					_0024self__00241599.RewardShowCheck();
-					goto IL_0491;
-				case 4:
-					_0024self__00241599.selectingReward = false;
-					_0024self__00241599.rewardChestObj[_0024c_00241598].GetComponent<Renderer>().material = _0024self__00241599.rewShade;
-					_0024self__00241599.RewardShowCheck();
-					goto IL_0491;
-				case 5:
-					_0024self__00241599.selectingReward = false;
-					_0024self__00241599.rewardChestObj[_0024c_00241598].GetComponent<Renderer>().material = _0024self__00241599.rewShade;
-					_0024self__00241599.RewardShowCheck();
-					goto IL_0491;
-				case 6:
-					_0024self__00241599.selectingReward = false;
-					_0024self__00241599.rewardChestObj[_0024c_00241598].GetComponent<Renderer>().material = _0024self__00241599.rewShade;
-					_0024self__00241599.RewardShowCheck();
-					goto IL_0491;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0491:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024c_00241600;
-
-		internal GameScript _0024self__00241601;
-
-		public _0024SelectReward_00241594(int c, GameScript self_)
-		{
-			_0024c_00241600 = c;
-			_0024self__00241601 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024c_00241600, _0024self__00241601);
-		}
-	}
-	public virtual IEnumerator SelectReward(int c)
-	{
-		return new _0024SelectReward_00241594(c, this).GetEnumerator();
-	}
-
+            selectingReward = false;
+            rewardChestObj[c].GetComponent<Renderer>().material = rewShade;
+            RewardShowCheck();
+        }
+    }
+	
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024UnlockHat_00241602 : GenericGenerator<WaitForSeconds>
@@ -5259,7 +5171,15 @@ public class GameScript : MonoBehaviour
 			Camera.main.orthographicSize = 15.2f;
 		}
 	}
-
+    private void UpdateHighScore()
+    {
+        if (MenuScript.curScore > PlayerPrefs.GetInt("hScore"))
+        {
+            PlayerPrefs.SetInt("hScore", MenuScript.curScore);
+        }
+        txtHighScore[0].text = MenuScript.curScore.ToString();
+        txtHighScore[1].text = MenuScript.curScore.ToString();
+    }
 	public virtual void Awake()
 	{
 		usedAltar = false;
