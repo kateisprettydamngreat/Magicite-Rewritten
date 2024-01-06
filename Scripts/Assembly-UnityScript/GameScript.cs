@@ -63,7 +63,7 @@ public class GameScript : MonoBehaviour
 
         while (true)
         {
-            if (menuScript.pHat == 17)
+            if (MenuScript.pHat == 17)
             {
                 player.SendMessage("TD", 1);
             }
