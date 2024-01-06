@@ -221,63 +221,17 @@ public class GameScript : MonoBehaviour
             yield return new WaitForSeconds(UnityEngine.Random.Range(3, 10));
         }
     }
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00241561 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameScript _0024self__00241562;
 
-			public _0024(GameScript self_)
-			{
-				_0024self__00241562 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241562.StartCoroutine_Auto(_0024self__00241562.StaminaStart());
-					menuOpen = false;
-					_0024self__00241562.LoadHearts();
-					_0024self__00241562.LoadMana();
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					isReturning = false;
-					_0024self__00241562.RefreshGold();
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241563;
-
-		public _0024Start_00241561(GameScript self_)
-		{
-			_0024self__00241563 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241563);
-		}
-	}
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00241561(this).GetEnumerator();
-	}
-
+    public virtual IEnumerator Start()
+    {
+        StartCoroutine(StaminaStart());
+        menuOpen = false;
+        LoadHearts();
+        LoadMana();
+        yield return new WaitForSeconds(1f);
+        isReturning = false;
+        RefreshGold();
+    }
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024StaminaStart_00241564 : GenericGenerator<WaitForSeconds>
