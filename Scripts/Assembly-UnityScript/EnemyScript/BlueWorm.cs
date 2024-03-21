@@ -2,91 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class BlueWorm : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Action_00241242 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00241243;
+    public virtual IEnumerator Action()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(2, 5));
 
-			internal Vector3 _0024pos_00241244;
+        if (Network.isServer)
+        {
+            GetComponent<NetworkView>().RPC("A", RPCMode.All);
+        }
 
-			internal BlueWorm _0024self__00241245;
+        yield return new WaitForSeconds(0.5f);
 
-			public _0024(BlueWorm self_)
-			{
-				_0024self__00241245 = self_;
-			}
+        for (int i = 0; i < 6; i++)
+        {
+            Vector3 pos = new Vector3(t.position.x + (float)UnityEngine.Random.Range(-8, 8), t.position.y + 28f, 0f);
+            Network.Instantiate(Resources.Load("rckW"), pos, Quaternion.identity, 0);
+            yield return new WaitForSeconds(0.5f);
+        }
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024i_00241243 = default(int);
-					_0024pos_00241244 = default(Vector3);
-					goto case 5;
-				case 5:
-					result = (Yield(2, new WaitForSeconds(UnityEngine.Random.Range(2, 5))) ? 1 : 0);
-					break;
-				case 2:
-					if (Network.isServer)
-					{
-						_0024self__00241245.GetComponent<NetworkView>().RPC("A", RPCMode.All);
-					}
-					result = (Yield(3, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024i_00241243 = 0;
-					goto IL_012c;
-				case 4:
-					_0024i_00241243++;
-					goto IL_012c;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_012c:
-					if (_0024i_00241243 < 6)
-					{
-						_0024pos_00241244 = new Vector3(_0024self__00241245.t.position.x + (float)UnityEngine.Random.Range(-8, 8), _0024self__00241245.t.position.y + 28f, 0f);
-						Network.Instantiate(Resources.Load("rckW"), _0024pos_00241244, Quaternion.identity, 0);
-						result = (Yield(4, new WaitForSeconds(0.5f)) ? 1 : 0);
-					}
-					else
-					{
-						result = (Yield(5, new WaitForSeconds(1f)) ? 1 : 0);
-					}
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal BlueWorm _0024self__00241246;
-
-		public _0024Action_00241242(BlueWorm self_)
-		{
-			_0024self__00241246 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241246);
-		}
-	}
-
+        yield return new WaitForSeconds(1f);
+    }
 	private RaycastHit hit;
 
 	private int mask;
@@ -183,8 +123,4 @@ public class BlueWorm : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator Action()
-	{
-		return new _0024Action_00241242(this).GetEnumerator();
-	}
 }
