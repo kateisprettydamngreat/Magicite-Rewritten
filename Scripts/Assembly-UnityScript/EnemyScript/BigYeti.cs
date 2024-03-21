@@ -8,307 +8,99 @@ using UnityEngine;
 [Serializable]
 public class BigYeti : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Check_00241221 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024prevHP_00241222;
+    public virtual IEnumerator Check()
+    {
+        int prevHP = default(int);
+        while (true)
+        {
+            prevHP = HP;
+            yield return new WaitForSeconds(2f);
+            if (HP < prevHP && Network.isServer)
+            {
+                int num = UnityEngine.Random.Range(0, 2);
+                if (num == 0 && !roaring)
+                {
+                    roaring = true;
+                    GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
+                    StartCoroutine(Meteor());
+                    yield return new WaitForSeconds(1f);
+                    roaring = false;
+                }
+            }
+            yield return new WaitForSeconds(1f);
+        }
+    }
 
-			internal int _0024num_00241223;
+    public virtual IEnumerator Meteor()
+    {
+        if (Network.isServer)
+        {
+            int i = 0;
+            atking = true;
+            GameObject g = null;
+            Vector3 pp2 = Vector3.zero;
+            if (e.transform.rotation.y > 0.1f)
+            {
+                pp2 = new Vector3(1f, 0f, 0f);
+            }
+            else
+            {
+                pp2 = new Vector3(-1f, 0f, 0f);
+            }
+            Debug.Log(e.transform.rotation.y + "is rotation");
+            yield return new WaitForSeconds(0.5f);
 
-			internal BigYeti _0024self__00241224;
+            g = Network.Instantiate(Resources.Load("haz/yetiSnow"), transform.position, Quaternion.identity, 0) as GameObject;
+            g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2);
+            pp2.y += 0.25f;
+            yield return new WaitForSeconds(0.2f);
 
-			public _0024(BigYeti self_)
-			{
-				_0024self__00241224 = self_;
-			}
+            g = Network.Instantiate(Resources.Load("haz/yetiSnow"), transform.position, Quaternion.identity, 0) as GameObject;
+            g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2);
+            pp2.y -= 0.5f;
+            yield return new WaitForSeconds(0.2f);
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024prevHP_00241222 = default(int);
-					goto case 4;
-				case 4:
-					_0024prevHP_00241222 = _0024self__00241224.HP;
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					if (_0024self__00241224.HP < _0024prevHP_00241222 && Network.isServer)
-					{
-						_0024num_00241223 = UnityEngine.Random.Range(0, 2);
-						if (_0024num_00241223 == 0 && !_0024self__00241224.roaring)
-						{
-							_0024self__00241224.roaring = true;
-							_0024self__00241224.GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
-							_0024self__00241224.StartCoroutine_Auto(_0024self__00241224.Meteor());
-							result = (Yield(3, new WaitForSeconds(1f)) ? 1 : 0);
-							break;
-						}
-					}
-					goto IL_00fa;
-				case 3:
-					_0024self__00241224.roaring = false;
-					goto IL_00fa;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00fa:
-					result = (Yield(4, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+            g = Network.Instantiate(Resources.Load("haz/yetiSnow"), transform.position, Quaternion.identity, 0) as GameObject;
+            g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2);
+            yield return new WaitForSeconds(0.4f);
 
-		internal BigYeti _0024self__00241225;
+            atking = false;
+        }
+    }
 
-		public _0024Check_00241221(BigYeti self_)
-		{
-			_0024self__00241225 = self_;
-		}
+    public virtual IEnumerator ChargeRight()
+    {
+        if (!charging && Network.isServer && !atking)
+        {
+            charging = true;
+            yield return new WaitForSeconds(1f);
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            yield return new WaitForSeconds(0.2f);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = 8;
+            yield return new WaitForSeconds(2f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            spdd = 0;
+            charging = false;
+        }
+    }
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241225);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Meteor_00241226 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00241227;
-
-			internal GameObject _0024g_00241228;
-
-			internal Vector3 _0024pp2_00241229;
-
-			internal BigYeti _0024self__00241230;
-
-			public _0024(BigYeti self_)
-			{
-				_0024self__00241230 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (Network.isServer)
-					{
-						_0024i_00241227 = default(int);
-						_0024self__00241230.atking = true;
-						_0024g_00241228 = null;
-						_0024pp2_00241229 = default(Vector3);
-						if (!(_0024self__00241230.e.transform.rotation.y <= 0.1f))
-						{
-							_0024pp2_00241229 = new Vector3(1f, 0f, 0f);
-						}
-						else
-						{
-							_0024pp2_00241229 = new Vector3(-1f, 0f, 0f);
-						}
-						MonoBehaviour.print(_0024self__00241230.e.transform.rotation.y + "is rotation");
-						result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0281;
-				case 2:
-					_0024g_00241228 = (GameObject)Network.Instantiate(Resources.Load("haz/yetiSnow"), _0024self__00241230.transform.position, Quaternion.identity, 0);
-					_0024g_00241228.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024pp2_00241229);
-					_0024pp2_00241229.y += 0.25f;
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024g_00241228 = (GameObject)Network.Instantiate(Resources.Load("haz/yetiSnow"), _0024self__00241230.transform.position, Quaternion.identity, 0);
-					_0024g_00241228.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024pp2_00241229);
-					_0024pp2_00241229.y -= 0.5f;
-					result = (Yield(4, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024g_00241228 = (GameObject)Network.Instantiate(Resources.Load("haz/yetiSnow"), _0024self__00241230.transform.position, Quaternion.identity, 0);
-					_0024g_00241228.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024pp2_00241229);
-					result = (Yield(5, new WaitForSeconds(0.4f)) ? 1 : 0);
-					break;
-				case 5:
-					_0024self__00241230.atking = false;
-					goto IL_0281;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0281:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal BigYeti _0024self__00241231;
-
-		public _0024Meteor_00241226(BigYeti self_)
-		{
-			_0024self__00241231 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241231);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeRight_00241232 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal BigYeti _0024self__00241233;
-
-			public _0024(BigYeti self_)
-			{
-				_0024self__00241233 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241233.charging && Network.isServer && !_0024self__00241233.atking)
-					{
-						_0024self__00241233.charging = true;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0112;
-				case 2:
-					_0024self__00241233.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241233.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-					_0024self__00241233.spdd = 8;
-					result = (Yield(4, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00241233.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00241233.spdd = 0;
-					_0024self__00241233.charging = false;
-					goto IL_0112;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0112:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal BigYeti _0024self__00241234;
-
-		public _0024ChargeRight_00241232(BigYeti self_)
-		{
-			_0024self__00241234 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241234);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeLeft_00241235 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal BigYeti _0024self__00241236;
-
-			public _0024(BigYeti self_)
-			{
-				_0024self__00241236 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241236.charging && Network.isServer && !_0024self__00241236.atking)
-					{
-						_0024self__00241236.charging = true;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0113;
-				case 2:
-					_0024self__00241236.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241236.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-					_0024self__00241236.spdd = -8;
-					result = (Yield(4, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00241236.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00241236.spdd = 0;
-					_0024self__00241236.charging = false;
-					goto IL_0113;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0113:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal BigYeti _0024self__00241237;
-
-		public _0024ChargeLeft_00241235(BigYeti self_)
-		{
-			_0024self__00241237 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241237);
-		}
-	}
+    public virtual IEnumerator ChargeLeft()
+    {
+        if (!charging && Network.isServer && !atking)
+        {
+            charging = true;
+            yield return new WaitForSeconds(1f);
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            yield return new WaitForSeconds(0.2f);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = -8;
+            yield return new WaitForSeconds(2f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            spdd = 0;
+            charging = false;
+        }
+    }
 
 	private GameObject player;
 
@@ -404,26 +196,6 @@ public class BigYeti : EnemyScript
 			float num6 = (velocity3.x = num5);
 			Vector3 vector6 = (r.velocity = velocity3);
 		}
-	}
-
-	public virtual IEnumerator Check()
-	{
-		return new _0024Check_00241221(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator Meteor()
-	{
-		return new _0024Meteor_00241226(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ChargeRight()
-	{
-		return new _0024ChargeRight_00241232(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ChargeLeft()
-	{
-		return new _0024ChargeLeft_00241235(this).GetEnumerator();
 	}
 
 	[RPC]
