@@ -2,227 +2,76 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class commander : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Summon_00242831 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024g_00242832;
+    public virtual IEnumerator Summon()
+    {
+        while (true)
+        {
+            GameObject g = null;
+            if ((bool)player && canFire)
+            {
+                g = (GameObject)Network.Instantiate(Resources.Load("haz/comFire"), transform.position, Quaternion.identity, 0);
+                g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, player.transform.position);
+            }
+            yield return new WaitForSeconds(3f);
+        }
+    }
+    public IEnumerator ChargeRight()
+    {
+        if (!charging && Network.isServer)
+        {
+            int num = 15;
+            Vector3 velocity = r.velocity;
+            velocity.y = num;
+            r.velocity = velocity;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            int nuu = UnityEngine.Random.Range(0, 3);
+            if (nuu == 0)
+            {
+                spdd = 4;
+            }
+            else
+            {
+                spdd = -4;
+            }
+            yield return new WaitForSeconds(0.75f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+        yield return null;
+    }
 
-			internal commander _0024self__00242833;
-
-			public _0024(commander self_)
-			{
-				_0024self__00242833 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024g_00242832 = null;
-					goto IL_0023;
-				case 2:
-					if ((bool)_0024self__00242833.player && _0024self__00242833.canFire)
-					{
-						_0024g_00242832 = (GameObject)Network.Instantiate(Resources.Load("haz/comFire"), _0024self__00242833.transform.position, Quaternion.identity, 0);
-						_0024g_00242832.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024self__00242833.player.transform.position);
-					}
-					goto IL_0023;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0023:
-					result = (Yield(2, new WaitForSeconds(3f)) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal commander _0024self__00242834;
-
-		public _0024Summon_00242831(commander self_)
-		{
-			_0024self__00242834 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242834);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeRight_00242835 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024nuu_00242836;
-
-			internal int _0024_00241029_00242837;
-
-			internal Vector3 _0024_00241030_00242838;
-
-			internal commander _0024self__00242839;
-
-			public _0024(commander self_)
-			{
-				_0024self__00242839 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242839.charging && Network.isServer)
-					{
-						int num = (_0024_00241029_00242837 = 15);
-						Vector3 vector = (_0024_00241030_00242838 = _0024self__00242839.r.velocity);
-						float num2 = (_0024_00241030_00242838.y = _0024_00241029_00242837);
-						Vector3 vector3 = (_0024self__00242839.r.velocity = _0024_00241030_00242838);
-						_0024self__00242839.charging = true;
-						_0024self__00242839.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-						_0024self__00242839.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-						_0024nuu_00242836 = UnityEngine.Random.Range(0, 3);
-						if (_0024nuu_00242836 == 0)
-						{
-							_0024self__00242839.spdd = 4;
-						}
-						else
-						{
-							_0024self__00242839.spdd = -4;
-						}
-						result = (Yield(2, new WaitForSeconds(0.75f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0148;
-				case 2:
-					_0024self__00242839.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242839.charging = false;
-					goto IL_0148;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0148:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal commander _0024self__00242840;
-
-		public _0024ChargeRight_00242835(commander self_)
-		{
-			_0024self__00242840 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242840);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeLeft_00242841 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024nuu_00242842;
-
-			internal int _0024_00241031_00242843;
-
-			internal Vector3 _0024_00241032_00242844;
-
-			internal commander _0024self__00242845;
-
-			public _0024(commander self_)
-			{
-				_0024self__00242845 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242845.charging && Network.isServer)
-					{
-						int num = (_0024_00241031_00242843 = 15);
-						Vector3 vector = (_0024_00241032_00242844 = _0024self__00242845.r.velocity);
-						float num2 = (_0024_00241032_00242844.y = _0024_00241031_00242843);
-						Vector3 vector3 = (_0024self__00242845.r.velocity = _0024_00241032_00242844);
-						_0024self__00242845.charging = true;
-						_0024self__00242845.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-						_0024self__00242845.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-						_0024nuu_00242842 = UnityEngine.Random.Range(0, 3);
-						if (_0024nuu_00242842 == 0)
-						{
-							_0024self__00242845.spdd = -4;
-						}
-						else
-						{
-							_0024self__00242845.spdd = 4;
-						}
-						result = (Yield(2, new WaitForSeconds(0.75f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0148;
-				case 2:
-					_0024self__00242845.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242845.charging = false;
-					goto IL_0148;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0148:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal commander _0024self__00242846;
-
-		public _0024ChargeLeft_00242841(commander self_)
-		{
-			_0024self__00242846 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242846);
-		}
-	}
+    public virtual IEnumerator ChargeLeft()
+    {
+        if (!charging && Network.isServer)
+        {
+            int num = 15;
+            Vector3 vector = r.velocity;
+            vector.y = num;
+            r.velocity = vector;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            int nuu = UnityEngine.Random.Range(0, 3);
+            if (nuu == 0)
+            {
+                spdd = -4;
+            }
+            else
+            {
+                spdd = 4;
+            }
+            yield return new WaitForSeconds(0.75f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+    }
 
 	private GameObject player;
 
@@ -267,10 +116,6 @@ public class commander : EnemyScript
 		player = g;
 	}
 
-	public virtual IEnumerator Summon()
-	{
-		return new _0024Summon_00242831(this).GetEnumerator();
-	}
 
 	public override void Update()
 	{
@@ -309,15 +154,6 @@ public class commander : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator ChargeRight()
-	{
-		return new _0024ChargeRight_00242835(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ChargeLeft()
-	{
-		return new _0024ChargeLeft_00242841(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void Turn(int a)
