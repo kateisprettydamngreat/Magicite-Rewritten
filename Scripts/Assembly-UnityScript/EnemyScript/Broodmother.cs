@@ -2,75 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class Broodmother : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UpdateZrotation_00241290 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal Broodmother _0024self__00241291;
+    public virtual IEnumerator UpdateZrotation()
+    {
+        rotating = true;
+        mouse_pos = player.transform.position;
+        object_pos = transform.position;
+        mouse_pos.z = -20f;
+        mouse_pos.x = mouse_pos.x - object_pos.x;
+        mouse_pos.y = mouse_pos.y - object_pos.y;
+        angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * 57.29578f;
+        t.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        yield return new WaitForSeconds(0.5f);
 
-			public _0024(Broodmother self_)
-			{
-				_0024self__00241291 = self_;
-			}
+        atking = true;
+        yield return new WaitForSeconds(2f);
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241291.rotating = true;
-					_0024self__00241291.mouse_pos = _0024self__00241291.player.transform.position;
-					_0024self__00241291.object_pos = _0024self__00241291.transform.position;
-					_0024self__00241291.mouse_pos.z = -20f;
-					_0024self__00241291.mouse_pos.x = _0024self__00241291.mouse_pos.x - _0024self__00241291.object_pos.x;
-					_0024self__00241291.mouse_pos.y = _0024self__00241291.mouse_pos.y - _0024self__00241291.object_pos.y;
-					_0024self__00241291.angle = Mathf.Atan2(_0024self__00241291.mouse_pos.y, _0024self__00241291.mouse_pos.x) * 57.29578f;
-					_0024self__00241291.t.rotation = Quaternion.Euler(new Vector3(0f, 0f, _0024self__00241291.angle));
-					result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241291.atking = true;
-					result = (Yield(3, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241291.atking = false;
-					result = (Yield(4, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00241291.rotating = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+        atking = false;
+        yield return new WaitForSeconds(0.5f);
 
-		internal Broodmother _0024self__00241292;
-
-		public _0024UpdateZrotation_00241290(Broodmother self_)
-		{
-			_0024self__00241292 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241292);
-		}
-	}
+        rotating = false;
+    }
 
 	private GameObject player;
 
@@ -128,11 +84,6 @@ public class Broodmother : EnemyScript
 				StartCoroutine_Auto(UpdateZrotation());
 			}
 		}
-	}
-
-	public virtual IEnumerator UpdateZrotation()
-	{
-		return new _0024UpdateZrotation_00241290(this).GetEnumerator();
 	}
 
 	[RPC]
