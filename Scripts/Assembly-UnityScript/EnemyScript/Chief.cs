@@ -2,89 +2,34 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class Chief : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Attack_00241324 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024g_00241325;
-
-			internal Vector3 _0024pp_00241326;
-
-			internal Chief _0024self__00241327;
-
-			public _0024(Vector3 pp, Chief self_)
-			{
-				_0024pp_00241326 = pp;
-				_0024self__00241327 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241327.ATKING = true;
-					if (!(_0024pp_00241326.x <= _0024self__00241327.transform.position.x))
-					{
-						_0024self__00241327.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-					}
-					else
-					{
-						_0024self__00241327.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-					}
-					_0024g_00241325 = null;
-					result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241327.GetComponent<NetworkView>().RPC("A1", RPCMode.All);
-					result = (Yield(3, new WaitForSeconds(0.4f)) ? 1 : 0);
-					break;
-				case 3:
-					if ((bool)_0024self__00241327.player)
-					{
-						_0024g_00241325 = (GameObject)Network.Instantiate(Resources.Load("haz/shroomFire"), _0024self__00241327.transform.position, Quaternion.identity, 0);
-						_0024g_00241325.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024self__00241327.player.transform.position);
-					}
-					result = (Yield(4, new WaitForSeconds(1.2f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00241327.ATKING = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Vector3 _0024pp_00241328;
-
-		internal Chief _0024self__00241329;
-
-		public _0024Attack_00241324(Vector3 pp, Chief self_)
-		{
-			_0024pp_00241328 = pp;
-			_0024self__00241329 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024pp_00241328, _0024self__00241329);
-		}
-	}
+    public virtual IEnumerator Attack(Vector3 pp)
+    {
+        ATKING = true;
+        if (!(pp.x <= transform.position.x))
+        {
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+        }
+        else
+        {
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+        }
+        GameObject g = null;
+        yield return new WaitForSeconds(0.3f);
+        GetComponent<NetworkView>().RPC("A1", RPCMode.All);
+        yield return new WaitForSeconds(0.4f);
+        if ((bool)player)
+        {
+            g = (GameObject)Network.Instantiate(Resources.Load("haz/shroomFire"), transform.position, Quaternion.identity, 0);
+            g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, player.transform.position);
+        }
+        yield return new WaitForSeconds(1.2f);
+        ATKING = false;
+    }
 
 	private RaycastHit hit;
 
@@ -128,11 +73,6 @@ public class Chief : EnemyScript
 		{
 			StartCoroutine_Auto(Attack(player.transform.position));
 		}
-	}
-
-	public virtual IEnumerator Attack(Vector3 pp)
-	{
-		return new _0024Attack_00241324(pp, this).GetEnumerator();
 	}
 
 	[RPC]
