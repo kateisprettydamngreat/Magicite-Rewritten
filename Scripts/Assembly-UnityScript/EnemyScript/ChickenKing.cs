@@ -8,285 +8,81 @@ using UnityEngine;
 [Serializable]
 public class ChickenKing : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Jump_00241303 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024a_00241304;
+    public virtual IEnumerator Jump()
+    {
+        int a = UnityEngine.Random.Range(0, 3);
+        if (a == 0)
+        {
+            GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/ch"));
+        }
+        if (charging)
+        {
+            int num = 35;
+            Vector3 velocity = GetComponent<Rigidbody>().velocity;
+            velocity.y = num;
+            GetComponent<Rigidbody>().velocity = velocity;
+        }
+        yield return new WaitForSeconds(2.5f);
+    }
+    public IEnumerator Check()
+    {
+        int prevHP = default(int);
+        while (true)
+        {
+            prevHP = HP;
+            yield return new WaitForSeconds(3f);
+            if (HP < prevHP && Network.isServer)
+            {
+                int num = UnityEngine.Random.Range(0, 3);
+                if (num == 0 && !roaring)
+                {
+                    roaring = true;
+                    GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
+                    Meteor();
+                    yield return new WaitForSeconds(1f);
+                    roaring = false;
+                }
+            }
+            yield return new WaitForSeconds(1f);
+        }
+    }
 
-			internal int _0024_0024455_00241305;
-
-			internal Vector3 _0024_0024456_00241306;
-
-			internal ChickenKing _0024self__00241307;
-
-			public _0024(ChickenKing self_)
-			{
-				_0024self__00241307 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024a_00241304 = UnityEngine.Random.Range(0, 3);
-					if (_0024a_00241304 == 0)
-					{
-						_0024self__00241307.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/ch"));
-					}
-					if (_0024self__00241307.charging)
-					{
-						int num = (_0024_0024455_00241305 = 35);
-						Vector3 vector = (_0024_0024456_00241306 = _0024self__00241307.GetComponent<Rigidbody>().velocity);
-						float num2 = (_0024_0024456_00241306.y = _0024_0024455_00241305);
-						Vector3 vector3 = (_0024self__00241307.GetComponent<Rigidbody>().velocity = _0024_0024456_00241306);
-					}
-					result = (Yield(2, new WaitForSeconds(2.5f)) ? 1 : 0);
-					break;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal ChickenKing _0024self__00241308;
-
-		public _0024Jump_00241303(ChickenKing self_)
-		{
-			_0024self__00241308 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241308);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Check_00241309 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024prevHP_00241310;
-
-			internal int _0024num_00241311;
-
-			internal ChickenKing _0024self__00241312;
-
-			public _0024(ChickenKing self_)
-			{
-				_0024self__00241312 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024prevHP_00241310 = default(int);
-					goto case 4;
-				case 4:
-					_0024prevHP_00241310 = _0024self__00241312.HP;
-					result = (Yield(2, new WaitForSeconds(3f)) ? 1 : 0);
-					break;
-				case 2:
-					if (_0024self__00241312.HP < _0024prevHP_00241310 && Network.isServer)
-					{
-						_0024num_00241311 = UnityEngine.Random.Range(0, 3);
-						if (_0024num_00241311 == 0 && !_0024self__00241312.roaring)
-						{
-							_0024self__00241312.roaring = true;
-							_0024self__00241312.GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
-							_0024self__00241312.Meteor();
-							result = (Yield(3, new WaitForSeconds(1f)) ? 1 : 0);
-							break;
-						}
-					}
-					goto IL_00ee;
-				case 3:
-					_0024self__00241312.roaring = false;
-					goto IL_00ee;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00ee:
-					result = (Yield(4, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal ChickenKing _0024self__00241313;
-
-		public _0024Check_00241309(ChickenKing self_)
-		{
-			_0024self__00241313 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241313);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeRight_00241314 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal ChickenKing _0024self__00241315;
-
-			public _0024(ChickenKing self_)
-			{
-				_0024self__00241315 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241315.charging && Network.isServer)
-					{
-						_0024self__00241315.charging = true;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0138;
-				case 2:
-					_0024self__00241315.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241315.GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
-					result = (Yield(4, new WaitForSeconds(1.3f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00241315.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-					_0024self__00241315.spdd = 6;
-					result = (Yield(5, new WaitForSeconds(3f)) ? 1 : 0);
-					break;
-				case 5:
-					_0024self__00241315.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00241315.spdd = 0;
-					_0024self__00241315.charging = false;
-					goto IL_0138;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0138:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal ChickenKing _0024self__00241316;
-
-		public _0024ChargeRight_00241314(ChickenKing self_)
-		{
-			_0024self__00241316 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241316);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeLeft_00241317 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal ChickenKing _0024self__00241318;
-
-			public _0024(ChickenKing self_)
-			{
-				_0024self__00241318 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241318.charging && Network.isServer)
-					{
-						_0024self__00241318.charging = true;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0139;
-				case 2:
-					_0024self__00241318.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241318.GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
-					result = (Yield(4, new WaitForSeconds(1.3f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00241318.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-					_0024self__00241318.spdd = -6;
-					result = (Yield(5, new WaitForSeconds(3f)) ? 1 : 0);
-					break;
-				case 5:
-					_0024self__00241318.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00241318.spdd = 0;
-					_0024self__00241318.charging = false;
-					goto IL_0139;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0139:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal ChickenKing _0024self__00241319;
-
-		public _0024ChargeLeft_00241317(ChickenKing self_)
-		{
-			_0024self__00241319 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241319);
-		}
-	}
+    public IEnumerator ChargeRight()
+    {
+        if (!charging && Network.isServer)
+        {
+            charging = true;
+            yield return new WaitForSeconds(1f);
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            yield return new WaitForSeconds(0.2f);
+            GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
+            yield return new WaitForSeconds(1.3f);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = 6;
+            yield return new WaitForSeconds(3f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            spdd = 0;
+            charging = false;
+        }
+    }
+    public virtual IEnumerator ChargeLeft()
+    {
+        if (!charging && Network.isServer)
+        {
+            charging = true;
+            yield return new WaitForSeconds(1f);
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            yield return new WaitForSeconds(0.2f);
+            GetComponent<NetworkView>().RPC("ROAR", RPCMode.All);
+            yield return new WaitForSeconds(1.3f);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = -6;
+            yield return new WaitForSeconds(3f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            spdd = 0;
+            charging = false;
+        }
+    }
 
 	private GameObject player;
 
@@ -336,10 +132,6 @@ public class ChickenKing : EnemyScript
 		player = g;
 	}
 
-	public virtual IEnumerator Jump()
-	{
-		return new _0024Jump_00241303(this).GetEnumerator();
-	}
 
 	public override void Update()
 	{
@@ -391,24 +183,11 @@ public class ChickenKing : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator Check()
-	{
-		return new _0024Check_00241309(this).GetEnumerator();
-	}
 
 	public virtual void Meteor()
 	{
 	}
 
-	public virtual IEnumerator ChargeRight()
-	{
-		return new _0024ChargeRight_00241314(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ChargeLeft()
-	{
-		return new _0024ChargeLeft_00241317(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void Turn(int a)
