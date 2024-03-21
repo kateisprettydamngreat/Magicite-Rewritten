@@ -28,106 +28,29 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Knock22_00241378 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal bool _0024wasK_00241379;
-
-			internal int _0024_0024495_00241380;
-
-			internal Vector3 _0024_0024496_00241381;
-
-			internal int _0024_0024497_00241382;
-
-			internal Vector3 _0024_0024498_00241383;
-
-			internal int _0024_0024499_00241384;
-
-			internal Vector3 _0024_0024500_00241385;
-
-			internal Vector3 _0024p_00241386;
-
-			internal EnemyScript _0024self__00241387;
-
-			public _0024(Vector3 p, EnemyScript self_)
-			{
-				_0024p_00241386 = p;
-				_0024self__00241387 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-				{
-					_0024wasK_00241379 = default(bool);
-					if (_0024self__00241387.r.isKinematic)
-					{
-						_0024wasK_00241379 = true;
-						_0024self__00241387.GetComponent<Rigidbody>().isKinematic = false;
-					}
-					int num = (_0024_0024495_00241380 = 2);
-					Vector3 vector = (_0024_0024496_00241381 = _0024self__00241387.GetComponent<Rigidbody>().velocity);
-					float num2 = (_0024_0024496_00241381.y = _0024_0024495_00241380);
-					Vector3 vector3 = (_0024self__00241387.GetComponent<Rigidbody>().velocity = _0024_0024496_00241381);
-					if (_0024p_00241386.x <= _0024self__00241387.t.position.x)
-					{
-						int num3 = (_0024_0024499_00241384 = 10);
-						Vector3 vector4 = (_0024_0024500_00241385 = _0024self__00241387.GetComponent<Rigidbody>().velocity);
-						float num4 = (_0024_0024500_00241385.x = _0024_0024499_00241384);
-						Vector3 vector6 = (_0024self__00241387.GetComponent<Rigidbody>().velocity = _0024_0024500_00241385);
-					}
-					else
-					{
-						int num5 = (_0024_0024497_00241382 = -10);
-						Vector3 vector7 = (_0024_0024498_00241383 = _0024self__00241387.GetComponent<Rigidbody>().velocity);
-						float num6 = (_0024_0024498_00241383.x = _0024_0024497_00241382);
-						Vector3 vector9 = (_0024self__00241387.GetComponent<Rigidbody>().velocity = _0024_0024498_00241383);
-					}
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				}
-				case 2:
-					if (_0024wasK_00241379)
-					{
-						_0024self__00241387.GetComponent<Rigidbody>().isKinematic = true;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Vector3 _0024p_00241388;
-
-		internal EnemyScript _0024self__00241389;
-
-		public _0024Knock22_00241378(Vector3 p, EnemyScript self_)
-		{
-			_0024p_00241388 = p;
-			_0024self__00241389 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024p_00241388, _0024self__00241389);
-		}
-	}
-	public virtual IEnumerator Knock22(Vector3 p)
-	{
-		return new _0024Knock22_00241378(p, this).GetEnumerator();
-	}
+    public virtual IEnumerator Knock22(Vector3 p)
+    {
+        bool wasK = false;
+        if (r.isKinematic)
+        {
+            wasK = true;
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
+        GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, 2f, GetComponent<Rigidbody>().velocity.z);
+        if (p.x <= t.position.x)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(10f, GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(-10f, GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
+        }
+        yield return new WaitForSeconds(0.2f);
+        if (wasK)
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
+    }
 
     public virtual IEnumerator KnockN(Vector3 p)
     {
