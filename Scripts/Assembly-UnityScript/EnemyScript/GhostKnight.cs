@@ -2,83 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
-
+//this.dood, really? Seriously? *sigh*
 [Serializable]
 public class GhostKnight : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Charge_00241843 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal Vector3 _0024_0024384_00241844;
-
-			internal int _0024turn_00241845;
-
-			internal GhostKnight _0024self__00241846;
-
-			public _0024(GhostKnight self_)
-			{
-				_0024self__00241846 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-				{
-					GhostKnight ghostKnight = _0024self__00241846;
-					_0024_0024384_00241844 = default(Vector3);
-					ghostKnight.dood = _0024_0024384_00241844;
-					_0024self__00241846.dood = _0024self__00241846.player.transform.position - _0024self__00241846.t.position;
-					_0024self__00241846.dood.Normalize();
-					_0024self__00241846.dood.z = 0f;
-					_0024turn_00241845 = 0;
-					if (!(_0024self__00241846.player.transform.position.x <= _0024self__00241846.t.position.x))
-					{
-						_0024turn_00241845 = 1;
-					}
-					_0024self__00241846.GetComponent<NetworkView>().RPC("E", RPCMode.All, _0024turn_00241845);
-					_0024self__00241846.attackCharge = true;
-					MonoBehaviour.print("dood is " + _0024self__00241846.dood);
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				}
-				case 2:
-					_0024self__00241846.attackCharge = false;
-					result = (Yield(3, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241846.charging = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GhostKnight _0024self__00241847;
-
-		public _0024Charge_00241843(GhostKnight self_)
-		{
-			_0024self__00241847 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241847);
-		}
-	}
+    public virtual IEnumerator Charge()
+    {
+        Vector3 dood = default(Vector3);
+        this.dood = dood;
+        this.dood = this.player.transform.position - this.t.position;
+        this.dood.Normalize();
+        this.dood.z = 0f;
+        int turn = 0;
+        if (!(this.player.transform.position.x <= this.t.position.x))
+        {
+            turn = 1;
+        }
+        this.GetComponent<NetworkView>().RPC("E", RPCMode.All, turn);
+        this.attackCharge = true;
+        MonoBehaviour.print("dood is " + this.dood);
+        yield return new WaitForSeconds(1f);
+        this.attackCharge = false;
+        yield return new WaitForSeconds(1f);
+        this.charging = false;
+    }
 
 	public GameObject ghostSword;
 
@@ -131,10 +79,6 @@ public class GhostKnight : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator Charge()
-	{
-		return new _0024Charge_00241843(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void E(int a)
