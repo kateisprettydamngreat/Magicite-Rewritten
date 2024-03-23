@@ -2,186 +2,60 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class FallenKnight : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024T_00241475 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024545_00241476;
-
-			internal Quaternion _0024_0024546_00241477;
-
-			internal int _0024_0024547_00241478;
-
-			internal Quaternion _0024_0024548_00241479;
-
-			internal FallenKnight _0024self__00241480;
-
-			public _0024(FallenKnight self_)
-			{
-				_0024self__00241480 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241480.turning && !_0024self__00241480.ATKING)
-					{
-						_0024self__00241480.turning = true;
-						if (_0024self__00241480.e.transform.rotation.y != 0f)
-						{
-							int num = (_0024_0024545_00241476 = 0);
-							Quaternion quaternion = (_0024_0024546_00241477 = _0024self__00241480.e.transform.rotation);
-							float num2 = (_0024_0024546_00241477.y = _0024_0024545_00241476);
-							Quaternion quaternion3 = (_0024self__00241480.e.transform.rotation = _0024_0024546_00241477);
-							_0024self__00241480.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-						}
-						else
-						{
-							int num3 = (_0024_0024547_00241478 = 180);
-							Quaternion quaternion4 = (_0024_0024548_00241479 = _0024self__00241480.e.transform.rotation);
-							float num4 = (_0024_0024548_00241479.y = _0024_0024547_00241478);
-							Quaternion quaternion6 = (_0024self__00241480.e.transform.rotation = _0024_0024548_00241479);
-							_0024self__00241480.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-						}
-						_0024self__00241480.spd *= -1;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_01b9;
-				case 2:
-					_0024self__00241480.turning = false;
-					goto IL_01b9;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_01b9:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal FallenKnight _0024self__00241481;
-
-		public _0024T_00241475(FallenKnight self_)
-		{
-			_0024self__00241481 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241481);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Attack_00241482 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024dir_00241483;
-
-			internal FallenKnight _0024self__00241484;
-
-			public _0024(int dir, FallenKnight self_)
-			{
-				_0024dir_00241483 = dir;
-				_0024self__00241484 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241484.ATKING)
-					{
-						_0024self__00241484.ATKING = true;
-						if (_0024dir_00241483 == 0)
-						{
-							_0024self__00241484.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-							_0024self__00241484.GetComponent<NetworkView>().RPC("Roar", RPCMode.All);
-							result = (Yield(2, new WaitForSeconds(1.2f)) ? 1 : 0);
-						}
-						else
-						{
-							_0024self__00241484.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-							_0024self__00241484.GetComponent<NetworkView>().RPC("Roar", RPCMode.All);
-							result = (Yield(4, new WaitForSeconds(1.2f)) ? 1 : 0);
-						}
-						break;
-					}
-					goto IL_01b4;
-				case 2:
-					_0024self__00241484.spd = -10;
-					result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241484.spd = 0;
-					_0024self__00241484.@base.GetComponent<Animation>().Play("i");
-					goto IL_0195;
-				case 4:
-					_0024self__00241484.spd = 10;
-					result = (Yield(5, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 5:
-					_0024self__00241484.spd = 0;
-					_0024self__00241484.@base.GetComponent<Animation>().Play("i");
-					goto IL_0195;
-				case 6:
-					_0024self__00241484.ATKING = false;
-					goto IL_01b4;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0195:
-					result = (Yield(6, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-					IL_01b4:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024dir_00241485;
-
-		internal FallenKnight _0024self__00241486;
-
-		public _0024Attack_00241482(int dir, FallenKnight self_)
-		{
-			_0024dir_00241485 = dir;
-			_0024self__00241486 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024dir_00241485, _0024self__00241486);
-		}
-	}
+    public IEnumerator T()
+    {
+        if (!turning && !ATKING)
+        {
+            turning = true;
+            if (e.transform.rotation.y != 0f)
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 0f, e.transform.rotation.z);
+                GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            }
+            else
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 180f, e.transform.rotation.z);
+                GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            }
+            spd *= -1;
+            yield return new WaitForSeconds(1f);
+            turning = false;
+        }
+    }
+    IEnumerator Attack(int dir)
+    {
+        if (!ATKING)
+        {
+            ATKING = true;
+            if (dir == 0)
+            {
+                GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+                GetComponent<NetworkView>().RPC("Roar", RPCMode.All);
+                yield return new WaitForSeconds(1.2f);
+                spd = -10;
+                yield return new WaitForSeconds(0.3f);
+                spd = 0;
+                @base.GetComponent<Animation>().Play("i");
+            }
+            else
+            {
+                GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+                GetComponent<NetworkView>().RPC("Roar", RPCMode.All);
+                yield return new WaitForSeconds(1.2f);
+                spd = 10;
+                yield return new WaitForSeconds(0.3f);
+                spd = 0;
+                @base.GetComponent<Animation>().Play("i");
+            }
+            yield return new WaitForSeconds(1f);
+            ATKING = false;
+        }
+    }
 
 	private RaycastHit hit;
 
@@ -262,10 +136,6 @@ public class FallenKnight : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator T()
-	{
-		return new _0024T_00241475(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void I()
@@ -273,10 +143,6 @@ public class FallenKnight : EnemyScript
 		@base.GetComponent<Animation>().Play("i");
 	}
 
-	public virtual IEnumerator Attack(int dir)
-	{
-		return new _0024Attack_00241482(dir, this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void Roar()
