@@ -2,149 +2,49 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class GobScript : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeRight_00242474 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024897_00242475;
+    public virtual IEnumerator ChargeRight()
+    {
+        if (!charging && Network.isServer)
+        {
+            int chargeSpeed = 15;
+            Vector3 velocity = r.velocity;
+            velocity.y = chargeSpeed;
+            r.velocity = velocity;
 
-			internal Vector3 _0024_0024898_00242476;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = 5;
 
-			internal GobScript _0024self__00242477;
+            yield return new WaitForSeconds(1.5f);
 
-			public _0024(GobScript self_)
-			{
-				_0024self__00242477 = self_;
-			}
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+    }
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242477.charging && Network.isServer)
-					{
-						int num = (_0024_0024897_00242475 = 15);
-						Vector3 vector = (_0024_0024898_00242476 = _0024self__00242477.r.velocity);
-						float num2 = (_0024_0024898_00242476.y = _0024_0024897_00242475);
-						Vector3 vector3 = (_0024self__00242477.r.velocity = _0024_0024898_00242476);
-						_0024self__00242477.charging = true;
-						_0024self__00242477.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-						_0024self__00242477.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-						_0024self__00242477.spdd = 5;
-						result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_011e;
-				case 2:
-					_0024self__00242477.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242477.charging = false;
-					goto IL_011e;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_011e:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GobScript _0024self__00242478;
-
-		public _0024ChargeRight_00242474(GobScript self_)
-		{
-			_0024self__00242478 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242478);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeLeft_00242479 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024899_00242480;
-
-			internal Vector3 _0024_0024900_00242481;
-
-			internal GobScript _0024self__00242482;
-
-			public _0024(GobScript self_)
-			{
-				_0024self__00242482 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242482.charging && Network.isServer)
-					{
-						int num = (_0024_0024899_00242480 = 15);
-						Vector3 vector = (_0024_0024900_00242481 = _0024self__00242482.r.velocity);
-						float num2 = (_0024_0024900_00242481.y = _0024_0024899_00242480);
-						Vector3 vector3 = (_0024self__00242482.r.velocity = _0024_0024900_00242481);
-						_0024self__00242482.charging = true;
-						_0024self__00242482.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-						_0024self__00242482.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-						_0024self__00242482.spdd = -5;
-						result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_011f;
-				case 2:
-					_0024self__00242482.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242482.charging = false;
-					goto IL_011f;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_011f:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GobScript _0024self__00242483;
-
-		public _0024ChargeLeft_00242479(GobScript self_)
-		{
-			_0024self__00242483 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242483);
-		}
-	}
+    public virtual IEnumerator ChargeLeft()
+    {
+        if (!charging && Network.isServer)
+        {
+            int num = 15;
+            Vector3 velocity = r.velocity;
+            velocity.y = num;
+            r.velocity = velocity;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = -5;
+            yield return new WaitForSeconds(1.5f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+    }
 
 	private GameObject player;
 
@@ -222,15 +122,6 @@ public class GobScript : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator ChargeRight()
-	{
-		return new _0024ChargeRight_00242474(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ChargeLeft()
-	{
-		return new _0024ChargeLeft_00242479(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void Turn(int a)
