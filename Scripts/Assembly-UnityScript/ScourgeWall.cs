@@ -2,167 +2,68 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class ScourgeWall : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ShootStuff_00242400 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00242401;
+    public IEnumerator ShootStuff()
+    {
+        while (true)
+        {
+            if (Network.isServer)
+            {
+                yield return new WaitForSeconds(UnityEngine.Random.Range(4, 7));
+            }
+            else
+            {
+                yield return null;
+            }
 
-			internal ScourgeWall _0024self__00242402;
+            GetComponent<NetworkView>().RPC("SHOOT", RPCMode.All);
+            yield return new WaitForSeconds(0.7f);
 
-			public _0024(ScourgeWall self_)
-			{
-				_0024self__00242402 = self_;
-			}
+            for (int i = 0; i < 5; i++)
+            {
+                if (!ded)
+                {
+                    Network.Instantiate(ball1, headPoint.transform.position, Quaternion.identity, 0);
+                    Network.Instantiate(ball2, headPoint.transform.position, Quaternion.identity, 0);
+                }
+                yield return new WaitForSeconds(0.3f);
+            }
+        }
+    }
+    IEnumerator DeathAnim()
+    {
+        GameObject musicBox = GameObject.Find("musicBox");
+        musicBox.SendMessage("Victory");
+        ded = true;
+        deathParticle.SetActive(true);
+        white.SetActive(true);
+        GetComponent<AudioSource>().PlayOneShot(scourgeded);
+        yield return new WaitForSeconds(0.1f);
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024i_00242401 = default(int);
-					if (Network.isServer)
-					{
-						goto IL_003a;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 2:
-					_0024self__00242402.GetComponent<NetworkView>().RPC("SHOOT", RPCMode.All);
-					result = (Yield(3, new WaitForSeconds(0.7f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024i_00242401 = 0;
-					goto IL_011d;
-				case 4:
-					_0024i_00242401++;
-					goto IL_011d;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_011d:
-					if (_0024i_00242401 < 5)
-					{
-						if (!_0024self__00242402.ded)
-						{
-							Network.Instantiate(_0024self__00242402.ball1, _0024self__00242402.headPoint.transform.position, Quaternion.identity, 0);
-							Network.Instantiate(_0024self__00242402.ball2, _0024self__00242402.headPoint.transform.position, Quaternion.identity, 0);
-						}
-						result = (Yield(4, new WaitForSeconds(0.3f)) ? 1 : 0);
-						break;
-					}
-					goto IL_003a;
-					IL_003a:
-					result = (Yield(2, new WaitForSeconds(UnityEngine.Random.Range(4, 7))) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+        white.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
 
-		internal ScourgeWall _0024self__00242403;
+        GetComponent<AudioSource>().PlayOneShot(scourgeded);
+        white.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
 
-		public _0024ShootStuff_00242400(ScourgeWall self_)
-		{
-			_0024self__00242403 = self_;
-		}
+        white.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242403);
-		}
-	}
+        if (Network.isServer)
+        {
+            spd = 8f;
+        }
+        GetComponent<AudioSource>().PlayOneShot(scourgeded);
+        white.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024DeathAnim_00242404 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024musicBox_00242405;
-
-			internal ScourgeWall _0024self__00242406;
-
-			public _0024(ScourgeWall self_)
-			{
-				_0024self__00242406 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024musicBox_00242405 = GameObject.Find("musicBox");
-					_0024musicBox_00242405.SendMessage("Victory");
-					_0024self__00242406.ded = true;
-					_0024self__00242406.deathParticle.SetActive(value: true);
-					_0024self__00242406.white.SetActive(value: true);
-					_0024self__00242406.GetComponent<AudioSource>().PlayOneShot(_0024self__00242406.scourgeded);
-					result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242406.white.SetActive(value: false);
-					result = (Yield(3, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00242406.GetComponent<AudioSource>().PlayOneShot(_0024self__00242406.scourgeded);
-					_0024self__00242406.white.SetActive(value: true);
-					result = (Yield(4, new WaitForSeconds(0.1f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00242406.white.SetActive(value: false);
-					result = (Yield(5, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 5:
-					if (Network.isServer)
-					{
-						_0024self__00242406.spd = 8f;
-					}
-					_0024self__00242406.GetComponent<AudioSource>().PlayOneShot(_0024self__00242406.scourgeded);
-					_0024self__00242406.white.SetActive(value: true);
-					result = (Yield(6, new WaitForSeconds(0.1f)) ? 1 : 0);
-					break;
-				case 6:
-					_0024self__00242406.white.SetActive(value: false);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal ScourgeWall _0024self__00242407;
-
-		public _0024DeathAnim_00242404(ScourgeWall self_)
-		{
-			_0024self__00242407 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242407);
-		}
-	}
+        white.SetActive(false);
+    }
 
 	public AudioClip scourgeded;
 
@@ -236,10 +137,6 @@ public class ScourgeWall : MonoBehaviour
 		player = g;
 	}
 
-	public virtual IEnumerator ShootStuff()
-	{
-		return new _0024ShootStuff_00242400(this).GetEnumerator();
-	}
 
 	public virtual void Update()
 	{
@@ -294,11 +191,6 @@ public class ScourgeWall : MonoBehaviour
 		}
 	}
 
-	[RPC]
-	public virtual IEnumerator DeathAnim()
-	{
-		return new _0024DeathAnim_00242404(this).GetEnumerator();
-	}
 
 	public virtual void OnCollisionEnter(Collision c)
 	{
