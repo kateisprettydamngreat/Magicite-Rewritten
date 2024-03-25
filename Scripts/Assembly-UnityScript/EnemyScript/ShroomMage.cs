@@ -2,89 +2,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class ShroomMage : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Attack_00242468 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024g_00242469;
+    public virtual IEnumerator Attack(Vector3 pp)
+    {
+        ATKING = true;
+        if (!(pp.x <= transform.position.x))
+        {
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+        }
+        else
+        {
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+        }
 
-			internal Vector3 _0024pp_00242470;
+        yield return new WaitForSeconds(0.3f);
 
-			internal ShroomMage _0024self__00242471;
+        GetComponent<NetworkView>().RPC("A1", RPCMode.All);
 
-			public _0024(Vector3 pp, ShroomMage self_)
-			{
-				_0024pp_00242470 = pp;
-				_0024self__00242471 = self_;
-			}
+        yield return new WaitForSeconds(0.4f);
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242471.ATKING = true;
-					if (!(_0024pp_00242470.x <= _0024self__00242471.transform.position.x))
-					{
-						_0024self__00242471.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-					}
-					else
-					{
-						_0024self__00242471.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-					}
-					_0024g_00242469 = null;
-					result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242471.GetComponent<NetworkView>().RPC("A1", RPCMode.All);
-					result = (Yield(3, new WaitForSeconds(0.4f)) ? 1 : 0);
-					break;
-				case 3:
-					if ((bool)_0024self__00242471.player && Network.isServer)
-					{
-						_0024g_00242469 = (GameObject)Network.Instantiate(Resources.Load("haz/shroomFire"), _0024self__00242471.transform.position, Quaternion.identity, 0);
-						_0024g_00242469.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024self__00242471.player.transform.position);
-					}
-					result = (Yield(4, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00242471.ATKING = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+        if ((bool)player && Network.isServer)
+        {
+            GameObject g = (GameObject)Network.Instantiate(Resources.Load("haz/shroomFire"), transform.position, Quaternion.identity, 0);
+            g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, player.transform.position);
+        }
 
-		internal Vector3 _0024pp_00242472;
+        yield return new WaitForSeconds(1f);
 
-		internal ShroomMage _0024self__00242473;
-
-		public _0024Attack_00242468(Vector3 pp, ShroomMage self_)
-		{
-			_0024pp_00242472 = pp;
-			_0024self__00242473 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024pp_00242472, _0024self__00242473);
-		}
-	}
+        ATKING = false;
+    }
 
 	private RaycastHit hit;
 
@@ -132,11 +82,6 @@ public class ShroomMage : EnemyScript
 		{
 			StartCoroutine_Auto(Attack(player.transform.position));
 		}
-	}
-
-	public virtual IEnumerator Attack(Vector3 pp)
-	{
-		return new _0024Attack_00242468(pp, this).GetEnumerator();
 	}
 
 	[RPC]
