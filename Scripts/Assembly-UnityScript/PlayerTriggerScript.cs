@@ -2,218 +2,94 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class PlayerTriggerScript : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TD_00242351 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024finalDMG_00242352;
+    public virtual IEnumerator TD(int DMG)
+    {
+        int finalDMG = DMG - ShieldDEF;
+        if (finalDMG < 1)
+        {
+            finalDMG = 1;
+        }
+        if (GetComponent<NetworkView>().isMine && canTakeDamage && !GameScript.win)
+        {
+            GameScript.hitsTaken++;
+            if (MenuScript.pHat == 24)
+            {
+                finalDMG = (int)((float)finalDMG * 0.5f);
+            }
+            if (MenuScript.pHat == 13)
+            {
+                int poo = UnityEngine.Random.Range(0, 5);
+                if (poo == 0)
+                {
+                    int i = default(int);
+                    Item droppedItem = null;
+                    GameObject ddd = null;
+                    int[] stats = null;
+                    if (!(Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= player.transform.position.x))
+                    {
+                        ddd = (GameObject)Network.Instantiate(Resources.Load("iNetwork"), new Vector3(player.transform.position.x + 3f, player.transform.position.y, 0f), Quaternion.identity, 0);
+                    }
+                    else
+                    {
+                        ddd = (GameObject)Network.Instantiate(Resources.Load("iNetwork"), new Vector3(player.transform.position.x - 3f, player.transform.position.y, 0f), Quaternion.identity, 0);
+                    }
+                    droppedItem = new Item(UnityEngine.Random.Range(9, 12), 1, new int[3], 0f, null);
+                    stats = new int[7] { droppedItem.id, droppedItem.q, 0, 0, 0, 0, 0 };
+                    ddd.GetComponent<NetworkView>().RPC("InitL", RPCMode.All, stats);
+                }
+            }
+            else if (MenuScript.pHat == 14)
+            {
+                int se = UnityEngine.Random.Range(0, 10);
+                if (se == 0)
+                {
+                    Network.Instantiate(Resources.Load("e/broodmother"), new Vector3(transform.position.x, transform.position.y + 50f, 0f), Quaternion.identity, 0);
+                }
+            }
+            GetComponent<AudioSource>().PlayOneShot(ow);
+            canTakeDamage = false;
+            GameObject n2 = (GameObject)UnityEngine.Object.Instantiate((GameObject)Resources.Load("TD1", typeof(GameObject)), transform.position, Quaternion.identity);
+            n2.SendMessage("SDN", finalDMG);
+            gameScript.TD(finalDMG);
+            gameScript.LoadHearts();
+            GameScript.canTakeDamage = false;
+            StartCoroutine(GetHit());
+            if (GameScript.HP >= 1)
+            {
+                yield return new WaitForSeconds(1f);
+                canTakeDamage = true;
+            }
+            else
+            {
+                GameScript.HP = 0;
+                player.SendMessage("Die");
+                if (MenuScript.deathA == 1)
+                {
+                    player.SendMessage("DeathAnim");
+                }
+                isDead = true;
+                @base.GetComponent<Animation>().Play("dead");
+            }
+        }
+    }
 
-			internal int _0024poo_00242353;
 
-			internal int _0024i_00242354;
-
-			internal Item _0024droppedItem_00242355;
-
-			internal GameObject _0024ddd_00242356;
-
-			internal int[] _0024stats_00242357;
-
-			internal int _0024se_00242358;
-
-			internal GameObject _0024n2_00242359;
-
-			internal int _0024DMG_00242360;
-
-			internal PlayerTriggerScript _0024self__00242361;
-
-			public _0024(int DMG, PlayerTriggerScript self_)
-			{
-				_0024DMG_00242360 = DMG;
-				_0024self__00242361 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024finalDMG_00242352 = _0024DMG_00242360 - ShieldDEF;
-					if (_0024finalDMG_00242352 < 1)
-					{
-						_0024finalDMG_00242352 = 1;
-					}
-					if (_0024self__00242361.GetComponent<NetworkView>().isMine && canTakeDamage && !GameScript.win)
-					{
-						GameScript.hitsTaken++;
-						if (MenuScript.pHat == 24)
-						{
-							_0024finalDMG_00242352 = (int)((float)_0024finalDMG_00242352 * 0.5f);
-						}
-						if (MenuScript.pHat == 13)
-						{
-							_0024poo_00242353 = UnityEngine.Random.Range(0, 5);
-							if (_0024poo_00242353 == 0)
-							{
-								_0024i_00242354 = default(int);
-								_0024droppedItem_00242355 = null;
-								_0024ddd_00242356 = null;
-								_0024stats_00242357 = null;
-								if (!(Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= _0024self__00242361.player.transform.position.x))
-								{
-									_0024ddd_00242356 = (GameObject)Network.Instantiate(Resources.Load("iNetwork"), new Vector3(_0024self__00242361.player.transform.position.x + 3f, _0024self__00242361.player.transform.position.y, 0f), Quaternion.identity, 0);
-								}
-								else
-								{
-									_0024ddd_00242356 = (GameObject)Network.Instantiate(Resources.Load("iNetwork"), new Vector3(_0024self__00242361.player.transform.position.x - 3f, _0024self__00242361.player.transform.position.y, 0f), Quaternion.identity, 0);
-								}
-								_0024droppedItem_00242355 = new Item(UnityEngine.Random.Range(9, 12), 1, new int[3], 0f, null);
-								_0024stats_00242357 = new int[7] { _0024droppedItem_00242355.id, _0024droppedItem_00242355.q, 0, 0, 0, 0, 0 };
-								_0024ddd_00242356.GetComponent<NetworkView>().RPC("InitL", RPCMode.All, _0024stats_00242357);
-							}
-						}
-						else if (MenuScript.pHat == 14)
-						{
-							_0024se_00242358 = UnityEngine.Random.Range(0, 10);
-							if (_0024se_00242358 == 0)
-							{
-								Network.Instantiate(Resources.Load("e/broodmother"), new Vector3(_0024self__00242361.transform.position.x, _0024self__00242361.transform.position.y + 50f, 0f), Quaternion.identity, 0);
-							}
-						}
-						_0024self__00242361.GetComponent<AudioSource>().PlayOneShot(_0024self__00242361.ow);
-						canTakeDamage = false;
-						_0024n2_00242359 = (GameObject)UnityEngine.Object.Instantiate((GameObject)Resources.Load("TD1", typeof(GameObject)), _0024self__00242361.transform.position, Quaternion.identity);
-						_0024n2_00242359.SendMessage("SDN", _0024finalDMG_00242352);
-						_0024self__00242361.gameScript.TD(_0024finalDMG_00242352);
-						_0024self__00242361.gameScript.LoadHearts();
-						GameScript.canTakeDamage = false;
-						_0024self__00242361.StartCoroutine_Auto(_0024self__00242361.GetHit());
-						if (GameScript.HP >= 1)
-						{
-							result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-							break;
-						}
-						GameScript.HP = 0;
-						_0024self__00242361.player.SendMessage("Die");
-						if (MenuScript.deathA == 1)
-						{
-							_0024self__00242361.player.SendMessage("DeathAnim");
-						}
-						isDead = true;
-						_0024self__00242361.@base.GetComponent<Animation>().Play("dead");
-					}
-					goto IL_0409;
-				case 2:
-					canTakeDamage = true;
-					goto IL_0409;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0409:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024DMG_00242362;
-
-		internal PlayerTriggerScript _0024self__00242363;
-
-		public _0024TD_00242351(int DMG, PlayerTriggerScript self_)
-		{
-			_0024DMG_00242362 = DMG;
-			_0024self__00242363 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024DMG_00242362, _0024self__00242363);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024GetHit_00242364 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024845_00242365;
-
-			internal Vector3 _0024_0024846_00242366;
-
-			internal int _0024_0024847_00242367;
-
-			internal Vector3 _0024_0024848_00242368;
-
-			internal PlayerTriggerScript _0024self__00242369;
-
-			public _0024(PlayerTriggerScript self_)
-			{
-				_0024self__00242369 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242369.GetComponent<Animation>().Play();
-					_0024self__00242369.gameScript.heartsObj.GetComponent<Animation>().Play();
-					result = (Yield(2, new WaitForSeconds(0.7f)) ? 1 : 0);
-					break;
-				case 2:
-				{
-					_0024self__00242369.GetComponent<Animation>().Stop();
-					_0024self__00242369.gameScript.heartsObj.GetComponent<Animation>().Stop();
-					GameScript.canTakeDamage = true;
-					int num = (_0024_0024845_00242365 = 0);
-					Vector3 vector = (_0024_0024846_00242366 = _0024self__00242369.transform.localPosition);
-					float num2 = (_0024_0024846_00242366.z = _0024_0024845_00242365);
-					Vector3 vector3 = (_0024self__00242369.transform.localPosition = _0024_0024846_00242366);
-					int num3 = (_0024_0024847_00242367 = 20);
-					Vector3 vector4 = (_0024_0024848_00242368 = _0024self__00242369.gameScript.heartsObj.transform.localPosition);
-					float num4 = (_0024_0024848_00242368.z = _0024_0024847_00242367);
-					Vector3 vector6 = (_0024self__00242369.gameScript.heartsObj.transform.localPosition = _0024_0024848_00242368);
-					YieldDefault(1);
-					goto case 1;
-				}
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerTriggerScript _0024self__00242370;
-
-		public _0024GetHit_00242364(PlayerTriggerScript self_)
-		{
-			_0024self__00242370 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242370);
-		}
-	}
+    private IEnumerator GetHit()
+    {
+        GetComponent<Animation>().Play();
+        gameScript.heartsObj.GetComponent<Animation>().Play();
+        yield return new WaitForSeconds(0.7f);
+        GetComponent<Animation>().Stop();
+        gameScript.heartsObj.GetComponent<Animation>().Stop();
+        GameScript.canTakeDamage = true;
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+        gameScript.heartsObj.transform.localPosition = new Vector3(gameScript.heartsObj.transform.localPosition.x, gameScript.heartsObj.transform.localPosition.y, 20);
+    }
 
 	public AudioClip ow;
 
@@ -274,16 +150,6 @@ public class PlayerTriggerScript : MonoBehaviour
 	public virtual void OnLevelWasLoaded(int level)
 	{
 		gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
-	}
-
-	public virtual IEnumerator TD(int DMG)
-	{
-		return new _0024TD_00242351(DMG, this).GetEnumerator();
-	}
-
-	public virtual IEnumerator GetHit()
-	{
-		return new _0024GetHit_00242364(this).GetEnumerator();
 	}
 
 	public virtual void AddItem(Item a)
