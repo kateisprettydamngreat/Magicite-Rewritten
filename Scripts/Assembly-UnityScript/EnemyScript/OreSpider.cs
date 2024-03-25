@@ -2,149 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class OreSpider : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeRight_00242120 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024697_00242121;
-
-			internal Vector3 _0024_0024698_00242122;
-
-			internal OreSpider _0024self__00242123;
-
-			public _0024(OreSpider self_)
-			{
-				_0024self__00242123 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242123.charging && Network.isServer)
-					{
-						int num = (_0024_0024697_00242121 = 12);
-						Vector3 vector = (_0024_0024698_00242122 = _0024self__00242123.r.velocity);
-						float num2 = (_0024_0024698_00242122.y = _0024_0024697_00242121);
-						Vector3 vector3 = (_0024self__00242123.r.velocity = _0024_0024698_00242122);
-						_0024self__00242123.charging = true;
-						_0024self__00242123.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-						_0024self__00242123.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-						_0024self__00242123.spdd = 5;
-						result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_011e;
-				case 2:
-					_0024self__00242123.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242123.charging = false;
-					goto IL_011e;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_011e:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal OreSpider _0024self__00242124;
-
-		public _0024ChargeRight_00242120(OreSpider self_)
-		{
-			_0024self__00242124 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242124);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeLeft_00242125 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024699_00242126;
-
-			internal Vector3 _0024_0024700_00242127;
-
-			internal OreSpider _0024self__00242128;
-
-			public _0024(OreSpider self_)
-			{
-				_0024self__00242128 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242128.charging && Network.isServer)
-					{
-						int num = (_0024_0024699_00242126 = 12);
-						Vector3 vector = (_0024_0024700_00242127 = _0024self__00242128.r.velocity);
-						float num2 = (_0024_0024700_00242127.y = _0024_0024699_00242126);
-						Vector3 vector3 = (_0024self__00242128.r.velocity = _0024_0024700_00242127);
-						_0024self__00242128.charging = true;
-						_0024self__00242128.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-						_0024self__00242128.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-						_0024self__00242128.spdd = -5;
-						result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_011f;
-				case 2:
-					_0024self__00242128.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242128.charging = false;
-					goto IL_011f;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_011f:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal OreSpider _0024self__00242129;
-
-		public _0024ChargeLeft_00242125(OreSpider self_)
-		{
-			_0024self__00242129 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242129);
-		}
-	}
+    public virtual IEnumerator ChargeRight()
+    {
+        if (!charging && Network.isServer)
+        {
+            int num = 12;
+            Vector3 velocity = r.velocity;
+            velocity.y = num;
+            r.velocity = velocity;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = 5;
+            yield return new WaitForSeconds(1.5f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+    }
+    public virtual IEnumerator ChargeLeft()
+    {
+        if (!charging && Network.isServer)
+        {
+            int num = 12;
+            Vector3 vector = r.velocity;
+            vector.y = num;
+            r.velocity = vector;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+            spdd = -5;
+            yield return new WaitForSeconds(1.5f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+    }
 
 	private GameObject player;
 
@@ -236,16 +132,6 @@ public class OreSpider : EnemyScript
 			float num2 = (velocity.x = num);
 			Vector3 vector2 = (r.velocity = velocity);
 		}
-	}
-
-	public virtual IEnumerator ChargeRight()
-	{
-		return new _0024ChargeRight_00242120(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ChargeLeft()
-	{
-		return new _0024ChargeLeft_00242125(this).GetEnumerator();
 	}
 
 	[RPC]
