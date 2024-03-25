@@ -3821,486 +3821,102 @@ public class GameScript : MonoBehaviour
 		}
 	}
 //orphan????
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024StatShow_00241787 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal string _0024s_00241788;
+    public virtual IEnumerator StatShow(int a)
+    {
+        string s = GetStatsName(a);
+        int i = 0;
+        statObj[a].SetActive(true);
+        txtStats[a].text = s + ": " + i;
+        i = 0;
+        while (i < tempStats[a] + 1)
+        {
+            txtStats[a].text = s + ": " + i;
+            i++;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+    public virtual IEnumerator AdditionalStat(int a)
+    {
+        yield return new WaitForSeconds(3.6f);
+        LUP[a].SetActive(true);
+        yield return new WaitForSeconds(3.5f);
+        LUP[a].SetActive(false);
+    }
 
-			internal int _0024i_00241789;
-
-			internal int _0024a_00241790;
-
-			internal GameScript _0024self__00241791;
-
-			public _0024(int a, GameScript self_)
-			{
-				_0024a_00241790 = a;
-				_0024self__00241791 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024s_00241788 = _0024self__00241791.GetStatsName(_0024a_00241790);
-					_0024i_00241789 = 0;
-					_0024self__00241791.statObj[_0024a_00241790].SetActive(value: true);
-					_0024self__00241791.txtStats[_0024a_00241790].text = _0024s_00241788 + ": " + _0024i_00241789;
-					_0024i_00241789 = 0;
-					goto IL_00eb;
-				case 2:
-					_0024i_00241789++;
-					goto IL_00eb;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00eb:
-					if (_0024i_00241789 < tempStats[_0024a_00241790] + 1)
-					{
-						_0024self__00241791.txtStats[_0024a_00241790].text = _0024s_00241788 + ": " + _0024i_00241789;
-						result = (Yield(2, new WaitForSeconds(0.01f)) ? 1 : 0);
-						break;
-					}
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00241792;
-
-		internal GameScript _0024self__00241793;
-
-		public _0024StatShow_00241787(int a, GameScript self_)
-		{
-			_0024a_00241792 = a;
-			_0024self__00241793 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00241792, _0024self__00241793);
-		}
-	}
-	public virtual IEnumerator StatShow(int a)
-	{
-		return new _0024StatShow_00241787(a, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024AdditionalStat_00241794 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024a_00241795;
-
-			internal GameScript _0024self__00241796;
-
-			public _0024(int a, GameScript self_)
-			{
-				_0024a_00241795 = a;
-				_0024self__00241796 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(3.6f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241796.LUP[_0024a_00241795].SetActive(value: true);
-					result = (Yield(3, new WaitForSeconds(3.5f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241796.LUP[_0024a_00241795].SetActive(value: false);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00241797;
-
-		internal GameScript _0024self__00241798;
-
-		public _0024AdditionalStat_00241794(int a, GameScript self_)
-		{
-			_0024a_00241797 = a;
-			_0024self__00241798 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00241797, _0024self__00241798);
-		}
-	}
-	public virtual IEnumerator AdditionalStat(int a)
-	{
-		return new _0024AdditionalStat_00241794(a, this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ShowLUP_00241799 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024a_00241800;
-
-			internal GameScript _0024self__00241801;
-
-			public _0024(int a, GameScript self_)
-			{
-				_0024a_00241800 = a;
-				_0024self__00241801 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241801.LUP[_0024a_00241800].SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(3.5f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241801.LUP[_0024a_00241800].SetActive(value: false);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00241802;
-
-		internal GameScript _0024self__00241803;
-
-		public _0024ShowLUP_00241799(int a, GameScript self_)
-		{
-			_0024a_00241802 = a;
-			_0024self__00241803 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00241802, _0024self__00241803);
-		}
-	}
-	public virtual IEnumerator ShowLUP(int a)
-	{
-		return new _0024ShowLUP_00241799(a, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024SkillTick_00241804 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal float _0024maxCD_00241805;
-
-			internal float _0024_0024597_00241806;
-
-			internal Vector3 _0024_0024598_00241807;
-
-			internal int _0024a_00241808;
-
-			internal float _0024max_00241809;
-
-			internal GameScript _0024self__00241810;
-
-			public _0024(int a, float max, GameScript self_)
-			{
-				_0024a_00241808 = a;
-				_0024max_00241809 = max;
-				_0024self__00241810 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024maxCD_00241805 = _0024max_00241809;
-					_0024self__00241810.skillObjShade[_0024a_00241808].SetActive(value: true);
-					goto case 2;
-				case 2:
-					if (_0024self__00241810.skillCooldown[_0024a_00241808] > 0f)
-					{
-						float num = (_0024_0024597_00241806 = _0024self__00241810.skillCooldown[_0024a_00241808] / _0024max_00241809 * 2f);
-						Vector3 vector = (_0024_0024598_00241807 = _0024self__00241810.skillObjShade[_0024a_00241808].transform.localScale);
-						float num2 = (_0024_0024598_00241807.y = _0024_0024597_00241806);
-						Vector3 vector3 = (_0024self__00241810.skillObjShade[_0024a_00241808].transform.localScale = _0024_0024598_00241807);
-						_0024self__00241810.skillCooldown[_0024a_00241808] = _0024self__00241810.skillCooldown[_0024a_00241808] - 1f;
-						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-						break;
-					}
-					_0024self__00241810.skillObjShade[_0024a_00241808].SetActive(value: false);
-					_0024self__00241810.skillObj[_0024a_00241808].GetComponent<Animation>().Play();
-					_0024self__00241810.skillCooldown[_0024a_00241808] = 0f;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00241811;
-
-		internal float _0024max_00241812;
-
-		internal GameScript _0024self__00241813;
-
-		public _0024SkillTick_00241804(int a, float max, GameScript self_)
-		{
-			_0024a_00241811 = a;
-			_0024max_00241812 = max;
-			_0024self__00241813 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00241811, _0024max_00241812, _0024self__00241813);
-		}
-	}
+    public virtual IEnumerator ShowLUP(int a)
+    {
+        LUP[a].SetActive(true);
+        yield return new WaitForSeconds(3.5f);
+        LUP[a].SetActive(false);
+    }
 	public virtual IEnumerator SkillTick(int a, float max)
-	{
-		return new _0024SkillTick_00241804(a, max, this).GetEnumerator();
-	}
+    {
+        float maxCD = max;
+        skillObjShade[a].SetActive(true);
+        
+        while (skillCooldown[a] > 0f)
+        {
+            float ratio = skillCooldown[a] / max * 2f;
+            Vector3 scale = skillObjShade[a].transform.localScale;
+            scale.y = ratio;
+            skillObjShade[a].transform.localScale = scale;
+            skillCooldown[a] -= 1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        skillObjShade[a].SetActive(false);
+        skillObj[a].GetComponent<Animation>().Play();
+        skillCooldown[a] = 0f;
+    }
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024RageTick_00241814 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-					break;
-				case 2:
-					rage = false;
-					player.GetComponent<NetworkView>().RPC("Rage", RPCMode.All, 0);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+    public virtual IEnumerator RageTick()
+    {
+        yield return new WaitForSeconds(10f);
+        rage = false;
+        player.GetComponent<NetworkView>().RPC("Rage", RPCMode.All, 0);
+    }
+    public virtual IEnumerator RoarTick()
+    {
+        DEXBonus += 10;
+        yield return new WaitForSeconds(10f);
+        if (DEXBonus >= 10)
+        {
+            DEXBonus -= 10;
+        }
+        else
+        {
+            DEXBonus = 0;
+        }
+        player.GetComponent<NetworkView>().RPC("Roar", RPCMode.All, 0);
+    }
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			//yield-return decompiler failed: Method not found
-			return new _0024();
-		}
-	}
-	public virtual IEnumerator RageTick()
-	{
-		return new _0024RageTick_00241814().GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024RoarTick_00241815 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					DEXBonus += 10;
-					result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-					break;
-				case 2:
-					if (DEXBonus >= 10)
-					{
-						DEXBonus -= 10;
-					}
-					else
-					{
-						DEXBonus = 0;
-					}
-					player.GetComponent<NetworkView>().RPC("Roar", RPCMode.All, 0);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+    public virtual IEnumerator FloatTick()
+    {
+        yield return new WaitForSeconds(15f);
+        rage = false;
+        player.GetComponent<NetworkView>().RPC("Float", RPCMode.All, 0);
+    }
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			//yield-return decompiler failed: Method not found
-			return new _0024();
+    public virtual IEnumerator ManaTick()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+    {
+        float maxCD = max;
+        skillObjShade[a].SetActive(true);
+
+        while (skillCooldown[a] > 0f)
+        {
+            float ratio = skillCooldown[a] / max * 2f;
+            Vector3 scale = skillObjShade[a].transform.localScale;
+            scale.y = ratio;
+            skillObjShade[a].transform.localScale = scale;
+            skillCooldown[a] -= 1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+	}
 		}
 	}
-	public virtual IEnumerator RoarTick()
-	{
-		return new _0024RoarTick_00241815().GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024FloatTick_00241816 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(15f)) ? 1 : 0);
-					break;
-				case 2:
-					rage = false;
-					player.GetComponent<NetworkView>().RPC("Float", RPCMode.All, 0);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			//yield-return decompiler failed: Method not found
-			return new _0024();
-		}
-	}
-	public virtual IEnumerator FloatTick()
-	{
-		return new _0024FloatTick_00241816().GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ManaTick_00241817 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00241818;
-
-			internal GameScript _0024self__00241819;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241819 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024i_00241818 = default(int);
-					_0024i_00241818 = 0;
-					goto IL_0079;
-				case 2:
-					_0024i_00241818++;
-					goto IL_0079;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0079:
-					if (_0024i_00241818 < 20)
-					{
-						if (MAG < MAXMAG)
-						{
-							MAG++;
-							_0024self__00241819.LoadMana();
-						}
-						result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-						break;
-					}
-					clair = false;
-					player.GetComponent<NetworkView>().RPC("Clair", RPCMode.All, 0);
-					manaWait = 10;
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241820;
-
-		public _0024ManaTick_00241817(GameScript self_)
-		{
-			_0024self__00241820 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241820);
-		}
-	}
-	public virtual IEnumerator ManaTick()
-	{
-		return new _0024ManaTick_00241817(this).GetEnumerator();
-	}
-
-	[NonSerialized]
-	public static bool debugMode;
-
 	[NonSerialized]
 	public static bool usedAltar;
 
