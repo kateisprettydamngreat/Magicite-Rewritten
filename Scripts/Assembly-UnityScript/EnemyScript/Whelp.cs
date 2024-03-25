@@ -2,146 +2,91 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class Whelp : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Attack_00242709 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024g_00242710;
+    public virtual IEnumerator Attack(Vector3 pp)
+    {
+        ATKING = true;
+        if (!(pp.x <= transform.position.x))
+        {
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+        }
+        else
+        {
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+        }
 
-			internal Vector3 _0024pp2_00242711;
+        yield return new WaitForSeconds(0.3f);
 
-			internal int _0024num_00242712;
+        GetComponent<NetworkView>().RPC("A1", RPCMode.All);
 
-			internal Vector3 _0024pp_00242713;
+        yield return new WaitForSeconds(0.7f);
 
-			internal Whelp _0024self__00242714;
+        if (player)
+        {
+            Vector3 pp2 = player.transform.position;
+            if (Network.isServer)
+            {
+                GameObject g = (GameObject)Network.Instantiate(Resources.Load("haz/whelpFire"), transform.position, Quaternion.identity, 0);
+                g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2);
+                pp2.y += 10f;
+                g = (GameObject)Network.Instantiate(Resources.Load("haz/whelpFire"), transform.position, Quaternion.identity, 0);
+                g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2);
+                pp2.y -= 20f;
+                g = (GameObject)Network.Instantiate(Resources.Load("haz/whelpFire"), transform.position, Quaternion.identity, 0);
+            }
+            g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2);
+        }
+        if (player)
+        {
+            curVector = t.position - player.transform.position;
+            if (!(player.transform.position.x <= t.position.x))
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+            else
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+        }
+        atking = true;
 
-			public _0024(Vector3 pp, Whelp self_)
-			{
-				_0024pp_00242713 = pp;
-				_0024self__00242714 = self_;
-			}
+        yield return new WaitForSeconds(0.5f);
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242714.ATKING = true;
-					if (!(_0024pp_00242713.x <= _0024self__00242714.transform.position.x))
-					{
-						_0024self__00242714.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-					}
-					else
-					{
-						_0024self__00242714.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-					}
-					_0024g_00242710 = null;
-					result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242714.GetComponent<NetworkView>().RPC("A1", RPCMode.All);
-					result = (Yield(3, new WaitForSeconds(0.7f)) ? 1 : 0);
-					break;
-				case 3:
-					if ((bool)_0024self__00242714.player)
-					{
-						_0024pp2_00242711 = _0024self__00242714.player.transform.position;
-						if (Network.isServer)
-						{
-							_0024g_00242710 = (GameObject)Network.Instantiate(Resources.Load("haz/whelpFire"), _0024self__00242714.transform.position, Quaternion.identity, 0);
-							_0024g_00242710.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024pp2_00242711);
-							_0024pp2_00242711.y += 10f;
-							_0024g_00242710 = (GameObject)Network.Instantiate(Resources.Load("haz/whelpFire"), _0024self__00242714.transform.position, Quaternion.identity, 0);
-							_0024g_00242710.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024pp2_00242711);
-							_0024pp2_00242711.y -= 20f;
-							_0024g_00242710 = (GameObject)Network.Instantiate(Resources.Load("haz/whelpFire"), _0024self__00242714.transform.position, Quaternion.identity, 0);
-						}
-						_0024g_00242710.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024pp2_00242711);
-					}
-					if ((bool)_0024self__00242714.player)
-					{
-						_0024self__00242714.curVector = _0024self__00242714.t.position - _0024self__00242714.player.transform.position;
-						if (!(_0024self__00242714.player.transform.position.x <= _0024self__00242714.t.position.x))
-						{
-							_0024self__00242714.e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-						}
-						else
-						{
-							_0024self__00242714.e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-						}
-					}
-					_0024self__00242714.atking = true;
-					result = (Yield(4, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00242714.atking = false;
-					if ((bool)_0024self__00242714.player)
-					{
-						_0024num_00242712 = UnityEngine.Random.Range(0, 3);
-						if (_0024num_00242712 == 0)
-						{
-							_0024self__00242714.curVector = _0024self__00242714.t.position - _0024self__00242714.player.transform.position;
-						}
-						else
-						{
-							_0024self__00242714.curVector = _0024self__00242714.player.transform.position - _0024self__00242714.t.position;
-						}
-						if (!(_0024self__00242714.player.transform.position.x <= _0024self__00242714.t.position.x))
-						{
-							_0024self__00242714.e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-						}
-						else
-						{
-							_0024self__00242714.e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-						}
-						_0024self__00242714.atking = true;
-						result = (Yield(5, new WaitForSeconds(2f)) ? 1 : 0);
-						break;
-					}
-					goto case 5;
-				case 5:
-					_0024self__00242714.atking = false;
-					result = (Yield(6, new WaitForSeconds(1.5f)) ? 1 : 0);
-					break;
-				case 6:
-					_0024self__00242714.ATKING = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
+        atking = false;
+        if (player)
+        {
+            int num = UnityEngine.Random.Range(0, 3);
+            if (num == 0)
+            {
+                curVector = t.position - player.transform.position;
+            }
+            else
+            {
+                curVector = player.transform.position - t.position;
+            }
+            if (!(player.transform.position.x <= t.position.x))
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+            else
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+            atking = true;
 
-		internal Vector3 _0024pp_00242715;
+            yield return new WaitForSeconds(2f);
+        }
 
-		internal Whelp _0024self__00242716;
+        atking = false;
 
-		public _0024Attack_00242709(Vector3 pp, Whelp self_)
-		{
-			_0024pp_00242715 = pp;
-			_0024self__00242716 = self_;
-		}
+        yield return new WaitForSeconds(1.5f);
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024pp_00242715, _0024self__00242716);
-		}
-	}
+        ATKING = false;
+    }
 
 	public AudioClip roar;
 
@@ -212,11 +157,6 @@ public class Whelp : EnemyScript
 				t.Translate(curVector.normalized * 9f * Time.deltaTime);
 			}
 		}
-	}
-
-	public virtual IEnumerator Attack(Vector3 pp)
-	{
-		return new _0024Attack_00242709(pp, this).GetEnumerator();
 	}
 
 	[RPC]
