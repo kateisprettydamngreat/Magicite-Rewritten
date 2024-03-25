@@ -2,149 +2,46 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class mimicScript : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeRight_00242907 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_00241067_00242908;
+    public virtual IEnumerator ChargeRight()
+    {
+        if (!charging && Network.isServer)
+        {
+            int num = 12;
+            Vector3 velocity = r.velocity;
+            velocity.y = num;
+            r.velocity = velocity;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            spdd = 7;
+            yield return new WaitForSeconds(1.5f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+    }
 
-			internal Vector3 _0024_00241068_00242909;
-
-			internal mimicScript _0024self__00242910;
-
-			public _0024(mimicScript self_)
-			{
-				_0024self__00242910 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242910.charging && Network.isServer)
-					{
-						int num = (_0024_00241067_00242908 = 12);
-						Vector3 vector = (_0024_00241068_00242909 = _0024self__00242910.r.velocity);
-						float num2 = (_0024_00241068_00242909.y = _0024_00241067_00242908);
-						Vector3 vector3 = (_0024self__00242910.r.velocity = _0024_00241068_00242909);
-						_0024self__00242910.charging = true;
-						_0024self__00242910.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-						_0024self__00242910.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-						_0024self__00242910.spdd = 7;
-						result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_011e;
-				case 2:
-					_0024self__00242910.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242910.charging = false;
-					goto IL_011e;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_011e:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal mimicScript _0024self__00242911;
-
-		public _0024ChargeRight_00242907(mimicScript self_)
-		{
-			_0024self__00242911 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242911);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeLeft_00242912 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_00241069_00242913;
-
-			internal Vector3 _0024_00241070_00242914;
-
-			internal mimicScript _0024self__00242915;
-
-			public _0024(mimicScript self_)
-			{
-				_0024self__00242915 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242915.charging && Network.isServer)
-					{
-						int num = (_0024_00241069_00242913 = 12);
-						Vector3 vector = (_0024_00241070_00242914 = _0024self__00242915.r.velocity);
-						float num2 = (_0024_00241070_00242914.y = _0024_00241069_00242913);
-						Vector3 vector3 = (_0024self__00242915.r.velocity = _0024_00241070_00242914);
-						_0024self__00242915.charging = true;
-						_0024self__00242915.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-						_0024self__00242915.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-						_0024self__00242915.spdd = -7;
-						result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_011f;
-				case 2:
-					_0024self__00242915.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242915.charging = false;
-					goto IL_011f;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_011f:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal mimicScript _0024self__00242916;
-
-		public _0024ChargeLeft_00242912(mimicScript self_)
-		{
-			_0024self__00242916 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242916);
-		}
-	}
+    public virtual IEnumerator ChargeLeft()
+    {
+        if (!charging && Network.isServer)
+        {
+            int num = 12;
+            Vector3 vector = r.velocity;
+            vector.y = num;
+            r.velocity = vector;
+            charging = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            spdd = -7;
+            yield return new WaitForSeconds(1.5f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            charging = false;
+        }
+    }
 
 	private GameObject player;
 
@@ -223,16 +120,6 @@ public class mimicScript : EnemyScript
 			float num2 = (velocity.x = num);
 			Vector3 vector2 = (r.velocity = velocity);
 		}
-	}
-
-	public virtual IEnumerator ChargeRight()
-	{
-		return new _0024ChargeRight_00242907(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ChargeLeft()
-	{
-		return new _0024ChargeLeft_00242912(this).GetEnumerator();
 	}
 
 	[RPC]
