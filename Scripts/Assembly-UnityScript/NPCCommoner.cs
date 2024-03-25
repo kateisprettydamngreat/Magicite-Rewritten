@@ -2,658 +2,177 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class NPCCommoner : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Talk_00242031 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal NPCCommoner _0024self__00242032;
-
-			public _0024(NPCCommoner self_)
-			{
-				_0024self__00242032 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(UnityEngine.Random.Range(5, 20))) ? 1 : 0);
-					break;
-				case 2:
-					result = (Yield(3, new WaitForSeconds(UnityEngine.Random.Range(0, 6))) ? 1 : 0);
-					break;
-				case 3:
-					if (Network.isServer)
-					{
-						_0024self__00242032.GetComponent<NetworkView>().RPC("SaySomething", RPCMode.All, UnityEngine.Random.Range(0, 10));
-					}
-					result = (Yield(4, new WaitForSeconds(UnityEngine.Random.Range(0, 6))) ? 1 : 0);
-					break;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal NPCCommoner _0024self__00242033;
-
-		public _0024Talk_00242031(NPCCommoner self_)
-		{
-			_0024self__00242033 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242033);
-		}
-	}
-	public virtual IEnumerator Talk()
-	{
-		return new _0024Talk_00242031(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024SaySomething_00242034 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal string _0024s_00242035;
-
-			internal int _0024_0024switch_0024372_00242036;
-
-			internal int _0024a_00242037;
-
-			internal NPCCommoner _0024self__00242038;
-
-			public _0024(int a, NPCCommoner self_)
-			{
-				_0024a_00242037 = a;
-				_0024self__00242038 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024s_00242035 = null;
-					_0024_0024switch_0024372_00242036 = _0024a_00242037;
-					if (_0024_0024switch_0024372_00242036 == 0)
-					{
-						_0024s_00242035 = "Life is great.";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 1)
-					{
-						_0024s_00242035 = "Deephaven is scary.";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 2)
-					{
-						_0024s_00242035 = "I'm hungry";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 3)
-					{
-						_0024s_00242035 = "I hate chicken.";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 4)
-					{
-						_0024s_00242035 = "The Scourge suck!";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 5)
-					{
-						_0024s_00242035 = "I miss the sun...";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 6)
-					{
-						_0024s_00242035 = "*Cough*";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 7)
-					{
-						_0024s_00242035 = "Someone smells funny.";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 8)
-					{
-						_0024s_00242035 = "Idk what I want.";
-					}
-					else if (_0024_0024switch_0024372_00242036 == 9)
-					{
-						_0024s_00242035 = "I need to poop!";
-					}
-					_0024self__00242038.txtTalk.text = string.Empty + _0024s_00242035;
-					_0024self__00242038.txtTalk2.text = string.Empty + _0024s_00242035;
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242038.txtTalk.text = string.Empty;
-					_0024self__00242038.txtTalk2.text = string.Empty;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00242039;
-
-		internal NPCCommoner _0024self__00242040;
-
-		public _0024SaySomething_00242034(int a, NPCCommoner self_)
-		{
-			_0024a_00242039 = a;
-			_0024self__00242040 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00242039, _0024self__00242040);
-		}
-	}
-	[RPC]
-	public virtual IEnumerator SaySomething(int a)
-	{
-		return new _0024SaySomething_00242034(a, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00242041 : GenericGenerator<Coroutine>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<Coroutine>, IEnumerator
-		{
-			internal NPCCommoner _0024self__00242042;
-
-			public _0024(NPCCommoner self_)
-			{
-				_0024self__00242042 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				return _state switch
-				{
-					1 => false, 
-					_ => Yield(2, _0024self__00242042.StartCoroutine_Auto(_0024self__00242042.Move())), 
-				};
-			}
-		}
-
-		internal NPCCommoner _0024self__00242043;
-
-		public _0024Start_00242041(NPCCommoner self_)
-		{
-			_0024self__00242043 = self_;
-		}
-
-		public override IEnumerator<Coroutine> GetEnumerator()
-		{
-			return new _0024(_0024self__00242043);
-		}
-	}
-
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00242041(this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TDN_00242044 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00242045;
-
-			internal int _0024dmg_00242046;
-
-			internal NPCCommoner _0024self__00242047;
-
-			public _0024(int dmg, NPCCommoner self_)
-			{
-				_0024dmg_00242046 = dmg;
-				_0024self__00242047 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242047.txtTalk.text = "Ow!";
-					_0024self__00242047.takingDamage = true;
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242047.hp -= _0024dmg_00242046;
-					_0024i_00242045 = default(int);
-					if (_0024self__00242047.hp < 1)
-					{
-						for (_0024i_00242045 = 0; _0024i_00242045 < _0024self__00242047.GOLD; _0024i_00242045++)
-						{
-							Network.Instantiate(Resources.Load("c"), _0024self__00242047.t.position, Quaternion.identity, 0);
-						}
-						if (Network.isServer)
-						{
-							Network.RemoveRPCs(_0024self__00242047.GetComponent<NetworkView>().viewID);
-							Network.Destroy(_0024self__00242047.GetComponent<NetworkView>().viewID);
-						}
-					}
-					else
-					{
-						_0024self__00242047.takingDamage = false;
-					}
-					result = (Yield(3, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00242047.txtTalk.text = string.Empty;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024dmg_00242048;
-
-		internal NPCCommoner _0024self__00242049;
-
-		public _0024TDN_00242044(int dmg, NPCCommoner self_)
-		{
-			_0024dmg_00242048 = dmg;
-			_0024self__00242049 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024dmg_00242048, _0024self__00242049);
-		}
-	}
-	[RPC]
-	public virtual IEnumerator TDN(int dmg)
-	{
-		return new _0024TDN_00242044(dmg, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TDN2_00242050 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024n2_00242051;
-
-			internal int _0024_0024673_00242052;
-
-			internal Vector3 _0024_0024674_00242053;
-
-			internal int _0024dmg_00242054;
-
-			internal NPCCommoner _0024self__00242055;
-
-			public _0024(int dmg, NPCCommoner self_)
-			{
-				_0024dmg_00242054 = dmg;
-				_0024self__00242055 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024n2_00242051 = (GameObject)UnityEngine.Object.Instantiate((GameObject)Resources.Load("TD", typeof(GameObject)), _0024self__00242055.t.position, Quaternion.identity);
-					_0024n2_00242051.SendMessage("SD", _0024dmg_00242054);
-					_0024self__00242055.@base.GetComponent<Animation>().Play();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					if (_0024self__00242055.hp < 1)
-					{
-						goto IL_014c;
-					}
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-				{
-					_0024self__00242055.@base.GetComponent<Animation>().Stop();
-					_0024self__00242055.takingDamage = false;
-					int num = (_0024_0024673_00242052 = 0);
-					Vector3 vector = (_0024_0024674_00242053 = _0024self__00242055.@base.transform.localPosition);
-					float num2 = (_0024_0024674_00242053.z = _0024_0024673_00242052);
-					Vector3 vector3 = (_0024self__00242055.@base.transform.localPosition = _0024_0024674_00242053);
-					goto IL_014c;
-				}
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_014c:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024dmg_00242056;
-
-		internal NPCCommoner _0024self__00242057;
-
-		public _0024TDN2_00242050(int dmg, NPCCommoner self_)
-		{
-			_0024dmg_00242056 = dmg;
-			_0024self__00242057 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024dmg_00242056, _0024self__00242057);
-		}
-	}
-	[RPC]
-	public virtual IEnumerator TDN2(int dmg)
-	{
-		return new _0024TDN2_00242050(dmg, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Move_00242058 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024num_00242059;
-
-			internal NPCCommoner _0024self__00242060;
-
-			public _0024(NPCCommoner self_)
-			{
-				_0024self__00242060 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024num_00242059 = UnityEngine.Random.Range(-1, 2);
-					if (_0024num_00242059 != 0)
-					{
-						_0024self__00242060.speed *= (float)_0024num_00242059;
-					}
-					if (!(_0024self__00242060.speed <= 0f))
-					{
-						_0024self__00242060.npc.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-					}
-					else
-					{
-						_0024self__00242060.npc.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-					}
-					_0024self__00242060.canMove = true;
-					result = (Yield(2, new WaitForSeconds(UnityEngine.Random.Range(1, 3))) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242060.canMove = false;
-					_0024num_00242059 = UnityEngine.Random.Range(-1, 2);
-					if (_0024num_00242059 != 0)
-					{
-						_0024self__00242060.speed *= (float)_0024num_00242059;
-					}
-					if (!(_0024self__00242060.speed <= 0f))
-					{
-						_0024self__00242060.npc.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-					}
-					else
-					{
-						_0024self__00242060.npc.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-					}
-					result = (Yield(3, new WaitForSeconds(UnityEngine.Random.Range(1, 10))) ? 1 : 0);
-					break;
-				case 3:
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal NPCCommoner _0024self__00242061;
-
-		public _0024Move_00242058(NPCCommoner self_)
-		{
-			_0024self__00242061 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242061);
-		}
-	}
-	public virtual IEnumerator Move()
-	{
-		return new _0024Move_00242058(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024KnockN_00242062 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024677_00242063;
-
-			internal Vector3 _0024_0024678_00242064;
-
-			internal int _0024_0024679_00242065;
-
-			internal Vector3 _0024_0024680_00242066;
-
-			internal int _0024_0024681_00242067;
-
-			internal Vector3 _0024_0024682_00242068;
-
-			internal Vector3 _0024p_00242069;
-
-			internal NPCCommoner _0024self__00242070;
-
-			public _0024(Vector3 p, NPCCommoner self_)
-			{
-				_0024p_00242069 = p;
-				_0024self__00242070 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024p_00242069.x <= _0024self__00242070.t.position.x)
-					{
-						int num3 = (_0024_0024679_00242065 = 10);
-						Vector3 vector4 = (_0024_0024680_00242066 = _0024self__00242070.GetComponent<Rigidbody>().velocity);
-						float num4 = (_0024_0024680_00242066.x = _0024_0024679_00242065);
-						Vector3 vector6 = (_0024self__00242070.GetComponent<Rigidbody>().velocity = _0024_0024680_00242066);
-					}
-					else
-					{
-						int num5 = (_0024_0024677_00242063 = -10);
-						Vector3 vector7 = (_0024_0024678_00242064 = _0024self__00242070.GetComponent<Rigidbody>().velocity);
-						float num6 = (_0024_0024678_00242064.x = _0024_0024677_00242063);
-						Vector3 vector9 = (_0024self__00242070.GetComponent<Rigidbody>().velocity = _0024_0024678_00242064);
-					}
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-				{
-					int num = (_0024_0024681_00242067 = 0);
-					Vector3 vector = (_0024_0024682_00242068 = _0024self__00242070.GetComponent<Rigidbody>().velocity);
-					float num2 = (_0024_0024682_00242068.x = _0024_0024681_00242067);
-					Vector3 vector3 = (_0024self__00242070.GetComponent<Rigidbody>().velocity = _0024_0024682_00242068);
-					YieldDefault(1);
-					goto case 1;
-				}
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Vector3 _0024p_00242071;
-
-		internal NPCCommoner _0024self__00242072;
-
-		public _0024KnockN_00242062(Vector3 p, NPCCommoner self_)
-		{
-			_0024p_00242071 = p;
-			_0024self__00242072 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024p_00242071, _0024self__00242072);
-		}
-	}
-	[RPC]
-	public virtual IEnumerator KnockN(Vector3 p)
-	{
-		return new _0024KnockN_00242062(p, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024K_00242073 : GenericGenerator<WaitForEndOfFrame>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForEndOfFrame>, IEnumerator
-		{
-			internal int _0024i_00242074;
-
-			internal int _0024_0024683_00242075;
-
-			internal Vector3 _0024_0024684_00242076;
-
-			internal int _0024_0024685_00242077;
-
-			internal Vector3 _0024_0024686_00242078;
-
-			internal int _0024_0024687_00242079;
-
-			internal Vector3 _0024_0024688_00242080;
-
-			internal int _0024_0024689_00242081;
-
-			internal Vector3 _0024_0024690_00242082;
-
-			internal bool _0024l_00242083;
-
-			internal NPCCommoner _0024self__00242084;
-
-			public _0024(bool l, NPCCommoner self_)
-			{
-				_0024l_00242083 = l;
-				_0024self__00242084 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024i_00242074 = default(int);
-					if (_0024l_00242083)
-					{
-						int num = (_0024_0024683_00242075 = -10);
-						Vector3 vector = (_0024_0024684_00242076 = _0024self__00242084.r.velocity);
-						float num2 = (_0024_0024684_00242076.x = _0024_0024683_00242075);
-						Vector3 vector3 = (_0024self__00242084.r.velocity = _0024_0024684_00242076);
-						int num3 = (_0024_0024685_00242077 = 10);
-						Vector3 vector4 = (_0024_0024686_00242078 = _0024self__00242084.r.velocity);
-						float num4 = (_0024_0024686_00242078.y = _0024_0024685_00242077);
-						Vector3 vector6 = (_0024self__00242084.r.velocity = _0024_0024686_00242078);
-						result = (Yield(2, new WaitForEndOfFrame()) ? 1 : 0);
-					}
-					else
-					{
-						int num5 = (_0024_0024687_00242079 = 10);
-						Vector3 vector7 = (_0024_0024688_00242080 = _0024self__00242084.r.velocity);
-						float num6 = (_0024_0024688_00242080.x = _0024_0024687_00242079);
-						Vector3 vector9 = (_0024self__00242084.r.velocity = _0024_0024688_00242080);
-						int num7 = (_0024_0024689_00242081 = 10);
-						Vector3 vector10 = (_0024_0024690_00242082 = _0024self__00242084.r.velocity);
-						float num8 = (_0024_0024690_00242082.y = _0024_0024689_00242081);
-						Vector3 vector12 = (_0024self__00242084.r.velocity = _0024_0024690_00242082);
-						result = (Yield(3, new WaitForEndOfFrame()) ? 1 : 0);
-					}
-					break;
-				case 2:
-				case 3:
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal bool _0024l_00242085;
-
-		internal NPCCommoner _0024self__00242086;
-
-		public _0024K_00242073(bool l, NPCCommoner self_)
-		{
-			_0024l_00242085 = l;
-			_0024self__00242086 = self_;
-		}
-
-		public override IEnumerator<WaitForEndOfFrame> GetEnumerator()
-		{
-			return new _0024(_0024l_00242085, _0024self__00242086);
-		}
-	}
-	public virtual IEnumerator K(bool l)
-	{
-		return new _0024K_00242073(l, this).GetEnumerator();
-	}
+    public virtual IEnumerator Talk()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(5, 20));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0, 6));
+            if (Network.isServer)
+            {
+                GetComponent<NetworkView>().RPC("SaySomething", RPCMode.All, UnityEngine.Random.Range(0, 10));
+            }
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0, 6));
+        }
+    }
+    private IEnumerator SaySomething(int a)
+    {
+        string s = null;
+        switch (a)
+        {
+            case 0:
+                s = "Life is great.";
+                break;
+            case 1:
+                s = "Deephaven is scary.";
+                break;
+            case 2:
+                s = "I'm hungry";
+                break;
+            case 3:
+                s = "I hate chicken.";
+                break;
+            case 4:
+                s = "The Scourge suck!";
+                break;
+            case 5:
+                s = "I miss the sun...";
+                break;
+            case 6:
+                s = "*Cough*";
+                break;
+            case 7:
+                s = "Someone smells funny.";
+                break;
+            case 8:
+                s = "Idk what I want.";
+                break;
+            case 9:
+                s = "I need to poop!";
+                break;
+        }
+        txtTalk.text = s;
+        txtTalk2.text = s;
+        yield return new WaitForSeconds(2f);
+        txtTalk.text = string.Empty;
+        txtTalk2.text = string.Empty;
+    }
+    public virtual IEnumerator Start()
+    {
+        StartCoroutine(Move());
+        yield break;
+    }
+
+    public virtual IEnumerator TDN(int dmg)
+    {
+        txtTalk.text = "Ow!";
+        takingDamage = true;
+        yield return new WaitForSeconds(0.2f);
+
+        hp -= dmg;
+        if (hp < 1)
+        {
+            for (int i = 0; i < GOLD; i++)
+            {
+                Network.Instantiate(Resources.Load("c"), t.position, Quaternion.identity, 0);
+            }
+            if (Network.isServer)
+            {
+                Network.RemoveRPCs(GetComponent<NetworkView>().viewID);
+                Network.Destroy(GetComponent<NetworkView>().viewID);
+            }
+        }
+        else
+        {
+            takingDamage = false;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        txtTalk.text = string.Empty;
+    }
+    public virtual IEnumerator TDN2(int dmg)
+    {
+        GameObject n2 = (GameObject)Instantiate((GameObject)Resources.Load("TD", typeof(GameObject)), t.position, Quaternion.identity);
+        n2.SendMessage("SD", dmg);
+        base.GetComponent<Animation>().Play();
+        yield return new WaitForSeconds(0.2f);
+        if (hp >= 1)
+        {
+            yield return new WaitForSeconds(0.2f);
+            base.GetComponent<Animation>().Stop();
+            takingDamage = false;
+            base.transform.localPosition = new Vector3(base.transform.localPosition.x, base.transform.localPosition.y, 0f);
+        }
+    }
+    public virtual IEnumerator Move()
+    {
+        int num = UnityEngine.Random.Range(-1, 2);
+        if (num != 0)
+        {
+            speed *= (float)num;
+        }
+        if (speed > 0f)
+        {
+            npc.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else
+        {
+            npc.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        canMove = true;
+        yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3));
+
+        canMove = false;
+        num = UnityEngine.Random.Range(-1, 2);
+        if (num != 0)
+        {
+            speed *= (float)num;
+        }
+        if (speed > 0f)
+        {
+            npc.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else
+        {
+            npc.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        yield return new WaitForSeconds(UnityEngine.Random.Range(1, 10));
+    }
+    public virtual IEnumerator KnockN(Vector3 p)
+    {
+        if (p.x <= t.position.x)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(10f, GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(-10f, GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        GetComponent<Rigidbody>().velocity = new Vector3(0f, GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
+    }
+
+    public virtual IEnumerator K(bool l)
+
+    {
+        if (l)
+        {
+            r.velocity = new Vector3(-10, 10, 0);
+            yield return new WaitForEndOfFrame();
+        }
+        else
+        {
+            r.velocity = new Vector3(10, 10, 0);
+            yield return new WaitForEndOfFrame();
+        }
+    }
 
 	private int pos;
 
