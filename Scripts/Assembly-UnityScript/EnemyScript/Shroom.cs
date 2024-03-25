@@ -2,314 +2,78 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class Shroom : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024FaceRight_00242428 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024875_00242429;
+    public virtual IEnumerator FaceRight()
+    {
+        if (!atking && Network.isServer && !running)
+        {
+            int num = 8;
+            Vector3 vector = r.velocity;
+            vector.y = num;
+            r.velocity = vector;
+            running = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
+            spdd = UnityEngine.Random.Range(-1, 2) * 4;
+            if (spdd == 0)
+            {
+                spdd = 4;
+            }
+            yield return new WaitForSeconds((float)UnityEngine.Random.Range(1, 3) * 0.3f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            running = false;
+        }
+    }
 
-			internal Vector3 _0024_0024876_00242430;
-
-			internal Shroom _0024self__00242431;
-
-			public _0024(Shroom self_)
-			{
-				_0024self__00242431 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242431.atking && Network.isServer && !_0024self__00242431.running)
-					{
-						int num = (_0024_0024875_00242429 = 8);
-						Vector3 vector = (_0024_0024876_00242430 = _0024self__00242431.r.velocity);
-						float num2 = (_0024_0024876_00242430.y = _0024_0024875_00242429);
-						Vector3 vector3 = (_0024self__00242431.r.velocity = _0024_0024876_00242430);
-						_0024self__00242431.running = true;
-						_0024self__00242431.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-						_0024self__00242431.GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
-						_0024self__00242431.spdd = UnityEngine.Random.Range(-1, 2) * 4;
-						if (_0024self__00242431.spdd == 0)
-						{
-							_0024self__00242431.spdd = 4;
-						}
-						result = (Yield(2, new WaitForSeconds((float)UnityEngine.Random.Range(1, 3) * 0.3f)) ? 1 : 0);
-						break;
-					}
-					goto IL_015a;
-				case 2:
-					_0024self__00242431.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242431.running = false;
-					goto IL_015a;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_015a:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Shroom _0024self__00242432;
-
-		public _0024FaceRight_00242428(Shroom self_)
-		{
-			_0024self__00242432 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242432);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024FaceLeft_00242433 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024877_00242434;
-
-			internal Vector3 _0024_0024878_00242435;
-
-			internal Shroom _0024self__00242436;
-
-			public _0024(Shroom self_)
-			{
-				_0024self__00242436 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242436.atking && Network.isServer && !_0024self__00242436.running)
-					{
-						int num = (_0024_0024877_00242434 = 8);
-						Vector3 vector = (_0024_0024878_00242435 = _0024self__00242436.r.velocity);
-						float num2 = (_0024_0024878_00242435.y = _0024_0024877_00242434);
-						Vector3 vector3 = (_0024self__00242436.r.velocity = _0024_0024878_00242435);
-						_0024self__00242436.running = true;
-						_0024self__00242436.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-						_0024self__00242436.GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
-						_0024self__00242436.spdd = UnityEngine.Random.Range(-1, 2) * 4;
-						if (_0024self__00242436.spdd == 0)
-						{
-							_0024self__00242436.spdd = -4;
-						}
-						result = (Yield(2, new WaitForSeconds((float)UnityEngine.Random.Range(1, 2) * 0.3f)) ? 1 : 0);
-						break;
-					}
-					goto IL_015b;
-				case 2:
-					_0024self__00242436.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00242436.running = false;
-					goto IL_015b;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_015b:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Shroom _0024self__00242437;
-
-		public _0024FaceLeft_00242433(Shroom self_)
-		{
-			_0024self__00242437 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242437);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TRY_00242438 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal Shroom _0024self__00242439;
-
-			public _0024(Shroom self_)
-			{
-				_0024self__00242439 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242439.TRYatking = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Shroom _0024self__00242440;
-
-		public _0024TRY_00242438(Shroom self_)
-		{
-			_0024self__00242440 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242440);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ATTACK_00242441 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal Shroom _0024self__00242442;
-
-			public _0024(Shroom self_)
-			{
-				_0024self__00242442 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242442.atking = true;
-					_0024self__00242442.spdd = 0;
-					_0024self__00242442.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-					result = (Yield(2, new WaitForSeconds(0.35f)) ? 1 : 0);
-					break;
-				case 2:
-					result = (Yield(3, new WaitForSeconds(1.2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00242442.atking = false;
-					_0024self__00242442.TRYatking = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Shroom _0024self__00242443;
-
-		public _0024ATTACK_00242441(Shroom self_)
-		{
-			_0024self__00242443 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242443);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ATK_00242444 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal Shroom _0024self__00242445;
-
-			public _0024(Shroom self_)
-			{
-				_0024self__00242445 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242445.@base.GetComponent<Animation>().Play("r");
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242445.swordBox.SetActive(value: true);
-					result = (Yield(3, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00242445.swordBox.SetActive(value: false);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Shroom _0024self__00242446;
-
-		public _0024ATK_00242444(Shroom self_)
-		{
-			_0024self__00242446 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242446);
-		}
-	}
-
+    public virtual IEnumerator FaceLeft()
+    {
+        if (!atking && Network.isServer && !running)
+        {
+            int num = 8;
+            Vector3 vector = r.velocity;
+            vector.y = num;
+            r.velocity = vector;
+            running = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
+            spdd = UnityEngine.Random.Range(-1, 2) * 4;
+            if (spdd == 0)
+            {
+                spdd = -4;
+            }
+            yield return new WaitForSeconds((float)UnityEngine.Random.Range(1, 2) * 0.3f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            running = false;
+        }
+    }
+    private IEnumerator TRY()
+    {
+        yield return new WaitForSeconds(1f);
+        TRYatking = false;
+    }
+    public virtual IEnumerator ATTACK()
+    {
+        atking = true;
+        spdd = 0;
+        GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(1.2f);
+        atking = false;
+        TRYatking = false;
+    }
+    public virtual IEnumerator ATK()
+    {
+        base.GetComponent<Animation>().Play("r");
+        yield return new WaitForSeconds(0.2f);
+        swordBox.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        swordBox.SetActive(false);
+    }
+	
 	public GameObject swordBox;
 
 	public AudioClip audioMove;
@@ -403,26 +167,6 @@ public class Shroom : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator FaceRight()
-	{
-		return new _0024FaceRight_00242428(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator FaceLeft()
-	{
-		return new _0024FaceLeft_00242433(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator TRY()
-	{
-		return new _0024TRY_00242438(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ATTACK()
-	{
-		return new _0024ATTACK_00242441(this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void Turn(int a)
 	{
@@ -446,12 +190,6 @@ public class Shroom : EnemyScript
 	public virtual void RUN()
 	{
 		@base.GetComponent<Animation>().Play("a");
-	}
-
-	[RPC]
-	public virtual IEnumerator ATK()
-	{
-		return new _0024ATK_00242444(this).GetEnumerator();
 	}
 
 	[RPC]
