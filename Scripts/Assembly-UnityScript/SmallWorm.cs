@@ -2,271 +2,63 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class SmallWorm : MonoBehaviour
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00242544 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00242545;
+    public virtual IEnumerator Start()
+    {
+        HP = maxHP;
+        drops = new int[3] { 7, 18, 0 };
+        t = transform;
+        Initialize();
+        if (isHead)
+        {
+            mainHead.GetComponent<Animation>().Play();
+            yield return new WaitForSeconds(0.1f);
+            for (int i = 0; i < 5; i++)
+            {
+                parts[i].GetComponent<Animation>().Play("wBody");
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+    }
+    IEnumerator Attack()
+    {
+        time = UnityEngine.Random.Range(8, 11);
+        curVector = player.transform.position - t.position;
+        attacking = true;
+        yield return new WaitForSeconds(time);
+        attacking = false;
+    }
 
-			internal SmallWorm _0024self__00242546;
-
-			public _0024(SmallWorm self_)
-			{
-				_0024self__00242546 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242546.HP = _0024self__00242546.maxHP;
-					_0024self__00242546.drops = new int[3] { 7, 18, 0 };
-					_0024self__00242546.t = _0024self__00242546.transform;
-					_0024self__00242546.Initialize();
-					if (_0024self__00242546.isHead)
-					{
-						_0024i_00242545 = default(int);
-						_0024self__00242546.mainHead.GetComponent<Animation>().Play();
-						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0112;
-				case 2:
-					_0024i_00242545 = 0;
-					goto IL_0106;
-				case 3:
-					_0024i_00242545++;
-					goto IL_0106;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0106:
-					if (_0024i_00242545 < 5)
-					{
-						_0024self__00242546.parts[_0024i_00242545].GetComponent<Animation>().Play("wBody");
-						result = (Yield(3, new WaitForSeconds(0.1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0112;
-					IL_0112:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal SmallWorm _0024self__00242547;
-
-		public _0024Start_00242544(SmallWorm self_)
-		{
-			_0024self__00242547 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242547);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Attack_00242548 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal SmallWorm _0024self__00242549;
-
-			public _0024(SmallWorm self_)
-			{
-				_0024self__00242549 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242549.time = UnityEngine.Random.Range(8, 11);
-					_0024self__00242549.curVector = _0024self__00242549.player.transform.position - _0024self__00242549.t.position;
-					_0024self__00242549.attacking = true;
-					result = (Yield(2, new WaitForSeconds(_0024self__00242549.time)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242549.attacking = false;
-					goto default;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal SmallWorm _0024self__00242550;
-
-		public _0024Attack_00242548(SmallWorm self_)
-		{
-			_0024self__00242550 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242550);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TDN_00242551 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024dmg_00242552;
-
-			internal SmallWorm _0024self__00242553;
-
-			public _0024(int dmg, SmallWorm self_)
-			{
-				_0024dmg_00242552 = dmg;
-				_0024self__00242553 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242553.takingDamage = true;
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242553.HP -= _0024dmg_00242552;
-					if (_0024self__00242553.HP < 1)
-					{
-						_0024self__00242553.Die();
-					}
-					else
-					{
-						_0024self__00242553.takingDamage = false;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024dmg_00242554;
-
-		internal SmallWorm _0024self__00242555;
-
-		public _0024TDN_00242551(int dmg, SmallWorm self_)
-		{
-			_0024dmg_00242554 = dmg;
-			_0024self__00242555 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024dmg_00242554, _0024self__00242555);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TDN2_00242556 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024n2_00242557;
-
-			internal int _0024dmg_00242558;
-
-			internal SmallWorm _0024self__00242559;
-
-			public _0024(int dmg, SmallWorm self_)
-			{
-				_0024dmg_00242558 = dmg;
-				_0024self__00242559 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024n2_00242557 = (GameObject)UnityEngine.Object.Instantiate((GameObject)Resources.Load("TD", typeof(GameObject)), _0024self__00242559.t.position, Quaternion.identity);
-					_0024n2_00242557.SendMessage("SD", _0024dmg_00242558);
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-					if (_0024self__00242559.HP < 1)
-					{
-						goto IL_00dc;
-					}
-					result = (Yield(4, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00242559.takingDamage = false;
-					goto IL_00dc;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00dc:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024dmg_00242560;
-
-		internal SmallWorm _0024self__00242561;
-
-		public _0024TDN2_00242556(int dmg, SmallWorm self_)
-		{
-			_0024dmg_00242560 = dmg;
-			_0024self__00242561 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024dmg_00242560, _0024self__00242561);
-		}
-	}
+    public virtual IEnumerator TDN(int dmg)
+    {
+        takingDamage = true;
+        yield return new WaitForSeconds(0.2f);
+        HP -= dmg;
+        if (HP < 1)
+        {
+            Die();
+        }
+        else
+        {
+            takingDamage = false;
+        }
+    }
+    public virtual IEnumerator TDN2(int dmg)
+    {
+        GameObject n2 = (GameObject)UnityEngine.Object.Instantiate((GameObject)Resources.Load("TD", typeof(GameObject)), t.position, Quaternion.identity);
+        n2.SendMessage("SD", dmg);
+        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f);
+        if (HP >= 1)
+        {
+            yield return new WaitForSeconds(0.2f);
+            takingDamage = false;
+        }
+    }
 
 	public bool isHead;
 
@@ -316,10 +108,6 @@ public class SmallWorm : MonoBehaviour
 		drops = new int[3];
 	}
 
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00242544(this).GetEnumerator();
-	}
 
 	public virtual void Initialize()
 	{
@@ -328,10 +116,6 @@ public class SmallWorm : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator Attack()
-	{
-		return new _0024Attack_00242548(this).GetEnumerator();
-	}
 
 	public virtual void Update()
 	{
@@ -366,18 +150,6 @@ public class SmallWorm : MonoBehaviour
 			GetComponent<NetworkView>().RPC("TDN", RPCMode.All, dmg);
 			GetComponent<NetworkView>().RPC("TDN2", RPCMode.All, dmg);
 		}
-	}
-
-	[RPC]
-	public virtual IEnumerator TDN(int dmg)
-	{
-		return new _0024TDN_00242551(dmg, this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator TDN2(int dmg)
-	{
-		return new _0024TDN2_00242556(dmg, this).GetEnumerator();
 	}
 
 	public virtual void Die()
