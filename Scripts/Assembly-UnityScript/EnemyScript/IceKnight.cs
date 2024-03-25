@@ -8,308 +8,76 @@ using UnityEngine;
 [Serializable]
 public class IceKnight : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024FaceRight_00241879 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024631_00241880;
+    public virtual IEnumerator FaceRight()
+    {
+        if (!atking && Network.isServer && !running)
+        {
+            int num = 8;
+            Vector3 vector = r.velocity;
+            vector.y = num;
+            r.velocity = vector;
+            running = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
+            GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
+            spdd = UnityEngine.Random.Range(-1, 2) * 4;
+            if (spdd == 0)
+            {
+                spdd = 4;
+            }
+            yield return new WaitForSeconds((float)UnityEngine.Random.Range(1, 3) * 0.3f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            running = false;
+        }
+        yield break;
+    }
 
-			internal Vector3 _0024_0024632_00241881;
+    public virtual IEnumerator FaceLeft()
+    {
+        if (!atking && Network.isServer && !running)
+        {
+            int num = 8;
+            Vector3 vector = r.velocity;
+            vector.y = num;
+            r.velocity = vector;
+            running = true;
+            GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
+            GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
+            spdd = UnityEngine.Random.Range(-1, 2) * 4;
+            if (spdd == 0)
+            {
+                spdd = -4;
+            }
+            yield return new WaitForSeconds((float)UnityEngine.Random.Range(1, 2) * 0.3f);
+            GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
+            running = false;
+        }
+        yield break;
+    }
 
-			internal IceKnight _0024self__00241882;
+    public virtual IEnumerator TRY()
+    {
+        yield return new WaitForSeconds(1f);
+        TRYatking = false;
+    }
 
-			public _0024(IceKnight self_)
-			{
-				_0024self__00241882 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241882.atking && Network.isServer && !_0024self__00241882.running)
-					{
-						int num = (_0024_0024631_00241880 = 8);
-						Vector3 vector = (_0024_0024632_00241881 = _0024self__00241882.r.velocity);
-						float num2 = (_0024_0024632_00241881.y = _0024_0024631_00241880);
-						Vector3 vector3 = (_0024self__00241882.r.velocity = _0024_0024632_00241881);
-						_0024self__00241882.running = true;
-						_0024self__00241882.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 1);
-						_0024self__00241882.GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
-						_0024self__00241882.spdd = UnityEngine.Random.Range(-1, 2) * 4;
-						if (_0024self__00241882.spdd == 0)
-						{
-							_0024self__00241882.spdd = 4;
-						}
-						result = (Yield(2, new WaitForSeconds((float)UnityEngine.Random.Range(1, 3) * 0.3f)) ? 1 : 0);
-						break;
-					}
-					goto IL_015a;
-				case 2:
-					_0024self__00241882.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00241882.running = false;
-					goto IL_015a;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_015a:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal IceKnight _0024self__00241883;
-
-		public _0024FaceRight_00241879(IceKnight self_)
-		{
-			_0024self__00241883 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241883);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024FaceLeft_00241884 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024633_00241885;
-
-			internal Vector3 _0024_0024634_00241886;
-
-			internal IceKnight _0024self__00241887;
-
-			public _0024(IceKnight self_)
-			{
-				_0024self__00241887 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241887.atking && Network.isServer && !_0024self__00241887.running)
-					{
-						int num = (_0024_0024633_00241885 = 8);
-						Vector3 vector = (_0024_0024634_00241886 = _0024self__00241887.r.velocity);
-						float num2 = (_0024_0024634_00241886.y = _0024_0024633_00241885);
-						Vector3 vector3 = (_0024self__00241887.r.velocity = _0024_0024634_00241886);
-						_0024self__00241887.running = true;
-						_0024self__00241887.GetComponent<NetworkView>().RPC("Turn", RPCMode.All, 0);
-						_0024self__00241887.GetComponent<NetworkView>().RPC("RUN", RPCMode.All);
-						_0024self__00241887.spdd = UnityEngine.Random.Range(-1, 2) * 4;
-						if (_0024self__00241887.spdd == 0)
-						{
-							_0024self__00241887.spdd = -4;
-						}
-						result = (Yield(2, new WaitForSeconds((float)UnityEngine.Random.Range(1, 2) * 0.3f)) ? 1 : 0);
-						break;
-					}
-					goto IL_015b;
-				case 2:
-					_0024self__00241887.GetComponent<NetworkView>().RPC("IDLE", RPCMode.All);
-					_0024self__00241887.running = false;
-					goto IL_015b;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_015b:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal IceKnight _0024self__00241888;
-
-		public _0024FaceLeft_00241884(IceKnight self_)
-		{
-			_0024self__00241888 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241888);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TRY_00241889 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal IceKnight _0024self__00241890;
-
-			public _0024(IceKnight self_)
-			{
-				_0024self__00241890 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241890.TRYatking = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal IceKnight _0024self__00241891;
-
-		public _0024TRY_00241889(IceKnight self_)
-		{
-			_0024self__00241891 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241891);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ATTACK_00241892 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal IceKnight _0024self__00241893;
-
-			public _0024(IceKnight self_)
-			{
-				_0024self__00241893 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241893.atking = true;
-					_0024self__00241893.spdd = 0;
-					_0024self__00241893.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-					result = (Yield(2, new WaitForSeconds(0.35f)) ? 1 : 0);
-					break;
-				case 2:
-					result = (Yield(3, new WaitForSeconds(1.2f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241893.atking = false;
-					_0024self__00241893.TRYatking = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal IceKnight _0024self__00241894;
-
-		public _0024ATTACK_00241892(IceKnight self_)
-		{
-			_0024self__00241894 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241894);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ATK_00241895 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal IceKnight _0024self__00241896;
-
-			public _0024(IceKnight self_)
-			{
-				_0024self__00241896 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241896.@base.GetComponent<Animation>().Play("a");
-					result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241896.swordBox.SetActive(value: true);
-					result = (Yield(3, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241896.swordBox.SetActive(value: false);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal IceKnight _0024self__00241897;
-
-		public _0024ATK_00241895(IceKnight self_)
-		{
-			_0024self__00241897 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241897);
-		}
-	}
-
+    public virtual IEnumerator ATTACK()
+    {
+        atking = true;
+        spdd = 0;
+        GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(1.2f);
+        atking = false;
+        TRYatking = false;
+    }
+    public virtual IEnumerator ATK()
+    {
+        base.GetComponent<Animation>().Play("a");
+        yield return new WaitForSeconds(0.3f);
+        swordBox.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        swordBox.SetActive(false);
+    }
 	public GameObject swordBox;
 
 	public AudioClip audioMove;
@@ -403,25 +171,6 @@ public class IceKnight : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator FaceRight()
-	{
-		return new _0024FaceRight_00241879(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator FaceLeft()
-	{
-		return new _0024FaceLeft_00241884(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator TRY()
-	{
-		return new _0024TRY_00241889(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator ATTACK()
-	{
-		return new _0024ATTACK_00241892(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void Turn(int a)
@@ -448,11 +197,6 @@ public class IceKnight : EnemyScript
 		@base.GetComponent<Animation>().Play("r");
 	}
 
-	[RPC]
-	public virtual IEnumerator ATK()
-	{
-		return new _0024ATK_00241895(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void IDLE()
