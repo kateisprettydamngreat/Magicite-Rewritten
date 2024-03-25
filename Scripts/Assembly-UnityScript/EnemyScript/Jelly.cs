@@ -8,133 +8,40 @@ using UnityEngine;
 [Serializable]
 public class Jelly : EnemyScript
 {
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Summon_00241930 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024g_00241931;
-
-			internal Jelly _0024self__00241932;
-
-			public _0024(Jelly self_)
-			{
-				_0024self__00241932 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024g_00241931 = null;
-					goto IL_0027;
-				case 2:
-					if (_0024self__00241932.atking && (bool)_0024self__00241932.player && _0024self__00241932.canFire)
-					{
-						_0024self__00241932.GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
-						result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0027;
-				case 3:
-					_0024g_00241931 = (GameObject)Network.Instantiate(Resources.Load("haz/jellyFire"), _0024self__00241932.transform.position, Quaternion.identity, 0);
-					_0024g_00241931.GetComponent<NetworkView>().RPC("Set", RPCMode.All, _0024self__00241932.player.transform.position);
-					goto IL_0027;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0027:
-					result = (Yield(2, new WaitForSeconds(1.5f)) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Jelly _0024self__00241933;
-
-		public _0024Summon_00241930(Jelly self_)
-		{
-			_0024self__00241933 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241933);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Attack_00241934 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal Jelly _0024self__00241935;
-
-			public _0024(Jelly self_)
-			{
-				_0024self__00241935 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					if ((bool)_0024self__00241935.player)
-					{
-						_0024self__00241935.curVector = _0024self__00241935.player.transform.position - _0024self__00241935.t.position;
-						if (!(_0024self__00241935.player.transform.position.x <= _0024self__00241935.t.position.x))
-						{
-							_0024self__00241935.e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-						}
-						else
-						{
-							_0024self__00241935.e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-						}
-						_0024self__00241935.atking = true;
-						result = (Yield(3, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto case 3;
-				case 3:
-					_0024self__00241935.atking = false;
-					goto default;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Jelly _0024self__00241936;
-
-		public _0024Attack_00241934(Jelly self_)
-		{
-			_0024self__00241936 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241936);
-		}
-	}
-
+    public virtual IEnumerator Summon()
+    {
+        GameObject g = null;
+        while (true)
+        {
+            if (atking && player && canFire)
+            {
+                GetComponent<NetworkView>().RPC("ATK", RPCMode.All);
+                yield return new WaitForSeconds(0.3f);
+                g = (GameObject)Network.Instantiate(Resources.Load("haz/jellyFire"), transform.position, Quaternion.identity, 0);
+                g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, player.transform.position);
+            }
+            yield return new WaitForSeconds(1.5f);
+        }
+    }
+    public virtual IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(1f);
+        if ((bool)player)
+        {
+            curVector = player.transform.position - t.position;
+            if (!(player.transform.position.x <= t.position.x))
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+            else
+            {
+                e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+            atking = true;
+            yield return new WaitForSeconds(1f);
+        }
+        atking = false;
+    }
 	private GameObject player;
 
 	private bool atking;
@@ -169,10 +76,7 @@ public class Jelly : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator Summon()
-	{
-		return new _0024Summon_00241930(this).GetEnumerator();
-	}
+
 
 	public virtual void SetPlayer(GameObject g)
 	{
@@ -195,10 +99,6 @@ public class Jelly : EnemyScript
 		}
 	}
 
-	public virtual IEnumerator Attack()
-	{
-		return new _0024Attack_00241934(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void ATK()
