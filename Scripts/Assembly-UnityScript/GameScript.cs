@@ -3022,488 +3022,246 @@ public class GameScript : MonoBehaviour
 		return new _0024UseItem_00241677(slot, this).GetEnumerator();
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024MeleeAttack_00241738 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal float _0024temp_00241739;
+    public virtual IEnumerator MeleeAttack()
+    {
+        float temp = default(float);
+        if (canAttack && HP > 0 && !isCat)
+        {
+            ATKING = true;
+            attacking = true;
+            canAttack = false;
+            @using = true;
+            temp = SPD;
+            SPD *= 0.5f;
+            PlayerController.mode = 3;
+            player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, atkAnim);
+            if (MenuScript.pHat == 19)
+            {
+                int nuu = UnityEngine.Random.Range(0, 10);
+                if (nuu == 0)
+                {
+                    vBonus = ATK;
+                    player.GetComponent<NetworkView>().RPC("VN", RPCMode.All, 1);
+                }
+            }
+            yield return new WaitForSeconds(atkWait);
+            PlayerControllerN.aCube.SetActive(value: true);
+            int id = inventory[curActiveSlot].id;
+            if (id == 565 && MAG >= 1)
+            {
+                UseMana(1);
+                Network.Instantiate(Resources.Load("haz/fE"), PlayerControllerN.aCube.transform.position, Quaternion.identity, 0);
+            }
+            else if (id == 568)
+            {
+                Ice();
+            }
+            else if (id == 569)
+            {
+                Fireball();
+            }
+            else if (id == 570)
+            {
+                Bolt();
+            }
+            if (MenuScript.pHat == 8 && id == 0 && MAG >= 1)
+            {
+                UseMana(1);
+                GameObject gg = (GameObject)Network.Instantiate(Resources.Load("rckP"), new Vector3(PlayerControllerN.aCube.transform.position.x, player.transform.position.y + 35f, 0f), Quaternion.identity, 0);
+                gg.GetComponent<NetworkView>().RPC("SetH", RPCMode.All, MAXMAG);
+            }
+            else if (MenuScript.pHat == 16 && id == 0 && MAG >= 1)
+            {
+                UseMana(1);
+                GameObject f = null;
+                if (facingLeft)
+                {
+                    f = (GameObject)Network.Instantiate(Resources.Load("proj/fireballL"), player.transform.position, Quaternion.identity, 0);
+                }
+                else
+                {
+                    f = (GameObject)Network.Instantiate(Resources.Load("proj/fireballR"), player.transform.position, Quaternion.identity, 0);
+                }
+                f.SendMessage("Set", MAXMAG);
+            }
+            else if (MenuScript.pHat == 21 && id == 0 && MAG > 0)
+            {
+                if (facingLeft)
+                {
+                    Network.Instantiate(Resources.Load("e/summon"), player.transform.position, Quaternion.Euler(0f, 180f, 0f), 0);
+                }
+                else
+                {
+                    Network.Instantiate(Resources.Load("e/summon"), player.transform.position, Quaternion.Euler(0f, 0f, 0f), 0);
+                }
+                UseMana(1);
+            }
+            yield return new WaitForSeconds(0.2f);
+            PlayerControllerN.aCube.SetActive(value: false);
+            if (vBonus > 0)
+            {
+                StartCoroutine(v());
+            }
+            SPD = temp;
+            canAttack = true;
+            @using = false;
+            attacking = false;
+            ATKING = false;
+        }
+    }
+    public virtual IEnumerator v()
+    {
+        yield return new WaitForSeconds(0.2f);
+        vBonus = 0;
+        player.GetComponent<NetworkView>().RPC("VN", RPCMode.All, 0);
+    }
+    public virtual IEnumerator KnockBack(Transform h)
+    {
+        int num5 = 5;
+        Vector3 velocity = h.GetComponent<Rigidbody>().velocity;
+        velocity.y = num5;
+        h.GetComponent<Rigidbody>().velocity = velocity;
 
-			internal int _0024nuu_00241740;
+        if (h.position.x <= player.transform.position.x)
+        {
+            int num7 = -15;
+            velocity = h.GetComponent<Rigidbody>().velocity;
+            velocity.x = num7;
+            h.GetComponent<Rigidbody>().velocity = velocity;
+        }
+        else
+        {
+            int num9 = 15;
+            velocity = h.GetComponent<Rigidbody>().velocity;
+            velocity.x = num9;
+            h.GetComponent<Rigidbody>().velocity = velocity;
+        }
 
-			internal int _0024id_00241741;
+        yield return new WaitForSeconds(0.1f);
 
-			internal GameObject _0024gg_00241742;
+        if (h != null)
+        {
+            int num = 0;
+            velocity = h.GetComponent<Rigidbody>().velocity;
+            velocity.y = num;
+            h.GetComponent<Rigidbody>().velocity = velocity;
+            int num3 = 0;
+            velocity = h.GetComponent<Rigidbody>().velocity;
+            velocity.x = num3;
+            h.GetComponent<Rigidbody>().velocity = velocity;
+        }
+    }
 
-			internal GameObject _0024f_00241743;
+    public IEnumerator GenerateLevel()
+    {
+        int enterHeight = 0;
+        int exitHeight = 0;
+        int type = default(int);
+        int height = 0;
+        curZone = 0;
+        int i = 0;
 
-			internal GameScript _0024self__00241744;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241744 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024temp_00241739 = default(float);
-					if (_0024self__00241744.canAttack && HP > 0 && !isCat)
-					{
-						_0024self__00241744.ATKING = true;
-						attacking = true;
-						_0024self__00241744.canAttack = false;
-						_0024self__00241744.@using = true;
-						_0024temp_00241739 = SPD;
-						SPD *= 0.5f;
-						PlayerController.mode = 3;
-						player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, _0024self__00241744.atkAnim);
-						if (MenuScript.pHat == 19)
-						{
-							_0024nuu_00241740 = UnityEngine.Random.Range(0, 10);
-							if (_0024nuu_00241740 == 0)
-							{
-								vBonus = _0024self__00241744.ATK;
-								player.GetComponent<NetworkView>().RPC("VN", RPCMode.All, 1);
-							}
-						}
-						result = (Yield(2, new WaitForSeconds(_0024self__00241744.atkWait)) ? 1 : 0);
-						break;
-					}
-					goto IL_0486;
-				case 2:
-					PlayerControllerN.aCube.SetActive(value: true);
-					_0024id_00241741 = inventory[curActiveSlot].id;
-					if (_0024id_00241741 == 565 && MAG >= 1)
-					{
-						_0024self__00241744.UseMana(1);
-						Network.Instantiate(Resources.Load("haz/fE"), PlayerControllerN.aCube.transform.position, Quaternion.identity, 0);
-					}
-					else if (_0024id_00241741 == 568)
-					{
-						_0024self__00241744.Ice();
-					}
-					else if (_0024id_00241741 == 569)
-					{
-						_0024self__00241744.Fireball();
-					}
-					else if (_0024id_00241741 == 570)
-					{
-						_0024self__00241744.Bolt();
-					}
-					if (MenuScript.pHat == 8 && _0024id_00241741 == 0 && MAG >= 1)
-					{
-						_0024self__00241744.UseMana(1);
-						_0024gg_00241742 = (GameObject)Network.Instantiate(Resources.Load("rckP"), new Vector3(PlayerControllerN.aCube.transform.position.x, player.transform.position.y + 35f, 0f), Quaternion.identity, 0);
-						_0024gg_00241742.GetComponent<NetworkView>().RPC("SetH", RPCMode.All, MAXMAG);
-					}
-					else if (MenuScript.pHat == 16 && _0024id_00241741 == 0 && MAG >= 1)
-					{
-						_0024self__00241744.UseMana(1);
-						_0024f_00241743 = null;
-						if (facingLeft)
-						{
-							_0024f_00241743 = (GameObject)Network.Instantiate(Resources.Load("proj/fireballL"), player.transform.position, Quaternion.identity, 0);
-						}
-						else
-						{
-							_0024f_00241743 = (GameObject)Network.Instantiate(Resources.Load("proj/fireballR"), player.transform.position, Quaternion.identity, 0);
-						}
-						_0024f_00241743.SendMessage("Set", MAXMAG);
-					}
-					else if (MenuScript.pHat == 21 && _0024id_00241741 == 0 && MAG > 0)
-					{
-						if (facingLeft)
-						{
-							Network.Instantiate(Resources.Load("e/summon"), player.transform.position, Quaternion.Euler(0f, 180f, 0f), 0);
-						}
-						else
-						{
-							Network.Instantiate(Resources.Load("e/summon"), player.transform.position, Quaternion.Euler(0f, 0f, 0f), 0);
-						}
-						_0024self__00241744.UseMana(1);
-					}
-					result = (Yield(3, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 3:
-					PlayerControllerN.aCube.SetActive(value: false);
-					if (vBonus > 0)
-					{
-						_0024self__00241744.StartCoroutine_Auto(_0024self__00241744.v());
-					}
-					SPD = _0024temp_00241739;
-					_0024self__00241744.canAttack = true;
-					_0024self__00241744.@using = false;
-					attacking = false;
-					_0024self__00241744.ATKING = false;
-					goto IL_0486;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0486:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241745;
-
-		public _0024MeleeAttack_00241738(GameScript self_)
-		{
-			_0024self__00241745 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241745);
-		}
-	}
-	public virtual IEnumerator MeleeAttack()
-	{
-		return new _0024MeleeAttack_00241738(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024v_00241746 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					vBonus = 0;
-					player.GetComponent<NetworkView>().RPC("VN", RPCMode.All, 0);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			//yield-return decompiler failed: Method not found
-			return new _0024();
-		}
-	}
-	public virtual IEnumerator v()
-	{
-		return new _0024v_00241746().GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024KnockBack_00241747 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024571_00241748;
-
-			internal Vector3 _0024_0024572_00241749;
-
-			internal int _0024_0024573_00241750;
-
-			internal Vector3 _0024_0024574_00241751;
-
-			internal int _0024_0024575_00241752;
-
-			internal Vector3 _0024_0024576_00241753;
-
-			internal int _0024_0024577_00241754;
-
-			internal Vector3 _0024_0024578_00241755;
-
-			internal int _0024_0024579_00241756;
-
-			internal Vector3 _0024_0024580_00241757;
-
-			internal Transform _0024h_00241758;
-
-			public _0024(Transform h)
-			{
-				_0024h_00241758 = h;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-				{
-					int num5 = (_0024_0024571_00241748 = 5);
-					Vector3 vector7 = (_0024_0024572_00241749 = _0024h_00241758.GetComponent<Rigidbody>().velocity);
-					float num6 = (_0024_0024572_00241749.y = _0024_0024571_00241748);
-					Vector3 vector9 = (_0024h_00241758.GetComponent<Rigidbody>().velocity = _0024_0024572_00241749);
-					if (_0024h_00241758.position.x <= player.transform.position.x)
-					{
-						int num7 = (_0024_0024575_00241752 = -15);
-						Vector3 vector10 = (_0024_0024576_00241753 = _0024h_00241758.GetComponent<Rigidbody>().velocity);
-						float num8 = (_0024_0024576_00241753.x = _0024_0024575_00241752);
-						Vector3 vector12 = (_0024h_00241758.GetComponent<Rigidbody>().velocity = _0024_0024576_00241753);
-					}
-					else
-					{
-						int num9 = (_0024_0024573_00241750 = 15);
-						Vector3 vector13 = (_0024_0024574_00241751 = _0024h_00241758.GetComponent<Rigidbody>().velocity);
-						float num10 = (_0024_0024574_00241751.x = _0024_0024573_00241750);
-						Vector3 vector15 = (_0024h_00241758.GetComponent<Rigidbody>().velocity = _0024_0024574_00241751);
-					}
-					result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-					break;
-				}
-				case 2:
-					if ((bool)_0024h_00241758)
-					{
-						int num = (_0024_0024577_00241754 = 0);
-						Vector3 vector = (_0024_0024578_00241755 = _0024h_00241758.GetComponent<Rigidbody>().velocity);
-						float num2 = (_0024_0024578_00241755.y = _0024_0024577_00241754);
-						Vector3 vector3 = (_0024h_00241758.GetComponent<Rigidbody>().velocity = _0024_0024578_00241755);
-						int num3 = (_0024_0024579_00241756 = 0);
-						Vector3 vector4 = (_0024_0024580_00241757 = _0024h_00241758.GetComponent<Rigidbody>().velocity);
-						float num4 = (_0024_0024580_00241757.x = _0024_0024579_00241756);
-						Vector3 vector6 = (_0024h_00241758.GetComponent<Rigidbody>().velocity = _0024_0024580_00241757);
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal Transform _0024h_00241759;
-
-		public _0024KnockBack_00241747(Transform h)
-		{
-			_0024h_00241759 = h;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024h_00241759);
-		}
-	}
-	public virtual IEnumerator KnockBack(Transform h)
-	{
-		return new _0024KnockBack_00241747(h).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024GenerateLevel_00241760 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024enterHeight_00241761;
-
-			internal int _0024exitHeight_00241762;
-
-			internal int _0024type_00241763;
-
-			internal int _0024height_00241764;
-
-			internal int _0024i_00241765;
-
-			internal int _0024gog2_00241766;
-
-			internal int _0024_0024switch_0024261_00241767;
-
-			internal int _0024_0024switch_0024263_00241768;
-
-			internal GameScript _0024self__00241769;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241769 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024enterHeight_00241761 = 0;
-					_0024exitHeight_00241762 = 0;
-					_0024type_00241763 = default(int);
-					_0024height_00241764 = 0;
-					curZone = 0;
-					_0024i_00241765 = 0;
-					if (Network.isServer && !_0024self__00241769.generatingLevel)
-					{
-						_0024self__00241769.generatingLevel = true;
-						Network.Instantiate(Resources.Load("z/zEntrance"), new Vector3(0f, 0f, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
-						_0024gog2_00241766 = UnityEngine.Random.Range(4, 6);
-						for (_0024i_00241765 = 0; _0024i_00241765 < _0024gog2_00241766; _0024i_00241765++)
-						{
-							if (curBiome != 8 && curBiome != 9)
-							{
-								_0024type_00241763 = UnityEngine.Random.Range(1, 9);
-							}
-							else if (curBiome == 8)
-							{
-								_0024type_00241763 = UnityEngine.Random.Range(1, 3);
-							}
-							else if (curBiome == 9)
-							{
-								_0024type_00241763 = UnityEngine.Random.Range(1, 4);
-								if (_0024type_00241763 == 3)
-								{
-									_0024type_00241763 = 7;
-								}
-							}
-							_0024_0024switch_0024261_00241767 = _0024type_00241763;
-							if (_0024_0024switch_0024261_00241767 == 1)
-							{
-								_0024enterHeight_00241761 -= 8;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 2)
-							{
-								_0024enterHeight_00241761 += 8;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 3)
-							{
-								_0024enterHeight_00241761 -= 8;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 4)
-							{
-								_0024enterHeight_00241761 += 8;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 5)
-							{
-								_0024enterHeight_00241761 -= 8;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 6)
-							{
-								_0024enterHeight_00241761 += 8;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 7)
-							{
-								_0024enterHeight_00241761 += 0;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 8)
-							{
-								_0024enterHeight_00241761 += 0;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 9)
-							{
-								_0024enterHeight_00241761 += 8;
-							}
-							else if (_0024_0024switch_0024261_00241767 == 10)
-							{
-								_0024enterHeight_00241761 += 0;
-							}
-							_0024height_00241764 = _0024exitHeight_00241762 + _0024enterHeight_00241761;
-							Network.Instantiate(Resources.Load("z/zone" + _0024type_00241763), new Vector3(_0024i_00241765 * 64 + 40, _0024height_00241764, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
-							_0024_0024switch_0024263_00241768 = _0024type_00241763;
-							if (_0024_0024switch_0024263_00241768 == 1)
-							{
-								_0024exitHeight_00241762 -= 8;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 2)
-							{
-								_0024exitHeight_00241762 += 8;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 3)
-							{
-								_0024exitHeight_00241762 -= 8;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 4)
-							{
-								_0024exitHeight_00241762 += 8;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 5)
-							{
-								_0024exitHeight_00241762 -= 8;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 6)
-							{
-								_0024exitHeight_00241762 += 8;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 7)
-							{
-								_0024exitHeight_00241762 += 0;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 8)
-							{
-								_0024exitHeight_00241762 += 0;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 9)
-							{
-								_0024exitHeight_00241762 += 0;
-							}
-							else if (_0024_0024switch_0024263_00241768 == 10)
-							{
-								_0024exitHeight_00241762 -= 8;
-							}
-							curZone++;
-						}
-						_0024height_00241764 = _0024exitHeight_00241762 + _0024enterHeight_00241761;
-						Network.Instantiate(Resources.Load("z/zExit"), new Vector3(curZone * 64 + 16, _0024height_00241764, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
-						result = (Yield(2, new WaitForSeconds(5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_04ab;
-				case 2:
-					_0024self__00241769.generatingLevel = false;
-					goto IL_04ab;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_04ab:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241770;
-
-		public _0024GenerateLevel_00241760(GameScript self_)
-		{
-			_0024self__00241770 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241770);
-		}
-	}
-	public virtual IEnumerator GenerateLevel()
-	{
-		return new _0024GenerateLevel_00241760(this).GetEnumerator();
-	}
-	[Serializable]
+        if (Network.isServer && !generatingLevel)
+        {
+            generatingLevel = true;
+            Network.Instantiate(Resources.Load("z/zEntrance"), new Vector3(0f, 0f, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+            int gog2 = UnityEngine.Random.Range(4, 6);
+            for (i = 0; i < gog2; i++)
+            {
+                if (curBiome != 8 && curBiome != 9)
+                {
+                    type = UnityEngine.Random.Range(1, 9);
+                }
+                else if (curBiome == 8)
+                {
+                    type = UnityEngine.Random.Range(1, 3);
+                }
+                else if (curBiome == 9)
+                {
+                    type = UnityEngine.Random.Range(1, 4);
+                    if (type == 3)
+                    {
+                        type = 7;
+                    }
+                }
+                switch (type)
+                {
+                    case 1:
+                        enterHeight -= 8;
+                        break;
+                    case 2:
+                        enterHeight += 8;
+                        break;
+                    case 3:
+                        enterHeight -= 8;
+                        break;
+                    case 4:
+                        enterHeight += 8;
+                        break;
+                    case 5:
+                        enterHeight -= 8;
+                        break;
+                    case 6:
+                        enterHeight += 8;
+                        break;
+                    case 7:
+                        enterHeight += 0;
+                        break;
+                    case 8:
+                        enterHeight += 0;
+                        break;
+                    case 9:
+                        enterHeight += 8;
+                        break;
+                    case 10:
+                        enterHeight += 0;
+                        break;
+                }
+                height = exitHeight + enterHeight;
+                Network.Instantiate(Resources.Load("z/zone" + type), new Vector3(i * 64 + 40, height, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+                switch (type)
+                {
+                    case 1:
+                        exitHeight -= 8;
+                        break;
+                    case 2:
+                        exitHeight += 8;
+                        break;
+                    case 3:
+                        exitHeight -= 8;
+                        break;
+                    case 4:
+                        exitHeight += 8;
+                        break;
+                    case 5:
+                        exitHeight -= 8;
+                        break;
+                    case 6:
+                        exitHeight += 8;
+                        break;
+                    case 7:
+                        exitHeight += 0;
+                        break;
+                    case 8:
+                        exitHeight += 0;
+                        break;
+                    case 9:
+                        exitHeight += 0;
+                        break;
+                    case 10:
+                        exitHeight -= 8;
+                        break;
+                }
+                curZone++;
+            }
+            height = exitHeight + enterHeight;
+            Network.Instantiate(Resources.Load("z/zExit"), new Vector3(curZone * 64 + 16, height, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+            yield return new WaitForSeconds(5f);
+            generatingLevel = false;
+        }
+    }
+ 
+    [Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024Die_00241771 : GenericGenerator<WaitForSeconds>
 	{
@@ -3674,153 +3432,47 @@ public class GameScript : MonoBehaviour
 	{
 		return new _0024Die_00241771(this).GetEnumerator();
 	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ShowStats_00241776 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024i_00241777;
 
-			internal GameScript _0024self__00241778;
 
-			public _0024(GameScript self_)
-			{
-				_0024self__00241778 = self_;
-			}
+    public virtual IEnumerator ShowStats()
+    {
+        int i = 0;
+        txtHighScore[0].text = string.Empty + MenuScript.curScore;
+        txtHighScore[1].text = string.Empty + MenuScript.curScore;
+        i = 1;
+        while (i < 12)
+        {
+            StartCoroutine(StatShow(i));
+            yield return new WaitForSeconds(0.1f);
+            i++;
+        }
+    }
+    private IEnumerator ShowEXP()
+    {
+        int pLevel = GetPlayerLevel();
+        float curEXP = GetCurEXP(pLevel);
+        float cap = GetLevelCap(pLevel);
+        txtLevelEXP.text = "Level: " + pLevel;
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024i_00241777 = default(int);
-					_0024self__00241778.txtHighScore[0].text = string.Empty + MenuScript.curScore;
-					_0024self__00241778.txtHighScore[1].text = string.Empty + MenuScript.curScore;
-					_0024i_00241777 = 1;
-					goto IL_00bc;
-				case 2:
-					_0024i_00241777++;
-					goto IL_00bc;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00bc:
-					if (_0024i_00241777 < 12)
-					{
-						_0024self__00241778.StartCoroutine_Auto(_0024self__00241778.StatShow(_0024i_00241777));
-						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-						break;
-					}
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
+        for (int i = 0; i < tempEXP; i++)
+        {
+            curEXP += 1f;
+            accountEXP++;
 
-		internal GameScript _0024self__00241779;
+            if (curEXP >= cap)
+            {
+                pLevel++;
+                expBack2.GetComponent<Animation>().Play();
+                curEXP = GetCurEXP(pLevel);
+                cap = GetLevelCap(pLevel);
+                txtLevelEXP.text = "Level: " + pLevel;
+            }
 
-		public _0024ShowStats_00241776(GameScript self_)
-		{
-			_0024self__00241779 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241779);
-		}
-	}
-	public virtual IEnumerator ShowStats()
-	{
-		return new _0024ShowStats_00241776(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ShowEXP_00241780 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024pLevel_00241781;
-
-			internal float _0024curEXP_00241782;
-
-			internal float _0024cap_00241783;
-
-			internal int _0024i_00241784;
-
-			internal GameScript _0024self__00241785;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241785 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024pLevel_00241781 = _0024self__00241785.GetPlayerLevel();
-					_0024curEXP_00241782 = _0024self__00241785.GetCurEXP(_0024pLevel_00241781);
-					_0024cap_00241783 = _0024self__00241785.GetLevelCap(_0024pLevel_00241781);
-					_0024self__00241785.txtLevelEXP.text = "Level: " + _0024pLevel_00241781;
-					_0024i_00241784 = default(int);
-					_0024i_00241784 = 0;
-					goto IL_019f;
-				case 2:
-					_0024i_00241784++;
-					goto IL_019f;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_019f:
-					if ((float)_0024i_00241784 < _0024self__00241785.tempEXP)
-					{
-						_0024curEXP_00241782 += 1f;
-						_0024self__00241785.accountEXP++;
-						if (!(_0024curEXP_00241782 < _0024cap_00241783))
-						{
-							_0024pLevel_00241781++;
-							_0024self__00241785.expBack2.GetComponent<Animation>().Play();
-							_0024curEXP_00241782 = _0024self__00241785.GetCurEXP(_0024pLevel_00241781);
-							_0024cap_00241783 = _0024self__00241785.GetLevelCap(_0024pLevel_00241781);
-							_0024self__00241785.txtLevelEXP.text = "Level: " + _0024pLevel_00241781;
-						}
-						_0024self__00241785.txtPercent.text = _0024curEXP_00241782 + "/" + _0024cap_00241783;
-						result = (Yield(2, new WaitForSeconds(0.01f)) ? 1 : 0);
-						break;
-					}
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241786;
-
-		public _0024ShowEXP_00241780(GameScript self_)
-		{
-			_0024self__00241786 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241786);
-		}
-	}
-//orphan????
+            txtPercent.text = curEXP + "/" + cap;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+	//^ maybe orphan.
     public virtual IEnumerator StatShow(int a)
     {
         string s = GetStatsName(a);
