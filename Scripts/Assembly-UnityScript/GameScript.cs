@@ -1030,1191 +1030,414 @@ public class GameScript : MonoBehaviour
         }
     }
 	
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UnlockHat_00241602 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024h_00241603;
-
-			internal GameScript _0024self__00241604;
-
-			public _0024(int h, GameScript self_)
-			{
-				_0024h_00241603 = h;
-				_0024self__00241604 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241604.txtRewardTop[0].text = "NEW HAT UNLOCKED!";
-					_0024self__00241604.rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("hat/hat" + _0024h_00241603);
-					PlayerPrefs.SetInt("hU" + _0024h_00241603, 1);
-					MenuScript.hatUnlock[_0024h_00241603] = 2;
-					_0024self__00241604.txtRewardBot[0].text = string.Empty + _0024self__00241604.GetHatName(_0024h_00241603);
-					_0024self__00241604.txtRewardTop[1].text = _0024self__00241604.txtRewardTop[0].text;
-					_0024self__00241604.txtRewardBot[1].text = _0024self__00241604.txtRewardBot[0].text;
-					_0024self__00241604.rewardShade.SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241604.rewardTop.SetActive(value: true);
-					_0024self__00241604.rewardBot.SetActive(value: true);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024h_00241605;
-
-		internal GameScript _0024self__00241606;
-
-		public _0024UnlockHat_00241602(int h, GameScript self_)
-		{
-			_0024h_00241605 = h;
-			_0024self__00241606 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024h_00241605, _0024self__00241606);
-		}
-	}
-	public virtual IEnumerator UnlockHat(int h)
-	{
-		return new _0024UnlockHat_00241602(h, this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UnlockComp_00241607 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024h_00241608;
-
-			internal GameScript _0024self__00241609;
-
-			public _0024(int h, GameScript self_)
-			{
-				_0024h_00241608 = h;
-				_0024self__00241609 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241609.txtRewardTop[0].text = "NEW COMPANION UNLOCKED!";
-					_0024self__00241609.rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("iComp/c" + _0024h_00241608);
-					MenuScript.companionUnlock[_0024h_00241608] = 2;
-					PlayerPrefs.SetInt("cU" + _0024h_00241608, 1);
-					_0024self__00241609.txtRewardBot[0].text = string.Empty + _0024self__00241609.GetCompName(_0024h_00241608);
-					_0024self__00241609.txtRewardTop[1].text = _0024self__00241609.txtRewardTop[0].text;
-					_0024self__00241609.txtRewardBot[1].text = _0024self__00241609.txtRewardBot[0].text;
-					_0024self__00241609.rewardShade.SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241609.rewardTop.SetActive(value: true);
-					_0024self__00241609.rewardBot.SetActive(value: true);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024h_00241610;
-
-		internal GameScript _0024self__00241611;
-
-		public _0024UnlockComp_00241607(int h, GameScript self_)
-		{
-			_0024h_00241610 = h;
-			_0024self__00241611 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024h_00241610, _0024self__00241611);
-		}
-	}
-	public virtual IEnumerator UnlockComp(int h)
-	{
-		return new _0024UnlockComp_00241607(h, this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UnlockVariant_00241612 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024r_00241613;
-
-			internal GameScript _0024self__00241614;
-
-			public _0024(int r, GameScript self_)
-			{
-				_0024r_00241613 = r;
-				_0024self__00241614 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					MenuScript.raceUnlock[_0024r_00241613 - 1] = MenuScript.raceUnlock[_0024r_00241613 - 1] + 1;
-					PlayerPrefs.SetInt("rU" + (_0024r_00241613 - 1), MenuScript.raceUnlock[_0024r_00241613 - 1]);
-					_0024self__00241614.txtRewardTop[0].text = "NEW VARIANT UNLOCKED!";
-					_0024self__00241614.rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("r/r" + (_0024r_00241613 - 1) + "h" + (MenuScript.raceUnlock[_0024r_00241613 - 1] - 1));
-					_0024self__00241614.txtRewardBot[0].text = string.Empty + _0024self__00241614.GetRaceName(_0024r_00241613 - 1) + " Variant " + MenuScript.raceUnlock[_0024r_00241613 - 1];
-					_0024self__00241614.txtRewardTop[1].text = _0024self__00241614.txtRewardTop[0].text;
-					_0024self__00241614.txtRewardBot[1].text = _0024self__00241614.txtRewardBot[0].text;
-					_0024self__00241614.rewardShade.SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241614.rewardTop.SetActive(value: true);
-					_0024self__00241614.rewardBot.SetActive(value: true);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024r_00241615;
-
-		internal GameScript _0024self__00241616;
-
-		public _0024UnlockVariant_00241612(int r, GameScript self_)
-		{
-			_0024r_00241615 = r;
-			_0024self__00241616 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024r_00241615, _0024self__00241616);
-		}
-	}
-	public virtual IEnumerator UnlockVariant(int r)
-	{
-		return new _0024UnlockVariant_00241612(r, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UnlockRace_00241617 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024h_00241618;
-
-			internal GameScript _0024self__00241619;
-
-			public _0024(int h, GameScript self_)
-			{
-				_0024h_00241618 = h;
-				_0024self__00241619 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241619.txtRewardTop[0].text = "NEW RACE UNLOCKED!";
-					_0024self__00241619.rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("r/r" + (_0024h_00241618 - 1) + "h0");
-					MenuScript.raceUnlock[_0024h_00241618 - 1] = 1;
-					PlayerPrefs.SetInt("rU" + (_0024h_00241618 - 1), 1);
-					_0024self__00241619.txtRewardBot[0].text = string.Empty + _0024self__00241619.GetRaceName(_0024h_00241618 - 1);
-					_0024self__00241619.txtRewardTop[1].text = _0024self__00241619.txtRewardTop[0].text;
-					_0024self__00241619.txtRewardBot[1].text = _0024self__00241619.txtRewardBot[0].text;
-					_0024self__00241619.rewardShade.SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241619.rewardTop.SetActive(value: true);
-					_0024self__00241619.rewardBot.SetActive(value: true);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024h_00241620;
-
-		internal GameScript _0024self__00241621;
-
-		public _0024UnlockRace_00241617(int h, GameScript self_)
-		{
-			_0024h_00241620 = h;
-			_0024self__00241621 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024h_00241620, _0024self__00241621);
-		}
-	}
-	public virtual IEnumerator UnlockRace(int h)
-	{
-		return new _0024UnlockRace_00241617(h, this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Menuu_00241622 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameScript _0024self__00241623;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241623 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (Network.connections.Length == 0)
-					{
-						Time.timeScale = 1f;
-					}
-					_0024self__00241623.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00241623.DeleteCharacter();
-					_0024self__00241623.DeleteInventory();
-					isInitialized = false;
-					if (_0024self__00241623.dead)
-					{
-						_0024self__00241623.DeleteCharacter();
-					}
-					if (Network.isClient)
-					{
-						Network.Disconnect();
-					}
-					else if (Network.isServer)
-					{
-						Network.Disconnect();
-						MasterServer.UnregisterHost();
-					}
-					isReturning = false;
-					isInstance = false;
-					isTown = false;
-					changingScene = false;
-					_0024self__00241623.SaveInventory();
-					Application.LoadLevel(1);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241624;
-
-		public _0024Menuu_00241622(GameScript self_)
-		{
-			_0024self__00241624 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241624);
-		}
-	}
-	public virtual IEnumerator Menuu()
-	{
-		return new _0024Menuu_00241622(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024AgainN_00241625 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameScript _0024self__00241626;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241626 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241626.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					PlayerTriggerScript.canTakeDamage = true;
-					playersDead = 0;
-					_0024self__00241626.DeleteCharacter();
-					_0024self__00241626.DeleteInventory();
-					isInitialized = false;
-					isReturning = false;
-					isInstance = false;
-					changingScene = false;
-					_0024self__00241626.SaveInventory();
-					if (_0024self__00241626.dead)
-					{
-						_0024self__00241626.DeleteCharacter();
-					}
-					_0024self__00241626.dead = false;
-					Application.LoadLevel(2);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241627;
-
-		public _0024AgainN_00241625(GameScript self_)
-		{
-			_0024self__00241627 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241627);
-		}
-	}
-	[RPC]
-	public virtual IEnumerator AgainN()
-	{
-		return new _0024AgainN_00241625(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024SpawnTownNetwork_00241628 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024type_00241629;
-
-			internal int _0024enterHeight_00241630;
-
-			internal int _0024exitHeight_00241631;
-
-			internal int _0024height_00241632;
-
-			internal int _0024_0024switch_0024226_00241633;
-
-			internal int _0024_0024switch_0024228_00241634;
-
-			internal int _0024altar_00241635;
-
-			internal GameScript _0024self__00241636;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241636 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					MonoBehaviour.print("GAMESCRIPT SPAWN TOWN");
-					if (!_0024self__00241636.spawningTown && Network.isServer)
-					{
-						_0024self__00241636.spawningTown = true;
-						_0024type_00241629 = default(int);
-						_0024enterHeight_00241630 = default(int);
-						_0024exitHeight_00241631 = default(int);
-						_0024height_00241632 = default(int);
-						curStyle = UnityEngine.Random.Range(1, 2);
-						Network.Instantiate(Resources.Load("z/zEntrance"), new Vector3(0f, 0f, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
-						if (curBiome != 8 && curBiome != 9)
-						{
-							_0024type_00241629 = UnityEngine.Random.Range(1, 9);
-						}
-						else if (curBiome == 8)
-						{
-							_0024type_00241629 = UnityEngine.Random.Range(1, 3);
-						}
-						else if (curBiome == 9)
-						{
-							_0024type_00241629 = UnityEngine.Random.Range(1, 4);
-							if (_0024type_00241629 == 3)
-							{
-								_0024type_00241629 = 7;
-							}
-						}
-						_0024_0024switch_0024226_00241633 = _0024type_00241629;
-						if (_0024_0024switch_0024226_00241633 == 1)
-						{
-							_0024enterHeight_00241630 -= 8;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 2)
-						{
-							_0024enterHeight_00241630 += 8;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 3)
-						{
-							_0024enterHeight_00241630 -= 8;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 4)
-						{
-							_0024enterHeight_00241630 += 8;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 5)
-						{
-							_0024enterHeight_00241630 -= 8;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 6)
-						{
-							_0024enterHeight_00241630 += 8;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 7)
-						{
-							_0024enterHeight_00241630 += 0;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 8)
-						{
-							_0024enterHeight_00241630 += 0;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 9)
-						{
-							_0024enterHeight_00241630 += 8;
-						}
-						else if (_0024_0024switch_0024226_00241633 == 10)
-						{
-							_0024enterHeight_00241630 += 0;
-						}
-						_0024height_00241632 = _0024exitHeight_00241631 + _0024enterHeight_00241630;
-						Network.Instantiate(Resources.Load("z/zone" + _0024type_00241629), new Vector3(40f, _0024height_00241632, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
-						_0024_0024switch_0024228_00241634 = _0024type_00241629;
-						if (_0024_0024switch_0024228_00241634 == 1)
-						{
-							_0024exitHeight_00241631 -= 8;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 2)
-						{
-							_0024exitHeight_00241631 += 8;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 3)
-						{
-							_0024exitHeight_00241631 -= 8;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 4)
-						{
-							_0024exitHeight_00241631 += 8;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 5)
-						{
-							_0024exitHeight_00241631 -= 8;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 6)
-						{
-							_0024exitHeight_00241631 += 8;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 7)
-						{
-							_0024exitHeight_00241631 += 0;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 8)
-						{
-							_0024exitHeight_00241631 += 0;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 9)
-						{
-							_0024exitHeight_00241631 += 0;
-						}
-						else if (_0024_0024switch_0024228_00241634 == 10)
-						{
-							_0024exitHeight_00241631 -= 8;
-						}
-						curZone++;
-						_0024height_00241632 = _0024exitHeight_00241631 + _0024enterHeight_00241630;
-						Network.Instantiate(Resources.Load("z/zExit"), new Vector3(80f, _0024height_00241632, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
-						_0024altar_00241635 = UnityEngine.Random.Range(0, 3);
-						if (_0024altar_00241635 == 0)
-						{
-							Network.Instantiate(Resources.Load("npc/npc6"), new Vector3(6.5f, -3f, 0f), Quaternion.identity, 0);
-						}
-						result = (Yield(2, new WaitForSeconds(5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_04b5;
-				case 2:
-					_0024self__00241636.spawningTown = false;
-					goto IL_04b5;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_04b5:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241637;
-
-		public _0024SpawnTownNetwork_00241628(GameScript self_)
-		{
-			_0024self__00241637 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241637);
-		}
-	}
-	public virtual IEnumerator SpawnTownNetwork()
-	{
-		return new _0024SpawnTownNetwork_00241628(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ThrowPoison_00241638 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024r_00241639;
-
-			internal GameScript _0024self__00241640;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241640 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024r_00241639 = null;
-					_0024self__00241640.usingPot = true;
-					player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-					result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 2:
-					if (facingLeft)
-					{
-						_0024r_00241639 = (GameObject)Network.Instantiate(Resources.Load("poisonL"), player.transform.position, Quaternion.identity, 1);
-					}
-					else
-					{
-						_0024r_00241639 = (GameObject)Network.Instantiate(Resources.Load("poisonR"), player.transform.position, Quaternion.identity, 1);
-					}
-					inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
-					if (inventory[curActiveSlot].q < 1)
-					{
-						inventory[curActiveSlot].id = 0;
-					}
-					_0024r_00241639.SendMessage("Set", player.transform.position);
-					result = (Yield(3, new WaitForSeconds(0.4f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241640.usingPot = false;
-					_0024self__00241640.RefreshInventory();
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241641;
-
-		public _0024ThrowPoison_00241638(GameScript self_)
-		{
-			_0024self__00241641 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241641);
-		}
-	}
-	public virtual IEnumerator ThrowPoison()
-	{
-		return new _0024ThrowPoison_00241638(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ThrowDagger_00241642 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal Vector2 _0024v_00241643;
-
-			internal GameObject _0024ar_00241644;
-
-			internal Vector2 _0024v2_00241645;
-
-			internal Vector3 _0024object_pos_00241646;
-
-			internal Vector3 _0024mouse_pos_00241647;
-
-			internal float _0024angle_00241648;
-
-			internal int _0024a_00241649;
-
-			internal GameScript _0024self__00241650;
-
-			public _0024(int a, GameScript self_)
-			{
-				_0024a_00241649 = a;
-				_0024self__00241650 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00241650.usingPot = true;
-					_0024v_00241643 = default(Vector2);
-					_0024ar_00241644 = null;
-					_0024v2_00241645 = player.transform.position;
-					_0024object_pos_00241646 = default(Vector3);
-					_0024mouse_pos_00241647 = default(Vector3);
-					_0024angle_00241648 = default(float);
-					player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-					result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024mouse_pos_00241647 = UnityEngine.Input.mousePosition;
-					_0024object_pos_00241646 = Camera.main.WorldToScreenPoint(player.transform.position);
-					_0024mouse_pos_00241647.z = -20f;
-					_0024mouse_pos_00241647.x -= _0024object_pos_00241646.x;
-					_0024mouse_pos_00241647.y -= _0024object_pos_00241646.y;
-					_0024angle_00241648 = Mathf.Atan2(_0024mouse_pos_00241647.y, _0024mouse_pos_00241647.x) * 57.29578f;
-					_0024ar_00241644 = (GameObject)Network.Instantiate(Resources.Load("skill/dagger" + _0024a_00241649), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle_00241648)), 0);
-					_0024ar_00241644.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, DEX + DEXBonus);
-					result = (Yield(3, new WaitForSeconds(0.1f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241650.usingPot = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024a_00241651;
-
-		internal GameScript _0024self__00241652;
-
-		public _0024ThrowDagger_00241642(int a, GameScript self_)
-		{
-			_0024a_00241651 = a;
-			_0024self__00241652 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00241651, _0024self__00241652);
-		}
-	}
-	public virtual IEnumerator ThrowDagger(int a)
-	{
-		return new _0024ThrowDagger_00241642(a, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ThrowRock_00241653 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024r_00241654;
-
-			internal GameScript _0024self__00241655;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241655 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024r_00241654 = null;
-					_0024self__00241655.usingPot = true;
-					player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-					result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-					break;
-				case 2:
-					if (facingLeft)
-					{
-						_0024r_00241654 = (GameObject)Network.Instantiate(Resources.Load("stoneL"), player.transform.position, Quaternion.identity, 1);
-					}
-					else
-					{
-						_0024r_00241654 = (GameObject)Network.Instantiate(Resources.Load("stoneR"), player.transform.position, Quaternion.identity, 1);
-					}
-					_0024r_00241654.SendMessage("Set", player.transform.position);
-					result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241655.usingPot = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241656;
-
-		public _0024ThrowRock_00241653(GameScript self_)
-		{
-			_0024self__00241656 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241656);
-		}
-	}
-	public virtual IEnumerator ThrowRock()
-	{
-		return new _0024ThrowRock_00241653(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UseTotalBiscuit_00241657 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameScript _0024self__00241658;
-
-			public _0024(GameScript self_)
-			{
-				_0024self__00241658 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241658.usingPot)
-					{
-						_0024self__00241658.usingPot = true;
-						player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-						result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0167;
-				case 2:
-					_0024self__00241658.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drink", typeof(AudioClip)));
-					tempGearStat[0] = tempGearStat[0] + 3;
-					tempGearStat[3] = tempGearStat[3] + 3;
-					HP += 3;
-					inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
-					if (inventory[curActiveSlot].q < 1)
-					{
-						inventory[curActiveSlot].id = 0;
-					}
-					_0024self__00241658.RefreshActionBar();
-					_0024self__00241658.UpdateCharacterWeapon();
-					_0024self__00241658.RefreshPlayerStats();
-					_0024self__00241658.LoadHearts();
-					_0024self__00241658.LoadMana();
-					result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241658.usingPot = false;
-					goto IL_0167;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0167:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal GameScript _0024self__00241659;
-
-		public _0024UseTotalBiscuit_00241657(GameScript self_)
-		{
-			_0024self__00241659 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241659);
-		}
-	}
-	public virtual IEnumerator UseTotalBiscuit()
-	{
-		return new _0024UseTotalBiscuit_00241657(this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UseHPPotion_00241660 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024pot_00241661;
-
-			internal int _0024heal_00241662;
-
-			internal GameScript _0024self__00241663;
-
-			public _0024(int heal, GameScript self_)
-			{
-				_0024heal_00241662 = heal;
-				_0024self__00241663 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (HP != MAXHP && !_0024self__00241663.usingPot)
-					{
-						_0024self__00241663.usingPot = true;
-						potsUsed++;
-						player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-						result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_01bf;
-				case 2:
-					_0024self__00241663.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drink", typeof(AudioClip)));
-					if (HP + _0024heal_00241662 > MAXHP)
-					{
-						HP = MAXHP;
-					}
-					else
-					{
-						HP += _0024heal_00241662;
-					}
-					inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
-					if (inventory[curActiveSlot].q < 1)
-					{
-						inventory[curActiveSlot].id = 0;
-					}
-					_0024self__00241663.RefreshActionBar();
-					_0024self__00241663.UpdateCharacterWeapon();
-					_0024self__00241663.LoadHearts();
-					result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241663.usingPot = false;
-					_0024pot_00241661 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity);
-					_0024pot_00241661.SendMessage("SD", _0024heal_00241662);
-					goto IL_01bf;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_01bf:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024heal_00241664;
-
-		internal GameScript _0024self__00241665;
-
-		public _0024UseHPPotion_00241660(int heal, GameScript self_)
-		{
-			_0024heal_00241664 = heal;
-			_0024self__00241665 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024heal_00241664, _0024self__00241665);
-		}
-	}
-	public virtual IEnumerator UseHPPotion(int heal)
-	{
-		return new _0024UseHPPotion_00241660(heal, this).GetEnumerator();
-	}
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UseManaPotion_00241666 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal GameObject _0024pot_00241667;
-
-			internal int _0024heal_00241668;
-
-			internal GameScript _0024self__00241669;
-
-			public _0024(int heal, GameScript self_)
-			{
-				_0024heal_00241668 = heal;
-				_0024self__00241669 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (MAG != MAXMAG && !_0024self__00241669.usingPot)
-					{
-						_0024self__00241669.usingPot = true;
-						player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-						result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0180;
-				case 2:
-					_0024self__00241669.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drink", typeof(AudioClip)));
-					if (MAG + _0024heal_00241668 > MAXMAG)
-					{
-						MAG = MAXMAG;
-					}
-					else
-					{
-						MAG += _0024heal_00241668;
-					}
-					inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
-					if (inventory[curActiveSlot].q < 1)
-					{
-						inventory[curActiveSlot].id = 0;
-					}
-					_0024self__00241669.UpdateCharacterWeapon();
-					_0024self__00241669.RefreshActionBar();
-					_0024self__00241669.GUImana.GetComponent<Animation>().Play();
-					_0024self__00241669.LoadMana();
-					result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241669.usingPot = false;
-					goto IL_0180;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0180:
-					_0024pot_00241667 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("healMana"), player.transform.position, Quaternion.identity);
-					_0024pot_00241667.SendMessage("SD", _0024heal_00241668);
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024heal_00241670;
-
-		internal GameScript _0024self__00241671;
-
-		public _0024UseManaPotion_00241666(int heal, GameScript self_)
-		{
-			_0024heal_00241670 = heal;
-			_0024self__00241671 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024heal_00241670, _0024self__00241671);
-		}
-	}
-	public virtual IEnumerator UseManaPotion(int heal)
-	{
-		return new _0024UseManaPotion_00241666(heal, this).GetEnumerator();
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024UseDrum_00241672 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024drum_00241673;
-
-			internal GameScript _0024self__00241674;
-
-			public _0024(int drum, GameScript self_)
-			{
-				_0024drum_00241673 = drum;
-				_0024self__00241674 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00241674.usingDrum && !_0024self__00241674.usingPot)
-					{
-						_0024self__00241674.usingPot = true;
-						_0024self__00241674.usingDrum = true;
-						player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-						result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_01d2;
-				case 2:
-					_0024self__00241674.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drum", typeof(AudioClip)));
-					if (_0024drum_00241673 == 0)
-					{
-						Network.Instantiate(Resources.Load("skill/drumATK"), player.transform.position, Quaternion.identity, 0);
-					}
-					else if (_0024drum_00241673 == 1)
-					{
-						Network.Instantiate(Resources.Load("skill/drumDEX"), player.transform.position, Quaternion.identity, 0);
-					}
-					else
-					{
-						Network.Instantiate(Resources.Load("skill/drumMAG"), player.transform.position, Quaternion.identity, 0);
-					}
-					inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
-					if (inventory[curActiveSlot].q < 1)
-					{
-						inventory[curActiveSlot].id = 0;
-					}
-					_0024self__00241674.UpdateCharacterWeapon();
-					_0024self__00241674.RefreshActionBar();
-					result = (Yield(3, new WaitForSeconds(0.3f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241674.usingDrum = false;
-					_0024self__00241674.usingPot = false;
-					goto IL_01d2;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_01d2:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024drum_00241675;
-
-		internal GameScript _0024self__00241676;
-
-		public _0024UseDrum_00241672(int drum, GameScript self_)
-		{
-			_0024drum_00241675 = drum;
-			_0024self__00241676 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024drum_00241675, _0024self__00241676);
-		}
-	}
-	public virtual IEnumerator UseDrum(int drum)
-	{
-		return new _0024UseDrum_00241672(drum, this).GetEnumerator();
-	}
+    public virtual IEnumerator UnlockHat(int h)
+    {
+        txtRewardTop[0].text = "NEW HAT UNLOCKED!";
+        rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("hat/hat" + h);
+        PlayerPrefs.SetInt("hU" + h, 1);
+        MenuScript.hatUnlock[h] = 2;
+        txtRewardBot[0].text = string.Empty + GetHatName(h);
+        txtRewardTop[1].text = txtRewardTop[0].text;
+        txtRewardBot[1].text = txtRewardBot[0].text;
+        rewardShade.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        rewardTop.SetActive(true);
+        rewardBot.SetActive(true);
+    }
+
+    public IEnumerator UnlockComp(int h)
+    {
+        txtRewardTop[0].text = "NEW COMPANION UNLOCKED!";
+        rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("iComp/c" + h);
+        MenuScript.companionUnlock[h] = 2;
+        PlayerPrefs.SetInt("cU" + h, 1);
+        txtRewardBot[0].text = string.Empty + GetCompName(h);
+        txtRewardTop[1].text = txtRewardTop[0].text;
+        txtRewardBot[1].text = txtRewardBot[0].text;
+        rewardShade.SetActive(value: true);
+        yield return new WaitForSeconds(0.2f);
+        rewardTop.SetActive(value: true);
+        rewardBot.SetActive(value: true);
+    }
+
+    public virtual IEnumerator UnlockVariant(int r)
+    {
+        MenuScript.raceUnlock[r - 1] = MenuScript.raceUnlock[r - 1] + 1;
+        PlayerPrefs.SetInt("rU" + (r - 1), MenuScript.raceUnlock[r - 1]);
+        txtRewardTop[0].text = "NEW VARIANT UNLOCKED!";
+        rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("r/r" + (r - 1) + "h" + (MenuScript.raceUnlock[r - 1] - 1));
+        txtRewardBot[0].text = string.Empty + GetRaceName(r - 1) + " Variant " + MenuScript.raceUnlock[r - 1];
+        txtRewardTop[1].text = txtRewardTop[0].text;
+        txtRewardBot[1].text = txtRewardBot[0].text;
+        rewardShade.SetActive(value: true);
+        yield return new WaitForSeconds(0.2f);
+        rewardTop.SetActive(value: true);
+        rewardBot.SetActive(value: true);
+    }
+    public virtual IEnumerator UnlockRace(int h)
+    {
+        txtRewardTop[0].text = "NEW RACE UNLOCKED!";
+        rewardIcon.GetComponent<Renderer>().material = (Material)Resources.Load("r/r" + (h - 1) + "h0");
+        MenuScript.raceUnlock[h - 1] = 1;
+        PlayerPrefs.SetInt("rU" + (h - 1), 1);
+        txtRewardBot[0].text = string.Empty + GetRaceName(h - 1);
+        txtRewardTop[1].text = txtRewardTop[0].text;
+        txtRewardBot[1].text = txtRewardBot[0].text;
+        rewardShade.SetActive(value: true);
+        yield return new WaitForSeconds(0.2f);
+        rewardTop.SetActive(value: true);
+        rewardBot.SetActive(value: true);
+    }
+
+    public virtual IEnumerator Menuu()
+    {
+        if (Network.connections.Length == 0)
+        {
+            Time.timeScale = 1f;
+        }
+        fade.fadeOut();
+        yield return new WaitForSeconds(0.2f);
+        DeleteCharacter();
+        DeleteInventory();
+        isInitialized = false;
+        if (dead)
+        {
+            DeleteCharacter();
+        }
+        if (Network.isClient)
+        {
+            Network.Disconnect();
+        }
+        else if (Network.isServer)
+        {
+            Network.Disconnect();
+            MasterServer.UnregisterHost();
+        }
+        isReturning = false;
+        isInstance = false;
+        isTown = false;
+        changingScene = false;
+        SaveInventory();
+        Application.LoadLevel(1);
+    }
+    IEnumerator AgainN()
+    {
+        fade.fadeOut();
+        yield return new WaitForSeconds(0.2f);
+        PlayerTriggerScript.canTakeDamage = true;
+        playersDead = 0;
+        DeleteCharacter();
+        DeleteInventory();
+        isInitialized = false;
+        isReturning = false;
+        isInstance = false;
+        changingScene = false;
+        SaveInventory();
+        if (dead)
+        {
+            DeleteCharacter();
+        }
+        dead = false;
+        Application.LoadLevel(2);
+    }
+    public IEnumerator SpawnTownNetwork()
+    {
+        MonoBehaviour.print("GAMESCRIPT SPAWN TOWN");
+        if (!spawningTown && Network.isServer)
+        {
+            spawningTown = true;
+            int type = default(int);
+            int enterHeight = default(int);
+            int exitHeight = default(int);
+            int height = default(int);
+            curStyle = UnityEngine.Random.Range(1, 2);
+            Network.Instantiate(Resources.Load("z/zEntrance"), new Vector3(0f, 0f, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+            if (curBiome != 8 && curBiome != 9)
+            {
+                type = UnityEngine.Random.Range(1, 9);
+            }
+            else if (curBiome == 8)
+            {
+                type = UnityEngine.Random.Range(1, 3);
+            }
+            else if (curBiome == 9)
+            {
+                type = UnityEngine.Random.Range(1, 4);
+                if (type == 3)
+                {
+                    type = 7;
+                }
+            }
+            switch (type)
+            {
+                case 1:
+                    enterHeight -= 8;
+                    break;
+                case 2:
+                    enterHeight += 8;
+                    break;
+                case 3:
+                    enterHeight -= 8;
+                    break;
+                case 4:
+                    enterHeight += 8;
+                    break;
+                case 5:
+                    enterHeight -= 8;
+                    break;
+                case 6:
+                    enterHeight += 8;
+                    break;
+                case 7:
+                    enterHeight += 0;
+                    break;
+                case 8:
+                    enterHeight += 0;
+                    break;
+                case 9:
+                    enterHeight += 8;
+                    break;
+                case 10:
+                    enterHeight += 0;
+                    break;
+            }
+            height = exitHeight + enterHeight;
+            Network.Instantiate(Resources.Load("z/zone" + type), new Vector3(40f, height, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+            switch (type)
+            {
+                case 1:
+                    exitHeight -= 8;
+                    break;
+                case 2:
+                    exitHeight += 8;
+                    break;
+                case 3:
+                    exitHeight -= 8;
+                    break;
+                case 4:
+                    exitHeight += 8;
+                    break;
+                case 5:
+                    exitHeight -= 8;
+                    break;
+                case 6:
+                    exitHeight += 8;
+                    break;
+                case 7:
+                    exitHeight += 0;
+                    break;
+                case 8:
+                    exitHeight += 0;
+                    break;
+                case 9:
+                    exitHeight += 0;
+                    break;
+                case 10:
+                    exitHeight -= 8;
+                    break;
+            }
+            curZone++;
+            height = exitHeight + enterHeight;
+            Network.Instantiate(Resources.Load("z/zExit"), new Vector3(80f, height, 0f), Quaternion.Euler(0f, 180f, 180f), 0);
+            int altar = UnityEngine.Random.Range(0, 3);
+            if (altar == 0)
+            {
+                Network.Instantiate(Resources.Load("npc/npc6"), new Vector3(6.5f, -3f, 0f), Quaternion.identity, 0);
+            }
+            yield return new WaitForSeconds(5f);
+            spawningTown = false;
+        }
+    }
+    public virtual IEnumerator ThrowPoison()
+    {
+        GameObject _0024r_00241639 = null;
+        usingPot = true;
+        player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+        yield return new WaitForSeconds(0.5f);
+        if (facingLeft)
+        {
+            _0024r_00241639 = (GameObject)Network.Instantiate(Resources.Load("poisonL"), player.transform.position, Quaternion.identity, 1);
+        }
+        else
+        {
+            _0024r_00241639 = (GameObject)Network.Instantiate(Resources.Load("poisonR"), player.transform.position, Quaternion.identity, 1);
+        }
+        inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
+        if (inventory[curActiveSlot].q < 1)
+        {
+            inventory[curActiveSlot].id = 0;
+        }
+        _0024r_00241639.SendMessage("Set", player.transform.position);
+        yield return new WaitForSeconds(0.4f);
+        usingPot = false;
+        RefreshInventory();
+    }
+    public virtual IEnumerator ThrowDagger(int a)
+    {
+        usingPot = true;
+        Vector2 v = default(Vector2);
+        GameObject ar = null;
+        Vector2 v2 = player.transform.position;
+        Vector3 object_pos = default(Vector3);
+        Vector3 mouse_pos = default(Vector3);
+        float angle = default(float);
+        player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+        yield return new WaitForSeconds(0.3f);
+        mouse_pos = UnityEngine.Input.mousePosition;
+        object_pos = Camera.main.WorldToScreenPoint(player.transform.position);
+        mouse_pos.z = -20f;
+        mouse_pos.x -= object_pos.x;
+        mouse_pos.y -= object_pos.y;
+        angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * 57.29578f;
+        ar = (GameObject)Network.Instantiate(Resources.Load("skill/dagger" + a), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle)), 0);
+        ar.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, DEX + DEXBonus);
+        yield return new WaitForSeconds(0.1f);
+        usingPot = false;
+    }
+    public virtual IEnumerator ThrowRock()
+    {
+        GameObject r = null;
+        usingPot = true;
+        player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+        yield return new WaitForSeconds(0.5f);
+        if (facingLeft)
+        {
+            r = (GameObject)Network.Instantiate(Resources.Load("stoneL"), player.transform.position, Quaternion.identity, 1);
+        }
+        else
+        {
+            r = (GameObject)Network.Instantiate(Resources.Load("stoneR"), player.transform.position, Quaternion.identity, 1);
+        }
+        r.SendMessage("Set", player.transform.position);
+        yield return new WaitForSeconds(0.3f);
+        usingPot = false;
+    }
+    public virtual IEnumerator UseTotalBiscuit()
+    {
+        if (!usingPot)
+        {
+            usingPot = true;
+            player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+            yield return new WaitForSeconds(0.5f);
+            GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drink", typeof(AudioClip)));
+            tempGearStat[0] = tempGearStat[0] + 3;
+            tempGearStat[3] = tempGearStat[3] + 3;
+            HP += 3;
+            inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
+            if (inventory[curActiveSlot].q < 1)
+            {
+                inventory[curActiveSlot].id = 0;
+            }
+            RefreshActionBar();
+            UpdateCharacterWeapon();
+            RefreshPlayerStats();
+            LoadHearts();
+            LoadMana();
+            yield return new WaitForSeconds(0.3f);
+            usingPot = false;
+        }
+    }
+    public virtual IEnumerator UseHPPotion(int heal)
+    {
+        if (HP != MAXHP && !usingPot)
+        {
+            usingPot = true;
+            potsUsed++;
+            player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+            yield return new WaitForSeconds(0.5f);
+            GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drink", typeof(AudioClip)));
+            if (HP + heal > MAXHP)
+            {
+                HP = MAXHP;
+            }
+            else
+            {
+                HP += heal;
+            }
+            inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
+            if (inventory[curActiveSlot].q < 1)
+            {
+                inventory[curActiveSlot].id = 0;
+            }
+            RefreshActionBar();
+            UpdateCharacterWeapon();
+            LoadHearts();
+            yield return new WaitForSeconds(0.3f);
+            usingPot = false;
+            GameObject pot = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity);
+            pot.SendMessage("SD", heal);
+        }
+    }
+    public virtual IEnumerator UseManaPotion(int heal)
+    {
+        if (MAG != MAXMAG && !usingPot)
+        {
+            usingPot = true;
+            player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+            yield return new WaitForSeconds(0.5f);
+
+            GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drink", typeof(AudioClip)));
+            if (MAG + heal > MAXMAG)
+            {
+                MAG = MAXMAG;
+            }
+            else
+            {
+                MAG += heal;
+            }
+            inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
+            if (inventory[curActiveSlot].q < 1)
+            {
+                inventory[curActiveSlot].id = 0;
+            }
+            UpdateCharacterWeapon();
+            RefreshActionBar();
+            GUImana.GetComponent<Animation>().Play();
+            LoadMana();
+            yield return new WaitForSeconds(0.3f);
+
+            usingPot = false;
+        }
+
+        GameObject pot = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("healMana"), player.transform.position, Quaternion.identity);
+        pot.SendMessage("SD", heal);
+    }
+
+    public virtual IEnumerator UseDrum(int drum)
+    {
+        if (!usingDrum && !usingPot)
+        {
+            usingPot = true;
+            usingDrum = true;
+            player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+            yield return new WaitForSeconds(0.5f);
+            GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/drum", typeof(AudioClip)));
+            if (drum == 0)
+            {
+                Network.Instantiate(Resources.Load("skill/drumATK"), player.transform.position, Quaternion.identity, 0);
+            }
+            else if (drum == 1)
+            {
+                Network.Instantiate(Resources.Load("skill/drumDEX"), player.transform.position, Quaternion.identity, 0);
+            }
+            else
+            {
+                Network.Instantiate(Resources.Load("skill/drumMAG"), player.transform.position, Quaternion.identity, 0);
+            }
+            inventory[curActiveSlot].q = inventory[curActiveSlot].q - 1;
+            if (inventory[curActiveSlot].q < 1)
+            {
+                inventory[curActiveSlot].id = 0;
+            }
+            UpdateCharacterWeapon();
+            RefreshActionBar();
+            yield return new WaitForSeconds(0.3f);
+            usingDrum = false;
+            usingPot = false;
+        }
+    }
+
+//800 lines?????????
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024UseItem_00241677 : GenericGenerator<WaitForSeconds>
