@@ -9121,7 +9121,7 @@ public class GameScript : MonoBehaviour
 			player.GetComponent<NetworkView>().RPC("Clair", RPCMode.All, 1);
 			gameObject = (GameObject)Network.Instantiate(Resources.Load("text"), player.transform.position, Quaternion.identity, 0);
 			gameObject.GetComponent<NetworkView>().RPC("SDSN", RPCMode.All, "I'M FOCUSED!");
-			StartCoroutine_Auto(ManaTick(num, MAXMAG));
+			StartCoroutine(ManaTick(b, MAXMAG));
 			break;
 		case 8:
 		{
