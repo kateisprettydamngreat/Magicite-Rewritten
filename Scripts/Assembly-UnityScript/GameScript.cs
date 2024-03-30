@@ -2651,7 +2651,7 @@ public class GameScript : MonoBehaviour
         player.GetComponent<NetworkView>().RPC("Float", RPCMode.All, 0);
     }
 
-    public virtual IEnumerator ManaTick()
+    public virtual IEnumerator ManaTick(int a, float max)
     {
         for (int i = 0; i < 20; i++)
         {
@@ -4579,7 +4579,7 @@ public class GameScript : MonoBehaviour
 			player.GetComponent<NetworkView>().RPC("AssignTitle", RPCMode.All, text);
 		}
 	}
-
+	
 	public virtual void CatForm()
 	{
 		if (isCat)
@@ -4592,6 +4592,13 @@ public class GameScript : MonoBehaviour
 			isCat = true;
 			player.SendMessage("Cat", 1);
 		}
+	}
+	private bool debugMode = false;
+
+	private void ToggleDebugMode()
+	{
+		debugMode = !debugMode;
+		Debug.Log("Debug Mode: " + (debugMode ? "ON" : "OFF"));
 	}
 
 	public virtual void Update()
