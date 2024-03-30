@@ -4593,13 +4593,13 @@ public class GameScript : MonoBehaviour
 			player.SendMessage("Cat", 1);
 		}
 	}
-	private bool debugMode = false;
+//	private bool debugMode = false;
 
-	private void ToggleDebugMode()
-	{
-		debugMode = !debugMode;
-		Debug.Log("Debug Mode: " + (debugMode ? "ON" : "OFF"));
-	}
+//	private void ToggleDebugMode()
+//	{
+//		debugMode = !debugMode;
+//		Debug.Log("Debug Mode: " + (debugMode ? "ON" : "OFF"));
+//	}
 
 	public virtual void Update()
 	{
@@ -4607,37 +4607,37 @@ public class GameScript : MonoBehaviour
 		{
 			StartCoroutine_Auto(WriteEgg());
 		}
-		if (UnityEngine.Input.GetKeyDown(KeyCode.P) && debugMode)
-		{
-			districtLevel = 20;
-		}
-		if (UnityEngine.Input.GetKeyDown(KeyCode.I) && debugMode)
-		{
-			Network.Instantiate(Resources.Load("e/jelly"), new Vector3(player.transform.position.x + 10f, player.transform.position.y, 0f), Quaternion.identity, 0);
-			GameObject gameObject = null;
-			Item item = null;
-			int[] array = null;
-			HP = MAXHP;
-			MAG = MAXMAG;
-			LoadHearts();
-			curGold += 200;
-			RefreshGold();
-			gameObject = ((Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= player.transform.position.x) ? ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x - 3f, player.transform.position.y, 0f), Quaternion.identity)) : ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x + 3f, player.transform.position.y, 0f), Quaternion.identity)));
-			item = new Item(567, 1, new int[4], 999f, null);
-			array = new int[7] { item.id, item.q, 0, 0, 0, 0, item.d };
-			gameObject.SendMessage("InitL", array);
-			gameObject = ((Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= player.transform.position.x) ? ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x - 3f, player.transform.position.y, 0f), Quaternion.identity)) : ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x + 3f, player.transform.position.y, 0f), Quaternion.identity)));
-			item = new Item(12, 1, new int[4], 999f, null);
-			array = new int[7] { item.id, item.q, 0, 0, 0, 0, item.d };
-			gameObject.SendMessage("InitL", array);
-		}
-		if (UnityEngine.Input.GetKeyDown(KeyCode.U) && debugMode)
-		{
-			GainEXP(150);
-		}
-		if (debugMode)
-		{
-		}
+//		if (UnityEngine.Input.GetKeyDown(KeyCode.P) && debugMode)
+//		{
+//			districtLevel = 20;
+//		}
+//		if (UnityEngine.Input.GetKeyDown(KeyCode.I) && debugMode)
+//		{
+//			Network.Instantiate(Resources.Load("e/jelly"), new Vector3(player.transform.position.x + 10f, player.transform.position.y, 0f), Quaternion.identity, 0);
+//			GameObject gameObject = null;
+//			Item item = null;
+//			int[] array = null;
+//			HP = MAXHP;
+//			MAG = MAXMAG;
+//			LoadHearts();
+//			curGold += 200;
+//			RefreshGold();
+//			gameObject = ((Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= player.transform.position.x) ? ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x - 3f, player.transform.position.y, 0f), Quaternion.identity)) : ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x + 3f, player.transform.position.y, 0f), Quaternion.identity)));
+//			item = new Item(567, 1, new int[4], 999f, null);
+//			array = new int[7] { item.id, item.q, 0, 0, 0, 0, item.d };
+//			gameObject.SendMessage("InitL", array);
+//			gameObject = ((Camera.main.ScreenToWorldPoint(UnityEngine.Input.mousePosition).x <= player.transform.position.x) ? ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x - 3f, player.transform.position.y, 0f), Quaternion.identity)) : ((GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), new Vector3(player.transform.position.x + 3f, player.transform.position.y, 0f), Quaternion.identity)));
+//			item = new Item(12, 1, new int[4], 999f, null);
+//			array = new int[7] { item.id, item.q, 0, 0, 0, 0, item.d };
+//			gameObject.SendMessage("InitL", array);
+//		}
+//		if (UnityEngine.Input.GetKeyDown(KeyCode.U) && debugMode)
+//		{
+//			GainEXP(150);
+//		}
+//		if (debugMode)
+//		{
+//		}
 		if (UnityEngine.Input.GetButtonDown("Slot 1"))
 		{
 			SelectSlot(0);
