@@ -2484,178 +2484,133 @@ public class GameScript : MonoBehaviour
         }
     }
  
-    [Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Die_00241771 : GenericGenerator<WaitForSeconds>
+	public IEnumerator Die()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		PlayerPrefs.SetInt("gChests", MenuScript.goldChests);
+		if (MenuScript.goldChests >= 20)
 		{
-			internal int _0024ploop_00241772;
+			MenuScript.canUnlockRace[13] = 1;
+		}
 
-			internal int _0024ttt_00241773;
-
-			internal GameScript _0024self__00241774;
-
-			public _0024(GameScript self_)
+		int ttt = 0;
+		for (int ploop = 0; ploop < 3; ploop++)
+		{
+			if (legendary[ploop] == 1)
 			{
-				_0024self__00241774 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					PlayerPrefs.SetInt("gChests", MenuScript.goldChests);
-					if (MenuScript.goldChests >= 20)
-					{
-						MenuScript.canUnlockRace[13] = 1;
-					}
-					_0024ploop_00241772 = default(int);
-					_0024ttt_00241773 = 0;
-					for (_0024ploop_00241772 = 0; _0024ploop_00241772 < 3; _0024ploop_00241772++)
-					{
-						if (legendary[_0024ploop_00241772] == 1)
-						{
-							_0024ttt_00241773++;
-						}
-					}
-					if (_0024ttt_00241773 == 3)
-					{
-						MenuScript.canUnlockCompanion[7] = 1;
-					}
-					player.SendMessage("TimerSet", timer);
-					if (isCat)
-					{
-						isCat = false;
-						player.SendMessage("Cat", (object)0);
-					}
-					if (inventoryOpen)
-					{
-						_0024self__00241774.OpenInventory();
-					}
-					_0024self__00241774.sSelected.SetActive(value: false);
-					isTown = false;
-					_0024self__00241774.dead = true;
-					menuOpen = true;
-					_0024self__00241774.menuExit.SetActive(value: false);
-					inventoryOpen = false;
-					isInitialized = false;
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					if (playerLevel >= 40)
-					{
-						MenuScript.canUnlockCompanion[3] = 1;
-					}
-					if (districtLevel >= 15)
-					{
-						MenuScript.canUnlockCompanion[1] = 1;
-					}
-					if (MenuScript.curName == "Roguelands")
-					{
-						MenuScript.canUnlockRace[12] = 1;
-					}
-					if (win)
-					{
-						if (MenuScript.GameMode == 1)
-						{
-							MenuScript.canUnlockCompanion[9] = 1;
-						}
-						else
-						{
-							MenuScript.canUnlockCompanion[9] = 0;
-						}
-						if (inventory[22].id == 905)
-						{
-							MenuScript.canUnlockCompanion[8] = 1;
-						}
-						if (tempStats[4] == 0)
-						{
-							MenuScript.canUnlockRace[9] = 1;
-						}
-						if (tempStats[1] <= 1)
-						{
-							MenuScript.canUnlockRace[11] = 1;
-						}
-						if (tempStats[5] == 0)
-						{
-							MenuScript.canUnlockCompanion[6] = 1;
-						}
-						if (!interacted)
-						{
-							MenuScript.canUnlockCompanion[5] = 1;
-						}
-						if (playerLevel < 5)
-						{
-							MenuScript.canUnlockCompanion[4] = 1;
-						}
-						MenuScript.canUnlockCompanion[2] = 1;
-						if (hitsTaken < 1)
-						{
-							MenuScript.canUnlockHat[24] = 1;
-						}
-						MenuScript.canUnlockRace[5] = 1;
-						MenuScript.canUnlockHat[12] = 1;
-						MonoBehaviour.print("POTS USED " + potsUsed);
-						if (potsUsed < 1)
-						{
-							MenuScript.canUnlockRace[8] = 1;
-						}
-						MonoBehaviour.print("PIGGY : " + MenuScript.canUnlockRace[8]);
-						_0024self__00241774.txtDied.gameObject.SetActive(value: false);
-						_0024self__00241774.menuVictory.SetActive(value: true);
-					}
-					_0024self__00241774.ShowTimer();
-					result = (Yield(3, new WaitForSeconds(1.5f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00241774.SaveStats();
-					if ((bool)_0024self__00241774.menuStats)
-					{
-						_0024self__00241774.menuStats.SetActive(value: true);
-					}
-					_0024self__00241774.StartCoroutine_Auto(_0024self__00241774.ShowStats());
-					if (Network.isServer)
-					{
-						_0024self__00241774.bAgain.SetActive(value: true);
-						_0024self__00241774.bMenu.SetActive(value: true);
-					}
-					else
-					{
-						_0024self__00241774.bAgain.SetActive(value: false);
-						_0024self__00241774.bMenu.SetActive(value: false);
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
+				ttt++;
 			}
 		}
-
-		internal GameScript _0024self__00241775;
-
-		public _0024Die_00241771(GameScript self_)
+		if (ttt == 3)
 		{
-			_0024self__00241775 = self_;
+			MenuScript.canUnlockCompanion[7] = 1;
 		}
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
+		player.SendMessage("TimerSet", timer);
+		if (isCat)
 		{
-			return new _0024(_0024self__00241775);
+			isCat = false;
+			player.SendMessage("Cat", (object)0);
+		}
+		if (inventoryOpen)
+		{
+			OpenInventory();
+		}
+
+		sSelected.SetActive(false);
+		isTown = false;
+		dead = true;
+		menuOpen = true;
+		menuExit.SetActive(false);
+		inventoryOpen = false;
+		isInitialized = false;
+
+		yield return new WaitForSeconds(1f);
+
+		if (playerLevel >= 40)
+		{
+			MenuScript.canUnlockCompanion[3] = 1;
+		}
+		if (districtLevel >= 15)
+		{
+			MenuScript.canUnlockCompanion[1] = 1;
+		}
+		if (MenuScript.curName == "Roguelands")
+		{
+			MenuScript.canUnlockRace[12] = 1;
+		}
+
+		if (win)
+		{
+			if (MenuScript.GameMode == 1)
+			{
+				MenuScript.canUnlockCompanion[9] = 1;
+			}
+			else
+			{
+				MenuScript.canUnlockCompanion[9] = 0;
+			}
+			if (inventory[22].id == 905)
+			{
+				MenuScript.canUnlockCompanion[8] = 1;
+			}
+			if (tempStats[4] == 0)
+			{
+				MenuScript.canUnlockRace[9] = 1;
+			}
+			if (tempStats[1] <= 1)
+			{
+				MenuScript.canUnlockRace[11] = 1;
+			}
+			if (tempStats[5] == 0)
+			{
+				MenuScript.canUnlockCompanion[6] = 1;
+			}
+			if (!interacted)
+			{
+				MenuScript.canUnlockCompanion[5] = 1;
+			}
+			if (playerLevel < 5)
+			{
+				MenuScript.canUnlockCompanion[4] = 1;
+			}
+			MenuScript.canUnlockCompanion[2] = 1;
+			if (hitsTaken < 1)
+			{
+				MenuScript.canUnlockHat[24] = 1;
+			}
+			MenuScript.canUnlockRace[5] = 1;
+			MenuScript.canUnlockHat[12] = 1;
+			Debug.Log("POTS USED " + potsUsed);
+			if (potsUsed < 1)
+			{
+				MenuScript.canUnlockRace[8] = 1;
+			}
+			Debug.Log("PIGGY : " + MenuScript.canUnlockRace[8]);
+			txtDied.gameObject.SetActive(false);
+			menuVictory.SetActive(true);
+		}
+
+		ShowTimer();
+		yield return new WaitForSeconds(1.5f);
+
+		SaveStats();
+		if (menuStats != null)
+		{
+			menuStats.SetActive(true);
+		}
+		StartCoroutine(ShowStats());
+
+		if (Network.isServer)
+		{
+			bAgain.SetActive(true);
+			bMenu.SetActive(true);
+		}
+		else
+		{
+			bAgain.SetActive(false);
+			bMenu.SetActive(false);
 		}
 	}
-	public virtual IEnumerator Die()
-	{
-		return new _0024Die_00241771(this).GetEnumerator();
-	}
-
 
     public virtual IEnumerator ShowStats()
     {
