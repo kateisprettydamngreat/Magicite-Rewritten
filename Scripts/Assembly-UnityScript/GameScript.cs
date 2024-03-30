@@ -278,702 +278,626 @@ public class GameScript : MonoBehaviour
         }
     }
 	
-	[Serializable]
-	[CompilerGenerated] //good gods why. 700 LINES OF CODE. I want to commit a felony.
-	internal sealed class _0024Craft_00241576 : GenericGenerator<WaitForSeconds>
+	public IEnumerator Craft()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		bool canCraft = true;
+		yield return new WaitForSeconds(0.1f);
+
+		string craft = firstItemSelected.id + "c" + secondItemSelected.id;
+		int c1 = firstItemSelected.id;
+		int c2 = secondItemSelected.id;
+		Item newItem = null;
+		int newID = 0;
+		int newQ = default(int);
+		Debug.Log("crafting " + c1 + " " + c2);
+		if (c1 == 1 && c2 == 1)
 		{
-			internal bool _0024canCraft_00241577;
-
-			internal string _0024craft_00241578;
-
-			internal int _0024c1_00241579;
-
-			internal int _0024c2_00241580;
-
-			internal Item _0024newItem_00241581;
-
-			internal int _0024newID_00241582;
-
-			internal int _0024newQ_00241583;
-
-			internal int _0024i_00241584;
-
-			internal int _0024pood_00241585;
-
-			internal int _0024lowestQ_00241586;
-
-			internal int _0024aTemp_00241587;
-
-			internal float _0024tempForge_00241588;
-
-			internal int _0024luckCount_00241589;
-
-			internal int _0024bonusStat_00241590;
-
-			internal int _0024num1_00241591;
-
-			internal GameScript _0024self__00241592;
-
-			public _0024(GameScript self_)
+			newID = 2;
+		}
+		else if (c1 == 2 && c2 == 2)
+		{
+			newID = 25;
+		}
+		else if (c1 == 2 && c2 == 3)
+		{
+			newID = 24;
+		}
+		else if (c1 == 3 && c2 == 2)
+		{
+			newID = 24;
+		}
+		else if (c1 == 3 && c2 == 3)
+		{
+			newID = 26;
+		}
+		else if (c1 == 9 && c2 == 9)
+		{
+			newID = 15;
+		}
+		else if (c1 == 25 && c2 == 26)
+		{
+			newID = 501;
+		}
+		else if (c1 == 26 && c2 == 25)
+		{
+			newID = 501;
+		}
+		else if (c1 == 24 && c2 == 25)
+		{
+			newID = 500;
+		}
+		else if (c1 == 25 && c2 == 24)
+		{
+			newID = 500;
+		}
+		else if (c1 == 3 && c2 == 26)
+		{
+			newID = 27;
+		}
+		else if (c1 == 26 && c2 == 3)
+		{
+			newID = 27;
+		}
+		else if (c1 == 27 && c2 == 25)
+		{
+			newID = 502;
+		}
+		else if (c1 == 25 && c2 == 27)
+		{
+			newID = 502;
+		}
+		else if (c1 == 38 && c2 == 38)
+		{
+			newID = 39;
+		}
+		else if (c1 == 39 && c2 == 39)
+		{
+			newID = 40;
+		}
+		else if (c1 == 24 && c2 == 40)
+		{
+			newID = 512;
+		}
+		else if (c1 == 40 && c2 == 24)
+		{
+			newID = 512;
+		}
+		else if (c1 == 40 && c2 == 26)
+		{
+			newID = 513;
+		}
+		else if (c1 == 26 && c2 == 40)
+		{
+			newID = 513;
+		}
+		else if (c1 == 40 && c2 == 27)
+		{
+			newID = 514;
+		}
+		else if (c1 == 27 && c2 == 40)
+		{
+			newID = 514;
+		}
+		else if (c1 == 18 && c2 == 18)
+		{
+			newID = 51;
+		}
+		else if (c1 == 71 && c2 == 3)
+		{
+			newID = 602;
+		}
+		else if (c1 == 3 && c2 == 71)
+		{
+			newID = 602;
+		}
+		else if (c1 == 18 && c2 == 50)
+		{
+			newID = 517;
+		}
+		else if (c1 == 50 && c2 == 18)
+		{
+			newID = 517;
+		}
+		else if (c1 == 19 && c2 == 19)
+		{
+			newID = 82;
+		}
+		else if (c1 == 20 && c2 == 20)
+		{
+			newID = 94;
+		}
+		else if (c1 == 81 && c2 == 81)
+		{
+			newID = 71;
+		}
+		else if (c1 == 2 && c2 == 82)
+		{
+			newID = 77;
+		}
+		else if (c1 == 82 && c2 == 2)
+		{
+			newID = 77;
+		}
+		else if (c1 == 77 && c2 == 30)
+		{
+			newID = 78;
+		}
+		else if (c1 == 30 && c2 == 77)
+		{
+			newID = 78;
+		}
+		else if (c1 == 77 && c2 == 31)
+		{
+			newID = 79;
+		}
+		else if (c1 == 31 && c2 == 77)
+		{
+			newID = 79;
+		}
+		else if (c1 == 77 && c2 == 81)
+		{
+			newID = 80;
+		}
+		else if (c1 == 81 && c2 == 77)
+		{
+			newID = 80;
+		}
+		else if (c1 == 69 && c2 == 3)
+		{
+			newID = 600;
+		}
+		else if (c1 == 3 && c2 == 69)
+		{
+			newID = 600;
+		}
+		else if (c1 == 70 && c2 == 3)
+		{
+			newID = 601;
+		}
+		else if (c1 == 3 && c2 == 70)
+		{
+			newID = 601;
+		}
+		else if (c1 == 30 && c2 == 30)
+		{
+			newID = 69;
+		}
+		else if (c1 == 31 && c2 == 31)
+		{
+			newID = 70;
+		}
+		else if (c1 == 26 && c2 == 50)
+		{
+			newID = 517;
+		}
+		else if (c1 == 50 && c2 == 26)
+		{
+			newID = 517;
+		}
+		else if (c1 == 24 && c2 == 50)
+		{
+			newID = 516;
+		}
+		else if (c1 == 50 && c2 == 24)
+		{
+			newID = 516;
+		}
+		else if (c1 == 60 && c2 == 60)
+		{
+			newID = 61;
+		}
+		else if (c1 == 51 && c2 == 51)
+		{
+			newID = 50;
+		}
+		else if (c1 == 27 && c2 == 50)
+		{
+			newID = 518;
+		}
+		else if (c1 == 50 && c2 == 27)
+		{
+			newID = 518;
+		}
+		else if (c1 == 29 && c2 == 29)
+		{
+			newID = 68;
+		}
+		else if (c1 == 27 && c2 == 3)
+		{
+			newID = 28;
+		}
+		else if (c1 == 3 && c2 == 27)
+		{
+			newID = 28;
+		}
+		else if (c1 == 28 && c2 == 29)
+		{
+			newID = 515;
+		}
+		else if (c1 == 29 && c2 == 28)
+		{
+			newID = 515;
+		}
+		else if (c1 == 12 && c2 == 12)
+		{
+			newID = 32;
+		}
+		else if (c1 == 13 && c2 == 13)
+		{
+			newID = 33;
+		}
+		else if (c1 == 14 && c2 == 14)
+		{
+			newID = 34;
+		}
+		else if (c1 == 39 && c2 == 39)
+		{
+			newID = 40;
+		}
+		else if (c1 == 32 && c2 == 24)
+		{
+			newID = 503;
+		}
+		else if (c1 == 24 && c2 == 32)
+		{
+			newID = 503;
+		}
+		else if (c1 == 32 && c2 == 26)
+		{
+			newID = 504;
+		}
+		else if (c1 == 26 && c2 == 32)
+		{
+			newID = 504;
+		}
+		else if (c1 == 32 && c2 == 27)
+		{
+			newID = 505;
+		}
+		else if (c1 == 27 && c2 == 32)
+		{
+			newID = 505;
+		}
+		else if (c1 == 24 && c2 == 33)
+		{
+			newID = 506;
+		}
+		else if (c1 == 33 && c2 == 24)
+		{
+			newID = 506;
+		}
+		else if (c1 == 33 && c2 == 26)
+		{
+			newID = 507;
+		}
+		else if (c1 == 26 && c2 == 33)
+		{
+			newID = 507;
+		}
+		else if (c1 == 33 && c2 == 27)
+		{
+			newID = 508;
+		}
+		else if (c1 == 27 && c2 == 33)
+		{
+			newID = 508;
+		}
+		else if (c1 == 24 && c2 == 34)
+		{
+			newID = 509;
+		}
+		else if (c1 == 34 && c2 == 24)
+		{
+			newID = 509;
+		}
+		else if (c1 == 34 && c2 == 26)
+		{
+			newID = 510;
+		}
+		else if (c1 == 26 && c2 == 34)
+		{
+			newID = 510;
+		}
+		else if (c1 == 34 && c2 == 27)
+		{
+			newID = 511;
+		}
+		else if (c1 == 27 && c2 == 34)
+		{
+			newID = 511;
+		}
+		else if (c1 == 26 && c2 == 35)
+		{
+			newID = 560;
+		}
+		else if (c1 == 35 && c2 == 26)
+		{
+			newID = 560;
+		}
+		else if (c1 == 26 && c2 == 36)
+		{
+			newID = 561;
+		}
+		else if (c1 == 36 && c2 == 26)
+		{
+			newID = 561;
+		}
+		else if (c1 == 26 && c2 == 37)
+		{
+			newID = 562;
+		}
+		else if (c1 == 37 && c2 == 26)
+		{
+			newID = 562;
+		}
+		else if (c1 == 26 && c2 == 41)
+		{
+			newID = 563;
+		}
+		else if (c1 == 41 && c2 == 26)
+		{
+			newID = 563;
+		}
+		else if (c1 == 567 && c2 == 71)
+		{
+			newID = 568;
+		}
+		else if (c1 == 71 && c2 == 567)
+		{
+			newID = 568;
+		}
+		else if (c1 == 567 && c2 == 69)
+		{
+			newID = 569;
+		}
+		else if (c1 == 69 && c2 == 567)
+		{
+			newID = 569;
+		}
+		else if (c1 == 567 && c2 == 70)
+		{
+			newID = 570;
+		}
+		else if (c1 == 70 && c2 == 567)
+		{
+			newID = 570;
+		}
+		else if (c1 == 32 && c2 == 32)
+		{
+			newID = 35;
+		}
+		else if (c1 == 33 && c2 == 33)
+		{
+			newID = 36;
+		}
+		else if (c1 == 34 && c2 == 34)
+		{
+			newID = 37;
+		}
+		else if (c1 == 40 && c2 == 40)
+		{
+			newID = 41;
+		}
+		else if (c1 == 68 && c2 == 3)
+		{
+			newID = 529;
+		}
+		else if (c1 == 3 && c2 == 68)
+		{
+			newID = 529;
+		}
+		else if (c1 == 15 && c2 == 15)
+		{
+			newID = 42;
+		}
+		else if (c1 == 16 && c2 == 16)
+		{
+			newID = 43;
+		}
+		else if (c1 == 44 && c2 == 44)
+		{
+			newID = 45;
+		}
+		else if (c1 == 10 && c2 == 10)
+		{
+			newID = 16;
+		}
+		else if (c1 == 23 && c2 == 23)
+		{
+			newID = 29;
+		}
+		else if (c1 == 39 && c2 == 3)
+		{
+			newID = 53;
+		}
+		else if (c1 == 3 && c2 == 39)
+		{
+			newID = 53;
+		}
+		else if (c1 == 12 && c2 == 3)
+		{
+			newID = 54;
+		}
+		else if (c1 == 3 && c2 == 12)
+		{
+			newID = 54;
+		}
+		else if (c1 == 13 && c2 == 3)
+		{
+			newID = 55;
+		}
+		else if (c1 == 3 && c2 == 13)
+		{
+			newID = 55;
+		}
+		else if (c1 == 51 && c2 == 3)
+		{
+			newID = 52;
+		}
+		else if (c1 == 3 && c2 == 51)
+		{
+			newID = 52;
+		}
+		else if (c1 == 3 && c2 == 14)
+		{
+			newID = 56;
+		}
+		else if (c1 == 14 && c2 == 3)
+		{
+			newID = 56;
+		}
+		else if ((c1 == 47 && c2 == 47) || (c1 == 38 && c2 == 47) || (c1 == 47 && c2 == 38))
+		{
+			newID = 48;
+		}
+		else if ((c1 == 9 && c2 == 10) || (c1 == 10 && c2 == 9) || (c1 == 9 && c2 == 11) || (c1 == 11 && c2 == 9) || (c1 == 10 && c2 == 11) || (c1 == 11 && c2 == 10))
+		{
+			newID = 44;
+		}
+		else if (c1 == 44 && c2 == 44)
+		{
+			newID = 45;
+		}
+		else
+		{
+			canCraft = false;
+		}
+		if (newID >= 600 && newID <= 605)
+		{
+			MenuScript.canUnlockHat[5] = 1;
+		}
+		if (canCraft && newID == 568)
+		{
+			legendary[0] = 1;
+		}
+		else if (canCraft && newID == 569)
+		{
+			legendary[1] = 1;
+		}
+		else if (canCraft && newID == 570)
+		{
+			legendary[2] = 1;
+		}
+		if (canCraft)
+		{
+			int i = default(int);
+			int pood = UnityEngine.Random.Range(0, 2);
+			if (newID == 15 && (MenuScript.curTrait[1] == 4 || MenuScript.curTrait[2] == 4) && pood == 0)
 			{
-				_0024self__00241592 = self_;
+				newID = 42;
 			}
-
-			public override bool MoveNext()
+			if (newID == 16 && (MenuScript.curTrait[1] == 4 || MenuScript.curTrait[2] == 4) && pood == 0)
 			{
-				int result;
-				switch (_state)
+				newID = 43;
+			}
+			if (newID == 44 && (MenuScript.curTrait[1] == 4 || MenuScript.curTrait[2] == 4) && pood == 0)
+			{
+				newID = 45;
+			}
+			GetComponent<AudioSource>().PlayOneShot(audioCraftt);
+			if (newID < 500)
+			{
+				int lowestQ = default(int);
+				int Temp = 1;
+				if (newID >= 52 && newID <= 56)
 				{
-				default:
-					_0024canCraft_00241577 = true;
-					result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024craft_00241578 = _0024self__00241592.firstItemSelected.id + "c" + _0024self__00241592.secondItemSelected.id;
-					_0024c1_00241579 = _0024self__00241592.firstItemSelected.id;
-					_0024c2_00241580 = _0024self__00241592.secondItemSelected.id;
-					_0024newItem_00241581 = null;
-					_0024newID_00241582 = 0;
-					_0024newQ_00241583 = default(int);
-					MonoBehaviour.print("crafting " + _0024c1_00241579 + " " + _0024c2_00241580);
-					if (_0024c1_00241579 == 1 && _0024c2_00241580 == 1)
-					{
-						_0024newID_00241582 = 2;
-					}
-					else if (_0024c1_00241579 == 2 && _0024c2_00241580 == 2)
-					{
-						_0024newID_00241582 = 25;
-					}
-					else if (_0024c1_00241579 == 2 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 24;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 2)
-					{
-						_0024newID_00241582 = 24;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 26;
-					}
-					else if (_0024c1_00241579 == 9 && _0024c2_00241580 == 9)
-					{
-						_0024newID_00241582 = 15;
-					}
-					else if (_0024c1_00241579 == 25 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 501;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 25)
-					{
-						_0024newID_00241582 = 501;
-					}
-					else if (_0024c1_00241579 == 24 && _0024c2_00241580 == 25)
-					{
-						_0024newID_00241582 = 500;
-					}
-					else if (_0024c1_00241579 == 25 && _0024c2_00241580 == 24)
-					{
-						_0024newID_00241582 = 500;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 27;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 27;
-					}
-					else if (_0024c1_00241579 == 27 && _0024c2_00241580 == 25)
-					{
-						_0024newID_00241582 = 502;
-					}
-					else if (_0024c1_00241579 == 25 && _0024c2_00241580 == 27)
-					{
-						_0024newID_00241582 = 502;
-					}
-					else if (_0024c1_00241579 == 38 && _0024c2_00241580 == 38)
-					{
-						_0024newID_00241582 = 39;
-					}
-					else if (_0024c1_00241579 == 39 && _0024c2_00241580 == 39)
-					{
-						_0024newID_00241582 = 40;
-					}
-					else if (_0024c1_00241579 == 24 && _0024c2_00241580 == 40)
-					{
-						_0024newID_00241582 = 512;
-					}
-					else if (_0024c1_00241579 == 40 && _0024c2_00241580 == 24)
-					{
-						_0024newID_00241582 = 512;
-					}
-					else if (_0024c1_00241579 == 40 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 513;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 40)
-					{
-						_0024newID_00241582 = 513;
-					}
-					else if (_0024c1_00241579 == 40 && _0024c2_00241580 == 27)
-					{
-						_0024newID_00241582 = 514;
-					}
-					else if (_0024c1_00241579 == 27 && _0024c2_00241580 == 40)
-					{
-						_0024newID_00241582 = 514;
-					}
-					else if (_0024c1_00241579 == 18 && _0024c2_00241580 == 18)
-					{
-						_0024newID_00241582 = 51;
-					}
-					else if (_0024c1_00241579 == 71 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 602;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 71)
-					{
-						_0024newID_00241582 = 602;
-					}
-					else if (_0024c1_00241579 == 18 && _0024c2_00241580 == 50)
-					{
-						_0024newID_00241582 = 517;
-					}
-					else if (_0024c1_00241579 == 50 && _0024c2_00241580 == 18)
-					{
-						_0024newID_00241582 = 517;
-					}
-					else if (_0024c1_00241579 == 19 && _0024c2_00241580 == 19)
-					{
-						_0024newID_00241582 = 82;
-					}
-					else if (_0024c1_00241579 == 20 && _0024c2_00241580 == 20)
-					{
-						_0024newID_00241582 = 94;
-					}
-					else if (_0024c1_00241579 == 81 && _0024c2_00241580 == 81)
-					{
-						_0024newID_00241582 = 71;
-					}
-					else if (_0024c1_00241579 == 2 && _0024c2_00241580 == 82)
-					{
-						_0024newID_00241582 = 77;
-					}
-					else if (_0024c1_00241579 == 82 && _0024c2_00241580 == 2)
-					{
-						_0024newID_00241582 = 77;
-					}
-					else if (_0024c1_00241579 == 77 && _0024c2_00241580 == 30)
-					{
-						_0024newID_00241582 = 78;
-					}
-					else if (_0024c1_00241579 == 30 && _0024c2_00241580 == 77)
-					{
-						_0024newID_00241582 = 78;
-					}
-					else if (_0024c1_00241579 == 77 && _0024c2_00241580 == 31)
-					{
-						_0024newID_00241582 = 79;
-					}
-					else if (_0024c1_00241579 == 31 && _0024c2_00241580 == 77)
-					{
-						_0024newID_00241582 = 79;
-					}
-					else if (_0024c1_00241579 == 77 && _0024c2_00241580 == 81)
-					{
-						_0024newID_00241582 = 80;
-					}
-					else if (_0024c1_00241579 == 81 && _0024c2_00241580 == 77)
-					{
-						_0024newID_00241582 = 80;
-					}
-					else if (_0024c1_00241579 == 69 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 600;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 69)
-					{
-						_0024newID_00241582 = 600;
-					}
-					else if (_0024c1_00241579 == 70 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 601;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 70)
-					{
-						_0024newID_00241582 = 601;
-					}
-					else if (_0024c1_00241579 == 30 && _0024c2_00241580 == 30)
-					{
-						_0024newID_00241582 = 69;
-					}
-					else if (_0024c1_00241579 == 31 && _0024c2_00241580 == 31)
-					{
-						_0024newID_00241582 = 70;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 50)
-					{
-						_0024newID_00241582 = 517;
-					}
-					else if (_0024c1_00241579 == 50 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 517;
-					}
-					else if (_0024c1_00241579 == 24 && _0024c2_00241580 == 50)
-					{
-						_0024newID_00241582 = 516;
-					}
-					else if (_0024c1_00241579 == 50 && _0024c2_00241580 == 24)
-					{
-						_0024newID_00241582 = 516;
-					}
-					else if (_0024c1_00241579 == 60 && _0024c2_00241580 == 60)
-					{
-						_0024newID_00241582 = 61;
-					}
-					else if (_0024c1_00241579 == 51 && _0024c2_00241580 == 51)
-					{
-						_0024newID_00241582 = 50;
-					}
-					else if (_0024c1_00241579 == 27 && _0024c2_00241580 == 50)
-					{
-						_0024newID_00241582 = 518;
-					}
-					else if (_0024c1_00241579 == 50 && _0024c2_00241580 == 27)
-					{
-						_0024newID_00241582 = 518;
-					}
-					else if (_0024c1_00241579 == 29 && _0024c2_00241580 == 29)
-					{
-						_0024newID_00241582 = 68;
-					}
-					else if (_0024c1_00241579 == 27 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 28;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 27)
-					{
-						_0024newID_00241582 = 28;
-					}
-					else if (_0024c1_00241579 == 28 && _0024c2_00241580 == 29)
-					{
-						_0024newID_00241582 = 515;
-					}
-					else if (_0024c1_00241579 == 29 && _0024c2_00241580 == 28)
-					{
-						_0024newID_00241582 = 515;
-					}
-					else if (_0024c1_00241579 == 12 && _0024c2_00241580 == 12)
-					{
-						_0024newID_00241582 = 32;
-					}
-					else if (_0024c1_00241579 == 13 && _0024c2_00241580 == 13)
-					{
-						_0024newID_00241582 = 33;
-					}
-					else if (_0024c1_00241579 == 14 && _0024c2_00241580 == 14)
-					{
-						_0024newID_00241582 = 34;
-					}
-					else if (_0024c1_00241579 == 39 && _0024c2_00241580 == 39)
-					{
-						_0024newID_00241582 = 40;
-					}
-					else if (_0024c1_00241579 == 32 && _0024c2_00241580 == 24)
-					{
-						_0024newID_00241582 = 503;
-					}
-					else if (_0024c1_00241579 == 24 && _0024c2_00241580 == 32)
-					{
-						_0024newID_00241582 = 503;
-					}
-					else if (_0024c1_00241579 == 32 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 504;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 32)
-					{
-						_0024newID_00241582 = 504;
-					}
-					else if (_0024c1_00241579 == 32 && _0024c2_00241580 == 27)
-					{
-						_0024newID_00241582 = 505;
-					}
-					else if (_0024c1_00241579 == 27 && _0024c2_00241580 == 32)
-					{
-						_0024newID_00241582 = 505;
-					}
-					else if (_0024c1_00241579 == 24 && _0024c2_00241580 == 33)
-					{
-						_0024newID_00241582 = 506;
-					}
-					else if (_0024c1_00241579 == 33 && _0024c2_00241580 == 24)
-					{
-						_0024newID_00241582 = 506;
-					}
-					else if (_0024c1_00241579 == 33 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 507;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 33)
-					{
-						_0024newID_00241582 = 507;
-					}
-					else if (_0024c1_00241579 == 33 && _0024c2_00241580 == 27)
-					{
-						_0024newID_00241582 = 508;
-					}
-					else if (_0024c1_00241579 == 27 && _0024c2_00241580 == 33)
-					{
-						_0024newID_00241582 = 508;
-					}
-					else if (_0024c1_00241579 == 24 && _0024c2_00241580 == 34)
-					{
-						_0024newID_00241582 = 509;
-					}
-					else if (_0024c1_00241579 == 34 && _0024c2_00241580 == 24)
-					{
-						_0024newID_00241582 = 509;
-					}
-					else if (_0024c1_00241579 == 34 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 510;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 34)
-					{
-						_0024newID_00241582 = 510;
-					}
-					else if (_0024c1_00241579 == 34 && _0024c2_00241580 == 27)
-					{
-						_0024newID_00241582 = 511;
-					}
-					else if (_0024c1_00241579 == 27 && _0024c2_00241580 == 34)
-					{
-						_0024newID_00241582 = 511;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 35)
-					{
-						_0024newID_00241582 = 560;
-					}
-					else if (_0024c1_00241579 == 35 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 560;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 36)
-					{
-						_0024newID_00241582 = 561;
-					}
-					else if (_0024c1_00241579 == 36 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 561;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 37)
-					{
-						_0024newID_00241582 = 562;
-					}
-					else if (_0024c1_00241579 == 37 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 562;
-					}
-					else if (_0024c1_00241579 == 26 && _0024c2_00241580 == 41)
-					{
-						_0024newID_00241582 = 563;
-					}
-					else if (_0024c1_00241579 == 41 && _0024c2_00241580 == 26)
-					{
-						_0024newID_00241582 = 563;
-					}
-					else if (_0024c1_00241579 == 567 && _0024c2_00241580 == 71)
-					{
-						_0024newID_00241582 = 568;
-					}
-					else if (_0024c1_00241579 == 71 && _0024c2_00241580 == 567)
-					{
-						_0024newID_00241582 = 568;
-					}
-					else if (_0024c1_00241579 == 567 && _0024c2_00241580 == 69)
-					{
-						_0024newID_00241582 = 569;
-					}
-					else if (_0024c1_00241579 == 69 && _0024c2_00241580 == 567)
-					{
-						_0024newID_00241582 = 569;
-					}
-					else if (_0024c1_00241579 == 567 && _0024c2_00241580 == 70)
-					{
-						_0024newID_00241582 = 570;
-					}
-					else if (_0024c1_00241579 == 70 && _0024c2_00241580 == 567)
-					{
-						_0024newID_00241582 = 570;
-					}
-					else if (_0024c1_00241579 == 32 && _0024c2_00241580 == 32)
-					{
-						_0024newID_00241582 = 35;
-					}
-					else if (_0024c1_00241579 == 33 && _0024c2_00241580 == 33)
-					{
-						_0024newID_00241582 = 36;
-					}
-					else if (_0024c1_00241579 == 34 && _0024c2_00241580 == 34)
-					{
-						_0024newID_00241582 = 37;
-					}
-					else if (_0024c1_00241579 == 40 && _0024c2_00241580 == 40)
-					{
-						_0024newID_00241582 = 41;
-					}
-					else if (_0024c1_00241579 == 68 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 529;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 68)
-					{
-						_0024newID_00241582 = 529;
-					}
-					else if (_0024c1_00241579 == 15 && _0024c2_00241580 == 15)
-					{
-						_0024newID_00241582 = 42;
-					}
-					else if (_0024c1_00241579 == 16 && _0024c2_00241580 == 16)
-					{
-						_0024newID_00241582 = 43;
-					}
-					else if (_0024c1_00241579 == 44 && _0024c2_00241580 == 44)
-					{
-						_0024newID_00241582 = 45;
-					}
-					else if (_0024c1_00241579 == 10 && _0024c2_00241580 == 10)
-					{
-						_0024newID_00241582 = 16;
-					}
-					else if (_0024c1_00241579 == 23 && _0024c2_00241580 == 23)
-					{
-						_0024newID_00241582 = 29;
-					}
-					else if (_0024c1_00241579 == 39 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 53;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 39)
-					{
-						_0024newID_00241582 = 53;
-					}
-					else if (_0024c1_00241579 == 12 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 54;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 12)
-					{
-						_0024newID_00241582 = 54;
-					}
-					else if (_0024c1_00241579 == 13 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 55;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 13)
-					{
-						_0024newID_00241582 = 55;
-					}
-					else if (_0024c1_00241579 == 51 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 52;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 51)
-					{
-						_0024newID_00241582 = 52;
-					}
-					else if (_0024c1_00241579 == 3 && _0024c2_00241580 == 14)
-					{
-						_0024newID_00241582 = 56;
-					}
-					else if (_0024c1_00241579 == 14 && _0024c2_00241580 == 3)
-					{
-						_0024newID_00241582 = 56;
-					}
-					else if ((_0024c1_00241579 == 47 && _0024c2_00241580 == 47) || (_0024c1_00241579 == 38 && _0024c2_00241580 == 47) || (_0024c1_00241579 == 47 && _0024c2_00241580 == 38))
-					{
-						_0024newID_00241582 = 48;
-					}
-					else if ((_0024c1_00241579 == 9 && _0024c2_00241580 == 10) || (_0024c1_00241579 == 10 && _0024c2_00241580 == 9) || (_0024c1_00241579 == 9 && _0024c2_00241580 == 11) || (_0024c1_00241579 == 11 && _0024c2_00241580 == 9) || (_0024c1_00241579 == 10 && _0024c2_00241580 == 11) || (_0024c1_00241579 == 11 && _0024c2_00241580 == 10))
-					{
-						_0024newID_00241582 = 44;
-					}
-					else if (_0024c1_00241579 == 44 && _0024c2_00241580 == 44)
-					{
-						_0024newID_00241582 = 45;
-					}
-					else
-					{
-						_0024canCraft_00241577 = false;
-					}
-					if (_0024newID_00241582 >= 600 && _0024newID_00241582 <= 605)
-					{
-						MenuScript.canUnlockHat[5] = 1;
-					}
-					if (_0024canCraft_00241577 && _0024newID_00241582 == 568)
-					{
-						legendary[0] = 1;
-					}
-					else if (_0024canCraft_00241577 && _0024newID_00241582 == 569)
-					{
-						legendary[1] = 1;
-					}
-					else if (_0024canCraft_00241577 && _0024newID_00241582 == 570)
-					{
-						legendary[2] = 1;
-					}
-					if (_0024canCraft_00241577)
-					{
-						_0024i_00241584 = default(int);
-						_0024pood_00241585 = UnityEngine.Random.Range(0, 2);
-						if (_0024newID_00241582 == 15 && (MenuScript.curTrait[1] == 4 || MenuScript.curTrait[2] == 4) && _0024pood_00241585 == 0)
-						{
-							_0024newID_00241582 = 42;
-						}
-						if (_0024newID_00241582 == 16 && (MenuScript.curTrait[1] == 4 || MenuScript.curTrait[2] == 4) && _0024pood_00241585 == 0)
-						{
-							_0024newID_00241582 = 43;
-						}
-						if (_0024newID_00241582 == 44 && (MenuScript.curTrait[1] == 4 || MenuScript.curTrait[2] == 4) && _0024pood_00241585 == 0)
-						{
-							_0024newID_00241582 = 45;
-						}
-						_0024self__00241592.GetComponent<AudioSource>().PlayOneShot(_0024self__00241592.audioCraftt);
-						if (_0024newID_00241582 < 500)
-						{
-							_0024lowestQ_00241586 = default(int);
-							_0024aTemp_00241587 = 1;
-							if (_0024newID_00241582 >= 52 && _0024newID_00241582 <= 56)
-							{
-								_0024aTemp_00241587 = 5;
-							}
-							if (_0024self__00241592.firstItemSelected.q == _0024self__00241592.secondItemSelected.q)
-							{
-								_0024lowestQ_00241586 = _0024self__00241592.firstItemSelected.q;
-								_0024newItem_00241581 = new Item(_0024newID_00241582, _0024self__00241592.firstItemSelected.q * _0024aTemp_00241587, new int[4], 0f, null);
-								inventory[_0024self__00241592.secondItemSelectedSlot] = _0024newItem_00241581;
-								inventory[_0024self__00241592.firstItemSelectedSlot] = _0024self__00241592.EmptyItem();
-								_0024self__00241592.ResetCraft();
-								_0024self__00241592.RefreshInventory();
-								_0024self__00241592.RefreshActionBar();
-							}
-							else if (_0024self__00241592.secondItemSelected.q < _0024self__00241592.firstItemSelected.q)
-							{
-								_0024lowestQ_00241586 = _0024self__00241592.secondItemSelected.q;
-								_0024newItem_00241581 = new Item(_0024newID_00241582, _0024self__00241592.secondItemSelected.q * _0024aTemp_00241587, new int[4], 0f, null);
-								inventory[_0024self__00241592.secondItemSelectedSlot] = _0024newItem_00241581;
-								inventory[_0024self__00241592.firstItemSelectedSlot].q = inventory[_0024self__00241592.firstItemSelectedSlot].q - _0024self__00241592.secondItemSelected.q;
-								_0024self__00241592.ResetCraft();
-								_0024self__00241592.RefreshInventory();
-								_0024self__00241592.RefreshActionBar();
-							}
-							else if (_0024self__00241592.firstItemSelected.q < _0024self__00241592.secondItemSelected.q)
-							{
-								_0024lowestQ_00241586 = _0024self__00241592.firstItemSelected.q;
-								_0024newItem_00241581 = new Item(_0024newID_00241582, _0024self__00241592.firstItemSelected.q * _0024aTemp_00241587, new int[4], 0f, null);
-								inventory[_0024self__00241592.firstItemSelectedSlot] = _0024newItem_00241581;
-								inventory[_0024self__00241592.secondItemSelectedSlot].q = inventory[_0024self__00241592.secondItemSelectedSlot].q - _0024self__00241592.firstItemSelected.q;
-								_0024self__00241592.ResetCraft();
-								_0024self__00241592.RefreshInventory();
-								_0024self__00241592.RefreshActionBar();
-							}
-						}
-						else
-						{
-							_0024tempForge_00241588 = 6f;
-							if (MenuScript.curTrait[1] == 5 || MenuScript.curTrait[2] == 5)
-							{
-								MonoBehaviour.print("+10 luck FORGING GEAR");
-								_0024tempForge_00241588 = 12f;
-							}
-							_0024newItem_00241581 = new Item(_0024newID_00241582, 1, _0024self__00241592.GetGearStats(_0024newID_00241582), _0024self__00241592.GetMaxDurability(_0024newID_00241582), null);
-							_0024luckCount_00241589 = UnityEngine.Random.Range(0, 100);
-							_0024bonusStat_00241590 = default(int);
-							_0024num1_00241591 = default(int);
-							if (!((float)_0024luckCount_00241589 >= _0024tempForge_00241588 * 0.5f))
-							{
-								for (_0024i_00241584 = 0; _0024i_00241584 < 4; _0024i_00241584++)
-								{
-									_0024bonusStat_00241590 = UnityEngine.Random.Range(0, 4);
-									_0024num1_00241591 = UnityEngine.Random.Range(1, 3);
-									_0024newItem_00241581.e[_0024bonusStat_00241590] = _0024newItem_00241581.e[_0024bonusStat_00241590] + _0024num1_00241591;
-									_0024newItem_00241581.tier = 3;
-								}
-							}
-							else if (!((float)_0024luckCount_00241589 >= _0024tempForge_00241588))
-							{
-								for (_0024i_00241584 = 0; _0024i_00241584 < 2; _0024i_00241584++)
-								{
-									_0024bonusStat_00241590 = UnityEngine.Random.Range(0, 4);
-									_0024num1_00241591 = UnityEngine.Random.Range(1, 3);
-									_0024newItem_00241581.e[_0024bonusStat_00241590] = _0024newItem_00241581.e[_0024bonusStat_00241590] + _0024num1_00241591;
-									_0024newItem_00241581.tier = 2;
-								}
-							}
-							else if (!((float)_0024luckCount_00241589 >= _0024tempForge_00241588 * 2f))
-							{
-								for (_0024i_00241584 = 0; _0024i_00241584 < 1; _0024i_00241584++)
-								{
-									_0024bonusStat_00241590 = UnityEngine.Random.Range(0, 4);
-									_0024num1_00241591 = UnityEngine.Random.Range(1, 3);
-									_0024newItem_00241581.e[_0024bonusStat_00241590] = _0024newItem_00241581.e[_0024bonusStat_00241590] + _0024num1_00241591;
-									_0024newItem_00241581.tier = 1;
-								}
-							}
-							_0024self__00241592.holdingItem = true;
-							_0024self__00241592.itemSelected = _0024newItem_00241581;
-							_0024self__00241592.firstItemSelected.q = _0024self__00241592.firstItemSelected.q - 1;
-							_0024self__00241592.secondItemSelected.q = _0024self__00241592.secondItemSelected.q - 1;
-							if (_0024self__00241592.firstItemSelected.q < 1)
-							{
-								inventory[_0024self__00241592.firstItemSelectedSlot] = _0024self__00241592.EmptyItem();
-							}
-							if (_0024self__00241592.secondItemSelected.q < 1)
-							{
-								inventory[_0024self__00241592.secondItemSelectedSlot] = _0024self__00241592.EmptyItem();
-							}
-							_0024self__00241592.ResetCraft();
-							_0024self__00241592.UpdateHoldingItem();
-							_0024self__00241592.RefreshInventory();
-							_0024self__00241592.RefreshActionBar();
-						}
-						tempStats[4] = tempStats[4] + 1;
-					}
-					else
-					{
-						_0024self__00241592.ResetCraft();
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
+					Temp = 5;
 				}
-				return (byte)result != 0;
+				if (firstItemSelected.q == secondItemSelected.q)
+				{
+					lowestQ = firstItemSelected.q;
+					newItem = new Item(newID, firstItemSelected.q * Temp, new int[4], 0f, null);
+					inventory[secondItemSelectedSlot] = newItem;
+					inventory[firstItemSelectedSlot] = EmptyItem();
+					ResetCraft();
+					RefreshInventory();
+					RefreshActionBar();
+				}
+				else if (secondItemSelected.q < firstItemSelected.q)
+				{
+					lowestQ = secondItemSelected.q;
+					newItem = new Item(newID, secondItemSelected.q * Temp, new int[4], 0f, null);
+					inventory[secondItemSelectedSlot] = newItem;
+					inventory[firstItemSelectedSlot].q = inventory[firstItemSelectedSlot].q - secondItemSelected.q;
+					ResetCraft();
+					RefreshInventory();
+					RefreshActionBar();
+				}
+				else if (firstItemSelected.q < secondItemSelected.q)
+				{
+					lowestQ = firstItemSelected.q;
+					newItem = new Item(newID, firstItemSelected.q * Temp, new int[4], 0f, null);
+					inventory[firstItemSelectedSlot] = newItem;
+					inventory[secondItemSelectedSlot].q = inventory[secondItemSelectedSlot].q - firstItemSelected.q;
+					ResetCraft();
+					RefreshInventory();
+					RefreshActionBar();
+				}
 			}
+			else
+			{            float tempForge = 6f;
+				if (MenuScript.curTrait[1] == 5 || MenuScript.curTrait[2] == 5)
+				{
+					Debug.Log("+10 luck FORGING GEAR");
+					tempForge = 12f;
+				}
+				newItem = new Item(newID, 1, GetGearStats(newID), GetMaxDurability(newID), null);
+				int luckCount = UnityEngine.Random.Range(0, 100);
+				int bonusStat = default(int);
+				int num1 = default(int);
+				if (!((float)luckCount >= tempForge * 0.5f))
+				{
+					for (i = 0; i < 4; i++)
+					{
+						bonusStat = UnityEngine.Random.Range(0, 4);
+						num1 = UnityEngine.Random.Range(1, 3);
+						newItem.e[bonusStat] = newItem.e[bonusStat] + num1;
+						newItem.tier = 3;
+					}
+				}
+				else if (!((float)luckCount >= tempForge))
+				{
+					for (i = 0; i < 2; i++)
+					{
+						bonusStat = UnityEngine.Random.Range(0, 4);
+						num1 = UnityEngine.Random.Range(1, 3);
+						newItem.e[bonusStat] = newItem.e[bonusStat] + num1;
+						newItem.tier = 2;
+					}
+				}
+				else if (!((float)luckCount >= tempForge * 2f))
+				{
+					for (i = 0; i < 1; i++)
+					{
+						bonusStat = UnityEngine.Random.Range(0, 4);
+						num1 = UnityEngine.Random.Range(1, 3);
+						newItem.e[bonusStat] = newItem.e[bonusStat] + num1;
+						newItem.tier = 1;
+					}
+				}
+				holdingItem = true;
+				itemSelected = newItem;
+				firstItemSelected.q = firstItemSelected.q - 1;
+				secondItemSelected.q = secondItemSelected.q - 1;
+				if (firstItemSelected.q < 1)
+				{
+					inventory[firstItemSelectedSlot] = EmptyItem();
+				}
+				if (secondItemSelected.q < 1)
+				{
+					inventory[secondItemSelectedSlot] = EmptyItem();
+				}
+				ResetCraft();
+				UpdateHoldingItem();
+				RefreshInventory();
+				RefreshActionBar();
+			}
+			tempStats[4] = tempStats[4] + 1;
 		}
-
-		internal GameScript _0024self__00241593;
-
-		public _0024Craft_00241576(GameScript self_)
+		else
 		{
-			_0024self__00241593 = self_;
+			ResetCraft();
 		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00241593);
-		}
-	}
-	public virtual IEnumerator Craft()
-	{
-		return new _0024Craft_00241576(this).GetEnumerator();
 	}
 
     public IEnumerator SelectReward(int c)
