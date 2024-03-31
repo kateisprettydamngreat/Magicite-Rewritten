@@ -2,11 +2,11 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: '- 1'
+  m_Name: '- 1_0'
+  serializedVersion: 6
   m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -17,33 +17,33 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 2.725665, z: -2.5717993}
-        inSlope: {x: 0, y: -4.884386, z: 0}
-        outSlope: {x: 0, y: -4.884386, z: 0}
+        value: {x: 0, y: 2.72566509, z: -2.57179928}
+        inSlope: {x: 0, y: -4.88438606, z: 0}
+        outSlope: {x: 0, y: -4.88438606, z: 0}
         tangentMode: 0
-      - time: 0.05
-        value: {x: 0, y: 2.4814458, z: -2.5717993}
+      - time: .0500000007
+        value: {x: 0, y: 2.48144579, z: -2.57179928}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-      - time: 0.1
-        value: {x: 0, y: 2.725665, z: -2.5717993}
-        inSlope: {x: 0, y: 1.1271669, z: 0}
-        outSlope: {x: 0, y: 1.1271669, z: 0}
+      - time: .100000001
+        value: {x: 0, y: 2.72566509, z: -2.57179928}
+        inSlope: {x: 0, y: 1.12716687, z: 0}
+        outSlope: {x: 0, y: 1.12716687, z: 0}
         tangentMode: 0
-      - time: 0.15
-        value: {x: 0, y: 2.5941625, z: -2.5717993}
-        inSlope: {x: 0, y: 2.3841858E-07, z: 0}
-        outSlope: {x: 0, y: 2.3841858E-07, z: 0}
+      - time: .150000006
+        value: {x: 0, y: 2.59416246, z: -2.57179928}
+        inSlope: {x: 0, y: 2.38418579e-07, z: 0}
+        outSlope: {x: 0, y: 2.38418579e-07, z: 0}
         tangentMode: 0
-      - time: 0.2
-        value: {x: 0, y: 2.725665, z: -2.5717993}
+      - time: .200000003
+        value: {x: 0, y: 2.72566509, z: -2.57179928}
         inSlope: {x: 0, y: 2.6300528, z: 0}
         outSlope: {x: 0, y: 2.6300528, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path:
+    path: 
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
