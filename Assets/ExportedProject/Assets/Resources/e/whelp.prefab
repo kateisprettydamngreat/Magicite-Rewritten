@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 484264}
+  - component: {fileID: 484264}
   m_Layer: 0
   m_Name: whelp
   m_TagString: Untagged
@@ -20,9 +20,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 419254}
+  - component: {fileID: 419254}
   m_Layer: 0
   m_Name: whelpTrig
   m_TagString: Untagged
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1084822519, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: whelp
   m_EditorClassIdentifier: 
   parent: {fileID: 68528032}
 --- !u!1 &-1149100331
@@ -47,9 +47,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 433660}
+  - component: {fileID: 433660}
   m_Layer: 0
   m_Name: Plane_004
   m_TagString: Untagged
@@ -62,9 +62,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 405666}
+  - component: {fileID: 405666}
   m_Layer: 0
   m_Name: Plane_002
   m_TagString: Untagged
@@ -99,6 +99,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &405988
 Transform:
   m_ObjectHideFlags: 1
@@ -111,6 +112,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &412938
 Transform:
   m_ObjectHideFlags: 1
@@ -123,6 +125,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &413442
 Transform:
   m_ObjectHideFlags: 1
@@ -135,6 +138,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &419254
 Transform:
   m_ObjectHideFlags: 1
@@ -147,6 +151,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &433660
 Transform:
   m_ObjectHideFlags: 1
@@ -159,6 +164,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449726
 Transform:
   m_ObjectHideFlags: 1
@@ -171,6 +177,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &484264
 Transform:
   m_ObjectHideFlags: 1
@@ -183,6 +190,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &498256
 Transform:
   m_ObjectHideFlags: 1
@@ -195,6 +203,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -211,9 +220,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 413442}
+  - component: {fileID: 413442}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -226,9 +235,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 498256}
+  - component: {fileID: 498256}
   m_Layer: 0
   m_Name: Plane_001
   m_TagString: Untagged
@@ -274,9 +283,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 412938}
+  - component: {fileID: 412938}
   m_Layer: 0
   m_Name: Plane_003
   m_TagString: Untagged
@@ -289,9 +298,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 405988}
+  - component: {fileID: 405988}
   m_Layer: 0
   m_Name: e
   m_TagString: Untagged
@@ -304,9 +313,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 449726}
+  - component: {fileID: 449726}
   m_Layer: 9
   m_Name: whelp
   m_TagString: npc

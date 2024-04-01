@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 452038}
+  - component: {fileID: 452038}
   m_Layer: 0
   m_Name: Plane_001
   m_TagString: Untagged
@@ -20,9 +20,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 442720}
+  - component: {fileID: 442720}
   m_Layer: 9
   m_Name: boar 1
   m_TagString: Untagged
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -201428564, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: boar 1
   m_EditorClassIdentifier: 
   isChicken: 0
   bossID: 0
@@ -66,9 +66,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 445590}
+  - component: {fileID: 445590}
   m_Layer: 0
   m_Name: Plane_002
   m_TagString: Untagged
@@ -88,6 +88,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &412454
 Transform:
   m_ObjectHideFlags: 1
@@ -100,6 +101,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &414166
 Transform:
   m_ObjectHideFlags: 1
@@ -112,6 +114,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &438668
 Transform:
   m_ObjectHideFlags: 1
@@ -124,6 +127,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &440684
 Transform:
   m_ObjectHideFlags: 1
@@ -136,6 +140,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &442720
 Transform:
   m_ObjectHideFlags: 1
@@ -148,6 +153,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &445590
 Transform:
   m_ObjectHideFlags: 1
@@ -160,6 +166,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &452038
 Transform:
   m_ObjectHideFlags: 1
@@ -172,6 +179,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &456696
 Transform:
   m_ObjectHideFlags: 1
@@ -184,14 +192,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3288206
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 408238}
+  - component: {fileID: 408238}
   m_Layer: 0
   m_Name: bull
   m_TagString: Untagged
@@ -215,9 +224,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 438668}
+  - component: {fileID: 438668}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -245,9 +254,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 412454}
+  - component: {fileID: 412454}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -260,9 +269,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 456696}
+  - component: {fileID: 456696}
   m_Layer: 0
   m_Name: Plane_004
   m_TagString: Untagged
@@ -275,9 +284,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 414166}
+  - component: {fileID: 414166}
   m_Layer: 0
   m_Name: Plane_003
   m_TagString: Untagged
@@ -290,9 +299,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 440684}
+  - component: {fileID: 440684}
   m_Layer: 0
   m_Name: e
   m_TagString: Untagged

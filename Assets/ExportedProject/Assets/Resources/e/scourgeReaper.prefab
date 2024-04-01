@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 2036320244, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: scourgeReaper
   m_EditorClassIdentifier: 
   parent: {fileID: 59912}
 --- !u!1 &-1855641966
@@ -17,9 +17,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 463030}
+  - component: {fileID: 463030}
   m_Layer: 9
   m_Name: scourgeReaper
   m_TagString: npc
@@ -32,9 +32,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 462172}
+  - component: {fileID: 462172}
   m_Layer: 0
   m_Name: Plane_003
   m_TagString: Untagged
@@ -47,9 +47,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 447776}
+  - component: {fileID: 447776}
   m_Layer: 0
   m_Name: wasp
   m_TagString: Untagged
@@ -62,9 +62,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 455160}
+  - component: {fileID: 455160}
   m_Layer: 0
   m_Name: Plane_001
   m_TagString: Untagged
@@ -77,9 +77,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 429056}
+  - component: {fileID: 429056}
   m_Layer: 0
   m_Name: e
   m_TagString: Untagged
@@ -99,6 +99,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &422702
 Transform:
   m_ObjectHideFlags: 1
@@ -111,6 +112,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &429056
 Transform:
   m_ObjectHideFlags: 1
@@ -123,6 +125,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &447776
 Transform:
   m_ObjectHideFlags: 1
@@ -135,6 +138,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &455160
 Transform:
   m_ObjectHideFlags: 1
@@ -147,6 +151,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &462172
 Transform:
   m_ObjectHideFlags: 1
@@ -159,6 +164,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &463030
 Transform:
   m_ObjectHideFlags: 1
@@ -171,6 +177,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &468430
 Transform:
   m_ObjectHideFlags: 1
@@ -183,6 +190,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &491612
 Transform:
   m_ObjectHideFlags: 1
@@ -195,6 +203,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &87481393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,9 +252,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 422702}
+  - component: {fileID: 422702}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -258,9 +267,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 468430}
+  - component: {fileID: 468430}
   m_Layer: 0
   m_Name: Plane_004
   m_TagString: Untagged
@@ -273,9 +282,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 491612}
+  - component: {fileID: 491612}
   m_Layer: 0
   m_Name: waspTrig
   m_TagString: Untagged
@@ -288,9 +297,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 418128}
+  - component: {fileID: 418128}
   m_Layer: 0
   m_Name: Plane_002
   m_TagString: Untagged

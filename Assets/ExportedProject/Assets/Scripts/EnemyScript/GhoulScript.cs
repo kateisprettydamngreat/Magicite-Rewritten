@@ -67,8 +67,8 @@ public class GhoulScript : EnemyScript
 		SetStats(100, 5, 0, 7, 10f, array, UnityEngine.Random.Range(6, 20), 8);
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(Attack());
-			StartCoroutine_Auto(Summon());
+			StartCoroutine(Attack());
+			StartCoroutine(Summon());
 		}
 	}
 

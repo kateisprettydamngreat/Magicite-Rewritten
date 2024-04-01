@@ -40,9 +40,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 491642}
+  - component: {fileID: 491642}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -70,9 +70,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 435026}
+  - component: {fileID: 435026}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged
@@ -85,9 +85,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 459812}
+  - component: {fileID: 459812}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -113,9 +113,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 487880}
+  - component: {fileID: 487880}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged
@@ -128,9 +128,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 485876}
+  - component: {fileID: 485876}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged
@@ -143,9 +143,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 401564}
+  - component: {fileID: 401564}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -207,9 +207,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 430162}
+  - component: {fileID: 430162}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -222,9 +222,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 436258}
+  - component: {fileID: 436258}
   m_Layer: 9
   m_Name: worm4
   m_TagString: Untagged
@@ -252,9 +252,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 406504}
+  - component: {fileID: 406504}
   m_Layer: 0
   m_Name: worm
   m_TagString: Untagged
@@ -267,9 +267,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 476682}
+  - component: {fileID: 476682}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -282,9 +282,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 401014}
+  - component: {fileID: 401014}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged
@@ -297,9 +297,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 430900}
+  - component: {fileID: 430900}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged
@@ -312,9 +312,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 440950}
+  - component: {fileID: 440950}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -327,9 +327,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 440142}
+  - component: {fileID: 440142}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged
@@ -342,9 +342,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 474104}
+  - component: {fileID: 474104}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -372,9 +372,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 473050}
+  - component: {fileID: 473050}
   m_Layer: 9
   m_Name: worm3
   m_TagString: Untagged
@@ -394,6 +394,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &401564
 Transform:
   m_ObjectHideFlags: 1
@@ -406,6 +407,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &406504
 Transform:
   m_ObjectHideFlags: 1
@@ -418,6 +420,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &418844
 Transform:
   m_ObjectHideFlags: 1
@@ -430,6 +433,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &421810
 Transform:
   m_ObjectHideFlags: 1
@@ -442,6 +446,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &429776
 Transform:
   m_ObjectHideFlags: 1
@@ -454,6 +459,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &430162
 Transform:
   m_ObjectHideFlags: 1
@@ -466,6 +472,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &430900
 Transform:
   m_ObjectHideFlags: 1
@@ -478,6 +485,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &434524
 Transform:
   m_ObjectHideFlags: 1
@@ -490,6 +498,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &435026
 Transform:
   m_ObjectHideFlags: 1
@@ -502,6 +511,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &436258
 Transform:
   m_ObjectHideFlags: 1
@@ -514,6 +524,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &440142
 Transform:
   m_ObjectHideFlags: 1
@@ -526,6 +537,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &440950
 Transform:
   m_ObjectHideFlags: 1
@@ -538,6 +550,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &441930
 Transform:
   m_ObjectHideFlags: 1
@@ -550,6 +563,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &459812
 Transform:
   m_ObjectHideFlags: 1
@@ -562,6 +576,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &465530
 Transform:
   m_ObjectHideFlags: 1
@@ -574,6 +589,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &466856
 Transform:
   m_ObjectHideFlags: 1
@@ -586,6 +602,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &473050
 Transform:
   m_ObjectHideFlags: 1
@@ -598,6 +615,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &474104
 Transform:
   m_ObjectHideFlags: 1
@@ -610,6 +628,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &476682
 Transform:
   m_ObjectHideFlags: 1
@@ -622,6 +641,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &485876
 Transform:
   m_ObjectHideFlags: 1
@@ -634,6 +654,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &487880
 Transform:
   m_ObjectHideFlags: 1
@@ -646,6 +667,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &488024
 Transform:
   m_ObjectHideFlags: 1
@@ -658,6 +680,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &488100
 Transform:
   m_ObjectHideFlags: 1
@@ -670,6 +693,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &491642
 Transform:
   m_ObjectHideFlags: 1
@@ -682,6 +706,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &496084
 Transform:
   m_ObjectHideFlags: 1
@@ -694,6 +719,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &499560
 Transform:
   m_ObjectHideFlags: 1
@@ -706,14 +732,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87682311
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 429776}
+  - component: {fileID: 429776}
   m_Layer: 9
   m_Name: worm7
   m_TagString: Untagged
@@ -741,7 +768,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95dcbfadae5ebf19d5f7a605fcf4da35, type: 3}
-  m_Name: 
+  m_Name: worm
   m_EditorClassIdentifier: 
   player: 0
   p: {fileID: 0}
@@ -752,9 +779,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 441930}
+  - component: {fileID: 441930}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -767,9 +794,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 488024}
+  - component: {fileID: 488024}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -843,9 +870,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 496084}
+  - component: {fileID: 496084}
   m_Layer: 9
   m_Name: worm2
   m_TagString: Untagged
@@ -858,9 +885,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 466856}
+  - component: {fileID: 466856}
   m_Layer: 9
   m_Name: worm5
   m_TagString: Untagged
@@ -888,9 +915,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 434524}
+  - component: {fileID: 434524}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged
@@ -999,9 +1026,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 465530}
+  - component: {fileID: 465530}
   m_Layer: 9
   m_Name: worm1
   m_TagString: Untagged
@@ -1014,9 +1041,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 488100}
+  - component: {fileID: 488100}
   m_Layer: 9
   m_Name: worm0
   m_TagString: Untagged
@@ -1029,9 +1056,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 421810}
+  - component: {fileID: 421810}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -1044,9 +1071,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 418844}
+  - component: {fileID: 418844}
   m_Layer: 9
   m_Name: worm6
   m_TagString: Untagged
@@ -1129,9 +1156,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 499560}
+  - component: {fileID: 499560}
   m_Layer: 0
   m_Name: '-'
   m_TagString: Untagged

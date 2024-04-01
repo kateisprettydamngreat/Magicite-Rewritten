@@ -63,14 +63,14 @@ public class WaspScript : EnemyScript
 	{
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(GoCrazy());
+			StartCoroutine(GoCrazy());
 		}
 		t = transform;
 		r = GetComponent<Rigidbody>();
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 18, 20, 19 };
 		SetStats(25, 2, 0, 8, 10f, array, UnityEngine.Random.Range(5, 15), 8);
-		StartCoroutine_Auto(Attack());
+		StartCoroutine(Attack());
 	}
 
 	public virtual void SetPlayer(GameObject g)

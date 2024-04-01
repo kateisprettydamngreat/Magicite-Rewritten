@@ -120,10 +120,10 @@ public class AttackCube : MonoBehaviour
 			{
 				GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/swipe", typeof(AudioClip)));
 				Camera.main.GetComponent<Animation>().Play("shaake");
-				if (GameScript.debugMode)
-				{
-					num = 99999;
-				}
+				// if (GameScript.debugMode)
+				// {
+				// 	num = 99999;
+				// }
 				c.gameObject.SendMessage("TD", num);
 				c.gameObject.SendMessage("K", GameScript.facingLeft);
 				Durability(GameScript.inventory[GameScript.curActiveSlot].id);

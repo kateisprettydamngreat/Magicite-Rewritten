@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [Serializable]
@@ -38,7 +36,7 @@ public class Whelp : EnemyScript
                 pp2.y -= 20f;
                 g = (GameObject)Network.Instantiate(Resources.Load("haz/whelpFire"), transform.position, Quaternion.identity, 0);
             }
-            g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2);
+            // g.GetComponent<NetworkView>().RPC("Set", RPCMode.All, pp2); TODO:  DONT
         }
         if (player)
         {
@@ -150,7 +148,7 @@ public class Whelp : EnemyScript
 		{
 			if (!(Mathf.Abs(player.transform.position.x - t.position.x) >= 25f) && !ATKING)
 			{
-				StartCoroutine_Auto(Attack(player.transform.position));
+				StartCoroutine(Attack(player.transform.position));
 			}
 			else if (atking && !(Mathf.Abs(player.transform.position.x - t.position.x) >= 25f) && !knocking && r.isKinematic)
 			{

@@ -53,7 +53,7 @@ public class GiantBug : EnemyScript
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 0, 0, 17 };
 		SetStats(85, 3, 0, 40, 10f, array, UnityEngine.Random.Range(5, 15), 40);
-		StartCoroutine_Auto(Attack());
+		StartCoroutine(Attack());
 	}
 
 	public virtual void SetPlayer(GameObject g)

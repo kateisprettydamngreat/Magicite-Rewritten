@@ -141,22 +141,22 @@ public class IceKnight : EnemyScript
 			{
 				if (!(player.transform.position.x <= t.position.x))
 				{
-					StartCoroutine_Auto(FaceRight());
+					StartCoroutine(FaceRight());
 				}
 				else
 				{
-					StartCoroutine_Auto(FaceLeft());
+					StartCoroutine(FaceLeft());
 				}
 				if (num < 7 && !TRYatking && !atking)
 				{
 					TRYatking = true;
 					if (UnityEngine.Random.Range(0, 3) == 0)
 					{
-						StartCoroutine_Auto(ATTACK());
+						StartCoroutine(ATTACK());
 					}
 					else
 					{
-						StartCoroutine_Auto(TRY());
+						StartCoroutine(TRY());
 					}
 				}
 			}

@@ -96,7 +96,7 @@ public class ScourgeKnightScript : EnemyScript
 	{
 		if ((bool)player && !(Mathf.Abs(player.transform.position.x - t.position.x) >= 25f) && !ATKING && Network.isServer)
 		{
-			StartCoroutine_Auto(Attack(player.transform.position));
+			StartCoroutine(Attack(player.transform.position));
 		}
 	}
 

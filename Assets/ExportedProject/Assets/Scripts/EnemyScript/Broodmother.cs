@@ -81,7 +81,7 @@ public class Broodmother : EnemyScript
 			}
 			if (!rotating)
 			{
-				StartCoroutine_Auto(UpdateZrotation());
+				StartCoroutine(UpdateZrotation());
 			}
 		}
 	}

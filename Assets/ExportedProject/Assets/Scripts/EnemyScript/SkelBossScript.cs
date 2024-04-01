@@ -91,9 +91,8 @@ public class SkelBossScript : EnemyScript
         }
 
         int num = UnityEngine.Random.Range(1, 2);
-        int dir = UnityEngine.Random.Range(1, 3);
+        dir = UnityEngine.Random.Range(1, 3);
         moving = false;
-        this.dir = dir;
 
         yield return new WaitForSeconds(num);
     }

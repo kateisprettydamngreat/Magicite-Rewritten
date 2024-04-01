@@ -97,19 +97,23 @@ public class GrassScript : MonoBehaviour
 		transform.position = new Vector3(0f, 0f, -500f);
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(Exile());
+			StartCoroutine(Exile());
 		}
 	}
 	public virtual int GetPlantItem(int a)
 	{
 		int num = default(int);
-		return a switch
+		switch (a)
 		{
-			0 => 9, 
-			1 => 10, 
-			2 => 10, 
-			3 => 23, 
-			_ => num, 
-		};
+			case 0:
+				return 9;
+			case 1:
+			case 2:
+				return 10;
+			case 3:
+				return 23;
+			default:
+				return num;
+		}
 	}
 	}

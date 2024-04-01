@@ -118,7 +118,7 @@ public class SpawnScript : MonoBehaviour
 		{
 			if (GameScript.isTown)
 			{
-				StartCoroutine_Auto(SpawnTown());
+				StartCoroutine(SpawnTown());
 			}
 			else if (GameScript.curBiome == 0)
 			{

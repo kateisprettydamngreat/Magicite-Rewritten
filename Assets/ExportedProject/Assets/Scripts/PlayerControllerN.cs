@@ -1756,7 +1756,7 @@ public class PlayerControllerN : MonoBehaviour
 				default:
 					if ((bool)_0024self__00242329.gameScript)
 					{
-						_0024self__00242329.StartCoroutine_Auto(_0024self__00242329.gameScript.Die());
+						_0024self__00242329.StartCoroutine(_0024self__00242329.gameScript.Die());
 						goto IL_0121;
 					}
 					if (_0024self__00242329.GetComponent<NetworkView>().isMine)
@@ -1772,10 +1772,10 @@ public class PlayerControllerN : MonoBehaviour
 					}
 					break;
 				case 2:
-					_0024self__00242329.StartCoroutine_Auto(_0024self__00242329.gameScript.Die());
+					_0024self__00242329.StartCoroutine(_0024self__00242329.gameScript.Die());
 					goto IL_0121;
 				case 3:
-					_0024self__00242329.StartCoroutine_Auto(_0024self__00242329.gameScript.Die());
+					_0024self__00242329.StartCoroutine(_0024self__00242329.gameScript.Die());
 					goto IL_0121;
 				case 1:
 					{
@@ -2475,7 +2475,7 @@ public class PlayerControllerN : MonoBehaviour
 		{
 			GameScript.drumATK += 10;
 			GetComponent<NetworkView>().RPC("drumATKN", RPCMode.All, 1);
-			StartCoroutine_Auto(DrumATKTick());
+			StartCoroutine(DrumATKTick());
 		}
 	}
 
@@ -2503,7 +2503,7 @@ public class PlayerControllerN : MonoBehaviour
 		{
 			GameScript.drumDEX += 10;
 			GetComponent<NetworkView>().RPC("drumDEXN", RPCMode.All, 1);
-			StartCoroutine_Auto(DrumDEXTick());
+			StartCoroutine(DrumDEXTick());
 		}
 	}
 
@@ -2531,7 +2531,7 @@ public class PlayerControllerN : MonoBehaviour
 		{
 			GameScript.drumMAG += 10;
 			GetComponent<NetworkView>().RPC("drumMAGN", RPCMode.All, 1);
-			StartCoroutine_Auto(DrumMAGTick());
+			StartCoroutine(DrumMAGTick());
 		}
 	}
 
@@ -2781,13 +2781,13 @@ public class PlayerControllerN : MonoBehaviour
 				else
 				{
 					mode = 2;
-					StartCoroutine_Auto(Offledge());
+					StartCoroutine(Offledge());
 				}
 			}
 			else
 			{
 				mode = 2;
-				StartCoroutine_Auto(Offledge());
+				StartCoroutine(Offledge());
 			}
 			if (UnityEngine.Input.GetButton("Left") && !inDoor && !dashing)
 			{
@@ -2849,11 +2849,11 @@ public class PlayerControllerN : MonoBehaviour
 			}
 			if (UnityEngine.Input.GetButtonDown("Dash Left") && !inDoor)
 			{
-				StartCoroutine_Auto(Dash(0));
+				StartCoroutine(Dash(0));
 			}
 			else if (UnityEngine.Input.GetButtonDown("Dash Right") && !inDoor)
 			{
-				StartCoroutine_Auto(Dash(1));
+				StartCoroutine(Dash(1));
 			}
 			if (UnityEngine.Input.GetButton("Right") && !inDoor && !dashing)
 			{
@@ -2899,15 +2899,15 @@ public class PlayerControllerN : MonoBehaviour
 			{
 				if (grounded)
 				{
-					StartCoroutine_Auto(Jump());
+					StartCoroutine(Jump());
 				}
 				else if (canDoubleJump || MenuScript.companion == 7)
 				{
-					StartCoroutine_Auto(DoubleJump());
+					StartCoroutine(DoubleJump());
 				}
 				else if (canTripleJump)
 				{
-					StartCoroutine_Auto(TripleJump());
+					StartCoroutine(TripleJump());
 				}
 			}
 			if (UnityEngine.Input.GetButton("Jump") && !dashing)
@@ -2961,7 +2961,7 @@ public class PlayerControllerN : MonoBehaviour
 						{
 							downedAlly.SendMessage("HELP");
 						}
-						StartCoroutine_Auto(HELPSTAY());
+						StartCoroutine(HELPSTAY());
 					}
 					else
 					{
@@ -2972,11 +2972,11 @@ public class PlayerControllerN : MonoBehaviour
 				if (trigger.canLeave && !inDoor && !leaving)
 				{
 					leaving = true;
-					StartCoroutine_Auto(EnterDoor());
+					StartCoroutine(EnterDoor());
 				}
 				else if (inDoor && !leaving)
 				{
-					StartCoroutine_Auto(LeaveDoor());
+					StartCoroutine(LeaveDoor());
 				}
 			}
 			if (inDoor)
@@ -3155,7 +3155,7 @@ public class PlayerControllerN : MonoBehaviour
 		PlayerTriggerScript.canTakeDamage = true;
 		mode = 0;
 		downed = false;
-		StartCoroutine_Auto(gameScript.AgainN());
+		StartCoroutine(gameScript.AgainN());
 	}
 
 	[RPC]
@@ -3222,7 +3222,7 @@ public class PlayerControllerN : MonoBehaviour
 	{
 		if (GetComponent<NetworkView>().isMine && !inDoor && !downed && (bool)trigger)
 		{
-			StartCoroutine_Auto(trigger.TD(dmg));
+			StartCoroutine(trigger.TD(dmg));
 		}
 	}
 
@@ -3379,7 +3379,7 @@ public class PlayerControllerN : MonoBehaviour
 
 	public virtual void Write(int a)
 	{
-		StartCoroutine_Auto(gameScript.Write(a));
+		StartCoroutine(gameScript.Write(a));
 	}
 
 	public virtual IEnumerator OnLevelWasLoaded(int level)
@@ -3395,19 +3395,29 @@ public class PlayerControllerN : MonoBehaviour
 	public virtual Vector3 GetNPCPos(int a)
 	{
 		Vector3 vector = default(Vector3);
-		return a switch
+		switch (a)
 		{
-			0 => new Vector3(-9f, 3f, 1f),
-			1 => new Vector3(-5f, 3f, 1f),
-			2 => new Vector3(5f, 3f, 1f),
-			3 => new Vector3(9f, 3f, 1f),
-			4 => new Vector3(-9f, -4.5f, 1f),
-			5 => new Vector3(-5f, -4.5f, 1f),
-			6 => new Vector3(0f, -4.5f, 1f),
-			7 => new Vector3(5f, -4.5f, 1f),
-			8 => new Vector3(9f, -4.5f, 1f),
-			_ => vector,
-		};
+			case 0:
+				return new Vector3(-9f, 3f, 1f);
+			case 1:
+				return new Vector3(-5f, 3f, 1f);
+			case 2:
+				return new Vector3(5f, 3f, 1f);
+			case 3:
+				return new Vector3(9f, 3f, 1f);
+			case 4:
+				return new Vector3(-9f, -4.5f, 1f);
+			case 5:
+				return new Vector3(-5f, -4.5f, 1f);
+			case 6:
+				return new Vector3(0f, -4.5f, 1f);
+			case 7:
+				return new Vector3(5f, -4.5f, 1f);
+			case 8:
+				return new Vector3(9f, -4.5f, 1f);
+			default:
+				return vector;
+		}
 	}
 
 	[RPC]
@@ -3420,7 +3430,7 @@ public class PlayerControllerN : MonoBehaviour
 	public virtual void AddDeadPerson()
 	{
 		GameScript.playersDead++;
-		StartCoroutine_Auto(Check());
+		StartCoroutine(Check());
 	}
 
 	public virtual IEnumerator Check()
@@ -3569,7 +3579,7 @@ public class PlayerControllerN : MonoBehaviour
 	{
 		Network.RemoveRPCs(player);
 		Network.DestroyPlayerObjects(player);
-		StartCoroutine_Auto(Check());
+		StartCoroutine(Check());
 	}
 
 	[RPC]
@@ -3652,7 +3662,7 @@ public class PlayerControllerN : MonoBehaviour
 		int dMG = (int)num;
 		if (!PlayerTriggerScript.cantTakeDamage)
 		{
-			StartCoroutine_Auto(trigger.TD(dMG));
+			StartCoroutine(trigger.TD(dMG));
 		}
 	}
 

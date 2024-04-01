@@ -80,7 +80,7 @@ public class ShroomMage : EnemyScript
 	{
 		if ((bool)player && !(Mathf.Abs(player.transform.position.x - t.position.x) >= 18f) && !ATKING)
 		{
-			StartCoroutine_Auto(Attack(player.transform.position));
+			StartCoroutine(Attack(player.transform.position));
 		}
 	}
 

@@ -140,7 +140,7 @@ public class SummonSkeleton : MonoBehaviour
 		float num2 = (velocity.y = num);
 		Vector3 vector2 = (r.velocity = velocity);
 		Hit();
-		StartCoroutine_Auto(Die());
+		StartCoroutine(Die());
 	}
 
 	public virtual void Update()
@@ -174,7 +174,7 @@ public class SummonSkeleton : MonoBehaviour
 	{
 		if (GetComponent<NetworkView>().isMine)
 		{
-			StartCoroutine_Auto(HitN());
+			StartCoroutine(HitN());
 		}
 	}
 

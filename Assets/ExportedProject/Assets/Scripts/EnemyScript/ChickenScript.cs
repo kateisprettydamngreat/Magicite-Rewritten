@@ -48,7 +48,7 @@ public class ChickenScript : EnemyScript
 	{
 		if (!mooving && Network.isServer)
 		{
-			StartCoroutine_Auto(Moove());
+			StartCoroutine(Moove());
 		}
 		if (MOV && Network.isServer)
 		{

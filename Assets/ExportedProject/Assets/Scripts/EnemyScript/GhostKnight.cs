@@ -70,7 +70,7 @@ public class GhostKnight : EnemyScript
 			if (!charging)
 			{
 				charging = true;
-				StartCoroutine_Auto(Charge());
+				StartCoroutine(Charge());
 			}
 			if (attackCharge)
 			{

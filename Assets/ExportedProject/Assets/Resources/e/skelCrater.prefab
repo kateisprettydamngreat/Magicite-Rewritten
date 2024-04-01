@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -243203746, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: skelCrater
   m_EditorClassIdentifier: 
   parent: {fileID: 1429173861}
 --- !u!1 &-1501695292
@@ -17,9 +17,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 421454}
+  - component: {fileID: 421454}
   m_Layer: 0
   m_Name: Plane_002
   m_TagString: Untagged
@@ -32,9 +32,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 467894}
+  - component: {fileID: 467894}
   m_Layer: 0
   m_Name: Plane_003
   m_TagString: Untagged
@@ -79,9 +79,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 404708}
+  - component: {fileID: 404708}
   m_Layer: 18
   m_Name: particleFlame
   m_TagString: Untagged
@@ -94,9 +94,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 455758}
+  - component: {fileID: 455758}
   m_Layer: 0
   m_Name: sknight
   m_TagString: Untagged
@@ -131,6 +131,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &404890
 Transform:
   m_ObjectHideFlags: 1
@@ -143,6 +144,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &421454
 Transform:
   m_ObjectHideFlags: 1
@@ -155,6 +157,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &439034
 Transform:
   m_ObjectHideFlags: 1
@@ -167,6 +170,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &446592
 Transform:
   m_ObjectHideFlags: 1
@@ -179,6 +183,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &455758
 Transform:
   m_ObjectHideFlags: 1
@@ -191,6 +196,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &461160
 Transform:
   m_ObjectHideFlags: 1
@@ -203,6 +209,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &467894
 Transform:
   m_ObjectHideFlags: 1
@@ -215,6 +222,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &479306
 Transform:
   m_ObjectHideFlags: 1
@@ -227,6 +235,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &492530
 Transform:
   m_ObjectHideFlags: 1
@@ -239,6 +248,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -255,9 +265,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 404890}
+  - component: {fileID: 404890}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -270,9 +280,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 492530}
+  - component: {fileID: 492530}
   m_Layer: 9
   m_Name: skelCrater
   m_TagString: npc
@@ -285,9 +295,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 479306}
+  - component: {fileID: 479306}
   m_Layer: 0
   m_Name: Plane_004
   m_TagString: Untagged
@@ -300,9 +310,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 446592}
+  - component: {fileID: 446592}
   m_Layer: 0
   m_Name: waspTrig
   m_TagString: Untagged
@@ -315,9 +325,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 461160}
+  - component: {fileID: 461160}
   m_Layer: 0
   m_Name: Plane_001
   m_TagString: Untagged
@@ -330,9 +340,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 439034}
+  - component: {fileID: 439034}
   m_Layer: 0
   m_Name: e
   m_TagString: Untagged

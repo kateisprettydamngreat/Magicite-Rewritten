@@ -46,17 +46,25 @@ public class BugSpot : MonoBehaviour
 	public virtual int GetOre(int a)
 	{
 		int num = default(int);
-		return a switch
+		switch (a)
 		{
-			0 => 4, 
-			1 => 5, 
-			2 => 6, 
-			3 => 60, 
-			4 => 62, 
-			5 => 64, 
-			6 => 66, 
-			_ => num, 
-		};
+			case 0:
+				return 4;
+			case 1:
+				return 5;
+			case 2:
+				return 6;
+			case 3:
+				return 60;
+			case 4:
+				return 62;
+			case 5:
+				return 64;
+			case 6:
+				return 66;
+			default:
+				return num;
+		}
 	}
 
 	[RPC]

@@ -198,15 +198,28 @@ public class GameScript : MonoBehaviour
         while (true)
         {
             int num = UnityEngine.Random.Range(0, 5);
-            string tt = num switch
+            string tt;
+            switch (num)
             {
-                0 => "You feel as if you are being watched...",
-                1 => "You hear a distant rumble...",
-                2 => "There is a foul taste in the air.",
-                3 => "You feel uneasy.",
-                4 => "A slight breeze brushes against your face.",
-                _ => string.Empty,
-            };
+	            case 0:
+		            tt = "You feel as if you are being watched...";
+		            break;
+	            case 1:
+		            tt = "You hear a distant rumble...";
+		            break;
+	            case 2:
+		            tt = "There is a foul taste in the air.";
+		            break;
+	            case 3:
+		            tt = "You feel uneasy.";
+		            break;
+	            case 4:
+		            tt = "A slight breeze brushes against your face.";
+		            break;
+	            default:
+		            tt = string.Empty;
+		            break;
+            }
 
             if (txtStatus2 != null)
             {
@@ -1042,7 +1055,7 @@ public class GameScript : MonoBehaviour
         SaveInventory();
         Application.LoadLevel(1);
     }
-    IEnumerator AgainN()
+    public IEnumerator AgainN()
     {
         fade.fadeOut();
         yield return new WaitForSeconds(0.2f);
@@ -1358,10 +1371,11 @@ public class GameScript : MonoBehaviour
             usingPot = false;
         }
     }
-
+// TODO:  Caleb, this still needs to be de-booed
 //800 lines?????????
-	[Serializable]
-	[CompilerGenerated]
+	// [Serializable]
+	// [CompilerGenerated]
+	/*
 	internal sealed class _0024UseItem_00241677 : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
@@ -2162,9 +2176,11 @@ public class GameScript : MonoBehaviour
 			return new _0024(_0024slot_00241736, _0024self__00241737);
 		}
 	}
+	*/
 	public virtual IEnumerator UseItem(int slot)
 	{
-		return new _0024UseItem_00241677(slot, this).GetEnumerator();
+		// return new _0024UseItem_00241677(slot, this).GetEnumerator();
+		yield return null;  // TODO: Caleb, broken needs to be fixed.
 	}
 
     public virtual IEnumerator MeleeAttack()
@@ -3360,104 +3376,258 @@ public class GameScript : MonoBehaviour
 	public virtual int GetItemPrice(int id)
 	{
 		int num = default(int);
-		return id switch
+		switch (id)
 		{
-			1 => 5,
-			2 => 10,
-			3 => 5,
-			4 => 15,
-			5 => 30,
-			6 => 70,
-			7 => 5,
-			8 => 8,
-			9 => 10,
-			10 => 10,
-			11 => 10,
-			12 => 30,
-			13 => 60,
-			14 => 140,
-			15 => 20,
-			16 => 20,
-			17 => 20,
-			18 => 7,
-			19 => 7,
-			20 => 7,
-			21 => 5,
-			22 => 10,
-			23 => 10,
-			24 => 15,
-			25 => 20,
-			26 => 10,
-			27 => 15,
-			28 => 30,
-			29 => 20,
-			30 => 20,
-			31 => 20,
-			32 => 60,
-			33 => 120,
-			34 => 280,
-			35 => 120,
-			36 => 240,
-			37 => 560,
-			38 => 10,
-			39 => 20,
-			40 => 40,
-			41 => 80,
-			42 => 45,
-			43 => 45,
-			44 => 20,
-			45 => 45,
-			46 => 500,
-			47 => 30,
-			48 => 65,
-			49 => 10,
-			50 => 15,
-			51 => 5,
-			52 => 5,
-			53 => 10,
-			54 => 20,
-			55 => 40,
-			56 => 60,
-			500 => 35,
-			501 => 30,
-			502 => 45,
-			503 => 120,
-			504 => 120,
-			505 => 120,
-			506 => 300,
-			507 => 300,
-			508 => 300,
-			509 => 700,
-			510 => 700,
-			511 => 700,
-			512 => 55,
-			513 => 50,
-			514 => 65,
-			515 => 100,
-			516 => 55,
-			517 => 50,
-			518 => 65,
-			519 => 200,
-			550 => 330,
-			560 => 135,
-			561 => 255,
-			562 => 1000,
-			563 => 95,
-			566 => 1000,
-			600 => 100,
-			601 => 100,
-			602 => 100,
-			700 => 90,
-			701 => 180,
-			702 => 420,
-			800 => 90,
-			801 => 180,
-			802 => 420,
-			900 => 90,
-			901 => 180,
-			902 => 420,
-			_ => 999,
-		} * 2;
+			case 1:
+				num = 5;
+				break;
+			case 2:
+				num = 10;
+				break;
+			case 3:
+				num = 5;
+				break;
+			case 4:
+				num = 15;
+				break;
+			case 5:
+				num = 30;
+				break;
+			case 6:
+				num = 70;
+				break;
+			case 7:
+				num = 5;
+				break;
+			case 8:
+				num = 8;
+				break;
+			case 9:
+			case 10:
+			case 11:
+				num = 10;
+				break;
+			case 12:
+				num = 30;
+				break;
+			case 13:
+				num = 60;
+				break;
+			case 14:
+				num = 140;
+				break;
+			case 15:
+			case 16:
+			case 17:
+				num = 20;
+				break;
+			case 18:
+			case 19:
+			case 20:
+				num = 7;
+				break;
+			case 21:
+				num = 5;
+				break;
+			case 22:
+			case 23:
+				num = 10;
+				break;
+			case 24:
+				num = 15;
+				break;
+			case 25:
+				num = 20;
+				break;
+			case 26:
+				num = 10;
+				break;
+			case 27:
+				num = 15;
+				break;
+			case 28:
+				num = 30;
+				break;
+			case 29:
+			case 30:
+			case 31:
+				num = 20;
+				break;
+			case 32:
+				num = 60;
+				break;
+			case 33:
+				num = 120;
+				break;
+			case 34:
+				num = 280;
+				break;
+			case 35:
+				num = 120;
+				break;
+			case 36:
+				num = 240;
+				break;
+			case 37:
+				num = 560;
+				break;
+			case 38:
+				num = 10;
+				break;
+			case 39:
+				num = 20;
+				break;
+			case 40:
+				num = 40;
+				break;
+			case 41:
+				num = 80;
+				break;
+			case 42:
+			case 43:
+				num = 45;
+				break;
+			case 44:
+				num = 20;
+				break;
+			case 45:
+				num = 45;
+				break;
+			case 46:
+				num = 500;
+				break;
+			case 47:
+				num = 30;
+				break;
+			case 48:
+				num = 65;
+				break;
+			case 49:
+				num = 10;
+				break;
+			case 50:
+				num = 15;
+				break;
+			case 51:
+			case 52:
+				num = 5;
+				break;
+			case 53:
+				num = 10;
+				break;
+			case 54:
+				num = 20;
+				break;
+			case 55:
+				num = 40;
+				break;
+			case 56:
+				num = 60;
+				break;
+			case 500:
+				num = 35;
+				break;
+			case 501:
+				num = 30;
+				break;
+			case 502:
+				num = 45;
+				break;
+			case 503:
+			case 504:
+			case 505:
+				num = 120;
+				break;
+			case 506:
+			case 507:
+			case 508:
+				num = 300;
+				break;
+			case 509:
+			case 510:
+			case 511:
+				num = 700;
+				break;
+			case 512:
+				num = 55;
+				break;
+			case 513:
+				num = 50;
+				break;
+			case 514:
+				num = 65;
+				break;
+			case 515:
+				num = 100;
+				break;
+			case 516:
+				num = 55;
+				break;
+			case 517:
+				num = 50;
+				break;
+			case 518:
+				num = 65;
+				break;
+			case 519:
+				num = 200;
+				break;
+			case 550:
+				num = 330;
+				break;
+			case 560:
+				num = 135;
+				break;
+			case 561:
+				num = 255;
+				break;
+			case 562:
+				num = 1000;
+				break;
+			case 563:
+				num = 95;
+				break;
+			case 566:
+				num = 1000;
+				break;
+			case 600:
+			case 601:
+			case 602:
+				num = 100;
+				break;
+			case 700:
+				num = 90;
+				break;
+			case 701:
+				num = 180;
+				break;
+			case 702:
+				num = 420;
+				break;
+			case 800:
+				num = 90;
+				break;
+			case 801:
+				num = 180;
+				break;
+			case 802:
+				num = 420;
+				break;
+			case 900:
+				num = 90;
+				break;
+			case 901:
+				num = 180;
+				break;
+			case 902:
+				num = 420;
+				break;
+			default:
+				num = 999;
+				break;
+		}
+
+		return num * 2;
 	}
 
 	public virtual void RefreshGold()
@@ -3557,7 +3727,7 @@ public class GameScript : MonoBehaviour
 		drumMAG = 0;
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(Timer());
+			StartCoroutine(Timer());
 		}
 		DetectRes();
 		ATKING = false;
@@ -3587,7 +3757,7 @@ public class GameScript : MonoBehaviour
 		RefreshSkills();
 		if (!isTown)
 		{
-			StartCoroutine_Auto(Invader());
+			StartCoroutine(Invader());
 		}
 		Network.minimumAllocatableViewIDs = 700;
 		int num2 = default(int);
@@ -3823,9 +3993,9 @@ public class GameScript : MonoBehaviour
 		hasCurTown = PlayerPrefs.GetInt("hasTown");
 		player.transform.position = new Vector3(0f, -1.5f, 0f);
 		UpdateCharacterWeapon();
-		StartCoroutine_Auto(GenerateText());
+		StartCoroutine(GenerateText());
 		GenerateLevelName();
-		StartCoroutine_Auto(ScourgeMaskTick());
+		StartCoroutine(ScourgeMaskTick());
 		player.transform.position = new Vector3(0f, -1.5f, 0f);
 		player.SendMessage("Initialize");
 		if (player.GetComponent<NetworkView>().isMine)
@@ -3853,12 +4023,12 @@ public class GameScript : MonoBehaviour
 		{
 			if (Network.isServer)
 			{
-				StartCoroutine_Auto(GenerateLevel());
+				StartCoroutine(GenerateLevel());
 			}
 		}
 		else if (Network.isServer)
 		{
-			StartCoroutine_Auto(SpawnTownNetwork());
+			StartCoroutine(SpawnTownNetwork());
 		}
 		if ((bool)player)
 		{
@@ -3868,13 +4038,13 @@ public class GameScript : MonoBehaviour
 		RefreshActionBar();
 		maxStamina += STA;
 		RefreshPlayerStats();
-		StartCoroutine_Auto(RecoverMana());
+		StartCoroutine(RecoverMana());
 		if (Network.isServer && curBiome == 19)
 		{
 			Network.Instantiate(Resources.Load("e/scourgeWall"), new Vector3(-15f, 0f, 0f), Quaternion.identity, 0);
 		}
 		LoadEXP();
-		StartCoroutine_Auto(TikiCheck());
+		StartCoroutine(TikiCheck());
 		LoadSTA();
 		if (MenuScript.companion == 1)
 		{
@@ -3890,7 +4060,7 @@ public class GameScript : MonoBehaviour
 		}
 		if (MenuScript.companion == 5)
 		{
-			StartCoroutine_Auto(RegenManaComp());
+			StartCoroutine(RegenManaComp());
 		}
 	}
 
@@ -3978,20 +4148,45 @@ public class GameScript : MonoBehaviour
 		string text = null;
 		string text2 = null;
 		text2 = ((curBiome == 19) ? "The Scourge Lair" : ("District " + districtLevel + ": "));
-		string text3 = text2 + curBiome switch
+		string biomeText;
+		switch (curBiome)
 		{
-			0 => GetForestPrefix() + " Forest",
-			1 => GetTundraPrefix() + " Tundra",
-			2 => GetCavePrefix() + " Cave",
-			3 => GetDungeonPrefix() + " Dungeon",
-			4 => GetCavePrefix() + " Desert",
-			5 => GetCavePrefix() + " Veldt",
-			6 => GetCavePrefix() + " Volcano",
-			7 => GetCavePrefix() + " Swamp",
-			8 => GetCavePrefix() + " Quarry",
-			9 => GetCavePrefix() + " Crater",
-			_ => string.Empty,
-		};
+			case 0:
+				biomeText = GetForestPrefix() + " Forest";
+				break;
+			case 1:
+				biomeText = GetTundraPrefix() + " Tundra";
+				break;
+			case 2:
+				biomeText = GetCavePrefix() + " Cave";
+				break;
+			case 3:
+				biomeText = GetDungeonPrefix() + " Dungeon";
+				break;
+			case 4:
+				biomeText = GetCavePrefix() + " Desert";
+				break;
+			case 5:
+				biomeText = GetCavePrefix() + " Veldt";
+				break;
+			case 6:
+				biomeText = GetCavePrefix() + " Volcano";
+				break;
+			case 7:
+				biomeText = GetCavePrefix() + " Swamp";
+				break;
+			case 8:
+				biomeText = GetCavePrefix() + " Quarry";
+				break;
+			case 9:
+				biomeText = GetCavePrefix() + " Crater";
+				break;
+			default:
+				biomeText = string.Empty;
+				break;
+		}
+
+		string text3 = text2 + biomeText;
 		if (Network.isServer)
 		{
 			player.GetComponent<NetworkView>().RPC("SetZoneName", RPCMode.All, text3);
@@ -4369,11 +4564,11 @@ public class GameScript : MonoBehaviour
 			}
 			if (hunger == 3)
 			{
-				StartCoroutine_Auto(Write(1));
+				StartCoroutine(Write(1));
 			}
 			else if (hunger == 0)
 			{
-				StartCoroutine_Auto(Write(2));
+				StartCoroutine(Write(2));
 			}
 		}
 		UpdateHunger();
@@ -4413,44 +4608,71 @@ public class GameScript : MonoBehaviour
 	public virtual string GetTraitDesc(int id)
 	{
 		string text = null;
-		return id switch
+		switch (id)
 		{
-			1 => "Chops down trees quicker.",
-			2 => "Mines ores faster.",
-			3 => "Collects twice as many\ningredients when gathering.",
-			4 => "50% chance to\ncraft Big Potions with\nonly basic ingredients.",
-			5 => "Higher chance at\ncrafting rare weapons\n& gear.",
-			6 => "+2 ATK\n-1 HP",
-			7 => "+4 HP\n-1 ATK.",
-			8 => "+2 DEX",
-			9 => "+2 HP",
-			10 => "Hunger Cap is doubled.",
-			11 => "+2 MAG",
-			12 => "Doesn't need a key when\nopening chests or locks.",
-			_ => "NULL",
-		};
+			case 1:
+				return "Chops down trees quicker.";
+			case 2:
+				return "Mines ores faster.";
+			case 3:
+				return "Collects twice as many\ningredients when gathering.";
+			case 4:
+				return "50% chance to\ncraft Big Potions with\nonly basic ingredients.";
+			case 5:
+				return "Higher chance at\ncrafting rare weapons\n& gear.";
+			case 6:
+				return "+2 ATK\n-1 HP";
+			case 7:
+				return "+4 HP\n-1 ATK.";
+			case 8:
+				return "+2 DEX";
+			case 9:
+				return "+2 HP";
+			case 10:
+				return "Hunger Cap is doubled.";
+			case 11:
+				return "+2 MAG";
+			case 12:
+				return "Doesn't need a key when\nopening chests or locks.";
+			default:
+				return "NULL";
+		}
 	}
 
 	public virtual string GetTraitName(int id)
 	{
 		string text = null;
-		return id switch
+		switch (id)
 		{
-			1 => "Woodcutter",
-			2 => "Miner",
-			3 => "Gatherer",
-			4 => "Potion Brewer",
-			5 => "Artisan",
-			6 => "Aggressive",
-			7 => "Defensive",
-			8 => "Swift",
-			9 => "Healthy",
-			10 => "Big Eater",
-			11 => "Intelligent",
-			12 => "Lockmaster",
-			13 => "Pickpocket",
-			_ => "NULL",
-		};
+			case 1:
+				return "Woodcutter";
+			case 2:
+				return "Miner";
+			case 3:
+				return "Gatherer";
+			case 4:
+				return "Potion Brewer";
+			case 5:
+				return "Artisan";
+			case 6:
+				return "Aggressive";
+			case 7:
+				return "Defensive";
+			case 8:
+				return "Swift";
+			case 9:
+				return "Healthy";
+			case 10:
+				return "Big Eater";
+			case 11:
+				return "Intelligent";
+			case 12:
+				return "Lockmaster";
+			case 13:
+				return "Pickpocket";
+			default:
+				return "NULL";
+		}
 	}
 
 	public virtual void ShowTraitDesc(int slot)
@@ -4562,16 +4784,31 @@ public class GameScript : MonoBehaviour
 	public virtual void SetTitle(int a)
 	{
 		string text = null;
-		text = a switch
+		switch (a)
 		{
-			1 => "Item Creator",
-			2 => "Enemy Creator",
-			3 => "Creator of Gods",
-			4 => "Ultimate Fan",
-			5 => "Creator of Worlds",
-			6 => "Champion",
-			_ => string.Empty,
-		};
+			case 1:
+				text = "Item Creator";
+				break;
+			case 2:
+				text = "Enemy Creator";
+				break;
+			case 3:
+				text = "Creator of Gods";
+				break;
+			case 4:
+				text = "Ultimate Fan";
+				break;
+			case 5:
+				text = "Creator of Worlds";
+				break;
+			case 6:
+				text = "Champion";
+				break;
+			default:
+				text = string.Empty;
+				break;
+		}
+
 		if ((bool)player)
 		{
 			player.GetComponent<NetworkView>().RPC("AssignTitle", RPCMode.All, text);
@@ -4603,7 +4840,7 @@ public class GameScript : MonoBehaviour
 	{
 		if (eggCounter >= 3 && !writingEgg)
 		{
-			StartCoroutine_Auto(WriteEgg());
+			StartCoroutine(WriteEgg());
 		}
 //		if (UnityEngine.Input.GetKeyDown(KeyCode.P) && debugMode)
 //		{
@@ -4854,16 +5091,16 @@ public class GameScript : MonoBehaviour
 					ReturnTown();
 					break;
 				case "0":
-					StartCoroutine_Auto(SelectReward(0));
+					StartCoroutine(SelectReward(0));
 					break;
 				case "1":
-					StartCoroutine_Auto(SelectReward(1));
+					StartCoroutine(SelectReward(1));
 					break;
 				case "2":
-					StartCoroutine_Auto(SelectReward(2));
+					StartCoroutine(SelectReward(2));
 					break;
 				case "3":
-					StartCoroutine_Auto(SelectReward(3));
+					StartCoroutine(SelectReward(3));
 					break;
 				case "bClose":
 					CloseReward();
@@ -4908,19 +5145,19 @@ public class GameScript : MonoBehaviour
 				}
 				else if (gameObject2.name == "b1")
 				{
-					StartCoroutine_Auto(AddInput(1));
+					StartCoroutine(AddInput(1));
 				}
 				else if (gameObject2.name == "b2")
 				{
-					StartCoroutine_Auto(AddInput(2));
+					StartCoroutine(AddInput(2));
 				}
 				else if (gameObject2.name == "b3")
 				{
-					StartCoroutine_Auto(AddInput(3));
+					StartCoroutine(AddInput(3));
 				}
 				else if (gameObject2.name == "b4")
 				{
-					StartCoroutine_Auto(AddInput(4));
+					StartCoroutine(AddInput(4));
 				}
 				else if (gameObject2.layer == 10 && gameObject2.tag != "sIcon" && gameObject2.tag != "tIcon")
 				{
@@ -5105,14 +5342,14 @@ public class GameScript : MonoBehaviour
 								firstItemSelected = null;
 								selectCraft1.SetActive(value: false);
 							}
-							else if (!RuntimeServices.EqualityOperator(firstItemSelected, null))
+							else if (firstItemSelected != null)
 							{
 								crafting = true;
 								secondItemSelected = inventory[num2];
 								secondItemSelectedSlot = num7;
 								selectCraft2.SetActive(value: true);
 								selectCraft2.transform.position = inventorySlot[num7].transform.position;
-								StartCoroutine_Auto(Craft());
+								StartCoroutine(Craft());
 							}
 							else
 							{
@@ -5128,7 +5365,7 @@ public class GameScript : MonoBehaviour
 		}
 		else if (UnityEngine.Input.GetButtonDown("Use Item") && !inventoryOpen && !isDead && !immobilized && !usingItem)
 		{
-			StartCoroutine_Auto(UseItem(curActiveSlot));
+			StartCoroutine(UseItem(curActiveSlot));
 		}
 		else if (UnityEngine.Input.GetButtonDown("Melee Attack") && !inventoryOpen)
 		{
@@ -5168,11 +5405,11 @@ public class GameScript : MonoBehaviour
 					Options();
 					break;
 				case "bMenu":
-					StartCoroutine_Auto(Menuu());
+					StartCoroutine(Menuu());
 					break;
 				case "bQuit":
 					SaveStats();
-					StartCoroutine_Auto(Menuu());
+					StartCoroutine(Menuu());
 					break;
 				case "bAgain":
 					Again();
@@ -5259,38 +5496,54 @@ public class GameScript : MonoBehaviour
 	public virtual bool ChanceRace(int a)
 	{
 		int num = 0;
-		return UnityEngine.Random.Range(0, a switch
+		int maxChance;
+		switch (a)
 		{
-			6 => 1,
-			8 => 1,
-			9 => 1,
-			10 => 2,
-			11 => 1,
-			12 => 1,
-			13 => 1,
-			14 => 1,
-			_ => 5,
-		}) == 0;
+			case 6:
+			case 8:
+			case 9:
+				maxChance = 1;
+				break;
+			case 10:
+				maxChance = 2;
+				break;
+			case 11:
+			case 12:
+			case 13:
+			case 14:
+				maxChance = 1;
+				break;
+			default:
+				maxChance = 5;
+				break;
+		}
+
+		return UnityEngine.Random.Range(0, maxChance) == 0;
 	}
 
 	public virtual bool ChanceHat(int a)
 	{
 		int num = 0;
 		MonoBehaviour.print(a + " is hat ");
-		num = a switch
+		switch (a)
 		{
-			3 => 1,
-			11 => 1,
-			12 => 1,
-			18 => 1,
-			19 => 1,
-			20 => 1,
-			21 => 1,
-			22 => 1,
-			23 => 1,
-			24 => 1,
-			_ => 5,
-		};
+			case 3:
+			case 11:
+			case 12:
+			case 18:
+			case 19:
+			case 20:
+			case 21:
+			case 22:
+			case 23:
+			case 24:
+				num = 1;
+				break;
+			default:
+				num = 5;
+				break;
+		}
+
 		int num2 = default(int);
 		num2 = ((num != 1) ? UnityEngine.Random.Range(0, num) : 0);
 		return num2 == 0;
@@ -5391,84 +5644,143 @@ public class GameScript : MonoBehaviour
 	public virtual string GetHatName(int a)
 	{
 		string text = null;
-		return a switch
+		switch (a)
 		{
-			1 => "Gatherer Headband",
-			2 => "Miner Cap",
-			3 => "Berserker Scarf",
-			4 => "Robin Hood Hat",
-			5 => "Magician Hat",
-			6 => "Bunny Ears",
-			7 => "Bat Wing",
-			8 => "Tyrannox Hat",
-			9 => "Wasp Glasses",
-			10 => "Tiki Mask",
-			11 => "Wizard Beard",
-			12 => "Hero Crown",
-			13 => "Shroom Hat",
-			14 => "Spider Egg",
-			15 => "Skeleton Mask",
-			16 => "Dragon Hat",
-			17 => "Scourge Mask",
-			18 => "Frost Crown",
-			19 => "Viking Helm",
-			20 => "Black Dragon Hat",
-			21 => "Skeleton King Hood",
-			22 => "Pirate Hat",
-			23 => "Sean's Head",
-			24 => "Overworld Helm",
-			_ => string.Empty,
-		};
+			case 1:
+				return "Gatherer Headband";
+			case 2:
+				return "Miner Cap";
+			case 3:
+				return "Berserker Scarf";
+			case 4:
+				return "Robin Hood Hat";
+			case 5:
+				return "Magician Hat";
+			case 6:
+				return "Bunny Ears";
+			case 7:
+				return "Bat Wing";
+			case 8:
+				return "Tyrannox Hat";
+			case 9:
+				return "Wasp Glasses";
+			case 10:
+				return "Tiki Mask";
+			case 11:
+				return "Wizard Beard";
+			case 12:
+				return "Hero Crown";
+			case 13:
+				return "Shroom Hat";
+			case 14:
+				return "Spider Egg";
+			case 15:
+				return "Skeleton Mask";
+			case 16:
+				return "Dragon Hat";
+			case 17:
+				return "Scourge Mask";
+			case 18:
+				return "Frost Crown";
+			case 19:
+				return "Viking Helm";
+			case 20:
+				return "Black Dragon Hat";
+			case 21:
+				return "Skeleton King Hood";
+			case 22:
+				return "Pirate Hat";
+			case 23:
+				return "Sean's Head";
+			case 24:
+				return "Overworld Helm";
+			default:
+				return string.Empty;
+		}
 	}
 
 	public virtual string GetRaceName(int race)
 	{
 		string text = null;
-		return race switch
+		switch (race)
 		{
-			0 => "Peon",
-			1 => "Noble",
-			2 => "Orclops",
-			3 => "Dwelf",
-			4 => "Crusader",
-			5 => "Remnant",
-			6 => "Trogon",
-			7 => "Earthkin",
-			8 => "Pigfolk",
-			9 => "Qualogg",
-			10 => "Bandicoot",
-			11 => "Djinn",
-			12 => "Lizardman",
-			13 => "Scourgeling",
-			14 => "Spirit",
-			_ => "null",
-		};
+			case 0:
+				return "Peon";
+			case 1:
+				return "Noble";
+			case 2:
+				return "Orclops";
+			case 3:
+				return "Dwelf";
+			case 4:
+				return "Crusader";
+			case 5:
+				return "Remnant";
+			case 6:
+				return "Trogon";
+			case 7:
+				return "Earthkin";
+			case 8:
+				return "Pigfolk";
+			case 9:
+				return "Qualogg";
+			case 10:
+				return "Bandicoot";
+			case 11:
+				return "Djinn";
+			case 12:
+				return "Lizardman";
+			case 13:
+				return "Scourgeling";
+			case 14:
+				return "Spirit";
+			default:
+				return "null";
+		}
 	}
 
 	public virtual string GetCompName(int a)
 	{
 		string text = null;
-		return a switch
+		switch (a)
 		{
-			1 => "Regen Fairy",
-			2 => "Ancient Bat",
-			3 => "Haste Beetle",
-			4 => "Gadget Guard",
-			5 => "Gorgon Eye",
-			6 => "Floaty Slime",
-			7 => "Gooey Ghost",
-			8 => "Flame of Hope",
-			9 => "4th Age Droid",
-			10 => "Tiki Mask",
-			11 => "Wizard Beard",
-			12 => "Hero Crown",
-			13 => "Shroom Hat",
-			14 => "Spider Egg",
-			15 => "Skeleton Mask",
-			16 => "Dragon Hat",
-			17 => "Black",
-			_ => string.Empty,
-		};
+			case 1:
+				return "Regen Fairy";
+			case 2:
+				return "Ancient Bat";
+			case 3:
+				return "Haste Beetle";
+			case 4:
+				return "Gadget Guard";
+			case 5:
+				return "Gorgon Eye";
+			case 6:
+				return "Floaty Slime";
+			case 7:
+				return "Gooey Ghost";
+			case 8:
+				return "Flame of Hope";
+			case 9:
+				return "4th Age Droid";
+			case 10:
+				return "Tiki Mask";
+			case 11:
+				return "Wizard Beard";
+			case 12:
+				return "Hero Crown";
+			case 13:
+				return "Shroom Hat";
+			case 14:
+				return "Spider Egg";
+			case 15:
+				return "Skeleton Mask";
+			case 16:
+				return "Dragon Hat";
+			case 17:
+				return "Black";
+			default:
+				return string.Empty;
+		}
 	}
 
 	public virtual int GetScoreBonus()
@@ -5533,24 +5845,49 @@ public class GameScript : MonoBehaviour
 
 	public virtual float ConvertToEXP(int s, float v)
 	{
-		v = s switch
+		switch (s)
 		{
-			1 => v * 0.5f,
-			2 => v * 0.5f,
-			3 => v * 0.3f,
-			4 => v * 0.3f,
-			5 => v * 1f,
-			6 => v * 0.4f,
-			7 => v * 0.4f,
-			8 => v * 0.3f,
-			9 => v * 0.7f,
-			10 => v * 2f,
-			11 => v * 10f,
-			12 => v * 2f,
-			13 => v * 60f,
-			14 => v * 4f,
-			_ => v * 0.1f,
-		};
+			case 1:
+			case 2:
+				v = v * 0.5f;
+				break;
+			case 3:
+			case 4:
+				v = v * 0.3f;
+				break;
+			case 5:
+				v = v * 1f;
+				break;
+			case 6:
+			case 7:
+				v = v * 0.4f;
+				break;
+			case 8:
+				v = v * 0.3f;
+				break;
+			case 9:
+				v = v * 0.7f;
+				break;
+			case 10:
+				v = v * 2f;
+				break;
+			case 11:
+				v = v * 10f;
+				break;
+			case 12:
+				v = v * 2f;
+				break;
+			case 13:
+				v = v * 60f;
+				break;
+			case 14:
+				v = v * 4f;
+				break;
+			default:
+				v = v * 0.1f;
+				break;
+		}
+
 		return v;
 	}
 
@@ -5611,19 +5948,29 @@ public class GameScript : MonoBehaviour
 	public virtual Vector3 GetHousePos(int a)
 	{
 		Vector3 vector = default(Vector3);
-		return a switch
+		switch (a)
 		{
-			0 => new Vector3(-9f, 3.5f, 1.5f),
-			1 => new Vector3(-5f, 3.5f, 1.5f),
-			2 => new Vector3(5f, 3.5f, 1.5f),
-			3 => new Vector3(9f, 3.5f, 1.5f),
-			4 => new Vector3(-9f, -4f, 1.5f),
-			5 => new Vector3(-5f, -4f, 1.5f),
-			6 => new Vector3(0f, -4f, 1.5f),
-			7 => new Vector3(5f, -4f, 1.5f),
-			8 => new Vector3(9f, -4f, 1.5f),
-			_ => vector,
-		};
+			case 0:
+				return new Vector3(-9f, 3.5f, 1.5f);
+			case 1:
+				return new Vector3(-5f, 3.5f, 1.5f);
+			case 2:
+				return new Vector3(5f, 3.5f, 1.5f);
+			case 3:
+				return new Vector3(9f, 3.5f, 1.5f);
+			case 4:
+				return new Vector3(-9f, -4f, 1.5f);
+			case 5:
+				return new Vector3(-5f, -4f, 1.5f);
+			case 6:
+				return new Vector3(0f, -4f, 1.5f);
+			case 7:
+				return new Vector3(5f, -4f, 1.5f);
+			case 8:
+				return new Vector3(9f, -4f, 1.5f);
+			default:
+				return vector;
+		}
 	}
 
 	public virtual void UseMana(int m)
@@ -5645,7 +5992,7 @@ public class GameScript : MonoBehaviour
 		if (!attacking)
 		{
 			attacking = true;
-			StartCoroutine_Auto(MeleeAttack());
+			StartCoroutine(MeleeAttack());
 		}
 	}
 
@@ -7654,14 +8001,19 @@ public class GameScript : MonoBehaviour
 	public virtual string GetStatName(int a)
 	{
 		string text = null;
-		return a switch
+		switch (a)
 		{
-			0 => "HP",
-			1 => "ATK",
-			2 => "DEX",
-			3 => "MAG",
-			_ => "NULL",
-		};
+			case 0:
+				return "HP";
+			case 1:
+				return "ATK";
+			case 2:
+				return "DEX";
+			case 3:
+				return "MAG";
+			default:
+				return "NULL";
+		}
 	}
 
 	public virtual int AddItem(Item item)
@@ -7825,20 +8177,31 @@ public class GameScript : MonoBehaviour
 	public virtual string GetItemDesc(int id)
 	{
 		string text = null;
-		return id switch
+		switch (id)
 		{
-			1 => "A basic piece of\nwood used to\nmake planks.",
-			9 => "A vital ingredient\nfor making potions.",
-			7 => "Restores 1 hunger.",
-			8 => "Restores 3 hunger.\n50% chance to heal.",
-			21 => "Restores 1 hunger.",
-			22 => "Restores 3 hunger.\n50% chance to heal.",
-			15 => "Heals 2 HP.",
-			42 => "Heals 5 HP.",
-			46 => "increases HP and\nMAG by 3.",
-			95 => "Cannot be used in\nTown.",
-			_ => string.Empty,
-		};
+			case 1:
+				return "A basic piece of\nwood used to\nmake planks.";
+			case 9:
+				return "A vital ingredient\nfor making potions.";
+			case 7:
+				return "Restores 1 hunger.";
+			case 8:
+				return "Restores 3 hunger.\n50% chance to heal.";
+			case 21:
+				return "Restores 1 hunger.";
+			case 22:
+				return "Restores 3 hunger.\n50% chance to heal.";
+			case 15:
+				return "Heals 2 HP.";
+			case 42:
+				return "Heals 5 HP.";
+			case 46:
+				return "increases HP and\nMAG by 3.";
+			case 95:
+				return "Cannot be used in\nTown.";
+			default:
+				return string.Empty;
+		}
 	}
 
 	public virtual void SelectSlot(int a)
@@ -7881,26 +8244,26 @@ public class GameScript : MonoBehaviour
 		select.transform.localPosition = GetSelectPos(curActiveSlot);
 	}
 
-	public virtual Vector3 GetSelectPos(object slot)
+	public virtual Vector3 GetSelectPos(int slot)
 	{
 		Vector3 result = default(Vector3);
-		if (RuntimeServices.EqualityOperator(slot, 0))
+		if (slot == 0)
 		{
 			return new Vector3(-18.75f, 11.05f, 8.75f);
 		}
-		if (RuntimeServices.EqualityOperator(slot, 1))
+		if (slot == 1)
 		{
 			return new Vector3(-16.85f, 11.05f, 8.75f);
 		}
-		if (RuntimeServices.EqualityOperator(slot, 2))
+		if (slot == 2)
 		{
 			return new Vector3(-15f, 11.05f, 8.75f);
 		}
-		if (RuntimeServices.EqualityOperator(slot, 3))
+		if (slot == 3)
 		{
 			return new Vector3(-13.15f, 11.05f, 8.75f);
 		}
-		if (RuntimeServices.EqualityOperator(slot, 4))
+		if (slot == 4)
 		{
 			return new Vector3(-11.25f, 11.05f, 8.75f);
 		}
@@ -8198,22 +8561,35 @@ public class GameScript : MonoBehaviour
 	public virtual string GetStatsName(int a)
 	{
 		string text = null;
-		return a switch
+		switch (a)
 		{
-			0 => "Characters Created",
-			1 => "Enemies Defeated",
-			2 => "Gold Collected",
-			3 => "EXP Acquired",
-			4 => "Items Crafted",
-			5 => "Trees Chopped",
-			6 => "Ore Mined",
-			7 => "Resources Gathered",
-			8 => "Foods Eaten",
-			9 => "Chests Opened",
-			10 => "Bosses Defeated",
-			11 => "Items Bought",
-			_ => string.Empty,
-		};
+			case 0:
+				return "Characters Created";
+			case 1:
+				return "Enemies Defeated";
+			case 2:
+				return "Gold Collected";
+			case 3:
+				return "EXP Acquired";
+			case 4:
+				return "Items Crafted";
+			case 5:
+				return "Trees Chopped";
+			case 6:
+				return "Ore Mined";
+			case 7:
+				return "Resources Gathered";
+			case 8:
+				return "Foods Eaten";
+			case 9:
+				return "Chests Opened";
+			case 10:
+				return "Bosses Defeated";
+			case 11:
+				return "Items Bought";
+			default:
+				return string.Empty;
+		}
 	}
 
 	public virtual void OnApplicationQuit()
@@ -8455,205 +8831,331 @@ public class GameScript : MonoBehaviour
 	public virtual string GetSkillName(int a)
 	{
 		string text = null;
-		return a switch
+		switch (a)
 		{
-			1 => "Throwing Axe",
-			2 => "Berserker's Rage",
-			3 => "Charge!",
-			4 => "Guardian's Aura",
-			5 => "Knight's Blade",
-			6 => "Magic Weapons",
-			7 => "Clairvoyance",
-			8 => "Necromancer's Minion",
-			9 => "Warp",
-			10 => "Levitate",
-			11 => "Hunter's Roar",
-			12 => "Triple Shot",
-			13 => "Druid's Arrow",
-			14 => "Fire Wisp",
-			15 => "Dire Wolf",
-			_ => "null",
-		};
+			case 1:
+				return "Throwing Axe";
+			case 2:
+				return "Berserker's Rage";
+			case 3:
+				return "Charge!";
+			case 4:
+				return "Guardian's Aura";
+			case 5:
+				return "Knight's Blade";
+			case 6:
+				return "Magic Weapons";
+			case 7:
+				return "Clairvoyance";
+			case 8:
+				return "Necromancer's Minion";
+			case 9:
+				return "Warp";
+			case 10:
+				return "Levitate";
+			case 11:
+				return "Hunter's Roar";
+			case 12:
+				return "Triple Shot";
+			case 13:
+				return "Druid's Arrow";
+			case 14:
+				return "Fire Wisp";
+			case 15:
+				return "Dire Wolf";
+			default:
+				return "null";
+		}
 	}
 
 	public virtual string GetSkillDesc(int id)
 	{
 		string text = null;
-		return id switch
+		switch (id)
 		{
-			1 => "Hurl a giant axe that\npasses through enemies.\nDeals damage based on\nATK/2.",
-			2 => "For 10 seconds, your\nATK is doubled.",
-			3 => "You and nearby Allies\ngain 4 SPD for 10\nseconds.",
-			4 => "You and nearby Allies\ntake 4 less damage\nfor 10 seconds.",
-			5 => "Perform an extra jump\nwhile summoning a badass\nsword. Based on ATK.",
-			6 => "You and nearby Allies\ndeal bonus damage equal\nto your MAG for\n10 seconds.",
-			7 => "For 10 seconds, you\nrapidly regain mana.",
-			8 => "Summon a minion at your\ncursor's location. Shoots\nfireballs whaaat.",
-			9 => "Teleport left or right\nbased on cursor location.",
-			10 => "Makes your friends\njealous.",
-			11 => "You and nearby Allies\ngain 10 DEX for 10\nseconds.",
-			12 => "Next shot fired will\nshoot 3 arrows.\nWith double damage.\nConsumes 3 arrows.",
-			13 => "Perform an extra jump\nwhile summoning a badass\narrow. Based on DEX.",
-			14 => "Summons wisp at cursor\nlocation. Arrows passing\nthrough will deal\n2x damage.",
-			15 => "Summon a wolf that runs\naround and kills shit.",
-			_ => "null",
-		};
+			case 1:
+				return "Hurl a giant axe that\npasses through enemies.\nDeals damage based on\nATK/2.";
+			case 2:
+				return "For 10 seconds, your\nATK is doubled.";
+			case 3:
+				return "You and nearby Allies\ngain 4 SPD for 10\nseconds.";
+			case 4:
+				return "You and nearby Allies\ntake 4 less damage\nfor 10 seconds.";
+			case 5:
+				return "Perform an extra jump\nwhile summoning a badass\nsword. Based on ATK.";
+			case 6:
+				return "You and nearby Allies\ndeal bonus damage equal\nto your MAG for\n10 seconds.";
+			case 7:
+				return "For 10 seconds, you\nrapidly regain mana.";
+			case 8:
+				return "Summon a minion at your\ncursor's location. Shoots\nfireballs whaaat.";
+			case 9:
+				return "Teleport left or right\nbased on cursor location.";
+			case 10:
+				return "Makes your friends\njealous.";
+			case 11:
+				return "You and nearby Allies\ngain 10 DEX for 10\nseconds.";
+			case 12:
+				return "Next shot fired will\nshoot 3 arrows.\nWith double damage.\nConsumes 3 arrows.";
+			case 13:
+				return "Perform an extra jump\nwhile summoning a badass\narrow. Based on DEX.";
+			case 14:
+				return "Summons wisp at cursor\nlocation. Arrows passing\nthrough will deal\n2x damage.";
+			case 15:
+				return "Summon a wolf that runs\naround and kills shit.";
+			default:
+				return "null";
+		}
 	}
 
 	public virtual string GetEnchantmentName(int id)
 	{
 		string text = null;
-		return id switch
+		switch (id)
 		{
-			1 => "Power I",
-			2 => "Power II",
-			3 => "Power III",
-			4 => "Wrath I",
-			5 => "Wrath II",
-			6 => "Wrath III",
-			7 => "Swiftness I",
-			8 => "Swiftness II",
-			9 => "Switftness III",
-			_ => "[Empty]",
-		};
+			case 1:
+				return "Power I";
+			case 2:
+				return "Power II";
+			case 3:
+				return "Power III";
+			case 4:
+				return "Wrath I";
+			case 5:
+				return "Wrath II";
+			case 6:
+				return "Wrath III";
+			case 7:
+				return "Swiftness I";
+			case 8:
+				return "Swiftness II";
+			case 9:
+				return "Switftness III";
+			default:
+				return "[Empty]";
+		}
 	}
 
 	public virtual string GetStatBonus(int id)
 	{
 		string text = null;
-		return id switch
+		switch (id)
 		{
-			500 => "ATK+1",
-			503 => "ATK+2",
-			_ => string.Empty,
-		};
+			case 500:
+				return "ATK+1";
+			case 503:
+				return "ATK+2";
+			default:
+				return string.Empty;
+		}
 	}
 
 	public virtual float GetMaxDurability(int id)
 	{
 		float num = default(float);
-		return id switch
+		switch (id)
 		{
-			500 => 50f,
-			501 => 50f,
-			502 => 50f,
-			503 => 80f,
-			504 => 80f,
-			505 => 80f,
-			506 => 160f,
-			507 => 160f,
-			508 => 160f,
-			509 => 250f,
-			510 => 250f,
-			511 => 250f,
-			512 => 55f,
-			513 => 55f,
-			514 => 55f,
-			515 => 100f,
-			516 => 60f,
-			517 => 60f,
-			518 => 60f,
-			519 => 50f,
-			560 => 90f,
-			561 => 180f,
-			562 => 270f,
-			563 => 65f,
-			565 => 65f,
-			_ => id switch
-			{
-				560 => 100f,
-				567 => 50f,
-				568 => 180f,
-				569 => 180f,
-				570 => 180f,
-				600 => 50f,
-				601 => 50f,
-				602 => 50f,
-				603 => 300f,
-				_ => 65f,
-			},
-		};
+			case 500:
+			case 501:
+			case 502:
+				return 50f;
+			case 503:
+			case 504:
+			case 505:
+				return 80f;
+			case 506:
+			case 507:
+			case 508:
+				return 160f;
+			case 509:
+			case 510:
+			case 511:
+				return 250f;
+			case 512:
+			case 513:
+			case 514:
+				return 55f;
+			case 515:
+				return 100f;
+			case 516:
+			case 517:
+			case 518:
+				return 60f;
+			case 519:
+				return 50f;
+			case 560:
+				return 90f;
+			case 561:
+				return 180f;
+			case 562:
+				return 270f;
+			case 563:
+			case 565:
+				return 65f;
+			default:
+				switch (id)
+				{
+					case 560:
+						return 100f;
+					case 567:
+						return 50f;
+					case 568:
+					case 569:
+					case 570:
+						return 180f;
+					case 600:
+					case 601:
+					case 602:
+						return 50f;
+					case 603:
+						return 300f;
+					default:
+						return 65f;
+				}
+		}
 	}
 
 	public virtual int[] GetGearStats(int id)
 	{
 		int[] array = new int[4];
-		return id switch
+		switch (id)
 		{
-			500 => new int[4] { 0, 2, 0, 0 },
-			503 => new int[4] { 0, 8, 0, 0 },
-			506 => new int[4] { 0, 15, 0, 0 },
-			509 => new int[4] { 0, 25, 0, 0 },
-			512 => new int[4] { 0, 4, 0, 0 },
-			516 => new int[4] { 0, 4, 0, 0 },
-			519 => new int[4] { 0, 18, 0, 0 },
-			520 => new int[4] { 5, 27, 5, 5 },
-			521 => new int[4] { 2, 30, 2, 2 },
-			530 => new int[4] { 0, 0, 6, 0 },
-			531 => new int[4] { 2, 11, 0, 0 },
-			532 => new int[4] { 2, 11, 0, 0 },
-			533 => new int[4] { 5, 30, 2, 2 },
-			534 => new int[4] { 0, 75, 0, 0 },
-			535 => new int[4] { 0, 0, 15, 15 },
-			536 => new int[4] { 0, 0, 3, 0 },
-			560 => new int[4] { 0, 15, 0, 0 },
-			561 => new int[4] { 0, 30, 0, 0 },
-			562 => new int[4] { 0, 48, 0, 0 },
-			563 => new int[4] { 0, 8, 0, 0 },
-			565 => new int[4] { 0, 55, 0, 0 },
-			566 => new int[4] { -3, 100, 0, 0 },
-			567 => new int[4] { 0, 35, 0, 0 },
-			568 => new int[4] { 0, 95, 0, 10 },
-			569 => new int[4] { 0, 95, 0, 10 },
-			570 => new int[4] { 0, 95, 0, 10 },
-			700 => new int[4] { 2, 4, 0, 0 },
-			701 => new int[4] { 3, 6, 0, 0 },
-			702 => new int[4] { 4, 9, 0, 0 },
-			703 => new int[4] { 1, 2, 0, 0 },
-			704 => new int[4] { 1, 2, 0, 0 },
-			705 => new int[4] { 1, 0, 2, 0 },
-			706 => new int[4] { 1, 0, 2, 0 },
-			707 => new int[4] { 2, 0, 4, 0 },
-			708 => new int[4] { 3, 0, 6, 0 },
-			709 => new int[4] { 4, 0, 9, 0 },
-			710 => new int[4] { 1, 0, 0, 2 },
-			711 => new int[4] { 1, 0, 0, 2 },
-			712 => new int[4] { 2, 0, 0, 4 },
-			713 => new int[4] { 3, 0, 0, 6 },
-			714 => new int[4] { 4, 0, 0, 9 },
-			800 => new int[4] { 2, 4, 0, 0 },
-			801 => new int[4] { 3, 6, 0, 0 },
-			802 => new int[4] { 4, 9, 0, 0 },
-			803 => new int[4] { 1, 2, 0, 0 },
-			804 => new int[4] { 1, 2, 0, 0 },
-			805 => new int[4] { 1, 0, 2, 0 },
-			806 => new int[4] { 1, 0, 2, 0 },
-			807 => new int[4] { 2, 0, 4, 0 },
-			808 => new int[4] { 3, 0, 6, 0 },
-			809 => new int[4] { 4, 0, 9, 0 },
-			810 => new int[4] { 1, 0, 0, 2 },
-			811 => new int[4] { 1, 0, 0, 2 },
-			812 => new int[4] { 2, 0, 0, 4 },
-			813 => new int[4] { 3, 0, 0, 6 },
-			814 => new int[4] { 4, 0, 0, 9 },
-			900 => new int[4] { 2, 0, 0, 0 },
-			901 => new int[4] { 3, 0, 0, 0 },
-			902 => new int[4] { 4, 0, 0, 0 },
-			903 => new int[4] { 1, 0, 0, 0 },
-			904 => new int[4] { 1, 0, 0, 0 },
-			905 => new int[4] { 5, 2, 2, 2 },
-			906 => new int[4] { 5, 2, 0, 5 },
-			907 => new int[4] { 3, 5, 5, 0 },
-			950 => new int[4] { 0, 5, 0, 0 },
-			951 => new int[4] { 0, 0, 0, 5 },
-			952 => new int[4] { 0, 0, 5, 0 },
-			953 => new int[4] { 5, 0, 0, 0 },
-			954 => new int[4] { -2, 8, 0, 0 },
-			955 => new int[4] { -2, 0, 0, 8 },
-			956 => new int[4] { -2, 0, 8, 0 },
-			957 => new int[4] { 2, 2, 2, 2 },
-			_ => new int[4],
-		};
+			case 500:
+				return new int[4] { 0, 2, 0, 0 };
+			case 503:
+				return new int[4] { 0, 8, 0, 0 };
+			case 506:
+				return new int[4] { 0, 15, 0, 0 };
+			case 509:
+				return new int[4] { 0, 25, 0, 0 };
+			case 512:
+			case 516:
+				return new int[4] { 0, 4, 0, 0 };
+			case 519:
+				return new int[4] { 0, 18, 0, 0 };
+			case 520:
+				return new int[4] { 5, 27, 5, 5 };
+			case 521:
+				return new int[4] { 2, 30, 2, 2 };
+			case 530:
+				return new int[4] { 0, 0, 6, 0 };
+			case 531:
+			case 532:
+				return new int[4] { 2, 11, 0, 0 };
+			case 533:
+				return new int[4] { 5, 30, 2, 2 };
+			case 534:
+				return new int[4] { 0, 75, 0, 0 };
+			case 535:
+				return new int[4] { 0, 0, 15, 15 };
+			case 536:
+				return new int[4] { 0, 0, 3, 0 };
+			case 560:
+				return new int[4] { 0, 15, 0, 0 };
+			case 561:
+				return new int[4] { 0, 30, 0, 0 };
+			case 562:
+				return new int[4] { 0, 48, 0, 0 };
+			case 563:
+				return new int[4] { 0, 8, 0, 0 };
+			case 565:
+				return new int[4] { 0, 55, 0, 0 };
+			case 566:
+				return new int[4] { -3, 100, 0, 0 };
+			case 567:
+				return new int[4] { 0, 35, 0, 0 };
+			case 568:
+			case 569:
+			case 570:
+				return new int[4] { 0, 95, 0, 10 };
+			case 700:
+				return new int[4] { 2, 4, 0, 0 };
+			case 701:
+				return new int[4] { 3, 6, 0, 0 };
+			case 702:
+				return new int[4] { 4, 9, 0, 0 };
+			case 703:
+			case 704:
+				return new int[4] { 1, 2, 0, 0 };
+			case 705:
+			case 706:
+				return new int[4] { 1, 0, 2, 0 };
+			case 707:
+				return new int[4] { 2, 0, 4, 0 };
+			case 708:
+				return new int[4] { 3, 0, 6, 0 };
+			case 709:
+				return new int[4] { 4, 0, 9, 0 };
+			case 710:
+			case 711:
+				return new int[4] { 1, 0, 0, 2 };
+			case 712:
+				return new int[4] { 2, 0, 0, 4 };
+			case 713:
+				return new int[4] { 3, 0, 0, 6 };
+			case 714:
+				return new int[4] { 4, 0, 0, 9 };
+			case 800:
+				return new int[4] { 2, 4, 0, 0 };
+			case 801:
+				return new int[4] { 3, 6, 0, 0 };
+			case 802:
+				return new int[4] { 4, 9, 0, 0 };
+			case 803:
+			case 804:
+				return new int[4] { 1, 2, 0, 0 };
+			case 805:
+			case 806:
+				return new int[4] { 1, 0, 2, 0 };
+			case 807:
+				return new int[4] { 2, 0, 4, 0 };
+			case 808:
+				return new int[4] { 3, 0, 6, 0 };
+			case 809:
+				return new int[4] { 4, 0, 9, 0 };
+			case 810:
+			case 811:
+				return new int[4] { 1, 0, 0, 2 };
+			case 812:
+				return new int[4] { 2, 0, 0, 4 };
+			case 813:
+				return new int[4] { 3, 0, 0, 6 };
+			case 814:
+				return new int[4] { 4, 0, 0, 9 };
+			case 900:
+				return new int[4] { 2, 0, 0, 0 };
+			case 901:
+				return new int[4] { 3, 0, 0, 0 };
+			case 902:
+				return new int[4] { 4, 0, 0, 0 };
+			case 903:
+			case 904:
+				return new int[4] { 1, 0, 0, 0 };
+			case 905:
+				return new int[4] { 5, 2, 2, 2 };
+			case 906:
+				return new int[4] { 5, 2, 0, 5 };
+			case 907:
+				return new int[4] { 3, 5, 5, 0 };
+			case 950:
+				return new int[4] { 0, 5, 0, 0 };
+			case 951:
+				return new int[4] { 0, 0, 0, 5 };
+			case 952:
+				return new int[4] { 0, 0, 5, 0 };
+			case 953:
+				return new int[4] { 5, 0, 0, 0 };
+			case 954:
+				return new int[4] { -2, 8, 0, 0 };
+			case 955:
+				return new int[4] { -2, 0, 0, 8 };
+			case 956:
+				return new int[4] { -2, 0, 8, 0 };
+			case 957:
+				return new int[4] { 2, 2, 2, 2 };
+			default:
+				return new int[4];
+		}
 	}
 
 	public virtual void Options()
@@ -8851,7 +9353,7 @@ public class GameScript : MonoBehaviour
 				if (playerLevel % 2 == 0)
 				{
 					tempLevelStat[num]++;
-					StartCoroutine_Auto(ShowLUP(num));
+					StartCoroutine(ShowLUP(num));
 					if (num == 0)
 					{
 						HP++;
@@ -8863,7 +9365,7 @@ public class GameScript : MonoBehaviour
 				if (playerLevel % 4 == 0)
 				{
 					tempLevelStat[num]++;
-					StartCoroutine_Auto(ShowLUP(num));
+					StartCoroutine(ShowLUP(num));
 					if (num == 0)
 					{
 						HP++;
@@ -8873,7 +9375,7 @@ public class GameScript : MonoBehaviour
 			else if (playerLevel % 3 == 0)
 			{
 				tempLevelStat[num]++;
-				StartCoroutine_Auto(ShowLUP(num));
+				StartCoroutine(ShowLUP(num));
 				if (num == 0)
 				{
 					HP++;
@@ -8890,7 +9392,7 @@ public class GameScript : MonoBehaviour
 			if (UnityEngine.Random.Range(0, 3) == 0)
 			{
 				tempLevelStat[1] = tempLevelStat[1] + 1;
-				StartCoroutine_Auto(AdditionalStat(1));
+				StartCoroutine(AdditionalStat(1));
 			}
 		}
 		else if (MenuScript.pHat == 4)
@@ -8898,7 +9400,7 @@ public class GameScript : MonoBehaviour
 			if (UnityEngine.Random.Range(0, 3) == 0)
 			{
 				tempLevelStat[2] = tempLevelStat[2] + 1;
-				StartCoroutine_Auto(AdditionalStat(2));
+				StartCoroutine(AdditionalStat(2));
 			}
 		}
 		else if (MenuScript.pHat == 5)
@@ -8906,14 +9408,14 @@ public class GameScript : MonoBehaviour
 			if (UnityEngine.Random.Range(0, 3) == 0)
 			{
 				tempLevelStat[3] = tempLevelStat[3] + 1;
-				StartCoroutine_Auto(AdditionalStat(3));
+				StartCoroutine(AdditionalStat(3));
 			}
 		}
 		else if (MenuScript.pHat == 12 && UnityEngine.Random.Range(0, 3) == 0)
 		{
 			int num4 = UnityEngine.Random.Range(0, 4);
 			tempLevelStat[num4]++;
-			StartCoroutine_Auto(AdditionalStat(num4));
+			StartCoroutine(AdditionalStat(num4));
 		}
 		MAXHP = MenuScript.playerStat[0] + tempPlayerStat[0] + tempLevelStat[0];
 		ATK = MenuScript.playerStat[1] + tempPlayerStat[1] + tempLevelStat[1];
@@ -9029,25 +9531,35 @@ public class GameScript : MonoBehaviour
 	public virtual float GetSkillCooldown(int a)
 	{
 		int num = default(int);
-		return a switch
+		switch (a)
 		{
-			1 => 200,
-			2 => 400,
-			3 => 400,
-			4 => 400,
-			5 => 150,
-			6 => 400,
-			7 => 200,
-			8 => 350,
-			9 => 150,
-			10 => 200,
-			11 => 400,
-			12 => 150,
-			13 => 150,
-			14 => 150,
-			15 => 150,
-			_ => 150,
-		};
+			case 1:
+				return 200;
+			case 2:
+			case 3:
+			case 4:
+				return 400;
+			case 5:
+				return 150;
+			case 6:
+				return 400;
+			case 7:
+				return 200;
+			case 8:
+				return 350;
+			case 9:
+				return 150;
+			case 10:
+				return 200;
+			case 11:
+				return 400;
+			case 12:
+			case 13:
+			case 14:
+			case 15:
+			default:
+				return 150;
+		}
 	}
 
 	public virtual void UseSkill(int b)
@@ -9060,7 +9572,7 @@ public class GameScript : MonoBehaviour
 		skillObj[b].GetComponent<Animation>().Play();
 		int num2 = (int)GetSkillCooldown(num);
 		skillCooldown[b] = num2;
-		StartCoroutine_Auto(SkillTick(b, num2));
+		StartCoroutine(SkillTick(b, num2));
 		GameObject gameObject = null;
 		switch (num)
 		{
@@ -9082,7 +9594,7 @@ public class GameScript : MonoBehaviour
 			player.GetComponent<NetworkView>().RPC("Rage", RPCMode.All, 1);
 			gameObject = (GameObject)Network.Instantiate(Resources.Load("text"), player.transform.position, Quaternion.identity, 0);
 			gameObject.GetComponent<NetworkView>().RPC("SDSN", RPCMode.All, "I'M SO ANGRY!");
-			StartCoroutine_Auto(RageTick());
+			StartCoroutine(RageTick());
 			break;
 		case 3:
 			Network.Instantiate(Resources.Load("skill/Charge"), player.transform.position, Quaternion.identity, 0);
@@ -9174,7 +9686,7 @@ public class GameScript : MonoBehaviour
 			player.GetComponent<NetworkView>().RPC("Roar", RPCMode.All, 1);
 			gameObject = (GameObject)Network.Instantiate(Resources.Load("text"), player.transform.position, Quaternion.identity, 0);
 			gameObject.GetComponent<NetworkView>().RPC("SDSN", RPCMode.All, "RAAAAH");
-			StartCoroutine_Auto(RoarTick());
+			StartCoroutine(RoarTick());
 			break;
 		case 12:
 			multishot = true;
@@ -9314,16 +9826,16 @@ public class GameScript : MonoBehaviour
   };
 
 
-  public virtual string GetItemName(int id)
-      {
-        if (itemNames.TryGetValue(id, out string itemName))
-      {
-          return itemName;
-      }
-
-      Debug.LogError("Item id doesn't exist");
-   return "NULL";
-  }
+	public virtual string GetItemName(int id)
+	{
+		string itemName;
+		if (itemNames.TryGetValue(id, out itemName))
+		{
+			return itemName;
+		}
+		Debug.LogError("Item id doesn't exist");
+		return "NULL";
+	}
 
   private Dictionary<int, string> gearNames = new Dictionary<int, string>
     {
@@ -9428,8 +9940,9 @@ public class GameScript : MonoBehaviour
       { 957, "Ring of Balance" },
     };
     public virtual string GetGearName(int id)
-        {
-          if (gearNames.TryGetValue(id, out string gearName))
+    {
+	    string gearName;
+          if (gearNames.TryGetValue(id, out gearName))
         {
             return gearName;
         }

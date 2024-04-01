@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 621505315, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: treeLava
   m_EditorClassIdentifier: 
   treeTop: {fileID: 2100000, guid: ecd59e92fa2a00a448092ead7300df0b, type: 2}
   treeBase: {fileID: 2100000, guid: 595436c1deae48e4facfa0d9733c3a7e, type: 2}
@@ -31,6 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &443304
 Transform:
   m_ObjectHideFlags: 1
@@ -43,6 +44,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &479350
 Transform:
   m_ObjectHideFlags: 1
@@ -55,6 +57,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &480166
 Transform:
   m_ObjectHideFlags: 1
@@ -67,6 +70,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &497014
 Transform:
   m_ObjectHideFlags: 1
@@ -79,6 +83,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -95,9 +100,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 480166}
+  - component: {fileID: 480166}
   m_Layer: 20
   m_Name: treeLava
   m_TagString: tree
@@ -110,9 +115,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 428006}
+  - component: {fileID: 428006}
   m_Layer: 0
   m_Name: b2
   m_TagString: Untagged
@@ -125,9 +130,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 497014}
+  - component: {fileID: 497014}
   m_Layer: 0
   m_Name: base
   m_TagString: Untagged
@@ -140,9 +145,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 443304}
+  - component: {fileID: 443304}
   m_Layer: 0
   m_Name: b1
   m_TagString: Untagged
@@ -155,9 +160,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 479350}
+  - component: {fileID: 479350}
   m_Layer: 0
   m_Name: b0
   m_TagString: Untagged

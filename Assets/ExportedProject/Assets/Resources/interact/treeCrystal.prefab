@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 474272}
+  - component: {fileID: 474272}
   m_Layer: 0
   m_Name: b1
   m_TagString: Untagged
@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 621505315, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: treeCrystal
   m_EditorClassIdentifier: 
   treeTop: {fileID: 2100000, guid: fcd12d48b0e45e2409d63c297db48dae, type: 2}
   treeBase: {fileID: 2100000, guid: 0fb4ca71764a683409229a0e245b86c9, type: 2}
@@ -46,6 +46,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &457568
 Transform:
   m_ObjectHideFlags: 1
@@ -58,6 +59,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &464572
 Transform:
   m_ObjectHideFlags: 1
@@ -70,6 +72,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &469864
 Transform:
   m_ObjectHideFlags: 1
@@ -82,6 +85,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &474272
 Transform:
   m_ObjectHideFlags: 1
@@ -94,14 +98,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &81147424
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 464572}
+  - component: {fileID: 464572}
   m_Layer: 0
   m_Name: b2
   m_TagString: Untagged
@@ -125,9 +130,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 432268}
+  - component: {fileID: 432268}
   m_Layer: 0
   m_Name: base
   m_TagString: Untagged
@@ -140,9 +145,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 457568}
+  - component: {fileID: 457568}
   m_Layer: 20
   m_Name: treeCrystal
   m_TagString: tree
@@ -155,9 +160,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 469864}
+  - component: {fileID: 469864}
   m_Layer: 0
   m_Name: b0
   m_TagString: Untagged

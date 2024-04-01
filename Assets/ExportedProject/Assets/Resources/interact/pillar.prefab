@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 456116}
+  - component: {fileID: 456116}
   m_Layer: 0
   m_Name: b0
   m_TagString: Untagged
@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 621505315, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: pillar
   m_EditorClassIdentifier: 
   treeTop: {fileID: 2100000, guid: 92f8bdf189ff4fa45ba9e52c84d098a1, type: 2}
   treeBase: {fileID: 2100000, guid: 0fee330a25cf6994aaa5ee3f9fdb6578, type: 2}
@@ -46,6 +46,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &420594
 Transform:
   m_ObjectHideFlags: 1
@@ -58,6 +59,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &456116
 Transform:
   m_ObjectHideFlags: 1
@@ -70,6 +72,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &460916
 Transform:
   m_ObjectHideFlags: 1
@@ -82,6 +85,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &482690
 Transform:
   m_ObjectHideFlags: 1
@@ -94,6 +98,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -110,9 +115,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 482690}
+  - component: {fileID: 482690}
   m_Layer: 0
   m_Name: pillar
   m_TagString: Untagged
@@ -125,9 +130,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 460916}
+  - component: {fileID: 460916}
   m_Layer: 0
   m_Name: b1
   m_TagString: Untagged
@@ -140,9 +145,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 420594}
+  - component: {fileID: 420594}
   m_Layer: 0
   m_Name: base
   m_TagString: Untagged
@@ -155,9 +160,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 418478}
+  - component: {fileID: 418478}
   m_Layer: 0
   m_Name: b2
   m_TagString: Untagged

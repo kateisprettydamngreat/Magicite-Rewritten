@@ -63,8 +63,8 @@ public class InvaderScript : EnemyScript
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 7, 9, 0 };
 		SetStats(999999, 9999, 3, 8, 15f, array, UnityEngine.Random.Range(6, 20), 8);
-		StartCoroutine_Auto(Attack());
-		StartCoroutine_Auto(Trigger());
+		StartCoroutine(Attack());
+		StartCoroutine(Trigger());
 	}
 
 

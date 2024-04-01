@@ -11,8 +11,9 @@ public class ghoulFire : MonoBehaviour
     private Rigidbody r;
     private Vector3 moveDirection;
     private bool canShoot;
+    private float speed = 18;
 
-    public void Awake() 
+    public void Awake()
     {
         r = GetComponent<Rigidbody>();
     }
@@ -23,11 +24,11 @@ public class ghoulFire : MonoBehaviour
         moveDirection = (playerPos - transform.position).normalized;
         canShoot = true;
     }
-    
-    public void FixedUpdate() 
+
+    public void FixedUpdate()
     {
         if (canShoot) {
-            r.velocity = moveDirection * speed * Time.deltaTime; 
+            r.velocity = moveDirection * (speed * Time.deltaTime);
         }
     }
 
@@ -39,6 +40,6 @@ public class ghoulFire : MonoBehaviour
     private void NetworkDestroy()
     {
         Network.Destroy(GetComponent<NetworkView>().viewID);
-        Network.RemoveRPCs(GetComponent<NetworkView>().viewID); 
+        Network.RemoveRPCs(GetComponent<NetworkView>().viewID);
     }
 }

@@ -55,6 +55,6 @@ public class ShooterScript : MonoBehaviour
 
 	public virtual void Start()
 	{
-		StartCoroutine_Auto(Attack());
+		StartCoroutine(Attack());
 	}
 }

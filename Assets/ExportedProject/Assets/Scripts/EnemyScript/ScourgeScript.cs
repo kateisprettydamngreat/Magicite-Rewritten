@@ -48,7 +48,7 @@ public class ScourgeScript : EnemyScript
 		SetStats(10, 8, 1, 3, 2f, array, UnityEngine.Random.Range(2, 6), 2);
 		player = GameObject.Find("player(Clone)");
 		MonoBehaviour.print(player.transform.position.x);
-		StartCoroutine_Auto(Attack());
+		StartCoroutine(Attack());
 	}
 
 	public virtual void OnTriggerEnter(Collider c)

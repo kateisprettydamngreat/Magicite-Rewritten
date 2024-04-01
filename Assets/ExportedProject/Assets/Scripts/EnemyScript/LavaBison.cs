@@ -209,15 +209,11 @@ public class LavaBison : EnemyScript
 		}
 		if (Physics.Raycast(r1U, 1.5f, mask2) && !turning && e.transform.rotation.y == 0f && Network.isServer)
 		{
-			StartCoroutine_Auto(T());
+			StartCoroutine(T());
 		}
 		if (Physics.Raycast(r2U, 1.5f, mask2) && !turning && e.transform.rotation.y != 0f && Network.isServer)
 		{
-			StartCoroutine_Auto(T());
+			StartCoroutine(T());
 		}
-	}
-
-	public override void Main()
-	{
 	}
 }

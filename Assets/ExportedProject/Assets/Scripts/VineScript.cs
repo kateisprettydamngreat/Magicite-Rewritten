@@ -12,7 +12,11 @@ public class VineScript : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            vineBase[i].GetComponent<Animation>().speed = 0.5f;
+            Animation anim = vineBase[i].GetComponent<Animation>();
+            foreach (AnimationState state in anim)
+            {
+                state.speed = 0.5f;
+            }
             vineBase[i].GetComponent<Animation>().Play();
             yield return null;
         }

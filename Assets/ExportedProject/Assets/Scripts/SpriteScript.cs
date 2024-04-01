@@ -90,10 +90,10 @@ public class SpriteScript : MonoBehaviour
 	public virtual void Awake()
 	{
 		UnityEngine.Object.DontDestroyOnLoad(this);
-		StartCoroutine_Auto(ChangePos());
+		StartCoroutine(ChangePos());
 		if (isBat)
 		{
-			StartCoroutine_Auto(DropStuff());
+			StartCoroutine(DropStuff());
 		}
 	}
 

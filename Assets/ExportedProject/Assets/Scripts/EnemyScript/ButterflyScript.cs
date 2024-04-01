@@ -68,8 +68,8 @@ public class ButterflyScript : EnemyScript
 		SetStats(105, 5, 0, 50, 10f, array, UnityEngine.Random.Range(6, 20), 50);
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(Attack());
-			StartCoroutine_Auto(Summon());
+			StartCoroutine(Attack());
+			StartCoroutine(Summon());
 		}
 	}
 

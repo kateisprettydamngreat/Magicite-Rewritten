@@ -123,8 +123,4 @@ public class BoarScript : EnemyScript
 			Vector3 vector2 = (r.velocity = velocity);
 		}
 	}
-
-	public override void Main()
-	{
-	}
 }

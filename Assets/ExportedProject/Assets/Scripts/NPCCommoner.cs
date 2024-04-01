@@ -217,7 +217,7 @@ public class NPCCommoner : MonoBehaviour
 
 	public virtual void Awake()
 	{
-		StartCoroutine_Auto(Talk());
+		StartCoroutine(Talk());
 		race = GetRace();
 		int num = UnityEngine.Random.Range(1, 49);
 		if (Network.isServer)

@@ -66,7 +66,7 @@ public class bat : EnemyScript
 	{
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(GoCrazy());
+			StartCoroutine(GoCrazy());
 		}
 		@base.GetComponent<Animation>()["i"].speed = 0.6f;
 		t = transform;
@@ -76,7 +76,7 @@ public class bat : EnemyScript
 		SetStats(25, 2, 0, 8, 10f, array, UnityEngine.Random.Range(5, 15), 8);
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(Attack());
+			StartCoroutine(Attack());
 		}
 	}
 

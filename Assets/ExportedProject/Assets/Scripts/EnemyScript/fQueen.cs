@@ -70,8 +70,8 @@ public class fQueen : EnemyScript
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 71, 71, 71 };
 		SetStats(850, 4, 13, 350, 5f, array, 20, 350);
-		StartCoroutine_Auto(UpdateZrotation());
-		StartCoroutine_Auto(Summon());
+		StartCoroutine(UpdateZrotation());
+		StartCoroutine(Summon());
 	}
 
 

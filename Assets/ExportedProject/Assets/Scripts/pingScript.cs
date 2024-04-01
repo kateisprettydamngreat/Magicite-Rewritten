@@ -6,10 +6,10 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [Serializable]
-public class pingScript : MonoBehaviour 
+public class pingScript : MonoBehaviour
 {
     private Renderer renderer;
-    
+
     private void Awake()
     {
         renderer = GetComponent<Renderer>();
@@ -17,9 +17,12 @@ public class pingScript : MonoBehaviour
 
     public IEnumerator Animate()
     {
-        while (true) 
+        while (true)
         {
-            renderer.material.mainTextureOffset.x += 0.5f;
+            var material = renderer.material;
+            var offset = material.mainTextureOffset;
+            offset.x = 0.5f;
+            material.mainTextureOffset = offset;
             yield return new WaitForSeconds(0.2f);
         }
     }

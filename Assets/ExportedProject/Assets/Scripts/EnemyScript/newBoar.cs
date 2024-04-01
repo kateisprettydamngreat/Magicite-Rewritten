@@ -119,11 +119,11 @@ public class newBoar : EnemyScript
 		{
 			if (!(player.transform.position.x <= t.position.x))
 			{
-				StartCoroutine_Auto(ChargeRight());
+				StartCoroutine(ChargeRight());
 			}
 			else
 			{
-				StartCoroutine_Auto(ChargeLeft());
+				StartCoroutine(ChargeLeft());
 			}
 		}
 		if (charging && !knocking)

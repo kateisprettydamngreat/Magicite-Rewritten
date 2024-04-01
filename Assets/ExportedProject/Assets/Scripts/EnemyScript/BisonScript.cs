@@ -51,7 +51,7 @@ public class BisonScript : EnemyScript
 		{
 			if (!mooving && Network.isServer)
 			{
-				StartCoroutine_Auto(Moove());
+				StartCoroutine(Moove());
 			}
 			if (MOV)
 			{

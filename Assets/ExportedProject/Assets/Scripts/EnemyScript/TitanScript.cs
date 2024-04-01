@@ -75,9 +75,4 @@ public class TitanScript : EnemyScript
 	public virtual void Attack(GameObject target)
 	{
 	}
-
-
-	public override void Main()
-	{
-	}
 }

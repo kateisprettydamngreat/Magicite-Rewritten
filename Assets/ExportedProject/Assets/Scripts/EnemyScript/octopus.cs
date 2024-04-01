@@ -63,7 +63,7 @@ public class octopus : EnemyScript
 	{
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(GoCrazy());
+			StartCoroutine(GoCrazy());
 		}
 		@base.GetComponent<Animation>()["i"].speed = 0.6f;
 		t = transform;
@@ -71,7 +71,7 @@ public class octopus : EnemyScript
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 0, 0, 17 };
 		SetStats(25, 2, 0, 8, 10f, array, UnityEngine.Random.Range(5, 15), 8);
-		StartCoroutine_Auto(Attack());
+		StartCoroutine(Attack());
 	}
 
 	public virtual void SetPlayer(GameObject g)

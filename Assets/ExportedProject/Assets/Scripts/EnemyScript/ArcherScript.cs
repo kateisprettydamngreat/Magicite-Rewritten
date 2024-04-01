@@ -132,11 +132,4 @@ public class ArcherScript : EnemyScript
 	public GameObject arrowL;
 
 	public AudioClip audioFire;
-
-
-	[RPC]
-
-	public override void Main()
-	{
-	}
 }

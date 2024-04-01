@@ -119,7 +119,7 @@ public class Tyrannox : EnemyScript
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 19, 20, 15 };
 		SetStats(100, 3, 0, 40, 10f, array, UnityEngine.Random.Range(6, 20), 40);
-		StartCoroutine_Auto(Check());
+		StartCoroutine(Check());
 	}
 
 	public virtual void SetPlayer(GameObject g)
@@ -147,11 +147,11 @@ public class Tyrannox : EnemyScript
 		{
 			if (!(player.transform.position.x <= t.position.x))
 			{
-				StartCoroutine_Auto(ChargeRight());
+				StartCoroutine(ChargeRight());
 			}
 			else
 			{
-				StartCoroutine_Auto(ChargeLeft());
+				StartCoroutine(ChargeLeft());
 			}
 		}
 		if (charging && !knocking)

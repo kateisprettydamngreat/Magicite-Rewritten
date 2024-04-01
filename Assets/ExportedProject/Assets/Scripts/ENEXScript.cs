@@ -144,12 +144,15 @@ public class ENEXScript : MonoBehaviour
 		int result = default(int);
 		if (a < 5)
 		{
-			return UnityEngine.Random.Range(0, 4) switch
+			switch (UnityEngine.Random.Range(0, 4))
 			{
-				0 => 7, 
-				1 => 1, 
-				_ => 0, 
-			};
+				case 0:
+					return 7;
+				case 1:
+					return 1;
+				default:
+					return 0;
+			}
 		}
 		if (a < 7)
 		{
@@ -189,21 +192,30 @@ public class ENEXScript : MonoBehaviour
 			{
 				if (a < 17)
 				{
-					return UnityEngine.Random.Range(0, 5) switch
+					switch (UnityEngine.Random.Range(0, 5))
 					{
-						0 => 3, 
-						1 => 6, 
-						2 => 5, 
-						3 => 2, 
-						_ => 9, 
-					};
+						case 0:
+							return 3;
+						case 1:
+							return 6;
+						case 2:
+							return 5;
+						case 3:
+							return 2;
+						default:
+							return 9;
+					}
 				}
-				return UnityEngine.Random.Range(0, 3) switch
+
+				switch (UnityEngine.Random.Range(0, 3))
 				{
-					0 => 3, 
-					1 => 6, 
-					_ => 9, 
-				};
+					case 0:
+						return 3;
+					case 1:
+						return 6;
+					default:
+						return 9;
+				}
 			}
 			switch (UnityEngine.Random.Range(0, 4))
 			{

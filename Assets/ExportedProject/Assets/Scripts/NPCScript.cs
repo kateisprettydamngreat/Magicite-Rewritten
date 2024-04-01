@@ -51,7 +51,7 @@ public class NPCScript : MonoBehaviour
 			yield break;
 		}
 
-		yield return StartCoroutine_Auto(Move());
+		yield return StartCoroutine(Move());
 	}
 	[RPC]
 	public virtual IEnumerator TDN(int dmg)
@@ -177,19 +177,19 @@ public class NPCScript : MonoBehaviour
 		t = transform;
 		if (isBlacksmith)
 		{
-			StartCoroutine_Auto(Talk(1));
+			StartCoroutine(Talk(1));
 		}
 		else if (isLeatherworker)
 		{
-			StartCoroutine_Auto(Talk(3));
+			StartCoroutine(Talk(3));
 		}
 		else if (isTailor)
 		{
-			StartCoroutine_Auto(Talk(4));
+			StartCoroutine(Talk(4));
 		}
 		else if (isTreasureHunter)
 		{
-			StartCoroutine_Auto(Talk(5));
+			StartCoroutine(Talk(5));
 		}
 		else if (isAltar)
 		{

@@ -79,9 +79,4 @@ public class SkeletonScript : EnemyScript
     }
 
 	private RaycastHit hit;
-
-
-	public override void Main()
-	{
-	}
 }

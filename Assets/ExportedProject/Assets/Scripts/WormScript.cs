@@ -195,7 +195,7 @@ public class WormScript : MonoBehaviour
 				parts2[num].SendMessage("SetPlayer", g);
 			}
 		}
-		StartCoroutine_Auto(Attack());
+		StartCoroutine(Attack());
 	}
 
 	[RPC]
@@ -211,7 +211,7 @@ public class WormScript : MonoBehaviour
 		{
 			head = gameObject;
 			isHead = true;
-			StartCoroutine_Auto(Initialize());
+			StartCoroutine(Initialize());
 		}
 		if (isHead)
 		{

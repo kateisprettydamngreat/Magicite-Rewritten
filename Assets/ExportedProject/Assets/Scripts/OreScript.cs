@@ -74,18 +74,26 @@ public class OreScript : MonoBehaviour
 
     public virtual int GetOre(int a)
     {
-        int num = default(int);
-        return a switch
-        {
-            0 => 4,
-            1 => 5,
-            2 => 6,
-            3 => 60,
-            4 => 62,
-            5 => 64,
-            6 => 66,
-            _ => 6,
-        };
+	    int num = default(int);
+	    switch (a)
+	    {
+		    case 0:
+			    return 4;
+		    case 1:
+			    return 5;
+		    case 2:
+			    return 6;
+		    case 3:
+			    return 60;
+		    case 4:
+			    return 62;
+		    case 5:
+			    return 64;
+		    case 6:
+			    return 66;
+		    default:
+			    return 6;
+	    }
     }
 
 	[RPC]
@@ -148,7 +156,7 @@ public class OreScript : MonoBehaviour
 			transform.position = new Vector3(0f, 0f, -500f);
 			if (Network.isServer)
 			{
-				StartCoroutine_Auto(Exile());
+				StartCoroutine(Exile());
 			}
 		}
 	}

@@ -139,7 +139,7 @@ public class BigYeti : EnemyScript
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 0, 0, 17 };
 		SetStats(150, 4, 0, 40, 10f, array, UnityEngine.Random.Range(6, 20), 40);
-		StartCoroutine_Auto(Check());
+		StartCoroutine(Check());
 	}
 
 	public virtual void SetPlayer(GameObject g)
@@ -167,11 +167,11 @@ public class BigYeti : EnemyScript
 		{
 			if (!(player.transform.position.x <= t.position.x))
 			{
-				StartCoroutine_Auto(ChargeRight());
+				StartCoroutine(ChargeRight());
 			}
 			else
 			{
-				StartCoroutine_Auto(ChargeLeft());
+				StartCoroutine(ChargeLeft());
 			}
 		}
 		if (charging && !knocking)

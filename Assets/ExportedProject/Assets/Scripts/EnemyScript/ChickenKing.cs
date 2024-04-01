@@ -117,13 +117,13 @@ public class ChickenKing : EnemyScript
 		@base.GetComponent<Animation>()["a"].layer = 0;
 		@base.GetComponent<Animation>()["a"].speed = 2f;
 		@base.GetComponent<Animation>()["i"].speed = 2f;
-		StartCoroutine_Auto(Jump());
+		StartCoroutine(Jump());
 		t = transform;
 		r = GetComponent<Rigidbody>();
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 42, 42, 42 };
 		SetStats(300, 2, 0, 40, 10f, array, UnityEngine.Random.Range(6, 20), 40);
-		StartCoroutine_Auto(Check());
+		StartCoroutine(Check());
 	}
 
 	public virtual void SetPlayer(GameObject g)
@@ -152,11 +152,11 @@ public class ChickenKing : EnemyScript
 		{
 			if (!(player.transform.position.x <= t.position.x))
 			{
-				StartCoroutine_Auto(ChargeRight());
+				StartCoroutine(ChargeRight());
 			}
 			else
 			{
-				StartCoroutine_Auto(ChargeLeft());
+				StartCoroutine(ChargeLeft());
 			}
 		}
 		if (charging && !knocking)

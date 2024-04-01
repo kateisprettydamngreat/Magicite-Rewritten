@@ -15,18 +15,37 @@ public class txtAltar : MonoBehaviour
 	public virtual void Set(int a)
 	{
 		string text = null;
-		text = a switch
+		switch (a)
 		{
-			0 => "Ryvenrath praises your strength, +5 ATK", 
-			1 => "Ryvenrath roars with fury, -1  MAX HP", 
-			2 => "Maalurk approves of your power, +2 ALL STATS", 
-			3 => "Maalurk revels in your pain, -1 HP", 
-			4 => "Eoqueth blesses you, FULL HP", 
-			5 => "Eoqueth ignores your request", 
-			6 => "Pegelda admires your prowess, + 5 DEX", 
-			7 => "Pegelda thinks you're unworthy", 
-			_ => string.Empty, 
-		};
+			case 0:
+				text = "Ryvenrath praises your strength, +5 ATK";
+				break;
+			case 1:
+				text = "Ryvenrath roars with fury, -1  MAX HP";
+				break;
+			case 2:
+				text = "Maalurk approves of your power, +2 ALL STATS";
+				break;
+			case 3:
+				text = "Maalurk revels in your pain, -1 HP";
+				break;
+			case 4:
+				text = "Eoqueth blesses you, FULL HP";
+				break;
+			case 5:
+				text = "Eoqueth ignores your request";
+				break;
+			case 6:
+				text = "Pegelda admires your prowess, + 5 DEX";
+				break;
+			case 7:
+				text = "Pegelda thinks you're unworthy";
+				break;
+			default:
+				text = string.Empty;
+				break;
+		}
+
 		@base.text = text;
 		base2.text = text;
 	}

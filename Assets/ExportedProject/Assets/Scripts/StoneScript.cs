@@ -48,7 +48,7 @@ public class StoneScript : MonoBehaviour
 		if (isPoison && (c.gameObject.layer == 9 || c.gameObject.layer == 12 || c.gameObject.layer == 11) && GetComponent<NetworkView>().isMine)
 		{
 			Network.Instantiate(Resources.Load("haz/poison"), transform.position, Quaternion.identity, 0);
-			StartCoroutine_Auto(Exile());
+			StartCoroutine(Exile());
 		}
 	}
 

@@ -143,7 +143,7 @@ public class blackDragon : EnemyScript
 		{
 			if (!(Mathf.Abs(player.transform.position.x - t.position.x) >= 50f) && !ATKING)
 			{
-				StartCoroutine_Auto(Attack(player.transform.position));
+				StartCoroutine(Attack(player.transform.position));
 			}
 			else if (atking && !(Mathf.Abs(player.transform.position.x - t.position.x) >= 50f) && !knocking && r.isKinematic)
 			{

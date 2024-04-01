@@ -119,7 +119,7 @@ public class BlueWorm : EnemyScript
 			{
 				GetComponent<NetworkView>().RPC("I", RPCMode.All);
 			}
-			StartCoroutine_Auto(Action());
+			StartCoroutine(Action());
 		}
 	}
 

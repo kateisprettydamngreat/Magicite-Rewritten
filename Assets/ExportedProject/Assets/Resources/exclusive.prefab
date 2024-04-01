@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 467120}
+  - component: {fileID: 467120}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectCoreA_1A_0000
   m_TagString: Untagged
@@ -20,9 +20,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 434402}
+  - component: {fileID: 434402}
   m_Layer: 0
   m_Name: exclusive
   m_TagString: Untagged
@@ -35,9 +35,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 413286}
+  - component: {fileID: 413286}
   m_Layer: 0
   m_Name: XP_8BTSpellEffecStretchtB_1A_0000
   m_TagString: Untagged
@@ -50,9 +50,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 497784}
+  - component: {fileID: 497784}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectBitsA_1A_0000
   m_TagString: Untagged
@@ -65,9 +65,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 454074}
+  - component: {fileID: 454074}
   m_Layer: 0
   m_Name: New Text
   m_TagString: Untagged
@@ -87,6 +87,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &408942
 Transform:
   m_ObjectHideFlags: 1
@@ -99,6 +100,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &413286
 Transform:
   m_ObjectHideFlags: 1
@@ -111,6 +113,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &414694
 Transform:
   m_ObjectHideFlags: 1
@@ -123,6 +126,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &427754
 Transform:
   m_ObjectHideFlags: 1
@@ -135,6 +139,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &434402
 Transform:
   m_ObjectHideFlags: 1
@@ -147,6 +152,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &440918
 Transform:
   m_ObjectHideFlags: 1
@@ -159,6 +165,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &445050
 Transform:
   m_ObjectHideFlags: 1
@@ -171,6 +178,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &454074
 Transform:
   m_ObjectHideFlags: 1
@@ -183,6 +191,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &467120
 Transform:
   m_ObjectHideFlags: 1
@@ -195,6 +204,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &481782
 Transform:
   m_ObjectHideFlags: 1
@@ -207,6 +217,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &482160
 Transform:
   m_ObjectHideFlags: 1
@@ -219,6 +230,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &488864
 Transform:
   m_ObjectHideFlags: 1
@@ -231,6 +243,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &494606
 Transform:
   m_ObjectHideFlags: 1
@@ -243,6 +256,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &497784
 Transform:
   m_ObjectHideFlags: 1
@@ -255,14 +269,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &80606532
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 488864}
+  - component: {fileID: 488864}
   m_Layer: 0
   m_Name: New Text
   m_TagString: Untagged
@@ -286,9 +301,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 440918}
+  - component: {fileID: 440918}
   m_Layer: 0
   m_Name: XP_8BTSpellEffecStretchtB_1A_0000
   m_TagString: Untagged
@@ -301,9 +316,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 482160}
+  - component: {fileID: 482160}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectCoreB_1A_0000
   m_TagString: Untagged
@@ -316,9 +331,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 481782}
+  - component: {fileID: 481782}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectB_1A_0000
   m_TagString: Untagged
@@ -331,9 +346,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 414694}
+  - component: {fileID: 414694}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectCoreB_1A_0000
   m_TagString: Untagged
@@ -346,9 +361,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 445050}
+  - component: {fileID: 445050}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectA_1A_0000
   m_TagString: Untagged
@@ -365,7 +380,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1312726176, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: exclusive
   m_EditorClassIdentifier: 
   bars:
   - {fileID: 0}
@@ -376,9 +391,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 494606}
+  - component: {fileID: 494606}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectCoreShotB_1A_0000
   m_TagString: Untagged
@@ -391,9 +406,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 408942}
+  - component: {fileID: 408942}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectCoreShotB_1A_0000
   m_TagString: Untagged
@@ -406,9 +421,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 427754}
+  - component: {fileID: 427754}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectBitsStretchA_1A_0000
   m_TagString: Untagged
@@ -421,9 +436,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 401668}
+  - component: {fileID: 401668}
   m_Layer: 0
   m_Name: XP_8BTSpellEffectB_1A_0000
   m_TagString: Untagged

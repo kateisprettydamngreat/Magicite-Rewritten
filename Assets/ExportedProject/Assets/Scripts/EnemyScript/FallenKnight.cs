@@ -120,19 +120,19 @@ public class FallenKnight : EnemyScript
 		r2D.direction = Vector3.right;
 		if ((Physics.Raycast(r1U, 15f, mask) || (Physics.Raycast(r1D, 15f, mask) && !ATKING)) && Network.isServer && !ATKING)
 		{
-			StartCoroutine_Auto(Attack(0));
+			StartCoroutine(Attack(0));
 		}
 		if ((Physics.Raycast(r2U, 15f, mask) || (Physics.Raycast(r2D, 15f, mask) && !ATKING)) && Network.isServer && !ATKING)
 		{
-			StartCoroutine_Auto(Attack(1));
+			StartCoroutine(Attack(1));
 		}
 		if ((Physics.Raycast(r1U, 3f, mask2) || (Physics.Raycast(r1D, 3f, mask2) && !turning && e.transform.rotation.y == 0f)) && Network.isServer)
 		{
-			StartCoroutine_Auto(T());
+			StartCoroutine(T());
 		}
 		if ((Physics.Raycast(r2U, 3f, mask2) || (Physics.Raycast(r2D, 3f, mask2) && !turning && e.transform.rotation.y != 0f)) && Network.isServer)
 		{
-			StartCoroutine_Auto(T());
+			StartCoroutine(T());
 		}
 	}
 

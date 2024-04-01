@@ -245,7 +245,7 @@ public class PlayerTriggerScript : MonoBehaviour
 			MonoBehaviour.print("HIT BY haz2");
 			if (!c.gameObject.GetComponent<NetworkView>().isMine)
 			{
-				StartCoroutine_Auto(TD(1));
+				StartCoroutine(TD(1));
 			}
 		}
 		else if (c.gameObject.layer == 26)
@@ -298,14 +298,19 @@ public class PlayerTriggerScript : MonoBehaviour
 			GameScript.curDoor = d;
 		}
 		int num = default(int);
-		return s switch
+		switch (s)
 		{
-			"d0" => 0, 
-			"d1" => 1, 
-			"d2" => 2, 
-			"d3" => 3, 
-			_ => num, 
-		};
+			case "d0":
+				return 0;
+			case "d1":
+				return 1;
+			case "d2":
+				return 2;
+			case "d3":
+				return 3;
+			default:
+				return num;
+		}
 	}
 
 	public virtual void Set()

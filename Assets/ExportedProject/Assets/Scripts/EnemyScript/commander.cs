@@ -108,7 +108,7 @@ public class commander : EnemyScript
 		GetComponent<Collider>().material.dynamicFriction = 0f;
 		int[] array = new int[3] { 0, 0, 17 };
 		SetStats(1500, 7, 0, 450, 10f, array, UnityEngine.Random.Range(6, 20), 450);
-		StartCoroutine_Auto(Summon());
+		StartCoroutine(Summon());
 	}
 
 	public virtual void SetPlayer(GameObject g)
@@ -138,11 +138,11 @@ public class commander : EnemyScript
 			canFire = true;
 			if (!(player.transform.position.x <= t.position.x))
 			{
-				StartCoroutine_Auto(ChargeRight());
+				StartCoroutine(ChargeRight());
 			}
 			else
 			{
-				StartCoroutine_Auto(ChargeLeft());
+				StartCoroutine(ChargeLeft());
 			}
 		}
 		if (charging && !knocking)

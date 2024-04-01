@@ -70,8 +70,8 @@ public class Jelly : EnemyScript
 		@base.GetComponent<Animation>()["a"].speed = 0.5f;
 		if (Network.isServer)
 		{
-			StartCoroutine_Auto(Attack());
-			StartCoroutine_Auto(Summon());
+			StartCoroutine(Attack());
+			StartCoroutine(Summon());
 		}
 	}
 

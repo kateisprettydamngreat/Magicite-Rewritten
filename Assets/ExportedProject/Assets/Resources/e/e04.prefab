@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 474282}
+  - component: {fileID: 474282}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -27,6 +27,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &405364
 Transform:
   m_ObjectHideFlags: 1
@@ -39,6 +40,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &438216
 Transform:
   m_ObjectHideFlags: 1
@@ -51,6 +53,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &461524
 Transform:
   m_ObjectHideFlags: 1
@@ -63,6 +66,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &474282
 Transform:
   m_ObjectHideFlags: 1
@@ -75,6 +79,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &62079160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +89,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 187653632, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
+  m_Name: e04
   m_EditorClassIdentifier: 
   isChicken: 0
   bossID: 0
@@ -122,9 +127,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 438216}
+  - component: {fileID: 438216}
   m_Layer: 0
   m_Name: e
   m_TagString: Untagged
@@ -137,9 +142,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 461524}
+  - component: {fileID: 461524}
   m_Layer: 0
   m_Name: Plane_001
   m_TagString: Untagged
@@ -152,9 +157,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 400210}
+  - component: {fileID: 400210}
   m_Layer: 0
   m_Name: slime
   m_TagString: Untagged
@@ -167,9 +172,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 405364}
+  - component: {fileID: 405364}
   m_Layer: 9
   m_Name: e04
   m_TagString: Untagged

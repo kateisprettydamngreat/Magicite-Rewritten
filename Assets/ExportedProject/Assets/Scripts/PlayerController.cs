@@ -378,13 +378,13 @@ public class PlayerController : MonoBehaviour
 				else
 				{
 					mode = 2;
-					StartCoroutine_Auto(Offledge());
+					StartCoroutine(Offledge());
 				}
 			}
 			else
 			{
 				mode = 2;
-				StartCoroutine_Auto(Offledge());
+				StartCoroutine(Offledge());
 			}
 			if (UnityEngine.Input.GetKey(KeyCode.A) && !cantLeft && !dashing)
 			{
@@ -405,12 +405,12 @@ public class PlayerController : MonoBehaviour
 			{
 				mode = 2;
 				MonoBehaviour.print("asdddf");
-				StartCoroutine_Auto(Dash(0));
+				StartCoroutine(Dash(0));
 			}
 			else if (UnityEngine.Input.GetKeyDown(KeyCode.E))
 			{
 				mode = 2;
-				StartCoroutine_Auto(Dash(1));
+				StartCoroutine(Dash(1));
 			}
 			if (UnityEngine.Input.GetKey(KeyCode.D) && !cantRight && !dashing)
 			{
@@ -467,11 +467,11 @@ public class PlayerController : MonoBehaviour
 			{
 				if (grounded)
 				{
-					StartCoroutine_Auto(Jump());
+					StartCoroutine(Jump());
 				}
 				else if (canDoubleJump)
 				{
-					StartCoroutine_Auto(DoubleJump());
+					StartCoroutine(DoubleJump());
 				}
 			}
 			if (UnityEngine.Input.GetKey(KeyCode.Space) && !dashing)
@@ -495,7 +495,7 @@ public class PlayerController : MonoBehaviour
 			{
 				if (trigger.canLeave)
 				{
-					StartCoroutine_Auto(Leavee());
+					StartCoroutine(Leavee());
 				}
 				if (GameScript.canInteract && !GameScript.interacting)
 				{
@@ -627,7 +627,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (!PlayerTriggerScript.cantTakeDamage)
 		{
-			StartCoroutine_Auto(trigger.TD(dmg));
+			StartCoroutine(trigger.TD(dmg));
 		}
 	}
 
@@ -669,7 +669,7 @@ public class PlayerController : MonoBehaviour
 		int dMG = (int)num;
 		if (!PlayerTriggerScript.cantTakeDamage)
 		{
-			StartCoroutine_Auto(trigger.TD(dMG));
+			StartCoroutine(trigger.TD(dMG));
 		}
 	}
 

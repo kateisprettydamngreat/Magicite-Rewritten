@@ -229,81 +229,142 @@ public class ChestScript : MonoBehaviour
 	public virtual int[] GetGearStats(int id)
 	{
 		int[] array = new int[4];
-		return id switch
+		switch (id)
 		{
-			500 => new int[4] { 0, 2, 0, 0 }, 
-			503 => new int[4] { 0, 8, 0, 0 }, 
-			506 => new int[4] { 0, 15, 0, 0 }, 
-			509 => new int[4] { 0, 25, 0, 0 }, 
-			512 => new int[4] { 0, 4, 0, 0 }, 
-			516 => new int[4] { 0, 4, 0, 0 }, 
-			520 => new int[4] { 5, 27, 5, 5 }, 
-			521 => new int[4] { 2, 30, 2, 2 }, 
-			530 => new int[4] { 0, 0, 6, 0 }, 
-			531 => new int[4] { 2, 11, 0, 0 }, 
-			532 => new int[4] { 2, 11, 0, 0 }, 
-			533 => new int[4] { 5, 30, 2, 2 }, 
-			534 => new int[4] { 0, 75, 0, 0 }, 
-			535 => new int[4] { 0, 0, 15, 15 }, 
-			536 => new int[4] { 0, 0, 3, 0 }, 
-			560 => new int[4] { 0, 15, 0, 0 }, 
-			561 => new int[4] { 0, 30, 0, 0 }, 
-			562 => new int[4] { 0, 48, 0, 0 }, 
-			563 => new int[4] { 0, 8, 0, 0 }, 
-			565 => new int[4] { 0, 55, 0, 0 }, 
-			566 => new int[4] { -3, 100, 0, 0 }, 
-			567 => new int[4] { 0, 35, 0, 0 }, 
-			568 => new int[4] { 0, 95, 0, 10 }, 
-			569 => new int[4] { 0, 95, 0, 10 }, 
-			570 => new int[4] { 0, 95, 0, 10 }, 
-			700 => new int[4] { 2, 4, 0, 0 }, 
-			701 => new int[4] { 3, 6, 0, 0 }, 
-			702 => new int[4] { 4, 9, 0, 0 }, 
-			703 => new int[4] { 1, 2, 0, 0 }, 
-			704 => new int[4] { 1, 2, 0, 0 }, 
-			705 => new int[4] { 1, 0, 2, 0 }, 
-			706 => new int[4] { 1, 0, 2, 0 }, 
-			707 => new int[4] { 2, 0, 4, 0 }, 
-			708 => new int[4] { 3, 0, 6, 0 }, 
-			709 => new int[4] { 4, 0, 9, 0 }, 
-			710 => new int[4] { 1, 0, 0, 2 }, 
-			711 => new int[4] { 1, 0, 0, 2 }, 
-			712 => new int[4] { 2, 0, 0, 4 }, 
-			713 => new int[4] { 3, 0, 0, 6 }, 
-			714 => new int[4] { 4, 0, 0, 9 }, 
-			800 => new int[4] { 2, 4, 0, 0 }, 
-			801 => new int[4] { 3, 6, 0, 0 }, 
-			802 => new int[4] { 4, 9, 0, 0 }, 
-			803 => new int[4] { 1, 2, 0, 0 }, 
-			804 => new int[4] { 1, 2, 0, 0 }, 
-			805 => new int[4] { 1, 0, 2, 0 }, 
-			806 => new int[4] { 1, 0, 2, 0 }, 
-			807 => new int[4] { 2, 0, 4, 0 }, 
-			808 => new int[4] { 3, 0, 6, 0 }, 
-			809 => new int[4] { 4, 0, 9, 0 }, 
-			810 => new int[4] { 1, 0, 0, 2 }, 
-			811 => new int[4] { 1, 0, 0, 2 }, 
-			812 => new int[4] { 2, 0, 0, 4 }, 
-			813 => new int[4] { 3, 0, 0, 6 }, 
-			814 => new int[4] { 4, 0, 0, 9 }, 
-			900 => new int[4] { 2, 0, 0, 0 }, 
-			901 => new int[4] { 3, 0, 0, 0 }, 
-			902 => new int[4] { 4, 0, 0, 0 }, 
-			903 => new int[4] { 1, 0, 0, 0 }, 
-			904 => new int[4] { 1, 0, 0, 0 }, 
-			905 => new int[4] { 5, 2, 2, 2 }, 
-			906 => new int[4] { 5, 2, 0, 5 }, 
-			907 => new int[4] { 3, 5, 5, 0 }, 
-			950 => new int[4] { 0, 5, 0, 0 }, 
-			951 => new int[4] { 0, 0, 0, 5 }, 
-			952 => new int[4] { 0, 0, 5, 0 }, 
-			953 => new int[4] { 5, 0, 0, 0 }, 
-			954 => new int[4] { -2, 8, 0, 0 }, 
-			955 => new int[4] { -2, 0, 0, 8 }, 
-			956 => new int[4] { -2, 0, 8, 0 }, 
-			957 => new int[4] { 2, 2, 2, 2 }, 
-			_ => new int[4], 
-		};
+			case 500:
+				return new int[4] { 0, 2, 0, 0 };
+			case 503:
+				return new int[4] { 0, 8, 0, 0 };
+			case 506:
+				return new int[4] { 0, 15, 0, 0 };
+			case 509:
+				return new int[4] { 0, 25, 0, 0 };
+			case 512:
+			case 516:
+				return new int[4] { 0, 4, 0, 0 };
+			case 520:
+				return new int[4] { 5, 27, 5, 5 };
+			case 521:
+				return new int[4] { 2, 30, 2, 2 };
+			case 530:
+				return new int[4] { 0, 0, 6, 0 };
+			case 531:
+			case 532:
+				return new int[4] { 2, 11, 0, 0 };
+			case 533:
+				return new int[4] { 5, 30, 2, 2 };
+			case 534:
+				return new int[4] { 0, 75, 0, 0 };
+			case 535:
+				return new int[4] { 0, 0, 15, 15 };
+			case 536:
+				return new int[4] { 0, 0, 3, 0 };
+			case 560:
+				return new int[4] { 0, 15, 0, 0 };
+			case 561:
+				return new int[4] { 0, 30, 0, 0 };
+			case 562:
+				return new int[4] { 0, 48, 0, 0 };
+			case 563:
+				return new int[4] { 0, 8, 0, 0 };
+			case 565:
+				return new int[4] { 0, 55, 0, 0 };
+			case 566:
+				return new int[4] { -3, 100, 0, 0 };
+			case 567:
+				return new int[4] { 0, 35, 0, 0 };
+			case 568:
+			case 569:
+			case 570:
+				return new int[4] { 0, 95, 0, 10 };
+			case 700:
+				return new int[4] { 2, 4, 0, 0 };
+			case 701:
+				return new int[4] { 3, 6, 0, 0 };
+			case 702:
+				return new int[4] { 4, 9, 0, 0 };
+			case 703:
+			case 704:
+				return new int[4] { 1, 2, 0, 0 };
+			case 705:
+			case 706:
+				return new int[4] { 1, 0, 2, 0 };
+			case 707:
+				return new int[4] { 2, 0, 4, 0 };
+			case 708:
+				return new int[4] { 3, 0, 6, 0 };
+			case 709:
+				return new int[4] { 4, 0, 9, 0 };
+			case 710:
+			case 711:
+				return new int[4] { 1, 0, 0, 2 };
+			case 712:
+				return new int[4] { 2, 0, 0, 4 };
+			case 713:
+				return new int[4] { 3, 0, 0, 6 };
+			case 714:
+				return new int[4] { 4, 0, 0, 9 };
+			case 800:
+				return new int[4] { 2, 4, 0, 0 };
+			case 801:
+				return new int[4] { 3, 6, 0, 0 };
+			case 802:
+				return new int[4] { 4, 9, 0, 0 };
+			case 803:
+			case 804:
+				return new int[4] { 1, 2, 0, 0 };
+			case 805:
+			case 806:
+				return new int[4] { 1, 0, 2, 0 };
+			case 807:
+				return new int[4] { 2, 0, 4, 0 };
+			case 808:
+				return new int[4] { 3, 0, 6, 0 };
+			case 809:
+				return new int[4] { 4, 0, 9, 0 };
+			case 810:
+			case 811:
+				return new int[4] { 1, 0, 0, 2 };
+			case 812:
+				return new int[4] { 2, 0, 0, 4 };
+			case 813:
+				return new int[4] { 3, 0, 0, 6 };
+			case 814:
+				return new int[4] { 4, 0, 0, 9 };
+			case 900:
+				return new int[4] { 2, 0, 0, 0 };
+			case 901:
+				return new int[4] { 3, 0, 0, 0 };
+			case 902:
+				return new int[4] { 4, 0, 0, 0 };
+			case 903:
+			case 904:
+				return new int[4] { 1, 0, 0, 0 };
+			case 905:
+				return new int[4] { 5, 2, 2, 2 };
+			case 906:
+				return new int[4] { 5, 2, 0, 5 };
+			case 907:
+				return new int[4] { 3, 5, 5, 0 };
+			case 950:
+				return new int[4] { 0, 5, 0, 0 };
+			case 951:
+				return new int[4] { 0, 0, 0, 5 };
+			case 952:
+				return new int[4] { 0, 0, 5, 0 };
+			case 953:
+				return new int[4] { 5, 0, 0, 0 };
+			case 954:
+				return new int[4] { -2, 8, 0, 0 };
+			case 955:
+				return new int[4] { -2, 0, 0, 8 };
+			case 956:
+				return new int[4] { -2, 0, 8, 0 };
+			case 957:
+				return new int[4] { 2, 2, 2, 2 };
+			default:
+				return new int[4];
+		}
 	}
 
 	}

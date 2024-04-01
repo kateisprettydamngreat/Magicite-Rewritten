@@ -113,7 +113,7 @@ public class ScourgeWall : MonoBehaviour
 		mainHead.GetComponent<Animation>()["a"].layer = 1;
 		mainHead.GetComponent<Animation>()["a"].speed = 0.7f;
 		t = transform;
-		StartCoroutine_Auto(ShootStuff());
+		StartCoroutine(ShootStuff());
 	}
 
 	[RPC]
