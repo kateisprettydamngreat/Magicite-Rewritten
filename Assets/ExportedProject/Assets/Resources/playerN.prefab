@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -613363061, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   negatePlayerDamage: 0
   canDMG: 1
   dmg: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -873566217, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   bar: {fileID: 66738496}
   player: {fileID: 66738176}
 --- !u!1 &-1229722413
@@ -217,8 +217,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1088674972, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   ow: {fileID: 8300000, guid: d731a9472726b5e4f856ff8be8232d0a, type: 3}
   player: {fileID: 1986096243}
   base: {fileID: 59812}
@@ -448,8 +448,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1788275264, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   player: {fileID: 59844}
 --- !u!1 &-227530575
 GameObject:
@@ -1453,8 +1453,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95dcbfadae5ebf19d5f7a605fcf4da35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   player: 1
   p: {fileID: 1986096243}
   m_InterpolationBackTime: 0.1
@@ -1498,8 +1498,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -613363061, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   negatePlayerDamage: 0
   canDMG: 1
   dmg: 0
@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 1424666213, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
   m_Name: playerN
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   player: {fileID: 66775424}
   critObj: {fileID: 66774464, guid: 1a0d5ebe1b36a564c8b861aceaee057d, type: 2}
   atkAnim: {fileID: 0}
@@ -1557,8 +1557,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 650229677, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &773545651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,8 +1778,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -989157745, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   txtTitle:
   - {fileID: 66773824}
   - {fileID: 66775744}
@@ -1925,8 +1925,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -613363061, guid: a325365abb8872bb69b451b985d8ab40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   negatePlayerDamage: 0
   canDMG: 1
   dmg: 0
