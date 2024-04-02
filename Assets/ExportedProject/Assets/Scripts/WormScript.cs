@@ -12,13 +12,13 @@ public class WormScript : MonoBehaviour
 		drops = new int[3] { 7, 18, 0 };
 		t = transform;
 		StartCoroutine(Initialize());
-		
+
 		if (isHead) {
 			int i = 0;
 			mainHead.GetComponent<Animation>().Play();
 			yield return new WaitForSeconds(0.1f);
 			while(i < 7) {
-				parts[i].GetComponent<Animation>().Play("wBody"); 
+				parts[i].GetComponent<Animation>().Play("wBody");
 				i++;
 				yield return new WaitForSeconds(0.1f);
 			}
@@ -41,15 +41,15 @@ public class WormScript : MonoBehaviour
 		if(player) {
 			if(Network.isServer) {
 			time = UnityEngine.Random.Range(8, 11);
-			curVector = player.transform.position - transform.position;  
+			curVector = player.transform.position - transform.position;
 			attacking = true;
-			
+
 			yield return new WaitForSeconds(time);
-			} 
+			}
 			else {
 			yield return new WaitForSeconds(time);
 			}
-			
+
 			attacking = false;
 		}
 
@@ -58,17 +58,17 @@ public class WormScript : MonoBehaviour
 	}
 
 	[RPC]
-	public IEnumerator TDN(int dmg) 
+	public IEnumerator TDN(int dmg)
 	{
 		takingDamage = true;
 		yield return new WaitForSeconds(0.2f);
-		
+
 		HP -= dmg;
-		if(HP < 1) 
+		if(HP < 1)
 		{
 			Die();
 		}
-		else 
+		else
 		{
 			takingDamage = false;
 		}
@@ -79,17 +79,17 @@ public class WormScript : MonoBehaviour
 	{
 		GameObject n2 = Instantiate(Resources.Load("TD"), t.position, Quaternion.identity) as GameObject;
 		n2.SendMessage("SD", dmg);
-		
+
 		yield return new WaitForSeconds(0.2f);
 		yield return new WaitForSeconds(0.2f);
-		
+
 		if(HP < 1)
 		{
 			Die();
 		}
 		else
 		{
-			takingDamage = false; 
+			takingDamage = false;
 		}
 	}
 

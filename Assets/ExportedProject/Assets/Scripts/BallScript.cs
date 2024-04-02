@@ -15,12 +15,12 @@ public class BallScript : MonoBehaviour {
     rbody = GetComponent<Rigidbody>();
 
     if(Network.isServer) {
-      StartCoroutine(Die());  
+      StartCoroutine(Die());
     }
   }
 
   void Update() {
-    rbody.velocity = new Vector3(speed * (isLeft ? -1 : 1), upSpeed, 0); 
+    rbody.velocity = new Vector3(speed * (isLeft ? -1 : 1), upSpeed, 0);
   }
 
     IEnumerator Die()

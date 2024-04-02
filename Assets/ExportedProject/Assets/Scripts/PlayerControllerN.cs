@@ -8,6 +8,7 @@ using UnityEngine;
 [Serializable]
 public class PlayerControllerN : MonoBehaviour
 {
+
 	[Serializable]
 	[CompilerGenerated]
 	internal sealed class _0024iceShard_00242212 : GenericGenerator<WaitForSeconds>

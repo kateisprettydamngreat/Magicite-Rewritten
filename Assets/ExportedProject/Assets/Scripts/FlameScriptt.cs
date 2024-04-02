@@ -23,7 +23,7 @@ public class FlameScriptt : MonoBehaviour
     [RPC]
     private void PlayAnimation()
     {
-        baseObject.GetComponent<Animation>().Play(); 
+        baseObject.GetComponent<Animation>().Play();
     }
 
     private void Start()

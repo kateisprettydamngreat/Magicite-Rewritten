@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityScript.Lang;
+using UnityEngine.Android;
 
 [Serializable]
 public class MenuScript : MonoBehaviour
@@ -875,92 +875,93 @@ public class MenuScript : MonoBehaviour
             }
         }
 
-        if (enteringName)
-        {
-            IEnumerator enumerator = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
-            while (enumerator.MoveNext())
-            {
-                char c = (char)enumerator.Current;
-                if (c == "\b"[0])
-                {
-                    if (txtName[0].text.Length != 0)
-                    {
-                        txtName[0].text = txtName[0].text.Substring(0, txtName[0].text.Length - 1);
-                    }
-                }
-                else if (c == "\n"[0] || c == "\r"[0])
-                {
-                    enteringName = false;
-                }
-                else if (txtName[0].text.Length < 10)
-                {
-                    txtName[0].text = txtName[0].text + c;
-                    UnityRuntimeServices.Update(enumerator, c);
-                }
-            }
-        }
+        // TODO: Caleb, commenting for now
+        // if (enteringName)
+        // {
+        //     IEnumerator enumerator = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
+        //     while (enumerator.MoveNext())
+        //     {
+        //         char c = (char)enumerator.Current;
+        //         if (c == "\b"[0])
+        //         {
+        //             if (txtName[0].text.Length != 0)
+        //             {
+        //                 txtName[0].text = txtName[0].text.Substring(0, txtName[0].text.Length - 1);
+        //             }
+        //         }
+        //         else if (c == "\n"[0] || c == "\r"[0])
+        //         {
+        //             enteringName = false;
+        //         }
+        //         else if (txtName[0].text.Length < 10)
+        //         {
+        //             txtName[0].text = txtName[0].text + c;
+        //             UnityRuntimeServices.Update(enumerator, c);
+        //         }
+        //     }
+        // }
 
-        if (enteringIP)
-        {
-            IEnumerator enumerator2 = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
-            while (enumerator2.MoveNext())
-            {
-                char c2 = (char)enumerator2.Current;
-                if (c2 == "\b"[0])
-                {
-                    if (txtIP[0].text.Length != 0)
-                    {
-                        txtIP[0].text = txtIP[0].text.Substring(0, txtIP[0].text.Length - 1);
-                    }
-                }
-                else if (c2 == "\n"[0] || c2 == "\r"[0])
-                {
-                    enteringIP = false;
-                }
-                else if (txtIP[0].text.Length < 20)
-                {
-                    txtIP[0].text = txtIP[0].text + c2;
-                    UnityRuntimeServices.Update(enumerator2, c2);
-                }
-
-                ip = txtIP[0].text;
-            }
-        }
+        // if (enteringIP)
+        // {
+        //     IEnumerator enumerator2 = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
+        //     while (enumerator2.MoveNext())
+        //     {
+        //         char c2 = (char)enumerator2.Current;
+        //         if (c2 == "\b"[0])
+        //         {
+        //             if (txtIP[0].text.Length != 0)
+        //             {
+        //                 txtIP[0].text = txtIP[0].text.Substring(0, txtIP[0].text.Length - 1);
+        //             }
+        //         }
+        //         else if (c2 == "\n"[0] || c2 == "\r"[0])
+        //         {
+        //             enteringIP = false;
+        //         }
+        //         else if (txtIP[0].text.Length < 20)
+        //         {
+        //             txtIP[0].text = txtIP[0].text + c2;
+        //             UnityRuntimeServices.Update(enumerator2, c2);
+        //         }
+        //
+        //         ip = txtIP[0].text;
+        //     }
+        // }
 
         if (!enteringPort)
         {
             return;
         }
 
-        IEnumerator enumerator3 = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
-        while (enumerator3.MoveNext())
-        {
-            char c3 = (char)enumerator3.Current;
-            if (c3 == "\b"[0])
-            {
-                if (txtPort.text.Length != 0)
-                {
-                    txtPort.text = txtPort.text.Substring(0, txtPort.text.Length - 1);
-                }
-            }
-            else if (c3 == "\n"[0] || c3 == "\r"[0])
-            {
-                enteringPort = false;
-            }
-            else if (txtPort.text.Length < 20)
-            {
-                txtPort.text += c3;
-                UnityRuntimeServices.Update(enumerator3, c3);
-            }
-
-            try
-            {
-                port = int.Parse(txtPort.text);
-            }
-            catch (Exception)
-            {
-            }
-        }
+        // IEnumerator enumerator3 = UnityRuntimeServices.GetEnumerator(UnityEngine.Input.inputString);
+        // while (enumerator3.MoveNext())
+        // {
+        //     char c3 = (char)enumerator3.Current;
+        //     if (c3 == "\b"[0])
+        //     {
+        //         if (txtPort.text.Length != 0)
+        //         {
+        //             txtPort.text = txtPort.text.Substring(0, txtPort.text.Length - 1);
+        //         }
+        //     }
+        //     else if (c3 == "\n"[0] || c3 == "\r"[0])
+        //     {
+        //         enteringPort = false;
+        //     }
+        //     else if (txtPort.text.Length < 20)
+        //     {
+        //         txtPort.text += c3;
+        //         UnityRuntimeServices.Update(enumerator3, c3);
+        //     }
+        //
+        //     try
+        //     {
+        //         port = int.Parse(txtPort.text);
+        //     }
+        //     catch (Exception)
+        //     {
+        //     }
+        // }
     }
 
     public virtual void ModeSwitch()

@@ -17,9 +17,9 @@ public class LightBlast : MonoBehaviour
 
     [SerializeField] private bool isRight;
 
-    private void OnTriggerEnter(Collider c) 
+    private void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.layer == 9 || c.gameObject.layer == 12) 
+        if (c.gameObject.layer == 9 || c.gameObject.layer == 12)
         {
             Exile();
             c.gameObject.SendMessage("TakeDamage", GetDamage());
@@ -33,7 +33,7 @@ public class LightBlast : MonoBehaviour
 
     private int GetDamage()
     {
-        return 150 + tier * tier; 
+        return 150 + tier * tier;
     }
 
     private void Exile()
@@ -42,7 +42,7 @@ public class LightBlast : MonoBehaviour
         Network.Destroy(GetComponent<NetworkView>().viewID);
     }
 
-    private void Start() 
+    private void Start()
     {
         GetComponent<Collider>().enabled = true;
         Invoke(nameof(Exile), 2f);

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityScript.Lang;
 
 [Serializable]
 public class ChestScript : MonoBehaviour
@@ -158,7 +157,7 @@ public class ChestScript : MonoBehaviour
 		{
 			UnityEngine.Object.Instantiate(Resources.Load("c"), transform.position, Quaternion.identity);
 		}
-		for (num2 = 0; num2 < Extensions.get_length((System.Array)drops); num2++)
+		for (num2 = 0; num2 < drops.Length; num2++)
 		{
 			if (drops[num2] != 0)
 			{

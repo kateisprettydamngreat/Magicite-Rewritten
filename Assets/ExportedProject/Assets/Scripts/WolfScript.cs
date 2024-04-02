@@ -7,7 +7,7 @@ using UnityEngine;
 public class WolfScript : MonoBehaviour
 {
     private bool exiling;
-    
+
     [RPC]
     private IEnumerator ExileRoutine()
     {
@@ -15,9 +15,9 @@ public class WolfScript : MonoBehaviour
         transform.position = Vector3.down * 500;
         yield return new WaitForSeconds(4);
         Network.Destroy(GetComponent<NetworkView>().viewID);
-        Network.RemoveRPCs(GetComponent<NetworkView>().viewID); 
+        Network.RemoveRPCs(GetComponent<NetworkView>().viewID);
     }
-    
+
     [RPC]
     private void Exile()
     {

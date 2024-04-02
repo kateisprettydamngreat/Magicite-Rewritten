@@ -185,7 +185,7 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
-	
+
     private IEnumerator KN(bool l)
     {
         knocking = true;

@@ -8,21 +8,21 @@ using UnityEngine;
 public class ForestSpikes : MonoBehaviour
 {
     public GameObject baseGameObject;
-    
+
     private Animation baseAnimation;
 
-    private void Start() 
+    private void Start()
     {
         baseAnimation = baseGameObject.GetComponent<Animation>();
-        
+
         StartCoroutine(SpikeAnimationCoroutine());
     }
 
     private IEnumerator SpikeAnimationCoroutine()
     {
-        yield return new WaitForSeconds(GetRandomWaitTime()); 
+        yield return new WaitForSeconds(GetRandomWaitTime());
         baseAnimation.Play();
-        
+
         if (Network.isServer)
         {
             GetComponent<NetworkView>().RPC("PlayAnimation", RPCMode.All);
@@ -32,7 +32,7 @@ public class ForestSpikes : MonoBehaviour
     [RPC]
     private void PlayAnimation()
     {
-        baseAnimation.Play(); 
+        baseAnimation.Play();
     }
 
     private float GetRandomWaitTime()
