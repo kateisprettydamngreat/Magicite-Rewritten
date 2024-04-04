@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [NonSerialized] public static int mBonus;
 
+
     public GameObject blood;
     public GameObject particleRoar;
     public GameObject particleFloat;

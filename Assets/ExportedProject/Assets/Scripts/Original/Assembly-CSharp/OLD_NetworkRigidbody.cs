@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NetworkRigidbody : MonoBehaviour
+public class OLD_NetworkRigidbody : MonoBehaviour
 {
 	internal struct State
 	{
