@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2023_2_16;UNITY_2023_2;UNITY_2023;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2023_2_16;UNITY_2023_2;UNITY_2023;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -46,236 +46,254 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\EnemyScript\skelred.cs" />
-    <Compile Include="Assets\Scripts\PortScript.cs" />
-    <Compile Include="Assets\Scripts\ShooterScript.cs" />
-    <Compile Include="Assets\Scripts\LobbyPlayer.cs" />
-    <Compile Include="Assets\Scripts\RemoveRPCScript.cs" />
-    <Compile Include="Assets\Scripts\txtAltar.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Mino.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Sheep.cs" />
-    <Compile Include="Assets\Scripts\CritScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ChiefTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Jelly.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\skelredTrig.cs" />
-    <Compile Include="Assets\Scripts\MenuScript.cs" />
-    <Compile Include="Assets\Scripts\SpriteScript.cs" />
-    <Compile Include="Assets\Scripts\TownScript.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\Input.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\sArcherTrig.cs" />
-    <Compile Include="Assets\Scripts\Shine.cs" />
-    <Compile Include="Assets\Scripts\PlayerControllerN.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\newBoarTrig.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\Tyrannoxtrig.cs" />
-    <Compile Include="Assets\Scripts\Deatha.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ArcherScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\GhoulScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\mimicTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ShroomMage.cs" />
-    <Compile Include="Assets\Scripts\AttackCube.cs" />
-    <Compile Include="Assets\Scripts\ItemScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\skelCrater.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Fairy.cs" />
-    <Compile Include="Assets\Scripts\GhostSword.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\SpiderGrass.cs" />
-    <Compile Include="Assets\Scripts\Assembly-CSharp\Properties\AssemblyInfo.cs" />
-    <Compile Include="Assets\Scripts\FadeInOut.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ScourgeScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\BisonScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\SpiderTrig.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ShroomTrig2.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\DragonSpawn.cs" />
-    <Compile Include="Assets\Scripts\MenuRacesCenter.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\EntScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Chief.cs" />
-    <Compile Include="Assets\Scripts\ballSpike.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\blackDragonTrig.cs" />
-    <Compile Include="Assets\Scripts\SummonSkeleton.cs" />
-    <Compile Include="Assets\Scripts\WolfScript.cs" />
-    <Compile Include="Assets\Scripts\NPCCommoner.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\sKnight.cs" />
-    <Compile Include="Assets\Scripts\ENEXScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\YetiScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ShroomTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\commander.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\IceKnightTrig.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\IconScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\OreSpiderTrig.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\FairyTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\SnakeScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\commanderTrig.cs" />
-    <Compile Include="Assets\Scripts\HazTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\WaspScript.cs" />
-    <Compile Include="Assets\Scripts\TownReturnScript.cs" />
-    <Compile Include="Assets\Scripts\ArrowScript.cs" />
-    <Compile Include="Assets\Scripts\FireParticles4.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\EnemyScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\BlueWormTrig.cs" />
-    <Compile Include="Assets\Scripts\ChestScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\GobTrig.cs" />
-    <Compile Include="Assets\Scripts\CoinTrigger.cs" />
-    <Compile Include="Assets\Scripts\FlameScriptt.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\InvaderTrig.cs" />
-    <Compile Include="Assets\Scripts\BigSnow.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\InvaderScript.cs" />
-    <Compile Include="Assets\Scripts\bWScript.cs" />
-    <Compile Include="Assets\Scripts\CursorScript.cs" />
-    <Compile Include="Assets\Scripts\ShroomFire.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ScourgeWallTrig.cs" />
-    <Compile Include="Assets\Scripts\OreScript.cs" />
-    <Compile Include="Assets\Scripts\DmgScript.cs" />
-    <Compile Include="Assets\Scripts\LightBlast.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\golemTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\mimicScript.cs" />
-    <Compile Include="Assets\Scripts\bwbw.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\NewBehaviourScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\king.cs" />
-    <Compile Include="Assets\Scripts\Intro.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\blackDragon.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Gob.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ScourgeKnightTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\BlueWorm.cs" />
-    <Compile Include="Assets\Scripts\WormScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\GiantBugTrig.cs" />
-    <Compile Include="Assets\Scripts\TitanTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\SlimeScript.cs" />
-    <Compile Include="Assets\Scripts\ghoulFire.cs" />
-    <Compile Include="Assets\Scripts\StandScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\SpiderTrig0.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\WhelpTrig.cs" />
-    <Compile Include="Assets\Scripts\HouseScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ChickenScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\bat.cs" />
-    <Compile Include="Assets\Scripts\txtItemScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\fQueenTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\SpiderScript.cs" />
-    <Compile Include="Assets\Scripts\ForestSpikes.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\batTrig.cs" />
-    <Compile Include="Assets\Scripts\RockScript.cs" />
-    <Compile Include="Assets\Scripts\Properties\AssemblyInfo.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\fQueen.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ScourgeKnightScript.cs" />
-    <Compile Include="Assets\Scripts\SpiderEgg.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\ScourgeDragon.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\StatsScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\GobScript.cs" />
-    <Compile Include="Assets\Scripts\DestroyObject.cs" />
-    <Compile Include="Assets\Scripts\BugSpotScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\LavaBison.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ShroomBaby.cs" />
-    <Compile Include="Assets\Scripts\VineScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ChickenKingTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\TitanScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Tyrannox.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\GhoulTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Broodmother.cs" />
-    <Compile Include="Assets\Scripts\Boomerang.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\FallenKnight.cs" />
-    <Compile Include="Assets\Scripts\FireScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\GiantBug.cs" />
-    <Compile Include="Assets\Scripts\Poison.cs" />
-    <Compile Include="Assets\Scripts\PlayerTriggerScript.cs" />
-    <Compile Include="Assets\Scripts\ProjectileScript.cs" />
-    <Compile Include="Assets\Scripts\BugSpot.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ddragonTrig.cs" />
-    <Compile Include="Assets\Scripts\EffectScript.cs" />
-    <Compile Include="Assets\Scripts\Gear.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\SkelBossScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\PercylTrig.cs" />
-    <Compile Include="Assets\Scripts\MerchantScript.cs" />
-    <Compile Include="Assets\Scripts\beeHive.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\BoarScript.cs" />
-    <Compile Include="Assets\Scripts\ScourgeWall.cs" />
-    <Compile Include="Assets\Scripts\CutsceneScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Percyl.cs" />
-    <Compile Include="Assets\Scripts\KnightBlade.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\IceKnight.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ghostKnightTrig.cs" />
-    <Compile Include="Assets\Scripts\NPCBasicScript.cs" />
-    <Compile Include="Assets\Scripts\ItemTrigger.cs" />
-    <Compile Include="Assets\Scripts\FadeText.cs" />
-    <Compile Include="Assets\Scripts\WhelpFire.cs" />
-    <Compile Include="Assets\Scripts\GrassScript.cs" />
-    <Compile Include="Assets\Scripts\SpawnScript.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\DragonPart.cs" />
-    <Compile Include="Assets\Scripts\GhostScript.cs" />
-    <Compile Include="Assets\Scripts\ReviveScript.cs" />
-    <Compile Include="Assets\Scripts\FortuneScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Whelp.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Bear.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\WaspTrig.cs" />
-    <Compile Include="Assets\Scripts\txtLUP.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\golem.cs" />
-    <Compile Include="Assets\Scripts\pingScript.cs" />
-    <Compile Include="Assets\Scripts\SmallWorm.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\GhostKnight.cs" />
-    <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\sArcher.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\ButterflyTrig.cs" />
-    <Compile Include="Assets\Scripts\UnetMock.cs" />
-    <Compile Include="Assets\Scripts\ThrowAxe.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ButterflyScript.cs" />
-    <Compile Include="Assets\Scripts\TitanTrigger.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\JellyTrig.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\MinoTrig.cs" />
-    <Compile Include="Assets\Scripts\TreeScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\SkeletonScript.cs" />
-    <Compile Include="Assets\Scripts\GameScript.cs" />
-    <Compile Include="Assets\Scripts\ExpScript.cs" />
-    <Compile Include="Assets\Scripts\TextureOffsetAnimation.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\DaggerScript.cs" />
-    <Compile Include="Assets\Scripts\Assembly-CSharp\NetworkRigidbody.cs" />
-    <Compile Include="Assets\Scripts\CoinScript.cs" />
-    <Compile Include="Assets\Scripts\blooood.cs" />
-    <Compile Include="Assets\Scripts\BoltScript.cs" />
-    <Compile Include="Assets\Scripts\Item.cs" />
-    <Compile Include="Assets\Scripts\BoneThrw.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\skelCraterTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\IceSlimeScript.cs" />
-    <Compile Include="Assets\Scripts\OrphanScripts\-ArrayType-16.cs" />
-    <Compile Include="Assets\Scripts\jellyFire.cs" />
-    <Compile Include="Assets\Scripts\PoisonParent.cs" />
-    <Compile Include="Assets\Scripts\FireBall.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\AbyssalTitan.cs" />
-    <Compile Include="Assets\Scripts\ScrollScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\octopus.cs" />
-    <Compile Include="Assets\Scripts\StoneScript.cs" />
-    <Compile Include="Assets\Scripts\AnimateScript.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\BroodMotherTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\djin.cs" />
-    <Compile Include="Assets\Scripts\ButtonScript.cs" />
-    <Compile Include="Assets\Scripts\ScourgeTimer.cs" />
-    <Compile Include="Assets\Scripts\fireAnimate.cs" />
-    <Compile Include="Assets\Scripts\ScrollScriptx.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\kingTrig.cs" />
-    <Compile Include="Assets\Scripts\MusicBox.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\ChickenKing.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\GatorScript.cs" />
-    <Compile Include="Assets\Scripts\ChangeScript.cs" />
-    <Compile Include="Assets\Scripts\NPCScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Shroom.cs" />
-    <Compile Include="Assets\Scripts\MinionScript.cs" />
-    <Compile Include="Assets\Scripts\SpireScript.cs" />
-    <Compile Include="Assets\Scripts\BallScript.cs" />
-    <Compile Include="Assets\Scripts\CameraScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\OreSpider.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\octopusTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\BigYeti.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\sknightTrig.cs" />
-    <Compile Include="Assets\Scripts\SnowSpawner.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\BigYetiTrig.cs" />
-    <Compile Include="Assets\Scripts\TrigHandler\djinTrig.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\Spider.cs" />
-    <Compile Include="Assets\Scripts\EnemyScript\newBoar.cs" />
+    <Compile Include="Assets\Scripts\Original\SpriteScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\GhostKnight.cs" />
+    <Compile Include="Assets\Scripts\Original\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyProjectile.cs" />
+    <Compile Include="Assets\Scripts\Original\PoisonParent.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Whelp.cs" />
+    <Compile Include="Assets\Scripts\Original\DmgScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\octopus.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ArcherScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ghostKnightTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\IceKnight.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\mimicTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Percyl.cs" />
+    <Compile Include="Assets\Scripts\Original\FortuneScript.cs" />
+    <Compile Include="Assets\Scripts\Original\MinionScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\WaspScript.cs" />
+    <Compile Include="Assets\Scripts\Original\ItemScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\skelred.cs" />
+    <Compile Include="Assets\Scripts\Original\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\Input.cs" />
+    <Compile Include="Assets\Scripts\Original\LobbyPlayer.cs" />
+    <Compile Include="Assets\Scripts\Original\ghoulFire.cs" />
+    <Compile Include="Assets\Scripts\Original\TitanTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\MenuRacesCenter.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\golemTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\PlayerControllerN.cs" />
+    <Compile Include="Assets\Scripts\Original\fireAnimate.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\IceSlimeScript.cs" />
+    <Compile Include="Assets\Scripts\Original\Shine.cs" />
+    <Compile Include="Assets\Scripts\Original\Intro.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\fQueen.cs" />
+    <Compile Include="Assets\Scripts\Original\GhostScript.cs" />
+    <Compile Include="Assets\Scripts\Original\blooood.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\MinoTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\skelCraterTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\MerchantScript.cs" />
+    <Compile Include="Assets\Scripts\Original\GhostSword.cs" />
+    <Compile Include="Assets\Scripts\Original\pingScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ShroomBaby.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\WaspTrig.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Player\PlayerLocal.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\IconScript.cs" />
+    <Compile Include="Assets\Scripts\Original\Item.cs" />
+    <Compile Include="Assets\Scripts\Original\Assembly-CSharp\Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ChiefTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Bear.cs" />
+    <Compile Include="Assets\Scripts\Original\Poison.cs" />
+    <Compile Include="Assets\Scripts\Original\DestroyObject.cs" />
+    <Compile Include="Assets\Scripts\Original\ChangeScript.cs" />
+    <Compile Include="Assets\Scripts\Original\SpawnScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\king.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\DragonPart.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\SpiderGrass.cs" />
+    <Compile Include="Assets\Scripts\Original\SmallWorm.cs" />
+    <Compile Include="Assets\Scripts\Original\SnowSpawner.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ScourgeWallTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Broodmother.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\SnakeScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TitanTrigger.cs" />
+    <Compile Include="Assets\Scripts\Original\bWScript.cs" />
+    <Compile Include="Assets\Scripts\Original\PlayerTriggerScript.cs" />
+    <Compile Include="Assets\Scripts\Original\FireBall.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\bat.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\SpiderTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\ScourgeTimer.cs" />
+    <Compile Include="Assets\Scripts\Original\jellyFire.cs" />
+    <Compile Include="Assets\Scripts\Original\ReviveScript.cs" />
+    <Compile Include="Assets\Scripts\Original\MenuScript.cs" />
+    <Compile Include="Assets\Scripts\Original\FireScript.cs" />
+    <Compile Include="Assets\Scripts\Original\txtLUP.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\BigYeti.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\batTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\StandScript.cs" />
+    <Compile Include="Assets\Scripts\Original\CoinTrigger.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ScourgeKnightScript.cs" />
+    <Compile Include="Assets\Scripts\Original\BigSnow.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\LavaBison.cs" />
+    <Compile Include="Assets\Scripts\Original\NPCScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ButterflyTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ChickenKing.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\BlueWorm.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\OreSpider.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\SpiderScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\kingTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\fQueenTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\CoinScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\TitanScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\djin.cs" />
+    <Compile Include="Assets\Scripts\Original\PortScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\OreSpiderTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\mimicScript.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Player\PlayerNetwork.cs" />
+    <Compile Include="Assets\Scripts\Original\WolfScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ShroomMage.cs" />
+    <Compile Include="Assets\Scripts\Original\ballSpike.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\-ArrayType-16.cs" />
+    <Compile Include="Assets\Scripts\Original\AnimateScript.cs" />
+    <Compile Include="Assets\Scripts\Original\ProjectileScript.cs" />
+    <Compile Include="Assets\Scripts\Original\ScrollScriptx.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\GobTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\ScrollScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\newBoar.cs" />
+    <Compile Include="Assets\Scripts\Original\HazTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\Tyrannoxtrig.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Original\StoneScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Spider.cs" />
+    <Compile Include="Assets\Scripts\Original\VineScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\FairyTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\WhelpTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\OreScript.cs" />
+    <Compile Include="Assets\Scripts\Original\AttackCube.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\DragonSpawn.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\YetiScript.cs" />
+    <Compile Include="Assets\Scripts\Original\RemoveRPCScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\GiantBug.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Shroom.cs" />
+    <Compile Include="Assets\Scripts\Original\EffectScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\InvaderTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\SkelBossScript.cs" />
+    <Compile Include="Assets\Scripts\Original\GrassScript.cs" />
+    <Compile Include="Assets\Scripts\Original\Assembly-CSharp\OLD_NetworkRigidbody.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\skelredTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Tyrannox.cs" />
+    <Compile Include="Assets\Scripts\Original\Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\Scripts\Original\ChestScript.cs" />
+    <Compile Include="Assets\Scripts\Original\NPCBasicScript.cs" />
+    <Compile Include="Assets\Scripts\Original\FireParticles4.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\BigYetiTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Jelly.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\sArcherTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\bwbw.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ChickenKingTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\MusicBox.cs" />
+    <Compile Include="Assets\Scripts\Original\UnetMock.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ScourgeScript.cs" />
+    <Compile Include="Assets\Input\MagiciteRewrittenInputActions.cs" />
+    <Compile Include="Assets\Scripts\Original\ShooterScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Sheep.cs" />
+    <Compile Include="Assets\Scripts\Original\ENEXScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\skelCrater.cs" />
+    <Compile Include="Assets\Scripts\Original\FadeText.cs" />
+    <Compile Include="Assets\Scripts\Original\ScourgeWall.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ChickenScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Fairy.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\BroodMotherTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\commanderTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Chief.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Mino.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\octopusTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\GatorScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\EnemyScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\sKnight.cs" />
+    <Compile Include="Assets\Scripts\Original\Deatha.cs" />
+    <Compile Include="Assets\Scripts\Original\SpireScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ShroomTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\InvaderScript.cs" />
+    <Compile Include="Assets\Scripts\Original\CursorScript.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Player\PlayerActor.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\blackDragon.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\SkeletonScript.cs" />
+    <Compile Include="Assets\Scripts\Original\GameScript.cs" />
+    <Compile Include="Assets\Scripts\Original\WhelpFire.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\golem.cs" />
+    <Compile Include="Assets\Scripts\Original\ShroomFire.cs" />
+    <Compile Include="Assets\Scripts\Original\ButtonScript.cs" />
+    <Compile Include="Assets\Scripts\Original\beeHive.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\BisonScript.cs" />
+    <Compile Include="Assets\Scripts\Original\SummonSkeleton.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\IceKnightTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\GhoulScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\BlueWormTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\WormScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TownReturnScript.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\ScourgeDragon.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\djinTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\ArrowScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TreeScript.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Bootstrap\LoadingScreenDisplay.cs" />
+    <Compile Include="Assets\Scripts\Original\Gear.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\GobScript.cs" />
+    <Compile Include="Assets\Scripts\Original\txtAltar.cs" />
+    <Compile Include="Assets\Scripts\Original\RockScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\BoarScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\sArcher.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\EntScript.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\StatsScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\SlimeScript.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Original\HouseScript.cs" />
+    <Compile Include="Assets\Scripts\Original\KnightBlade.cs" />
+    <Compile Include="Assets\Scripts\Original\CritScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TownScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\JellyTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\txtItemScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\Gob.cs" />
+    <Compile Include="Assets\Scripts\Original\FlameScriptt.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Bootstrap\Bootstrap.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Util\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Original\BugSpotScript.cs" />
+    <Compile Include="Assets\Scripts\Original\BoneThrw.cs" />
+    <Compile Include="Assets\Scripts\Original\BallScript.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\commander.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\AbyssalTitan.cs" />
+    <Compile Include="Assets\Scripts\Original\OrphanScripts\DaggerScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ShroomTrig2.cs" />
+    <Compile Include="Assets\Scripts\Original\LightBlast.cs" />
+    <Compile Include="Assets\Scripts\Original\ItemTrigger.cs" />
+    <Compile Include="Assets\Scripts\Original\CutsceneScript.cs" />
+    <Compile Include="Assets\Scripts\Original\SpiderEgg.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\SpiderTrig0.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ScourgeKnightTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\PercylTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\ButterflyScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\sknightTrig.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Player\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\ddragonTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\FadeInOut.cs" />
+    <Compile Include="Assets\Scripts\Original\ForestSpikes.cs" />
+    <Compile Include="Assets\Scripts\Original\ExpScript.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\blackDragonTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\EnemyScript\FallenKnight.cs" />
+    <Compile Include="Assets\Scripts\Original\BugSpot.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\GhoulTrig.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Input\GameInput.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\newBoarTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\TextureOffsetAnimation.cs" />
+    <Compile Include="Assets\Scripts\Original\TrigHandler\GiantBugTrig.cs" />
+    <Compile Include="Assets\Scripts\Original\Boomerang.cs" />
+    <Compile Include="Assets\Scripts\Original\ThrowAxe.cs" />
+    <Compile Include="Assets\Scripts\Original\BoltScript.cs" />
+    <Compile Include="Assets\Scripts\Original\NPCCommoner.cs" />
     <None Include="Library\PackageCache\com.unity.modules.subsystems@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Library\PackageCache\com.unity.modules.jsonserialize@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.burst@1.8.13\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.screencapture@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.cloth@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequesttexture@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.inputsystem@1.7.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.ai@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\README.txt" />
+    <None Include="Library\PackageCache\com.unity.inputsystem@1.7.0\ValidationConfig.json" />
     <None Include="Assets\Shader\Internal-BlitScaleCopy.shader" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.analytics@3.8.1\package.json" />
     <None Include="Assets\Shader\BlurAndFlares.shader" />
@@ -284,40 +302,63 @@
     <None Include="Assets\Resources\BillingMode.json" />
     <None Include="Library\PackageCache\com.unity.modules.assetbundle@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.services.analytics@4.4.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Library\PackageCache\com.unity.modules.imgui@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.tilemap@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.timeline@1.8.6\package.json" />
     <None Include="Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.Editor.xml" />
     <None Include="Library\PackageCache\com.unity.modules.accessibility@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\ValidationConfig.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Library\PackageCache\com.unity.modules.terrainphysics@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\package.json" />
+    <None Include="Library\PackageCache\com.unity.burst@1.8.13\ValidationExceptions.json" />
     <None Include="Assets\Shader\BlendForBloom.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\package.json" />
     <None Include="Assets\Shader\LensFlareCreate.shader" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\PackageConversionData.json" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Library\PackageCache\com.unity.modules.imageconversion@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.unityanalytics@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.ide.rider@3.0.28\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.video@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Library\PackageCache\com.unity.test-framework@1.3.9\package.json" />
+    <None Include="Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\package.json" />
+    <None Include="Library\PackageCache\com.unity.transport@1.4.0\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.services.analytics@4.4.0\ValidationConfig.json" />
     <None Include="Library\PackageCache\com.unity.modules.particlesystem@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.physics2d@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Library\PackageCache\com.unity.modules.vr@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.services.core@1.12.4\package.json" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\link.xml" />
     <None Include="Library\PackageCache\com.unity.modules.wind@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Library\PackageCache\com.unity.modules.umbra@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\license.txt" />
+    <None Include="Library\PackageCache\com.unity.transport@1.4.0\package.json" />
     <None Include="Assets\Shader\BrightPassFilter2.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Library\PackageCache\com.unity.inputsystem@1.7.0\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.modules.audio@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.physics@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.netcode.gameobjects@1.8.1\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.ads@4.4.2\LICENSE.txt" />
     <None Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.hierarchycore@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
@@ -328,17 +369,29 @@
     <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\AOT\Newtonsoft.Json.xml" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
     <None Include="Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.StandardEvents.xml" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Library\PackageCache\com.unity.ads@4.4.2\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.director@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.netcode.gameobjects@1.8.1\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.terrain@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.2d.sprite@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.collections@1.2.4\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.androidjni@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\PackageConversionData_Assets.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\ValidationExceptions.json" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Library\PackageCache\com.unity.modules.animation@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.xml" />
+    <None Include="Library\PackageCache\com.unity.collections@1.2.4\ValidationExceptions.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Library\PackageCache\com.unity.burst@1.8.13\Unity.Burst.Unsafe.xml" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.uielements@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
     <None Include="Library\PackageCache\com.unity.modules.ui@1.0.0\package.json" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -672,6 +725,9 @@
     <Reference Include="Boo.Lang">
       <HintPath>W:\GameDev\Unity Projects\Magicite-Rewritten\Assets\ExportedProject\Assets\Plugins\Boo.Lang.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>W:\GameDev\Unity Projects\Magicite-Rewritten\Assets\ExportedProject\Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>W:\GameDev\Unity Projects\Magicite-Rewritten\Assets\ExportedProject\Library\PackageCache\com.unity.ext.nunit@2.0.5\net40\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
@@ -683,6 +739,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>W:\GameDev\Unity Projects\Magicite-Rewritten\Assets\ExportedProject\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>W:\GameDev\Unity Projects\Magicite-Rewritten\Assets\ExportedProject\Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>W:\GameDev\Unity Projects\Magicite-Rewritten\Assets\ExportedProject\Library\PackageCache\com.unity.analytics@3.8.1\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
@@ -1055,9 +1114,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{78d6ac33-620c-2a69-242f-1a340d484533}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEngine.Advertisements.Editor.csproj">
       <Project>{b7355d26-9e09-547e-7938-4d81b0cee89d}</Project>
       <Name>UnityEngine.Advertisements.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.InputSystem.ForUI.csproj">
+      <Project>{440f1a34-5dbb-7504-2bbb-d545489cfa43}</Project>
+      <Name>Unity.InputSystem.ForUI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{635786fa-eddf-22e7-59df-4999b1752dea}</Project>
@@ -1071,13 +1138,9 @@
       <Project>{cac42af8-5d56-e803-3304-8e6b2366923f}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.SpatialTracking.csproj">
-      <Project>{6d8a27f7-4535-071b-c48f-dfaf36aa0422}</Project>
-      <Name>UnityEngine.SpatialTracking</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.AI.Navigation.Updater.csproj">
-      <Project>{17594e21-314b-35b9-c4bf-35e401183732}</Project>
-      <Name>Unity.AI.Navigation.Updater</Name>
+    <ProjectReference Include="Unity.Networking.Editor.csproj">
+      <Project>{12da23b2-eccb-a899-b82f-70fa550b806f}</Project>
+      <Name>Unity.Networking.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Analytics.Editor.csproj">
       <Project>{a4ad0d2b-fd3b-73c9-0de7-3746870fa62b}</Project>
@@ -1087,41 +1150,93 @@
       <Project>{2366c7d5-bd58-3812-a787-d782e9086c6e}</Project>
       <Name>Unity.Services.Analytics</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{fe3830b5-eb9a-2131-c6ad-198f3c276404}</Project>
-      <Name>Unity.TextMeshPro</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.Analytics.DataPrivacy.csproj">
       <Project>{2735e51f-e985-4865-ff65-0b2bbf2a5392}</Project>
       <Name>Unity.Analytics.DataPrivacy</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
-      <Project>{c816f81e-5161-d101-69be-6998eeb7399f}</Project>
-      <Name>Unity.Services.Core.Analytics</Name>
+    <ProjectReference Include="Unity.Netcode.Runtime.csproj">
+      <Project>{a8c8a89a-c739-75de-7f00-171d6c18d3bc}</Project>
+      <Name>Unity.Netcode.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{a97323cc-5b43-ffc1-0333-863965a687ce}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityEngine.Advertisements.csproj">
+      <Project>{417b57c2-16cf-115f-0a00-0a2ec99028e0}</Project>
+      <Name>UnityEngine.Advertisements</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{423cdc06-e3a6-91ae-3a43-4a619f908ac7}</Project>
       <Name>Unity.Timeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.AI.Navigation.Editor.csproj">
-      <Project>{749110df-3f13-1aa2-eb53-38231c5438f4}</Project>
-      <Name>Unity.AI.Navigation.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{e97374c5-1963-34a1-a721-df6f8316d356}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.Editor.csproj">
+      <Project>{2ebef6ca-8874-6e60-b74f-3ddbecb8d592}</Project>
+      <Name>Unity.Mathematics.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Netcode.Editor.csproj">
+      <Project>{84e9ad8a-6e61-ac88-fd08-0459fe79437b}</Project>
+      <Name>Unity.Netcode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.XR.LegacyInputHelpers.csproj">
+      <Project>{76fd3e35-bea1-340c-4ddd-5867290125da}</Project>
+      <Name>UnityEditor.XR.LegacyInputHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Collections.csproj">
+      <Project>{ba8cdff6-e563-2e87-51cf-5c8e818cfed4}</Project>
+      <Name>Unity.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Netcode.Editor.PackageChecker.csproj">
+      <Project>{bd739dda-32ac-2c12-53a6-a2a8bd61a034}</Project>
+      <Name>Unity.Netcode.Editor.PackageChecker</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.XR.LegacyInputHelpers.csproj">
+      <Project>{cae0eb21-51d8-78d2-1e2c-e10d676f47dc}</Project>
+      <Name>UnityEngine.XR.LegacyInputHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Editor.csproj">
+      <Project>{10d946be-a95e-dfaa-daee-ef8ca75422d1}</Project>
+      <Name>Unity.2D.Tilemap.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.SpatialTracking.csproj">
+      <Project>{6d8a27f7-4535-071b-c48f-dfaf36aa0422}</Project>
+      <Name>UnityEngine.SpatialTracking</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AI.Navigation.Updater.csproj">
+      <Project>{17594e21-314b-35b9-c4bf-35e401183732}</Project>
+      <Name>Unity.AI.Navigation.Updater</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{fe3830b5-eb9a-2131-c6ad-198f3c276404}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
+      <Project>{c816f81e-5161-d101-69be-6998eeb7399f}</Project>
+      <Name>Unity.Services.Core.Analytics</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
       <Project>{8cc63d33-8533-639e-ca66-e7f8edfeb7bb}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.Advertisements.csproj">
-      <Project>{417b57c2-16cf-115f-0a00-0a2ec99028e0}</Project>
-      <Name>UnityEngine.Advertisements</Name>
+    <ProjectReference Include="Unity.AI.Navigation.Editor.csproj">
+      <Project>{749110df-3f13-1aa2-eb53-38231c5438f4}</Project>
+      <Name>Unity.AI.Navigation.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{a734d5b6-2c25-6e4d-7be5-604f7f92ce4d}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.csproj">
+      <Project>{4a6adc59-370e-f146-8dbe-212c1b295a9f}</Project>
+      <Name>Unity.Mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Networking.Transport.csproj">
+      <Project>{052b5959-cab8-0fb2-145d-dc2d8d377990}</Project>
+      <Name>Unity.Networking.Transport</Name>
     </ProjectReference>
     <ProjectReference Include="Analytics.csproj">
       <Project>{20197674-991f-d0ac-1e80-5ce5b509c3e9}</Project>
@@ -1139,33 +1254,37 @@
       <Project>{426695d8-d8b9-f257-807f-8c0fbcb426c7}</Project>
       <Name>Unity.AI.Navigation.Editor.ConversionSystem</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEditor.XR.LegacyInputHelpers.csproj">
-      <Project>{76fd3e35-bea1-340c-4ddd-5867290125da}</Project>
-      <Name>UnityEditor.XR.LegacyInputHelpers</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{a7332dae-b404-2140-ac25-0e3abdae3a4d}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.Editor.csproj">
+      <Project>{c062ba1b-8888-780c-79cb-1ff8102f11e2}</Project>
+      <Name>Unity.Burst.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.csproj">
       <Project>{057e0401-1b9d-c39d-26d8-9b056d484d86}</Project>
       <Name>Unity.Services.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Burst.csproj">
+      <Project>{a67fb805-42de-1a39-bec3-21d698048cb9}</Project>
+      <Name>Unity.Burst</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
       <Project>{5f0025f8-244a-31ef-dee8-d6c227e71c0a}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Netcode.Components.csproj">
+      <Project>{83957b73-09e4-a76c-f57d-f01adeef9c8c}</Project>
+      <Name>Unity.Netcode.Components</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.SpatialTracking.csproj">
       <Project>{10f917b4-fb75-c5cb-3429-470e2f0b575c}</Project>
       <Name>UnityEditor.SpatialTracking</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.XR.LegacyInputHelpers.csproj">
-      <Project>{cae0eb21-51d8-78d2-1e2c-e10d676f47dc}</Project>
-      <Name>UnityEngine.XR.LegacyInputHelpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Tilemap.Editor.csproj">
-      <Project>{10d946be-a95e-dfaa-daee-ef8ca75422d1}</Project>
-      <Name>Unity.2D.Tilemap.Editor</Name>
+    <ProjectReference Include="Unity.InputSystem.csproj">
+      <Project>{fec9fffe-e402-1be8-118a-4324ea575dfe}</Project>
+      <Name>Unity.InputSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
