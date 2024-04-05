@@ -1,21 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Magicite.Player
 {
     public class PlayerActor : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [field: SerializeField] public ulong PlayerId { get; private set; }
 
+        private PlayerReplicator replicator;
+
+        private void Update()
+        {
+            if (replicator is null)
+                return;
+
+            var currentPso = transform.position;
+            var newPos = replicator.transform.position;
+
+            // Calculate facing direction
+            Vector3 crossProduct = Vector3.Cross(currentPso, newPos);
+            if (crossProduct.z > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            } else if (crossProduct.z < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+
+            transform.position = newPos;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Connect(PlayerReplicator replicator)
         {
+            this.replicator = replicator;
 
+            // TODO:  Listen to replicator variable changes
+        }
+
+        public void Disconnect()
+        {
+            replicator = null;
+            // TODO:  Stop listening to replicator variable changes
         }
     }
 }

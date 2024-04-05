@@ -14,4 +14,14 @@ namespace Magicite.Managers
         Host,
         Client
     }
+
+    /// <summary>
+    /// Get the sceneIndex number for a given scene.
+    /// <remarks>IMPORTANT!!!:  These enums should correspond to the scene index number in the build settings.</remarks>
+    /// </summary>
+    public enum MagiciteScene
+    {
+        BootstrapScene = 0,
+        TestScene = 1,
+    }
 }

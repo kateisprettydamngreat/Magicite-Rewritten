@@ -137,7 +137,6 @@
     <Compile Include="Assets\Scripts\Original\PortScript.cs" />
     <Compile Include="Assets\Scripts\Original\TrigHandler\OreSpiderTrig.cs" />
     <Compile Include="Assets\Scripts\Original\EnemyScript\mimicScript.cs" />
-    <Compile Include="Assets\Scripts\Rewritten\Player\PlayerNetwork.cs" />
     <Compile Include="Assets\Scripts\Original\WolfScript.cs" />
     <Compile Include="Assets\Scripts\Original\EnemyScript\ShroomMage.cs" />
     <Compile Include="Assets\Scripts\Original\ballSpike.cs" />
@@ -180,6 +179,7 @@
     <Compile Include="Assets\Scripts\Original\bwbw.cs" />
     <Compile Include="Assets\Scripts\Original\TrigHandler\ChickenKingTrig.cs" />
     <Compile Include="Assets\Scripts\Original\MusicBox.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Player\PlayerReplicator.cs" />
     <Compile Include="Assets\Scripts\Original\UnetMock.cs" />
     <Compile Include="Assets\Scripts\Original\EnemyScript\ScourgeScript.cs" />
     <Compile Include="Assets\Input\MagiciteRewrittenInputActions.cs" />
@@ -238,6 +238,7 @@
     <Compile Include="Assets\Scripts\Original\HouseScript.cs" />
     <Compile Include="Assets\Scripts\Original\KnightBlade.cs" />
     <Compile Include="Assets\Scripts\Original\CritScript.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Managers\PlayersManager.cs" />
     <Compile Include="Assets\Scripts\Original\TownScript.cs" />
     <Compile Include="Assets\Scripts\Original\TrigHandler\JellyTrig.cs" />
     <Compile Include="Assets\Scripts\Original\txtItemScript.cs" />
