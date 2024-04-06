@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Original\OrphanScripts\Input.cs" />
     <Compile Include="Assets\Scripts\Original\LobbyPlayer.cs" />
     <Compile Include="Assets\Scripts\Original\ghoulFire.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\ServerTestUI.cs" />
     <Compile Include="Assets\Scripts\Original\TitanTrig.cs" />
     <Compile Include="Assets\Scripts\Original\MenuRacesCenter.cs" />
     <Compile Include="Assets\Scripts\Original\TrigHandler\golemTrig.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Original\Shine.cs" />
     <Compile Include="Assets\Scripts\Original\Intro.cs" />
     <Compile Include="Assets\Scripts\Original\EnemyScript\fQueen.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Managers\WorldRef.cs" />
     <Compile Include="Assets\Scripts\Original\GhostScript.cs" />
     <Compile Include="Assets\Scripts\Original\blooood.cs" />
     <Compile Include="Assets\Scripts\Original\TrigHandler\MinoTrig.cs" />
@@ -273,6 +275,7 @@
     <Compile Include="Assets\Scripts\Original\TrigHandler\GhoulTrig.cs" />
     <Compile Include="Assets\Scripts\Rewritten\Input\GameInput.cs" />
     <Compile Include="Assets\Scripts\Original\TrigHandler\newBoarTrig.cs" />
+    <Compile Include="Assets\Scripts\Rewritten\Util\ClientNetworkTransform.cs" />
     <Compile Include="Assets\Scripts\Original\TextureOffsetAnimation.cs" />
     <Compile Include="Assets\Scripts\Original\TrigHandler\GiantBugTrig.cs" />
     <Compile Include="Assets\Scripts\Original\Boomerang.cs" />
@@ -282,10 +285,12 @@
     <None Include="Library\PackageCache\com.unity.modules.subsystems@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Library\PackageCache\com.unity.modules.jsonserialize@1.0.0\package.json" />
+    <None Include="Assets\Shader\Internal-ErrorShader.shader" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.13\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.screencapture@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.cloth@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Shader\Internal-SplashShadowCaster.shader" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequesttexture@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.inputsystem@1.7.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.ai@1.0.0\package.json" />
@@ -299,30 +304,45 @@
     <None Include="Library\PackageCache\com.unity.analytics@3.8.1\package.json" />
     <None Include="Assets\Shader\BlurAndFlares.shader" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@2.0.5\package.json" />
+    <None Include="Assets\Shader\Internal-Clear.shader" />
+    <None Include="Assets\Shader\Internal-GUITexture.shader" />
     <None Include="Library\PackageCache\com.unity.xr.legacyinputhelpers@2.1.10\package.json" />
     <None Include="Assets\Resources\BillingMode.json" />
     <None Include="Library\PackageCache\com.unity.modules.assetbundle@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.services.analytics@4.4.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Shader\Internal-CombineDepthNormals.shader" />
     <None Include="Library\PackageCache\com.unity.modules.imgui@1.0.0\package.json" />
+    <None Include="Assets\Shader\Internal-Colored.shader" />
     <None Include="Library\PackageCache\com.unity.modules.tilemap@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.timeline@1.8.6\package.json" />
     <None Include="Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.Editor.xml" />
     <None Include="Library\PackageCache\com.unity.modules.accessibility@1.0.0\package.json" />
+    <None Include="Assets\Shader\Internal-PrePassLighting.shader" />
+    <None Include="Assets\Shader\Camera-DepthNormalTexture.shader" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\ValidationConfig.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\Shader\Unlit-Normal.shader" />
     <None Include="Library\PackageCache\com.unity.modules.terrainphysics@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\package.json" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.13\ValidationExceptions.json" />
     <None Include="Assets\Shader\BlendForBloom.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Shader\Particle Add.shader" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\package.json" />
     <None Include="Assets\Shader\LensFlareCreate.shader" />
+    <None Include="Assets\Shader\CubeCopy.shader" />
+    <None Include="Assets\Shader\Internal-SplashShadowReceiver.shader" />
+    <None Include="Assets\Shader\Internal-PrePassCollectShadows.shader" />
+    <None Include="Assets\Shader\Internal-GUITextureClipText.shader" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\PackageConversionData.json" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0\package.json" />
+    <None Include="Assets\Shader\Internal-SplashShadowReceiverSimple.shader" />
+    <None Include="Assets\Shader\CubeBlend.shader" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Library\PackageCache\com.unity.modules.imageconversion@1.0.0\package.json" />
+    <None Include="Assets\Shader\Alpha-Diffuse.shader" />
     <None Include="Library\PackageCache\com.unity.modules.unityanalytics@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.ide.rider@3.0.28\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.video@1.0.0\package.json" />
@@ -330,15 +350,20 @@
     <None Include="Library\PackageCache\com.unity.test-framework@1.3.9\package.json" />
     <None Include="Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\package.json" />
     <None Include="Library\PackageCache\com.unity.transport@1.4.0\ValidationExceptions.json" />
+    <None Include="Assets\Shader\Internal-Halo.shader" />
     <None Include="Library\PackageCache\com.unity.services.analytics@4.4.0\ValidationConfig.json" />
     <None Include="Library\PackageCache\com.unity.modules.particlesystem@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.physics2d@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Shader\Font.shader" />
     <None Include="Library\PackageCache\com.unity.modules.vr@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.services.core@1.12.4\package.json" />
+    <None Include="Assets\Shader\Internal-SplashShadowBlur.shader" />
+    <None Include="Assets\Shader\Internal-DeferredReflections.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Shader\Unlit-AlphaTest.shader" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\link.xml" />
     <None Include="Library\PackageCache\com.unity.modules.wind@1.0.0\package.json" />
@@ -349,21 +374,30 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\license.txt" />
     <None Include="Library\PackageCache\com.unity.transport@1.4.0\package.json" />
+    <None Include="Assets\Shader\AlphaTest-Diffuse.shader" />
     <None Include="Assets\Shader\BrightPassFilter2.shader" />
+    <None Include="Assets\Shader\UI-Default.shader" />
+    <None Include="Assets\Shader\Internal-BlitCopy.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Library\PackageCache\com.unity.inputsystem@1.7.0\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.modules.audio@1.0.0\package.json" />
+    <None Include="Assets\Shader\Internal-Flare.shader" />
     <None Include="Library\PackageCache\com.unity.modules.physics@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.netcode.gameobjects@1.8.1\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.ads@4.4.2\LICENSE.txt" />
     <None Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.cinemachine@2.9.7\package.json" />
+    <None Include="Assets\Shader\AlphaTest-VertexLit.shader" />
+    <None Include="Assets\Shader\Internal-GUITextureClip.shader" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Shader\Normal-Diffuse.shader" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.hierarchycore@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
+    <None Include="Assets\Shader\Sprites-Default.shader" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.3.1\ValidationConfig.json" />
+    <None Include="Assets\Shader\Unlit-Alpha.shader" />
     <None Include="Library\PackageCache\com.unity.ai.navigation@2.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.xr@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\Editor Resources\Shaders\TMP_Properties.cginc" />
@@ -376,11 +410,15 @@
     <None Include="Library\PackageCache\com.unity.netcode.gameobjects@1.8.1\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.terrain@1.0.0\package.json" />
     <None Include="Library\PackageCache\com.unity.2d.sprite@1.0.0\package.json" />
+    <None Include="Assets\Shader\CubeBlur.shader" />
     <None Include="Library\PackageCache\com.unity.collections@1.2.4\package.json" />
     <None Include="Library\PackageCache\com.unity.modules.androidjni@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Shader\Internal-GUITextureBlit.shader" />
     <None Include="Library\PackageCache\com.unity.ugui@2.0.0\PackageConversionData_Assets.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Shader\Internal-DeferredShading.shader" />
+    <None Include="Assets\Shader\Normal-VertexLit.shader" />
     <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\ValidationExceptions.json" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Library\PackageCache\com.unity.modules.animation@1.0.0\package.json" />
@@ -388,11 +426,14 @@
     <None Include="Library\PackageCache\com.unity.collections@1.2.4\ValidationExceptions.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.13\Unity.Burst.Unsafe.xml" />
+    <None Include="Assets\Shader\UI-DefaultFont.shader" />
     <None Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0\package.json" />
+    <None Include="Assets\Shader\Particle Alpha Blend.shader" />
     <None Include="Library\PackageCache\com.unity.modules.uielements@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
     <None Include="Library\PackageCache\com.unity.modules.ui@1.0.0\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Shader\Alpha-VertexLit.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -1238,6 +1279,10 @@
     <ProjectReference Include="Unity.Networking.Transport.csproj">
       <Project>{052b5959-cab8-0fb2-145d-dc2d8d377990}</Project>
       <Name>Unity.Networking.Transport</Name>
+    </ProjectReference>
+    <ProjectReference Include="ParrelSync.csproj">
+      <Project>{7fb099bc-ac87-6b06-fd26-e15b31b05910}</Project>
+      <Name>ParrelSync</Name>
     </ProjectReference>
     <ProjectReference Include="Analytics.csproj">
       <Project>{20197674-991f-d0ac-1e80-5ce5b509c3e9}</Project>

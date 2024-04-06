@@ -8,11 +8,13 @@ namespace Magicite.Interfaces
     public class PlayersManager : Singleton<PlayersManager>
     {
         [SerializeField] private PlayerActor _playerActorPrefab;
+        [SerializeField] private PlayerInput _playerInputPrefab;
 
         public PlayerReplicator CurrentPlayerReplicator { get; private set; }
 
         private readonly List<PlayerReplicator> activePlayers = new();
         private readonly List<PlayerActor> actors = new();
+        private PlayerInput _playerInput;
 
         public void RegisterReplicator(PlayerReplicator replicator)
         {
@@ -42,6 +44,13 @@ namespace Magicite.Interfaces
                 var newActor = newActorGO.GetComponent<PlayerActor>();
                 actors.Add(newActor);
                 newActor.Connect(replicator);
+            }
+
+            // Create Player Input
+            if (_playerInput is null)
+            {
+                var newPlayerInputGO = Instantiate(_playerInputPrefab.gameObject, Vector3.zero, Quaternion.identity);
+                _playerInput = newPlayerInputGO.GetComponent<PlayerInput>();
             }
         }
 

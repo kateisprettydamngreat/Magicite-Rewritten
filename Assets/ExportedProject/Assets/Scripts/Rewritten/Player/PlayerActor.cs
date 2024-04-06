@@ -18,10 +18,10 @@ namespace Magicite.Player
 
             // Calculate facing direction
             Vector3 crossProduct = Vector3.Cross(currentPso, newPos);
-            if (crossProduct.z > 0)
+            if (crossProduct.z > 0.1)
             {
                 transform.localScale = new Vector3(1, 1, 1);
-            } else if (crossProduct.z < 0)
+            } else if (crossProduct.z < -0.1)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }

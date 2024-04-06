@@ -33,9 +33,9 @@ namespace BD.Bootstrap
 
             // TODO:  Caleb, the bootstrap scene should load into the main title screen, this is loading into the test scene just for now.
 
-            NetworkManager.Singleton.StartHost(); // TODO:  Caleb, this is starting the server as host.  Only for testing.
+            // NetworkManager.Singleton.StartClient(); // TODO:  Caleb, this is starting the server as host.  Only for testing.
 
-            var operation = SceneManager.LoadSceneAsync((int)MagiciteScene.TestScene, LoadSceneMode.Additive);
+            var operation = SceneManager.LoadSceneAsync((int)MagiciteScene.TestMenu, LoadSceneMode.Additive);
             // Tell unity to activate the scene soon as its ready
             operation.allowSceneActivation = true;
 
@@ -49,9 +49,7 @@ namespace BD.Bootstrap
 
             //The title scene is now loaded and its logic should be starting
             LoadingScreenDisplay.Progress = 1f;
-
-            Scene scene = SceneManager.GetSceneByBuildIndex((int)MagiciteScene.TestScene);
-            SceneManager.SetActiveScene(scene);
         }
     }
 }
+

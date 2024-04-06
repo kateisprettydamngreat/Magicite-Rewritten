@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 1113927005}
   - component: {fileID: 1113927004}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: WorldRef
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,14 +504,14 @@ MonoBehaviour:
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: 702d43a107b66984aa5ecf427a7c6745, type: 2}
-    TickRate: 60
+    TickRate: 120
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
     ConnectionData: 
     EnableTimeResync: 0
     TimeResyncInterval: 30
     EnsureNetworkVariableLengthSafety: 0
-    EnableSceneManagement: 1
+    EnableSceneManagement: 0
     ForceSamePrefabs: 1
     RecycleNetworkIds: 1
     NetworkIdRecycleDelay: 120

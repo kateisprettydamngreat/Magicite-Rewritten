@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Netcode.Editor", "Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Networking.Editor", "Unity.Networking.Editor.csproj", "{12da23b2-eccb-a899-b82f-70fa550b806f}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParrelSync", "ParrelSync.csproj", "{7fb099bc-ac87-6b06-fd26-e15b31b05910}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.Advertisements.DevX.Editor", "UnityEngine.Advertisements.DevX.Editor.csproj", "{674cb98f-328e-0a8b-279b-dea214504e74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Sprite.Editor", "Unity.2D.Sprite.Editor.csproj", "{4f583cf8-3914-5fd4-4b67-0f316e5f32a9}"
@@ -286,6 +288,8 @@ Global
 		{84e9ad8a-6e61-ac88-fd08-0459fe79437b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12da23b2-eccb-a899-b82f-70fa550b806f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12da23b2-eccb-a899-b82f-70fa550b806f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7fb099bc-ac87-6b06-fd26-e15b31b05910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7fb099bc-ac87-6b06-fd26-e15b31b05910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{674cb98f-328e-0a8b-279b-dea214504e74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{674cb98f-328e-0a8b-279b-dea214504e74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4f583cf8-3914-5fd4-4b67-0f316e5f32a9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

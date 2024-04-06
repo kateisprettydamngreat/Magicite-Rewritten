@@ -1,27 +1,63 @@
-using Magicite.Utils;
+﻿using System.Collections;
+using BD.Bootstrap;
+using Magicite.Player;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Magicite.Managers
 {
-    public class GameManager : Singleton<GameManager>
+    public class GameManager : NetworkBehaviour
     {
-        public Camera MainCamera;
-        public GameClientType ClientType;
-    }
+        [SerializeField] private PlayerReplicator _playerReplicatorPrefab;
+        [SerializeField] private GameObject _level;
 
-    public enum GameClientType
-    {
-        Host,
-        Client
-    }
+        private IEnumerator Start()
+        {
+            yield return StartCoroutine(UnloadTitle());
 
-    /// <summary>
-    /// Get the sceneIndex number for a given scene.
-    /// <remarks>IMPORTANT!!!:  These enums should correspond to the scene index number in the build settings.</remarks>
-    /// </summary>
-    public enum MagiciteScene
-    {
-        BootstrapScene = 0,
-        TestScene = 1,
+            if (WorldRef.Instance.ClientType == GameClientType.Host)
+            {
+                NetworkManager.Singleton.StartHost();
+                yield return new WaitUntil(() => NetworkManager.Singleton.IsHost && NetworkManager.Singleton.IsServer);
+            }
+            else if (WorldRef.Instance.ClientType == GameClientType.Client)
+            {
+                NetworkManager.Singleton.StartClient();
+                yield return new WaitUntil(() => NetworkManager.Singleton.IsClient);
+            }
+
+            Scene scene = SceneManager.GetSceneByBuildIndex((int)MagiciteScene.TestScene);
+            SceneManager.SetActiveScene(scene);
+
+            RequestSpawnAndTakeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
+        }
+
+        private IEnumerator UnloadTitle()
+        {
+            // We would check if we loaded the game scene correctly and that all was ready to play without error before unloading title
+            // When the validation for game was done we would start the process to unload the title scene
+
+            var operation = SceneManager.UnloadSceneAsync(1);
+            while (!operation.isDone)
+            {
+                //Unloading the title scene is the second half of the work to do
+                LoadingScreenDisplay.Progress = 0.5f + (operation.progress * 0.5f);
+                yield return new WaitForEndOfFrame();
+            }
+
+            //We are now done unloading
+            LoadingScreenDisplay.Showing = false;
+        }
+
+        [ServerRpc]
+        private void RequestSpawnAndTakeOwnershipServerRpc(ulong clientId)
+        {
+            var newReplicatorGO = Instantiate(_playerReplicatorPrefab.gameObject, Vector3.zero, Quaternion.identity);
+            var newReplicator = newReplicatorGO.GetComponent<PlayerReplicator>();
+            newReplicator.PlayerId.Value = clientId;
+
+            newReplicator.NetworkObject.SpawnAsPlayerObject(clientId);
+        }
     }
 }
