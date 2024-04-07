@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 770109898141971781}
   - component: {fileID: 2685627635919534893}
   - component: {fileID: 558395533173687689}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerReplicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
