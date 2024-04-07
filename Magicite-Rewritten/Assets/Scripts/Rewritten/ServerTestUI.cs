@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using BD.Bootstrap;
 using Magicite.Managers;
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class ServerTestUI : MonoBehaviour
 {
     [SerializeField] private Button _hostButton;
     [SerializeField] private Button _clientButton;
+    [SerializeField] private TMP_Text _waitingText;
 
     private void Start()
     {

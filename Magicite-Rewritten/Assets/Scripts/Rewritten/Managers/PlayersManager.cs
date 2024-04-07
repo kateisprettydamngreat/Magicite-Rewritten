@@ -47,7 +47,7 @@ namespace Magicite.Interfaces
             }
 
             // Create Player Input
-            if (_playerInput is null)
+            if (_playerInput is null && replicator.IsOwner)
             {
                 var newPlayerInputGO = Instantiate(_playerInputPrefab.gameObject, Vector3.zero, Quaternion.identity);
                 _playerInput = newPlayerInputGO.GetComponent<PlayerInput>();

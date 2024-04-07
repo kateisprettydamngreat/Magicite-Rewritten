@@ -30,7 +30,11 @@ namespace Magicite.Managers
             Scene scene = SceneManager.GetSceneByBuildIndex((int)MagiciteScene.TestScene);
             SceneManager.SetActiveScene(scene);
 
-            RequestSpawnAndTakeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
+            if (IsClient)
+            {
+                RequestSpawnAndTakeOwnershipServerRpc();
+            }
+
         }
 
         private IEnumerator UnloadTitle()
@@ -38,7 +42,7 @@ namespace Magicite.Managers
             // We would check if we loaded the game scene correctly and that all was ready to play without error before unloading title
             // When the validation for game was done we would start the process to unload the title scene
 
-            var operation = SceneManager.UnloadSceneAsync(1);
+            var operation = SceneManager.UnloadSceneAsync((int)MagiciteScene.TestMenu);
             while (!operation.isDone)
             {
                 //Unloading the title scene is the second half of the work to do
@@ -50,9 +54,10 @@ namespace Magicite.Managers
             LoadingScreenDisplay.Showing = false;
         }
 
-        [ServerRpc]
-        private void RequestSpawnAndTakeOwnershipServerRpc(ulong clientId)
+        [ServerRpc(RequireOwnership = false)]
+        private void RequestSpawnAndTakeOwnershipServerRpc(ServerRpcParams rpcParams = default)
         {
+            var clientId = rpcParams.Receive.SenderClientId;
             var newReplicatorGO = Instantiate(_playerReplicatorPrefab.gameObject, Vector3.zero, Quaternion.identity);
             var newReplicator = newReplicatorGO.GetComponent<PlayerReplicator>();
             newReplicator.PlayerId.Value = clientId;
