@@ -1,6 +1,4 @@
-using System;
 using Magicite.Input;
-using Magicite.Interfaces;
 using Magicite.Utils;
 using UnityEngine;
 
@@ -13,17 +11,30 @@ namespace Magicite.Player
         private PlayerReplicator replicator;
         private Rigidbody rb;
 
-        private void Start()
-        {
-            replicator = PlayersManager.Instance.CurrentPlayerReplicator;
-            rb = replicator.GetComponent<Rigidbody>();
-        }
+        private bool disabled = true;
 
         void FixedUpdate()
         {
+            if (disabled)
+                return;
+
             // TODO:  Implement movement
             var movementInput = GameInput.Instance.GetMovementVectorNormalized();
             rb.velocity = new Vector3(movementInput.x * _movementForce, 0f, movementInput.y * _movementForce);
+        }
+
+        public void RegisterReplicator(PlayerReplicator replicator)
+        {
+            this.replicator = replicator;
+            rb = replicator.GetComponent<Rigidbody>();
+            disabled = false;
+        }
+
+        public void UnregisterReplicator()
+        {
+            rb = null;
+            replicator = null;
+            disabled = true;
         }
     }
 }

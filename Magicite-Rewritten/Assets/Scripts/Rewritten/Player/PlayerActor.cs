@@ -32,6 +32,7 @@ namespace Magicite.Player
         public void Connect(PlayerReplicator replicator)
         {
             this.replicator = replicator;
+            PlayerId = this.replicator.PlayerId.Value;
 
             // TODO:  Listen to replicator variable changes
         }

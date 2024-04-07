@@ -51,6 +51,7 @@ namespace Magicite.Interfaces
             {
                 var newPlayerInputGO = Instantiate(_playerInputPrefab.gameObject, Vector3.zero, Quaternion.identity);
                 _playerInput = newPlayerInputGO.GetComponent<PlayerInput>();
+                _playerInput.RegisterReplicator(replicator);
             }
         }
 
@@ -65,6 +66,12 @@ namespace Magicite.Interfaces
             {
                 Debug.LogWarning("This is weird and shouldn't happen, the replicator is disconnecting but didn't have an actor.");
             }
+
+            if (replicator.IsOwner)
+            {
+                _playerInput.UnregisterReplicator();
+            }
+
             activePlayers.Remove(replicator);
         }
     }
