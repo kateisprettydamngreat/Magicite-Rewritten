@@ -1364,132 +1364,132 @@ public class GameScript : MonoBehaviour
 //800 lines?????????
 	[Serializable]
 	[CompilerGenerated]
-	internal sealed class _0024UseItem_00241677 : GenericGenerator<WaitForSeconds>
+	internal sealed class UseItem_ : GenericGenerator<WaitForSeconds>
 	{
 		[Serializable]
 		[CompilerGenerated]
 		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
 		{
-			internal int _0024_0024switch_0024232_00241678;
+			internal int switch_;
 
-			internal GameObject _0024it_00241679;
+			internal GameObject it;
 
-			internal Item _0024item_00241680;
+			internal Item item;
 
-			internal int[] _0024stats_00241681;
+			internal int[] stats;
 
-			internal GameObject _0024d_00241682;
+			internal GameObject d;
 
-			internal int _0024dood_00241683;
+			internal int dood;
 
-			internal GameObject _0024pot22_00241684;
+			internal GameObject pot;
 
-			internal GameObject _0024it2_00241685;
+			internal GameObject it2;
 
-			internal Item _0024item2_00241686;
+			internal Item item2;
 
-			internal int _0024dood1_00241687;
+			internal int dood1;
 
-			internal GameObject _0024pot223_00241688;
+			internal GameObject pot2;
 
-			internal int _0024nn_00241689;
+			internal int nn;
 
-			internal int _0024nn2_00241690;
+			internal int nn2;
 
-			internal Vector2 _0024v1_00241691;
+			internal Vector2 v1;
 
-			internal GameObject _0024ar1_00241692;
+			internal GameObject ar1;
 
-			internal Vector2 _0024v21_00241693;
+			internal Vector2 v21;
 
-			internal Vector3 _0024object_pos1_00241694;
+			internal Vector3 object_pos1;
 
-			internal Vector3 _0024mouse_pos1_00241695;
+			internal Vector3 mouse_pos1;
 
-			internal float _0024angle1_00241696;
+			internal float angle1;
 
-			internal Vector2 _0024v_00241697;
+			internal Vector2 v;
 
-			internal GameObject _0024ar_00241698;
+			internal GameObject ar_;
 
-			internal Vector2 _0024v2_00241699;
+			internal Vector2 v2_;
 
-			internal Vector3 _0024object_pos_00241700;
+			internal Vector3 object_pos_;
 
-			internal Vector3 _0024mouse_pos_00241701;
+			internal Vector3 mouse_pos_;
 
-			internal float _0024angle_00241702;
+			internal float angle_;
 
-			internal float _0024fff_00241703;
+			internal float fff_;
 
-			internal float _0024fff1_00241704;
+			internal float fff1_;
 
-			internal float _0024fff3_00241705;
+			internal float fff3_;
 
-			internal Vector2 _0024v11_00241706;
+			internal Vector2 v11;
 
-			internal GameObject _0024ar11_00241707;
+			internal GameObject ar11;
 
-			internal Vector2 _0024v211_00241708;
+			internal Vector2 v21;
 
-			internal Vector3 _0024object_pos11_00241709;
+			internal Vector3 object_pos11;
 
-			internal Vector3 _0024mouse_pos11_00241710;
+			internal Vector3 mouse_pos11;
 
-			internal float _0024angle11_00241711;
+			internal float angle11;
 
-			internal float _0024fff9_00241712;
+			internal float fff9;
 
-			internal float _0024fff99_00241713;
+			internal float fff99;
 
-			internal float _0024fff98_00241714;
+			internal float fff98;
 
-			internal Vector2 _0024vv_00241715;
+			internal Vector2 vv;
 
-			internal GameObject _0024arr_00241716;
+			internal GameObject arr;
 
-			internal Vector2 _0024v22_00241717;
+			internal Vector2 v22;
 
-			internal Vector3 _0024object_poss_00241718;
+			internal Vector3 object_poss;
 
-			internal Vector3 _0024mouse_poss_00241719;
+			internal Vector3 mouse_poss;
 
-			internal float _0024anglee_00241720;
+			internal float anglee;
 
-			internal float _0024fff988_00241721;
+			internal float fff;
 
-			internal Vector2 _0024v112_00241722;
+			internal Vector2 v1;
 
-			internal GameObject _0024ar112_00241723;
+			internal GameObject ar;
 
-			internal Vector2 _0024v2112_00241724;
+			internal Vector2 v2;
 
-			internal Vector3 _0024object_pos112_00241725;
+			internal Vector3 object_pos;
 
-			internal Vector3 _0024mouse_pos112_00241726;
+			internal Vector3 mouse_pos;
 
-			internal float _0024angle112_00241727;
+			internal float angle;
 
-			internal GameObject _0024f_00241728;
+			internal GameObject f_;
 
-			internal int _0024noo_00241729;
+			internal int noo;
 
-			internal int _0024noo1_00241730;
+			internal int noo1;
 
-			internal GameObject _0024bo_00241731;
+			internal GameObject bo_;
 
-			internal int _0024noo2_00241732;
+			internal int noo2;
 
-			internal int _0024noo22_00241733;
+			internal int noo22;
 
-			internal int _0024slot_00241734;
+			internal int slot_;
 
-			internal GameScript _0024self__00241735;
+			internal GameScript self_;
 
 			public _0024(int slot, GameScript self_)
 			{
-				_0024slot_00241734 = slot;
-				_0024self__00241735 = self_;
+				slot_ = slot;
+				this.self_ = self_;
 			}
 
 			public override bool MoveNext()
@@ -1498,210 +1498,210 @@ public class GameScript : MonoBehaviour
 				switch (_state)
 				{
 				default:
-					if (_0024self__00241735.@using || HP <= 0 || isCat)
+					if (self_.@using || HP <= 0 || isCat)
 					{
 						goto IL_2347;
 					}
-					_0024self__00241735.@using = true;
-					_0024_0024switch_0024232_00241678 = inventory[_0024slot_00241734].id;
-					if (_0024_0024switch_0024232_00241678 == 7)
+					self_.@using = true;
+					switch_ = inventory[slot_].id;
+					if (switch_ == 7)
 					{
 						if (isCooking)
 						{
-							_0024it_00241679 = null;
-							_0024item_00241680 = new Item(8, 1, new int[4], 0f, null);
-							_0024stats_00241681 = null;
-							_0024d_00241682 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), player.transform.position, Quaternion.identity);
-							_0024stats_00241681 = new int[7]
+							it = null;
+							item = new Item(8, 1, new int[4], 0f, null);
+							stats = null;
+							d = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), player.transform.position, Quaternion.identity);
+							stats = new int[7]
 							{
-								_0024item_00241680.id,
-								_0024item_00241680.q,
-								_0024item_00241680.e[0],
-								_0024item_00241680.e[1],
-								_0024item_00241680.e[2],
-								_0024item_00241680.e[3],
-								_0024item_00241680.d
+								item.id,
+								item.q,
+								item.e[0],
+								item.e[1],
+								item.e[2],
+								item.e[3],
+								item.d
 							};
-							_0024d_00241682.SendMessage("InitL", _0024stats_00241681);
+							d.SendMessage("InitL", stats);
 							tempStats[8] = tempStats[8] + 1;
-							inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-							if (inventory[_0024slot_00241734].q < 1)
+							inventory[slot_].q = inventory[slot_].q - 1;
+							if (inventory[slot_].q < 1)
 							{
-								inventory[_0024slot_00241734].id = 0;
+								inventory[slot_].id = 0;
 							}
 						}
-						else if (hunger < _0024self__00241735.maxHunger)
+						else if (hunger < self_.maxHunger)
 						{
 							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
 							num = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
 							break;
 						}
 					}
-					else if (_0024_0024switch_0024232_00241678 == 8)
+					else if (switch_ == 8)
 					{
-						if (hunger < _0024self__00241735.maxHunger)
+						if (hunger < self_.maxHunger)
 						{
 							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
 							num = (Yield(3, new WaitForSeconds(0.5f)) ? 1 : 0);
 							break;
 						}
 					}
-					else if (_0024_0024switch_0024232_00241678 == 21)
+					else if (switch_ == 21)
 					{
 						if (isCooking)
 						{
-							_0024it2_00241685 = null;
-							_0024item2_00241686 = new Item(22, 1, new int[4], 0f, null);
-							_0024it2_00241685 = (GameObject)Network.Instantiate(Resources.Load("item"), player.transform.position, Quaternion.identity, 1);
-							_0024it2_00241685.SendMessage("Set", _0024item2_00241686);
-							inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-							if (inventory[_0024slot_00241734].q < 1)
+							it2 = null;
+							item2 = new Item(22, 1, new int[4], 0f, null);
+							it2 = (GameObject)Network.Instantiate(Resources.Load("item"), player.transform.position, Quaternion.identity, 1);
+							it2.SendMessage("Set", item2);
+							inventory[slot_].q = inventory[slot_].q - 1;
+							if (inventory[slot_].q < 1)
 							{
-								inventory[_0024slot_00241734].id = 0;
+								inventory[slot_].id = 0;
 							}
 						}
-						else if (hunger < _0024self__00241735.maxHunger)
+						else if (hunger < self_.maxHunger)
 						{
 							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
 							num = (Yield(4, new WaitForSeconds(0.5f)) ? 1 : 0);
 							break;
 						}
 					}
-					else if (_0024_0024switch_0024232_00241678 == 22)
+					else if (switch_ == 22)
 					{
-						if (hunger < _0024self__00241735.maxHunger)
+						if (hunger < self_.maxHunger)
 						{
 							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
 							num = (Yield(5, new WaitForSeconds(0.5f)) ? 1 : 0);
 							break;
 						}
 					}
-					else if (_0024_0024switch_0024232_00241678 != 49)
+					else if (switch_ != 49)
 					{
-						if (_0024_0024switch_0024232_00241678 == 15)
+						if (switch_ == 15)
 						{
-							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(2));
+							self_.StartCoroutine_Auto(self_.UseHPPotion(2));
 						}
-						else if (_0024_0024switch_0024232_00241678 == 16)
+						else if (switch_ == 16)
 						{
-							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(3));
+							self_.StartCoroutine_Auto(self_.UseManaPotion(3));
 						}
-						else if (_0024_0024switch_0024232_00241678 == 17)
+						else if (switch_ == 17)
 						{
-							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
+							self_.StartCoroutine_Auto(self_.ThrowPoison());
 						}
-						else if (_0024_0024switch_0024232_00241678 == 38)
+						else if (switch_ == 38)
 						{
-							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowRock());
-							inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-							if (inventory[_0024slot_00241734].q < 1)
+							self_.StartCoroutine_Auto(self_.ThrowRock());
+							inventory[slot_].q = inventory[slot_].q - 1;
+							if (inventory[slot_].q < 1)
 							{
-								inventory[_0024slot_00241734].id = 0;
+								inventory[slot_].id = 0;
 							}
 						}
-						else if (_0024_0024switch_0024232_00241678 == 42)
+						else if (switch_ == 42)
 						{
-							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(5));
+							self_.StartCoroutine_Auto(self_.UseHPPotion(5));
 						}
-						else if (_0024_0024switch_0024232_00241678 == 43)
+						else if (switch_ == 43)
 						{
-							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(7));
+							self_.StartCoroutine_Auto(self_.UseManaPotion(7));
 						}
-						else if (_0024_0024switch_0024232_00241678 == 44)
+						else if (switch_ == 44)
 						{
-							_0024nn_00241689 = UnityEngine.Random.Range(15, 18);
-							if (!_0024self__00241735.usingPot)
+							nn = UnityEngine.Random.Range(15, 18);
+							if (!self_.usingPot)
 							{
-								if (_0024nn_00241689 == 15)
+								if (nn == 15)
 								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(10));
+									self_.StartCoroutine_Auto(self_.UseHPPotion(10));
 								}
-								else if (_0024nn_00241689 == 16)
+								else if (nn == 16)
 								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(10));
+									self_.StartCoroutine_Auto(self_.UseManaPotion(10));
 								}
 								else
 								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
+									self_.StartCoroutine_Auto(self_.ThrowPoison());
 								}
 							}
 						}
-						else if (_0024_0024switch_0024232_00241678 == 45)
+						else if (switch_ == 45)
 						{
-							_0024nn2_00241690 = UnityEngine.Random.Range(15, 18);
-							if (!_0024self__00241735.usingPot)
+							nn2 = UnityEngine.Random.Range(15, 18);
+							if (!self_.usingPot)
 							{
-								if (_0024nn2_00241690 == 15)
+								if (nn2 == 15)
 								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(15));
+									self_.StartCoroutine_Auto(self_.UseHPPotion(15));
 								}
-								else if (_0024nn2_00241690 == 16)
+								else if (nn2 == 16)
 								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(15));
+									self_.StartCoroutine_Auto(self_.UseManaPotion(15));
 								}
 								else
 								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
+									self_.StartCoroutine_Auto(self_.ThrowPoison());
 								}
 							}
 						}
-						else if (_0024_0024switch_0024232_00241678 == 46)
+						else if (switch_ == 46)
 						{
-							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseTotalBiscuit());
+							self_.StartCoroutine_Auto(self_.UseTotalBiscuit());
 						}
 						else
 						{
-							if (_0024_0024switch_0024232_00241678 == 48)
+							if (switch_ == 48)
 							{
 								num = (Yield(6, new WaitForSeconds(0.5f)) ? 1 : 0);
 								break;
 							}
-							if (_0024_0024switch_0024232_00241678 == 61)
+							if (switch_ == 61)
 							{
-								_0024v1_00241691 = default(Vector2);
-								_0024ar1_00241692 = null;
-								_0024v21_00241693 = player.transform.position;
-								_0024object_pos1_00241694 = default(Vector3);
-								_0024mouse_pos1_00241695 = default(Vector3);
-								_0024angle1_00241696 = 0f;
+								v1 = default(Vector2);
+								ar1 = null;
+								v21 = player.transform.position;
+								object_pos1 = default(Vector3);
+								mouse_pos1 = default(Vector3);
+								angle1 = 0f;
 								player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
 								num = (Yield(7, new WaitForSeconds(0.3f)) ? 1 : 0);
 								break;
 							}
-							if (_0024_0024switch_0024232_00241678 == 78)
+							if (switch_ == 78)
 							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(0));
+								self_.StartCoroutine_Auto(self_.UseDrum(0));
 							}
-							else if (_0024_0024switch_0024232_00241678 == 79)
+							else if (switch_ == 79)
 							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(1));
+								self_.StartCoroutine_Auto(self_.UseDrum(1));
 							}
-							else if (_0024_0024switch_0024232_00241678 == 80)
+							else if (switch_ == 80)
 							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(2));
+								self_.StartCoroutine_Auto(self_.UseDrum(2));
 							}
-							else if (_0024_0024switch_0024232_00241678 == 95)
+							else if (switch_ == 95)
 							{
 								if (!isTown)
 								{
 									player.GetComponent<NetworkView>().RPC("SummonSpirit", RPCMode.All);
-									inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-									if (inventory[_0024slot_00241734].q < 1)
+									inventory[slot_].q = inventory[slot_].q - 1;
+									if (inventory[slot_].q < 1)
 									{
-										inventory[_0024slot_00241734].id = 0;
+										inventory[slot_].id = 0;
 									}
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 515)
+							else if (switch_ == 515)
 							{
 								if (inventory[23].id >= 52 && inventory[23].id <= 56)
 								{
-									_0024v_00241697 = default(Vector2);
-									_0024ar_00241698 = null;
-									_0024v2_00241699 = player.transform.position;
-									_0024object_pos_00241700 = default(Vector3);
-									_0024mouse_pos_00241701 = default(Vector3);
-									_0024angle_00241702 = 0f;
+									v = default(Vector2);
+									ar_ = null;
+									v2_ = player.transform.position;
+									object_pos_ = default(Vector3);
+									mouse_pos_ = default(Vector3);
+									angle_ = 0f;
 									arrowsShot++;
 									if (arrowsShot >= 100)
 									{
@@ -1712,16 +1712,16 @@ public class GameScript : MonoBehaviour
 									break;
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 530)
+							else if (switch_ == 530)
 							{
 								if (inventory[23].id >= 52 && inventory[23].id <= 56)
 								{
-									_0024v11_00241706 = default(Vector2);
-									_0024ar11_00241707 = null;
-									_0024v211_00241708 = player.transform.position;
-									_0024object_pos11_00241709 = default(Vector3);
-									_0024mouse_pos11_00241710 = default(Vector3);
-									_0024angle11_00241711 = 0f;
+									v11 = default(Vector2);
+									ar11 = null;
+									v21 = player.transform.position;
+									object_pos11 = default(Vector3);
+									mouse_pos11 = default(Vector3);
+									angle11 = 0f;
 									arrowsShot++;
 									if (arrowsShot >= 100)
 									{
@@ -1732,33 +1732,33 @@ public class GameScript : MonoBehaviour
 									break;
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 535)
+							else if (switch_ == 535)
 							{
 								if (MAG >= 5)
 								{
 									MAG -= 5;
-									_0024self__00241735.LoadMana();
-									_0024vv_00241715 = default(Vector2);
-									_0024arr_00241716 = null;
-									_0024v22_00241717 = player.transform.position;
-									_0024object_poss_00241718 = default(Vector3);
-									_0024mouse_poss_00241719 = default(Vector3);
-									_0024anglee_00241720 = 0f;
+									self_.LoadMana();
+									vv = default(Vector2);
+									arr = null;
+									v22 = player.transform.position;
+									object_poss = default(Vector3);
+									mouse_poss = default(Vector3);
+									anglee = 0f;
 									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
 									num = (Yield(10, new WaitForSeconds(0.3f)) ? 1 : 0);
 									break;
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 536)
+							else if (switch_ == 536)
 							{
 								if (inventory[23].id >= 52 && inventory[23].id <= 56)
 								{
-									_0024v112_00241722 = default(Vector2);
-									_0024ar112_00241723 = null;
-									_0024v2112_00241724 = player.transform.position;
-									_0024object_pos112_00241725 = default(Vector3);
-									_0024mouse_pos112_00241726 = default(Vector3);
-									_0024angle112_00241727 = 0f;
+									v1 = default(Vector2);
+									ar = null;
+									v2 = player.transform.position;
+									object_pos = default(Vector3);
+									mouse_pos = default(Vector3);
+									angle = 0f;
 									arrowsShot++;
 									if (arrowsShot >= 100)
 									{
@@ -1769,85 +1769,85 @@ public class GameScript : MonoBehaviour
 									break;
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 600)
+							else if (switch_ == 600)
 							{
 								if (MAG >= 1)
 								{
-									_0024f_00241728 = null;
+									f_ = null;
 									if (MenuScript.pHat == 11)
 									{
-										_0024noo_00241729 = UnityEngine.Random.Range(0, 3);
-										if (_0024noo_00241729 == 0)
+										noo = UnityEngine.Random.Range(0, 3);
+										if (noo == 0)
 										{
-											_0024self__00241735.UseMana(1);
+											self_.UseMana(1);
 										}
 									}
 									else
 									{
-										_0024self__00241735.UseMana(1);
+										self_.UseMana(1);
 									}
 									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a3");
 									num = (Yield(12, new WaitForSeconds(0.3f)) ? 1 : 0);
 									break;
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 601)
+							else if (switch_ == 601)
 							{
 								if (MAG >= 1)
 								{
 									if (MenuScript.pHat == 11)
 									{
-										_0024noo1_00241730 = UnityEngine.Random.Range(0, 3);
-										if (_0024noo1_00241730 == 0)
+										noo1 = UnityEngine.Random.Range(0, 3);
+										if (noo1 == 0)
 										{
-											_0024self__00241735.UseMana(1);
+											self_.UseMana(1);
 										}
 									}
 									else
 									{
-										_0024self__00241735.UseMana(1);
+										self_.UseMana(1);
 									}
 									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
 									num = (Yield(13, new WaitForSeconds(0.5f)) ? 1 : 0);
 									break;
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 602)
+							else if (switch_ == 602)
 							{
 								if (MAG >= 3)
 								{
 									if (MenuScript.pHat == 11)
 									{
-										_0024noo2_00241732 = UnityEngine.Random.Range(0, 3);
-										if (_0024noo2_00241732 == 0)
+										noo2 = UnityEngine.Random.Range(0, 3);
+										if (noo2 == 0)
 										{
-											_0024self__00241735.UseMana(3);
+											self_.UseMana(3);
 										}
 									}
 									else
 									{
-										_0024self__00241735.UseMana(3);
+										self_.UseMana(3);
 									}
 									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
 									num = (Yield(14, new WaitForSeconds(0.5f)) ? 1 : 0);
 									break;
 								}
 							}
-							else if (_0024_0024switch_0024232_00241678 == 603)
+							else if (switch_ == 603)
 							{
 								if (MAG >= 1)
 								{
 									if (MenuScript.pHat == 11)
 									{
-										_0024noo22_00241733 = UnityEngine.Random.Range(0, 3);
-										if (_0024noo22_00241733 == 0)
+										noo22 = UnityEngine.Random.Range(0, 3);
+										if (noo22 == 0)
 										{
-											_0024self__00241735.UseMana(1);
+											self_.UseMana(1);
 										}
 									}
 									else
 									{
-										_0024self__00241735.UseMana(1);
+										self_.UseMana(1);
 									}
 									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
 									num = (Yield(15, new WaitForSeconds(0.5f)) ? 1 : 0);
@@ -1856,183 +1856,183 @@ public class GameScript : MonoBehaviour
 							}
 							else
 							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.MeleeAttack());
+								self_.StartCoroutine_Auto(self_.MeleeAttack());
 							}
 						}
 					}
 					goto IL_2351;
 				case 2:
-					_0024self__00241735.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/eat", typeof(AudioClip)));
+					self_.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/eat", typeof(AudioClip)));
 					hunger++;
-					_0024self__00241735.UpdateHunger();
-					_0024self__00241735.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
+					self_.UpdateHunger();
+					self_.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
 					tempStats[8] = tempStats[8] + 1;
-					inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-					if (inventory[_0024slot_00241734].q < 1)
+					inventory[slot_].q = inventory[slot_].q - 1;
+					if (inventory[slot_].q < 1)
 					{
-						inventory[_0024slot_00241734].id = 0;
+						inventory[slot_].id = 0;
 					}
 					goto IL_2351;
 				case 3:
-					_0024self__00241735.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/eat", typeof(AudioClip)));
+					self_.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/eat", typeof(AudioClip)));
 					hunger += 3;
-					_0024dood_00241683 = UnityEngine.Random.Range(0, 2);
-					if (_0024dood_00241683 == 0 && HP < MAXHP)
+					dood = UnityEngine.Random.Range(0, 2);
+					if (dood == 0 && HP < MAXHP)
 					{
 						HP++;
-						_0024pot22_00241684 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity);
-						_0024pot22_00241684.SendMessage("SD", 1);
-						_0024self__00241735.LoadHearts();
+						pot = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity);
+						pot.SendMessage("SD", 1);
+						self_.LoadHearts();
 					}
 					tempStats[8] = tempStats[8] + 1;
-					_0024self__00241735.UpdateHunger();
-					_0024self__00241735.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
-					inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-					if (inventory[_0024slot_00241734].q < 1)
+					self_.UpdateHunger();
+					self_.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
+					inventory[slot_].q = inventory[slot_].q - 1;
+					if (inventory[slot_].q < 1)
 					{
-						inventory[_0024slot_00241734].id = 0;
+						inventory[slot_].id = 0;
 					}
 					goto IL_2351;
 				case 4:
 					tempStats[8] = tempStats[8] + 1;
 					hunger++;
-					_0024self__00241735.UpdateHunger();
-					_0024self__00241735.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
-					inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-					if (inventory[_0024slot_00241734].q < 1)
+					self_.UpdateHunger();
+					self_.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
+					inventory[slot_].q = inventory[slot_].q - 1;
+					if (inventory[slot_].q < 1)
 					{
-						inventory[_0024slot_00241734].id = 0;
+						inventory[slot_].id = 0;
 					}
 					goto IL_2351;
 				case 5:
 					hunger += 4;
-					_0024dood1_00241687 = UnityEngine.Random.Range(0, 2);
-					if (_0024dood1_00241687 == 0 && HP < MAXHP)
+					dood1 = UnityEngine.Random.Range(0, 2);
+					if (dood1 == 0 && HP < MAXHP)
 					{
 						HP++;
-						_0024pot223_00241688 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity);
-						_0024pot223_00241688.SendMessage("SD", 1);
-						_0024self__00241735.LoadHearts();
+						pot2 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("heal"), player.transform.position, Quaternion.identity);
+						pot2.SendMessage("SD", 1);
+						self_.LoadHearts();
 					}
 					tempStats[8] = tempStats[8] + 1;
-					_0024self__00241735.UpdateHunger();
-					_0024self__00241735.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
-					inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-					if (inventory[_0024slot_00241734].q < 1)
+					self_.UpdateHunger();
+					self_.GetComponent<NetworkView>().RPC("Poop", RPCMode.All, player.transform.position);
+					inventory[slot_].q = inventory[slot_].q - 1;
+					if (inventory[slot_].q < 1)
 					{
-						inventory[_0024slot_00241734].id = 0;
+						inventory[slot_].id = 0;
 					}
 					goto IL_2351;
 				case 6:
 					Network.Instantiate(Resources.Load("interact/fire"), player.transform.position, Quaternion.identity, 1);
-					inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-					if (inventory[_0024slot_00241734].q < 1)
+					inventory[slot_].q = inventory[slot_].q - 1;
+					if (inventory[slot_].q < 1)
 					{
-						inventory[_0024slot_00241734].id = 0;
+						inventory[slot_].id = 0;
 					}
 					goto IL_2351;
 				case 7:
-					_0024mouse_pos1_00241695 = UnityEngine.Input.mousePosition;
-					_0024object_pos1_00241694 = Camera.main.WorldToScreenPoint(player.transform.position);
-					_0024mouse_pos1_00241695.z = -20f;
-					_0024mouse_pos1_00241695.x -= _0024object_pos1_00241694.x;
-					_0024mouse_pos1_00241695.y -= _0024object_pos1_00241694.y;
-					_0024angle1_00241696 = Mathf.Atan2(_0024mouse_pos1_00241695.y, _0024mouse_pos1_00241695.x) * 57.29578f;
-					_0024ar1_00241692 = (GameObject)Network.Instantiate(Resources.Load("skill/lightBlast"), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle1_00241696)), 0);
-					inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-					if (inventory[_0024slot_00241734].q < 1)
+					mouse_pos1 = UnityEngine.Input.mousePosition;
+					object_pos1 = Camera.main.WorldToScreenPoint(player.transform.position);
+					mouse_pos1.z = -20f;
+					mouse_pos1.x -= object_pos1.x;
+					mouse_pos1.y -= object_pos1.y;
+					angle1 = Mathf.Atan2(mouse_pos1.y, mouse_pos1.x) * 57.29578f;
+					ar1 = (GameObject)Network.Instantiate(Resources.Load("skill/lightBlast"), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle1)), 0);
+					inventory[slot_].q = inventory[slot_].q - 1;
+					if (inventory[slot_].q < 1)
 					{
-						inventory[_0024slot_00241734].id = 0;
+						inventory[slot_].id = 0;
 					}
 					goto IL_2351;
 				case 8:
-					_0024mouse_pos_00241701 = UnityEngine.Input.mousePosition;
-					_0024object_pos_00241700 = Camera.main.WorldToScreenPoint(player.transform.position);
-					_0024mouse_pos_00241701.z = -20f;
-					_0024mouse_pos_00241701.x -= _0024object_pos_00241700.x;
-					_0024mouse_pos_00241701.y -= _0024object_pos_00241700.y;
-					_0024angle_00241702 = Mathf.Atan2(_0024mouse_pos_00241701.y, _0024mouse_pos_00241701.x) * 57.29578f;
-					_0024ar_00241698 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle_00241702)), 0);
-					_0024fff_00241703 = DEX + DEXBonus + drumDEX;
-					_0024ar_00241698.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff_00241703);
+					mouse_pos_ = UnityEngine.Input.mousePosition;
+					object_pos_ = Camera.main.WorldToScreenPoint(player.transform.position);
+					mouse_pos_.z = -20f;
+					mouse_pos_.x -= object_pos_.x;
+					mouse_pos_.y -= object_pos_.y;
+					angle_ = Mathf.Atan2(mouse_pos_.y, mouse_pos_.x) * 57.29578f;
+					ar_ = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle_)), 0);
+					fff_ = DEX + DEXBonus + drumDEX;
+					ar_.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, fff_);
 					inventory[23].q = inventory[23].q - 1;
 					if (inventory[23].q <= 0)
 					{
-						inventory[23] = _0024self__00241735.EmptyItem();
+						inventory[23] = self_.EmptyItem();
 					}
 					if (multishot)
 					{
 						if (inventory[23].id >= 52 && inventory[23].id <= 56)
 						{
-							_0024angle_00241702 -= 10f;
-							_0024ar_00241698 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle_00241702)), 0);
-							_0024fff1_00241704 = 2 * (DEX + DEXBonus + drumDEX);
-							_0024ar_00241698.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff1_00241704);
-							_0024ar_00241698.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+							angle_ -= 10f;
+							ar_ = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle_)), 0);
+							fff1_ = 2 * (DEX + DEXBonus + drumDEX);
+							ar_.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, fff1_);
+							ar_.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
 							inventory[23].q = inventory[23].q - 1;
 							if (inventory[23].q == 0)
 							{
-								inventory[23] = _0024self__00241735.EmptyItem();
+								inventory[23] = self_.EmptyItem();
 							}
 						}
 						if (inventory[23].id >= 52 && inventory[23].id <= 56)
 						{
-							_0024angle_00241702 += 20f;
-							_0024ar_00241698 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle_00241702)), 0);
-							_0024fff3_00241705 = 2 * (DEX + DEXBonus + drumDEX);
-							_0024ar_00241698.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff3_00241705);
-							_0024ar_00241698.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+							angle_ += 20f;
+							ar_ = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle_)), 0);
+							fff3_ = 2 * (DEX + DEXBonus + drumDEX);
+							ar_.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, fff3_);
+							ar_.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
 							inventory[23].q = inventory[23].q - 1;
 							if (inventory[23].q == 0)
 							{
-								inventory[23] = _0024self__00241735.EmptyItem();
+								inventory[23] = self_.EmptyItem();
 							}
 						}
 						multishot = false;
 					}
 					goto IL_2351;
 				case 9:
-					_0024mouse_pos11_00241710 = UnityEngine.Input.mousePosition;
-					_0024object_pos11_00241709 = Camera.main.WorldToScreenPoint(player.transform.position);
-					_0024mouse_pos11_00241710.z = -20f;
-					_0024mouse_pos11_00241710.x -= _0024object_pos11_00241709.x;
-					_0024mouse_pos11_00241710.y -= _0024object_pos11_00241709.y;
-					_0024angle11_00241711 = Mathf.Atan2(_0024mouse_pos11_00241710.y, _0024mouse_pos11_00241710.x) * 57.29578f;
-					_0024ar11_00241707 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle11_00241711)), 0);
-					_0024fff9_00241712 = DEX + DEXBonus + drumDEX + 7;
-					_0024ar11_00241707.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff9_00241712);
-					_0024ar11_00241707.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+					mouse_pos11 = UnityEngine.Input.mousePosition;
+					object_pos11 = Camera.main.WorldToScreenPoint(player.transform.position);
+					mouse_pos11.z = -20f;
+					mouse_pos11.x -= object_pos11.x;
+					mouse_pos11.y -= object_pos11.y;
+					angle11 = Mathf.Atan2(mouse_pos11.y, mouse_pos11.x) * 57.29578f;
+					ar11 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle11)), 0);
+					fff9 = DEX + DEXBonus + drumDEX + 7;
+					ar11.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, fff9);
+					ar11.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
 					inventory[23].q = inventory[23].q - 1;
 					if (inventory[23].q <= 0)
 					{
-						inventory[23] = _0024self__00241735.EmptyItem();
+						inventory[23] = self_.EmptyItem();
 					}
 					if (multishot)
 					{
 						if (inventory[23].id >= 52 && inventory[23].id <= 56)
 						{
-							_0024angle11_00241711 -= 10f;
-							_0024ar11_00241707 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle11_00241711)), 0);
-							_0024fff99_00241713 = 2 * (DEX + DEXBonus + drumDEX + 7);
-							_0024ar11_00241707.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff99_00241713);
-							_0024ar11_00241707.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+							angle11 -= 10f;
+							ar11 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle11)), 0);
+							fff99 = 2 * (DEX + DEXBonus + drumDEX + 7);
+							ar11.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, fff99);
+							ar11.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
 							inventory[23].q = inventory[23].q - 1;
 							if (inventory[23].q == 0)
 							{
-								inventory[23] = _0024self__00241735.EmptyItem();
+								inventory[23] = self_.EmptyItem();
 							}
 						}
 						if (inventory[23].id >= 52 && inventory[23].id <= 56)
 						{
-							_0024angle11_00241711 += 20f;
-							_0024ar11_00241707 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle11_00241711)), 0);
-							_0024fff98_00241714 = 2 * (DEX + DEXBonus + drumDEX + 7);
-							_0024ar11_00241707.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff98_00241714);
-							_0024ar11_00241707.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+							angle11 += 20f;
+							ar11 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle11)), 0);
+							fff9 = 2 * (DEX + DEXBonus + drumDEX + 7);
+							ar11.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, fff9);
+							ar11.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
 							inventory[23].q = inventory[23].q - 1;
 							if (inventory[23].q == 0)
 							{
-								inventory[23] = _0024self__00241735.EmptyItem();
+								inventory[23] = self_.EmptyItem();
 							}
 						}
 						multishot = false;
@@ -2050,47 +2050,47 @@ public class GameScript : MonoBehaviour
 					_0024arr_00241716.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff988_00241721);
 					goto IL_2351;
 				case 11:
-					_0024mouse_pos112_00241726 = UnityEngine.Input.mousePosition;
-					_0024object_pos112_00241725 = Camera.main.WorldToScreenPoint(player.transform.position);
-					_0024mouse_pos112_00241726.z = -20f;
-					_0024mouse_pos112_00241726.x -= _0024object_pos112_00241725.x;
-					_0024mouse_pos112_00241726.y -= _0024object_pos112_00241725.y;
-					_0024angle112_00241727 = Mathf.Atan2(_0024mouse_pos112_00241726.y, _0024mouse_pos112_00241726.x) * 57.29578f;
-					_0024ar112_00241723 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle112_00241727)), 0);
-					_0024ar112_00241723.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, 1.25f * (float)(DEX + DEXBonus + drumDEX + 7));
-					_0024ar112_00241723.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
-					_0024ar112_00241723.GetComponent<NetworkView>().RPC("FireN", RPCMode.All);
+					mouse_pos = UnityEngine.Input.mousePosition;
+					object_pos = Camera.main.WorldToScreenPoint(player.transform.position);
+					mouse_pos.z = -20f;
+					mouse_pos.x -= object_pos.x;
+					mouse_pos.y -= object_pos.y;
+					angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * 57.29578f;
+					ar = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle)), 0);
+					ar.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, 1.25f * (float)(DEX + DEXBonus + drumDEX + 7));
+					ar.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+					ar.GetComponent<NetworkView>().RPC("FireN", RPCMode.All);
 					inventory[23].q = inventory[23].q - 1;
 					if (inventory[23].q <= 0)
 					{
-						inventory[23] = _0024self__00241735.EmptyItem();
+						inventory[23] = self_.EmptyItem();
 					}
 					if (multishot)
 					{
 						if (inventory[23].id >= 52 && inventory[23].id <= 56)
 						{
-							_0024angle112_00241727 -= 10f;
-							_0024ar112_00241723 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle112_00241727)), 0);
-							_0024ar112_00241723.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, 2.5f * (float)(DEX + DEXBonus + drumDEX + 7));
-							_0024ar112_00241723.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
-							_0024ar112_00241723.GetComponent<NetworkView>().RPC("FireN", RPCMode.All);
+							angle -= 10f;
+							ar = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle)), 0);
+							ar.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, 2.5f * (float)(DEX + DEXBonus + drumDEX + 7));
+							ar.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+							ar.GetComponent<NetworkView>().RPC("FireN", RPCMode.All);
 							inventory[23].q = inventory[23].q - 1;
 							if (inventory[23].q == 0)
 							{
-								inventory[23] = _0024self__00241735.EmptyItem();
+								inventory[23] = self_.EmptyItem();
 							}
 						}
 						if (inventory[23].id >= 52 && inventory[23].id <= 56)
 						{
-							_0024angle112_00241727 += 20f;
-							_0024ar112_00241723 = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024angle112_00241727)), 0);
-							_0024ar112_00241723.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, 2.5f * (float)(DEX + DEXBonus + drumDEX + 7));
-							_0024ar112_00241723.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
-							_0024ar112_00241723.GetComponent<NetworkView>().RPC("FireN", RPCMode.All);
+							angle += 20f;
+							ar = (GameObject)Network.Instantiate(Resources.Load("skill/arrow" + inventory[23].id), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle)), 0);
+							ar.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, 2.5f * (float)(DEX + DEXBonus + drumDEX + 7));
+							ar.GetComponent<NetworkView>().RPC("SetMulti", RPCMode.All);
+							ar.GetComponent<NetworkView>().RPC("FireN", RPCMode.All);
 							inventory[23].q = inventory[23].q - 1;
 							if (inventory[23].q == 0)
 							{
-								inventory[23] = _0024self__00241735.EmptyItem();
+								inventory[23] = self_.EmptyItem();
 							}
 						}
 						multishot = false;
@@ -2099,11 +2099,11 @@ public class GameScript : MonoBehaviour
 				case 12:
 					if (facingLeft)
 					{
-						_0024f_00241728 = (GameObject)Network.Instantiate(Resources.Load("proj/fireballL"), player.transform.position, Quaternion.identity, 0);
+						f_ = (GameObject)Network.Instantiate(Resources.Load("proj/fireballL"), player.transform.position, Quaternion.identity, 0);
 					}
 					else
 					{
-						_0024f_00241728 = (GameObject)Network.Instantiate(Resources.Load("proj/fireballR"), player.transform.position, Quaternion.identity, 0);
+						f_ = (GameObject)Network.Instantiate(Resources.Load("proj/fireballR"), player.transform.position, Quaternion.identity, 0);
 					}
 					_0024f_00241728.SendMessage("Set", MAXMAG + drumMAG);
 					_0024self__00241735.GUImana.GetComponent<Animation>().Play();
@@ -2149,24 +2149,24 @@ public class GameScript : MonoBehaviour
 			}
 		}
 
-		internal int _0024slot_00241736;
+		internal int slot_;
 
-		internal GameScript _0024self__00241737;
+		internal GameScript self_;
 
-		public _0024UseItem_00241677(int slot, GameScript self_)
+		public UseItem_(int slot, GameScript self_)
 		{
-			_0024slot_00241736 = slot;
-			_0024self__00241737 = self_;
+			slot_ = slot;
+			this.self_ = self_;
 		}
 
 		public override IEnumerator<WaitForSeconds> GetEnumerator()
 		{
-			return new _0024(_0024slot_00241736, _0024self__00241737);
+			return new _0024(slot_, self_);
 		}
 	}
 	public virtual IEnumerator UseItem(int slot)
 	{
-		return new _0024UseItem_00241677(slot, this).GetEnumerator();
+		return new UseItem_(slot, this).GetEnumerator();
 	}
 
     public virtual IEnumerator MeleeAttack()
