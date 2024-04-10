@@ -1494,373 +1494,373 @@ public class GameScript : MonoBehaviour
 
 			public override bool MoveNext()
 			{
-				int result;
+				int num;
 				switch (_state)
 				{
 				default:
-					if (!_0024self__00241735.@using && HP > 0 && !isCat)
+					if (_0024self__00241735.@using || HP <= 0 || isCat)
 					{
-						_0024self__00241735.@using = true;
-						_0024_0024switch_0024232_00241678 = inventory[_0024slot_00241734].id;
-						if (_0024_0024switch_0024232_00241678 == 7)
+						goto IL_2347;
+					}
+					_0024self__00241735.@using = true;
+					_0024_0024switch_0024232_00241678 = inventory[_0024slot_00241734].id;
+					if (_0024_0024switch_0024232_00241678 == 7)
+					{
+						if (isCooking)
 						{
-							if (isCooking)
+							_0024it_00241679 = null;
+							_0024item_00241680 = new Item(8, 1, new int[4], 0f, null);
+							_0024stats_00241681 = null;
+							_0024d_00241682 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), player.transform.position, Quaternion.identity);
+							_0024stats_00241681 = new int[7]
 							{
-								_0024it_00241679 = null;
-								_0024item_00241680 = new Item(8, 1, new int[4], 0f, null);
-								_0024stats_00241681 = null;
-								_0024d_00241682 = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("iLocal"), player.transform.position, Quaternion.identity);
-								_0024stats_00241681 = new int[7]
-								{
-									_0024item_00241680.id,
-									_0024item_00241680.q,
-									_0024item_00241680.e[0],
-									_0024item_00241680.e[1],
-									_0024item_00241680.e[2],
-									_0024item_00241680.e[3],
-									_0024item_00241680.d
-								};
-								_0024d_00241682.SendMessage("InitL", _0024stats_00241681);
-								tempStats[8] = tempStats[8] + 1;
-								inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-								if (inventory[_0024slot_00241734].q < 1)
-								{
-									inventory[_0024slot_00241734].id = 0;
-								}
-							}
-							else if (hunger < _0024self__00241735.maxHunger)
+								_0024item_00241680.id,
+								_0024item_00241680.q,
+								_0024item_00241680.e[0],
+								_0024item_00241680.e[1],
+								_0024item_00241680.e[2],
+								_0024item_00241680.e[3],
+								_0024item_00241680.d
+							};
+							_0024d_00241682.SendMessage("InitL", _0024stats_00241681);
+							tempStats[8] = tempStats[8] + 1;
+							inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
+							if (inventory[_0024slot_00241734].q < 1)
 							{
-								player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-								result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-								break;
+								inventory[_0024slot_00241734].id = 0;
 							}
 						}
-						else if (_0024_0024switch_0024232_00241678 == 8)
+						else if (hunger < _0024self__00241735.maxHunger)
 						{
-							if (hunger < _0024self__00241735.maxHunger)
+							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+							num = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
+							break;
+						}
+					}
+					else if (_0024_0024switch_0024232_00241678 == 8)
+					{
+						if (hunger < _0024self__00241735.maxHunger)
+						{
+							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+							num = (Yield(3, new WaitForSeconds(0.5f)) ? 1 : 0);
+							break;
+						}
+					}
+					else if (_0024_0024switch_0024232_00241678 == 21)
+					{
+						if (isCooking)
+						{
+							_0024it2_00241685 = null;
+							_0024item2_00241686 = new Item(22, 1, new int[4], 0f, null);
+							_0024it2_00241685 = (GameObject)Network.Instantiate(Resources.Load("item"), player.transform.position, Quaternion.identity, 1);
+							_0024it2_00241685.SendMessage("Set", _0024item2_00241686);
+							inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
+							if (inventory[_0024slot_00241734].q < 1)
 							{
-								player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-								result = (Yield(3, new WaitForSeconds(0.5f)) ? 1 : 0);
-								break;
+								inventory[_0024slot_00241734].id = 0;
 							}
 						}
-						else if (_0024_0024switch_0024232_00241678 == 21)
+						else if (hunger < _0024self__00241735.maxHunger)
 						{
-							if (isCooking)
+							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+							num = (Yield(4, new WaitForSeconds(0.5f)) ? 1 : 0);
+							break;
+						}
+					}
+					else if (_0024_0024switch_0024232_00241678 == 22)
+					{
+						if (hunger < _0024self__00241735.maxHunger)
+						{
+							player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+							num = (Yield(5, new WaitForSeconds(0.5f)) ? 1 : 0);
+							break;
+						}
+					}
+					else if (_0024_0024switch_0024232_00241678 != 49)
+					{
+						if (_0024_0024switch_0024232_00241678 == 15)
+						{
+							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(2));
+						}
+						else if (_0024_0024switch_0024232_00241678 == 16)
+						{
+							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(3));
+						}
+						else if (_0024_0024switch_0024232_00241678 == 17)
+						{
+							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
+						}
+						else if (_0024_0024switch_0024232_00241678 == 38)
+						{
+							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowRock());
+							inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
+							if (inventory[_0024slot_00241734].q < 1)
 							{
-								_0024it2_00241685 = null;
-								_0024item2_00241686 = new Item(22, 1, new int[4], 0f, null);
-								_0024it2_00241685 = (GameObject)Network.Instantiate(Resources.Load("item"), player.transform.position, Quaternion.identity, 1);
-								_0024it2_00241685.SendMessage("Set", _0024item2_00241686);
-								inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-								if (inventory[_0024slot_00241734].q < 1)
-								{
-									inventory[_0024slot_00241734].id = 0;
-								}
-							}
-							else if (hunger < _0024self__00241735.maxHunger)
-							{
-								player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-								result = (Yield(4, new WaitForSeconds(0.5f)) ? 1 : 0);
-								break;
+								inventory[_0024slot_00241734].id = 0;
 							}
 						}
-						else if (_0024_0024switch_0024232_00241678 == 22)
+						else if (_0024_0024switch_0024232_00241678 == 42)
 						{
-							if (hunger < _0024self__00241735.maxHunger)
-							{
-								player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-								result = (Yield(5, new WaitForSeconds(0.5f)) ? 1 : 0);
-								break;
-							}
+							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(5));
 						}
-						else if (_0024_0024switch_0024232_00241678 != 49)
+						else if (_0024_0024switch_0024232_00241678 == 43)
 						{
-							if (_0024_0024switch_0024232_00241678 == 15)
+							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(7));
+						}
+						else if (_0024_0024switch_0024232_00241678 == 44)
+						{
+							_0024nn_00241689 = UnityEngine.Random.Range(15, 18);
+							if (!_0024self__00241735.usingPot)
 							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(2));
-							}
-							else if (_0024_0024switch_0024232_00241678 == 16)
-							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(3));
-							}
-							else if (_0024_0024switch_0024232_00241678 == 17)
-							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
-							}
-							else if (_0024_0024switch_0024232_00241678 == 38)
-							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowRock());
-								inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-								if (inventory[_0024slot_00241734].q < 1)
+								if (_0024nn_00241689 == 15)
 								{
-									inventory[_0024slot_00241734].id = 0;
+									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(10));
 								}
-							}
-							else if (_0024_0024switch_0024232_00241678 == 42)
-							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(5));
-							}
-							else if (_0024_0024switch_0024232_00241678 == 43)
-							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(7));
-							}
-							else if (_0024_0024switch_0024232_00241678 == 44)
-							{
-								_0024nn_00241689 = UnityEngine.Random.Range(15, 18);
-								if (!_0024self__00241735.usingPot)
+								else if (_0024nn_00241689 == 16)
 								{
-									if (_0024nn_00241689 == 15)
-									{
-										_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(10));
-									}
-									else if (_0024nn_00241689 == 16)
-									{
-										_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(10));
-									}
-									else
-									{
-										_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
-									}
-								}
-							}
-							else if (_0024_0024switch_0024232_00241678 == 45)
-							{
-								_0024nn2_00241690 = UnityEngine.Random.Range(15, 18);
-								if (!_0024self__00241735.usingPot)
-								{
-									if (_0024nn2_00241690 == 15)
-									{
-										_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(15));
-									}
-									else if (_0024nn2_00241690 == 16)
-									{
-										_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(15));
-									}
-									else
-									{
-										_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
-									}
-								}
-							}
-							else if (_0024_0024switch_0024232_00241678 == 46)
-							{
-								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseTotalBiscuit());
-							}
-							else
-							{
-								if (_0024_0024switch_0024232_00241678 == 48)
-								{
-									result = (Yield(6, new WaitForSeconds(0.5f)) ? 1 : 0);
-									break;
-								}
-								if (_0024_0024switch_0024232_00241678 == 61)
-								{
-									_0024v1_00241691 = default(Vector2);
-									_0024ar1_00241692 = null;
-									_0024v21_00241693 = player.transform.position;
-									_0024object_pos1_00241694 = default(Vector3);
-									_0024mouse_pos1_00241695 = default(Vector3);
-									_0024angle1_00241696 = default(float);
-									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
-									result = (Yield(7, new WaitForSeconds(0.3f)) ? 1 : 0);
-									break;
-								}
-								if (_0024_0024switch_0024232_00241678 == 78)
-								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(0));
-								}
-								else if (_0024_0024switch_0024232_00241678 == 79)
-								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(1));
-								}
-								else if (_0024_0024switch_0024232_00241678 == 80)
-								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(2));
-								}
-								else if (_0024_0024switch_0024232_00241678 == 95)
-								{
-									if (!isTown)
-									{
-										player.GetComponent<NetworkView>().RPC("SummonSpirit", RPCMode.All);
-										inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
-										if (inventory[_0024slot_00241734].q < 1)
-										{
-											inventory[_0024slot_00241734].id = 0;
-										}
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 515)
-								{
-									if (inventory[23].id >= 52 && inventory[23].id <= 56)
-									{
-										_0024v_00241697 = default(Vector2);
-										_0024ar_00241698 = null;
-										_0024v2_00241699 = player.transform.position;
-										_0024object_pos_00241700 = default(Vector3);
-										_0024mouse_pos_00241701 = default(Vector3);
-										_0024angle_00241702 = default(float);
-										arrowsShot++;
-										if (arrowsShot >= 100)
-										{
-											MenuScript.canUnlockHat[4] = 1;
-										}
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
-										result = (Yield(8, new WaitForSeconds(0.3f)) ? 1 : 0);
-										break;
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 530)
-								{
-									if (inventory[23].id >= 52 && inventory[23].id <= 56)
-									{
-										_0024v11_00241706 = default(Vector2);
-										_0024ar11_00241707 = null;
-										_0024v211_00241708 = player.transform.position;
-										_0024object_pos11_00241709 = default(Vector3);
-										_0024mouse_pos11_00241710 = default(Vector3);
-										_0024angle11_00241711 = default(float);
-										arrowsShot++;
-										if (arrowsShot >= 100)
-										{
-											MenuScript.canUnlockHat[4] = 1;
-										}
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
-										result = (Yield(9, new WaitForSeconds(0.3f)) ? 1 : 0);
-										break;
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 535)
-								{
-									if (MAG >= 5)
-									{
-										MAG -= 5;
-										_0024self__00241735.LoadMana();
-										_0024vv_00241715 = default(Vector2);
-										_0024arr_00241716 = null;
-										_0024v22_00241717 = player.transform.position;
-										_0024object_poss_00241718 = default(Vector3);
-										_0024mouse_poss_00241719 = default(Vector3);
-										_0024anglee_00241720 = default(float);
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
-										result = (Yield(10, new WaitForSeconds(0.3f)) ? 1 : 0);
-										break;
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 536)
-								{
-									if (inventory[23].id >= 52 && inventory[23].id <= 56)
-									{
-										_0024v112_00241722 = default(Vector2);
-										_0024ar112_00241723 = null;
-										_0024v2112_00241724 = player.transform.position;
-										_0024object_pos112_00241725 = default(Vector3);
-										_0024mouse_pos112_00241726 = default(Vector3);
-										_0024angle112_00241727 = default(float);
-										arrowsShot++;
-										if (arrowsShot >= 100)
-										{
-											MenuScript.canUnlockHat[4] = 1;
-										}
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
-										result = (Yield(11, new WaitForSeconds(0.3f)) ? 1 : 0);
-										break;
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 600)
-								{
-									if (MAG >= 1)
-									{
-										_0024f_00241728 = null;
-										if (MenuScript.pHat == 11)
-										{
-											_0024noo_00241729 = UnityEngine.Random.Range(0, 3);
-											if (_0024noo_00241729 == 0)
-											{
-												_0024self__00241735.UseMana(1);
-											}
-										}
-										else
-										{
-											_0024self__00241735.UseMana(1);
-										}
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a3");
-										result = (Yield(12, new WaitForSeconds(0.3f)) ? 1 : 0);
-										break;
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 601)
-								{
-									if (MAG >= 1)
-									{
-										if (MenuScript.pHat == 11)
-										{
-											_0024noo1_00241730 = UnityEngine.Random.Range(0, 3);
-											if (_0024noo1_00241730 == 0)
-											{
-												_0024self__00241735.UseMana(1);
-											}
-										}
-										else
-										{
-											_0024self__00241735.UseMana(1);
-										}
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-										result = (Yield(13, new WaitForSeconds(0.5f)) ? 1 : 0);
-										break;
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 602)
-								{
-									if (MAG >= 3)
-									{
-										if (MenuScript.pHat == 11)
-										{
-											_0024noo2_00241732 = UnityEngine.Random.Range(0, 3);
-											if (_0024noo2_00241732 == 0)
-											{
-												_0024self__00241735.UseMana(3);
-											}
-										}
-										else
-										{
-											_0024self__00241735.UseMana(3);
-										}
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-										result = (Yield(14, new WaitForSeconds(0.5f)) ? 1 : 0);
-										break;
-									}
-								}
-								else if (_0024_0024switch_0024232_00241678 == 603)
-								{
-									if (MAG >= 1)
-									{
-										if (MenuScript.pHat == 11)
-										{
-											_0024noo22_00241733 = UnityEngine.Random.Range(0, 3);
-											if (_0024noo22_00241733 == 0)
-											{
-												_0024self__00241735.UseMana(1);
-											}
-										}
-										else
-										{
-											_0024self__00241735.UseMana(1);
-										}
-										player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
-										result = (Yield(15, new WaitForSeconds(0.5f)) ? 1 : 0);
-										break;
-									}
+									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(10));
 								}
 								else
 								{
-									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.MeleeAttack());
+									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
 								}
 							}
 						}
-						goto IL_2369;
+						else if (_0024_0024switch_0024232_00241678 == 45)
+						{
+							_0024nn2_00241690 = UnityEngine.Random.Range(15, 18);
+							if (!_0024self__00241735.usingPot)
+							{
+								if (_0024nn2_00241690 == 15)
+								{
+									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseHPPotion(15));
+								}
+								else if (_0024nn2_00241690 == 16)
+								{
+									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseManaPotion(15));
+								}
+								else
+								{
+									_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.ThrowPoison());
+								}
+							}
+						}
+						else if (_0024_0024switch_0024232_00241678 == 46)
+						{
+							_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseTotalBiscuit());
+						}
+						else
+						{
+							if (_0024_0024switch_0024232_00241678 == 48)
+							{
+								num = (Yield(6, new WaitForSeconds(0.5f)) ? 1 : 0);
+								break;
+							}
+							if (_0024_0024switch_0024232_00241678 == 61)
+							{
+								_0024v1_00241691 = default(Vector2);
+								_0024ar1_00241692 = null;
+								_0024v21_00241693 = player.transform.position;
+								_0024object_pos1_00241694 = default(Vector3);
+								_0024mouse_pos1_00241695 = default(Vector3);
+								_0024angle1_00241696 = 0f;
+								player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
+								num = (Yield(7, new WaitForSeconds(0.3f)) ? 1 : 0);
+								break;
+							}
+							if (_0024_0024switch_0024232_00241678 == 78)
+							{
+								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(0));
+							}
+							else if (_0024_0024switch_0024232_00241678 == 79)
+							{
+								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(1));
+							}
+							else if (_0024_0024switch_0024232_00241678 == 80)
+							{
+								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.UseDrum(2));
+							}
+							else if (_0024_0024switch_0024232_00241678 == 95)
+							{
+								if (!isTown)
+								{
+									player.GetComponent<NetworkView>().RPC("SummonSpirit", RPCMode.All);
+									inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
+									if (inventory[_0024slot_00241734].q < 1)
+									{
+										inventory[_0024slot_00241734].id = 0;
+									}
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 515)
+							{
+								if (inventory[23].id >= 52 && inventory[23].id <= 56)
+								{
+									_0024v_00241697 = default(Vector2);
+									_0024ar_00241698 = null;
+									_0024v2_00241699 = player.transform.position;
+									_0024object_pos_00241700 = default(Vector3);
+									_0024mouse_pos_00241701 = default(Vector3);
+									_0024angle_00241702 = 0f;
+									arrowsShot++;
+									if (arrowsShot >= 100)
+									{
+										MenuScript.canUnlockHat[4] = 1;
+									}
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
+									num = (Yield(8, new WaitForSeconds(0.3f)) ? 1 : 0);
+									break;
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 530)
+							{
+								if (inventory[23].id >= 52 && inventory[23].id <= 56)
+								{
+									_0024v11_00241706 = default(Vector2);
+									_0024ar11_00241707 = null;
+									_0024v211_00241708 = player.transform.position;
+									_0024object_pos11_00241709 = default(Vector3);
+									_0024mouse_pos11_00241710 = default(Vector3);
+									_0024angle11_00241711 = 0f;
+									arrowsShot++;
+									if (arrowsShot >= 100)
+									{
+										MenuScript.canUnlockHat[4] = 1;
+									}
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
+									num = (Yield(9, new WaitForSeconds(0.3f)) ? 1 : 0);
+									break;
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 535)
+							{
+								if (MAG >= 5)
+								{
+									MAG -= 5;
+									_0024self__00241735.LoadMana();
+									_0024vv_00241715 = default(Vector2);
+									_0024arr_00241716 = null;
+									_0024v22_00241717 = player.transform.position;
+									_0024object_poss_00241718 = default(Vector3);
+									_0024mouse_poss_00241719 = default(Vector3);
+									_0024anglee_00241720 = 0f;
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
+									num = (Yield(10, new WaitForSeconds(0.3f)) ? 1 : 0);
+									break;
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 536)
+							{
+								if (inventory[23].id >= 52 && inventory[23].id <= 56)
+								{
+									_0024v112_00241722 = default(Vector2);
+									_0024ar112_00241723 = null;
+									_0024v2112_00241724 = player.transform.position;
+									_0024object_pos112_00241725 = default(Vector3);
+									_0024mouse_pos112_00241726 = default(Vector3);
+									_0024angle112_00241727 = 0f;
+									arrowsShot++;
+									if (arrowsShot >= 100)
+									{
+										MenuScript.canUnlockHat[4] = 1;
+									}
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a4");
+									num = (Yield(11, new WaitForSeconds(0.3f)) ? 1 : 0);
+									break;
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 600)
+							{
+								if (MAG >= 1)
+								{
+									_0024f_00241728 = null;
+									if (MenuScript.pHat == 11)
+									{
+										_0024noo_00241729 = UnityEngine.Random.Range(0, 3);
+										if (_0024noo_00241729 == 0)
+										{
+											_0024self__00241735.UseMana(1);
+										}
+									}
+									else
+									{
+										_0024self__00241735.UseMana(1);
+									}
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a3");
+									num = (Yield(12, new WaitForSeconds(0.3f)) ? 1 : 0);
+									break;
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 601)
+							{
+								if (MAG >= 1)
+								{
+									if (MenuScript.pHat == 11)
+									{
+										_0024noo1_00241730 = UnityEngine.Random.Range(0, 3);
+										if (_0024noo1_00241730 == 0)
+										{
+											_0024self__00241735.UseMana(1);
+										}
+									}
+									else
+									{
+										_0024self__00241735.UseMana(1);
+									}
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+									num = (Yield(13, new WaitForSeconds(0.5f)) ? 1 : 0);
+									break;
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 602)
+							{
+								if (MAG >= 3)
+								{
+									if (MenuScript.pHat == 11)
+									{
+										_0024noo2_00241732 = UnityEngine.Random.Range(0, 3);
+										if (_0024noo2_00241732 == 0)
+										{
+											_0024self__00241735.UseMana(3);
+										}
+									}
+									else
+									{
+										_0024self__00241735.UseMana(3);
+									}
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+									num = (Yield(14, new WaitForSeconds(0.5f)) ? 1 : 0);
+									break;
+								}
+							}
+							else if (_0024_0024switch_0024232_00241678 == 603)
+							{
+								if (MAG >= 1)
+								{
+									if (MenuScript.pHat == 11)
+									{
+										_0024noo22_00241733 = UnityEngine.Random.Range(0, 3);
+										if (_0024noo22_00241733 == 0)
+										{
+											_0024self__00241735.UseMana(1);
+										}
+									}
+									else
+									{
+										_0024self__00241735.UseMana(1);
+									}
+									player.GetComponent<NetworkView>().RPC("mA", RPCMode.All, "a1");
+									num = (Yield(15, new WaitForSeconds(0.5f)) ? 1 : 0);
+									break;
+								}
+							}
+							else
+							{
+								_0024self__00241735.StartCoroutine_Auto(_0024self__00241735.MeleeAttack());
+							}
+						}
 					}
-					goto IL_23a2;
+					goto IL_2351;
 				case 2:
 					_0024self__00241735.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/eat", typeof(AudioClip)));
 					hunger++;
@@ -1872,7 +1872,7 @@ public class GameScript : MonoBehaviour
 					{
 						inventory[_0024slot_00241734].id = 0;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 3:
 					_0024self__00241735.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/eat", typeof(AudioClip)));
 					hunger += 3;
@@ -1892,7 +1892,7 @@ public class GameScript : MonoBehaviour
 					{
 						inventory[_0024slot_00241734].id = 0;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 4:
 					tempStats[8] = tempStats[8] + 1;
 					hunger++;
@@ -1903,7 +1903,7 @@ public class GameScript : MonoBehaviour
 					{
 						inventory[_0024slot_00241734].id = 0;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 5:
 					hunger += 4;
 					_0024dood1_00241687 = UnityEngine.Random.Range(0, 2);
@@ -1922,7 +1922,7 @@ public class GameScript : MonoBehaviour
 					{
 						inventory[_0024slot_00241734].id = 0;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 6:
 					Network.Instantiate(Resources.Load("interact/fire"), player.transform.position, Quaternion.identity, 1);
 					inventory[_0024slot_00241734].q = inventory[_0024slot_00241734].q - 1;
@@ -1930,7 +1930,7 @@ public class GameScript : MonoBehaviour
 					{
 						inventory[_0024slot_00241734].id = 0;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 7:
 					_0024mouse_pos1_00241695 = UnityEngine.Input.mousePosition;
 					_0024object_pos1_00241694 = Camera.main.WorldToScreenPoint(player.transform.position);
@@ -1944,7 +1944,7 @@ public class GameScript : MonoBehaviour
 					{
 						inventory[_0024slot_00241734].id = 0;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 8:
 					_0024mouse_pos_00241701 = UnityEngine.Input.mousePosition;
 					_0024object_pos_00241700 = Camera.main.WorldToScreenPoint(player.transform.position);
@@ -1990,7 +1990,7 @@ public class GameScript : MonoBehaviour
 						}
 						multishot = false;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 9:
 					_0024mouse_pos11_00241710 = UnityEngine.Input.mousePosition;
 					_0024object_pos11_00241709 = Camera.main.WorldToScreenPoint(player.transform.position);
@@ -2037,7 +2037,7 @@ public class GameScript : MonoBehaviour
 						}
 						multishot = false;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 10:
 					_0024mouse_poss_00241719 = UnityEngine.Input.mousePosition;
 					_0024object_poss_00241718 = Camera.main.WorldToScreenPoint(player.transform.position);
@@ -2048,7 +2048,7 @@ public class GameScript : MonoBehaviour
 					_0024arr_00241716 = (GameObject)Network.Instantiate(Resources.Load("skill/crossBolt"), player.transform.position, Quaternion.Euler(new Vector3(0f, 0f, _0024anglee_00241720)), 0);
 					_0024fff988_00241721 = 2 * (DEX + DEXBonus + drumDEX + 20);
 					_0024arr_00241716.GetComponent<NetworkView>().RPC("SetN", RPCMode.All, _0024fff988_00241721);
-					goto IL_2369;
+					goto IL_2351;
 				case 11:
 					_0024mouse_pos112_00241726 = UnityEngine.Input.mousePosition;
 					_0024object_pos112_00241725 = Camera.main.WorldToScreenPoint(player.transform.position);
@@ -2095,7 +2095,7 @@ public class GameScript : MonoBehaviour
 						}
 						multishot = false;
 					}
-					goto IL_2369;
+					goto IL_2351;
 				case 12:
 					if (facingLeft)
 					{
@@ -2107,16 +2107,16 @@ public class GameScript : MonoBehaviour
 					}
 					_0024f_00241728.SendMessage("Set", MAXMAG + drumMAG);
 					_0024self__00241735.GUImana.GetComponent<Animation>().Play();
-					goto IL_2369;
+					goto IL_2351;
 				case 13:
 					_0024bo_00241731 = (GameObject)Network.Instantiate(Resources.Load("proj/bolt"), player.transform.position, Quaternion.identity, 0);
 					_0024bo_00241731.SendMessage("Set", MAXMAG + drumMAG);
 					_0024self__00241735.GUImana.GetComponent<Animation>().Play();
-					goto IL_2369;
+					goto IL_2351;
 				case 14:
 					player.SendMessage("iceShard", MAXMAG + drumMAG);
 					_0024self__00241735.GUImana.GetComponent<Animation>().Play();
-					goto IL_2369;
+					goto IL_2351;
 				case 15:
 					if (facingLeft)
 					{
@@ -2127,25 +2127,25 @@ public class GameScript : MonoBehaviour
 						Network.Instantiate(Resources.Load("e/summon2"), player.transform.position, Quaternion.Euler(0f, 0f, 0f), 0);
 					}
 					_0024self__00241735.GUImana.GetComponent<Animation>().Play();
-					goto IL_2369;
+					goto IL_2351;
 				case 16:
 					_0024self__00241735.@using = false;
-					goto IL_23a2;
+					goto IL_2347;
 				case 1:
 					{
-						result = 0;
+						num = 0;
 						break;
 					}
-					IL_23a2:
+					IL_2347:
 					YieldDefault(1);
 					goto case 1;
-					IL_2369:
+					IL_2351:
 					_0024self__00241735.RefreshActionBar();
 					_0024self__00241735.UpdateCharacterWeapon();
-					result = (Yield(16, new WaitForSeconds(0.2f)) ? 1 : 0);
+					num = (Yield(16, new WaitForSeconds(0.2f)) ? 1 : 0);
 					break;
 				}
-				return (byte)result != 0;
+				return (byte)num != 0;
 			}
 		}
 
