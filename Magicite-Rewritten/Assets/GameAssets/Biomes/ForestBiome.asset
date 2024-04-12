@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21094e56105ce14fbb2bdfb81dbf189, type: 3}
+  m_Name: ForestBiome
+  m_EditorClassIdentifier: 
+  Entrance: {fileID: 2100000, guid: eb3aeab5e55c2e14398e5b64da970283, type: 2}
+  Exit: {fileID: 2100000, guid: 231d626643bc10f41af8138a161fb3d6, type: 2}
+  ExitDoor: {fileID: 2100000, guid: 23b8d4e394719dd4abe968768488baa6, type: 2}
+  Zone1: {fileID: 2100000, guid: 2bd01fcd53cf0a94e96afb5faa3f151c, type: 2}
+  Zone2: {fileID: 2100000, guid: 1f622b6139838bf41b0b498aa2915ac9, type: 2}
+  Zone3: {fileID: 2100000, guid: 9d05bd3fc1ec5e64893b8134d0bad5dc, type: 2}
+  Zone4: {fileID: 2100000, guid: 63dcb334b156e184198dc8f534d43bb0, type: 2}
+  Zone5: {fileID: 2100000, guid: 9aec34f3721a22c419efc9a5cac20949, type: 2}
+  Zone6: {fileID: 2100000, guid: 4f7a5c19eed1a6c4495bd06b4d0db320, type: 2}
+  Zone7: {fileID: 2100000, guid: 553b3753c8cb1354bb2928f6813ca480, type: 2}
+  Zone8: {fileID: 2100000, guid: d3c8a27b22939c342a5feeb58144a668, type: 2}
