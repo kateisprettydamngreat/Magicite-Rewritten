@@ -1,2013 +1,648 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Boo.Lang;
 using UnityEngine;
 
 [Serializable]
 public class PlayerControllerN : MonoBehaviour
 {
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024iceShard_00242212 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator iceShard(int mag)
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		shard.SetActive(true);
+		if (GetComponent<NetworkView>().isMine)
 		{
-			internal int _0024finalM_00242213;
-
-			internal int _0024mag_00242214;
-
-			internal PlayerControllerN _0024self__00242215;
-
-			public _0024(int mag, PlayerControllerN self_)
+			shard.SetActive(true);
+			GetComponent<NetworkView>().RPC("iceShardN", RPCMode.All, mag, 1);
+			int finalM = (int)(mag * 0.5f);
+			shard1.GetComponent<NetworkView>().RPC("SetHH", RPCMode.All, finalM);
+			shard2.GetComponent<NetworkView>().RPC("SetHH", RPCMode.All, finalM);
+			shard3.GetComponent<NetworkView>().RPC("SetHH", RPCMode.All, finalM);
+			shardCount++;
+			yield return new WaitForSeconds(20f);
+			shardCount--;
+			if (shardCount <= 0)
 			{
-				_0024mag_00242214 = mag;
-				_0024self__00242215 = self_;
+				GetComponent<NetworkView>().RPC("iceShardN", RPCMode.All, mag, 0);
 			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242215.shard.SetActive(value: true);
-					if (_0024self__00242215.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242215.shard.SetActive(value: true);
-						_0024self__00242215.GetComponent<NetworkView>().RPC("iceShardN", RPCMode.All, _0024mag_00242214, 1);
-						_0024finalM_00242213 = (int)((float)_0024mag_00242214 * 0.5f);
-						_0024self__00242215.shard1.GetComponent<NetworkView>().RPC("SetHH", RPCMode.All, _0024finalM_00242213);
-						_0024self__00242215.shard2.GetComponent<NetworkView>().RPC("SetHH", RPCMode.All, _0024finalM_00242213);
-						_0024self__00242215.shard3.GetComponent<NetworkView>().RPC("SetHH", RPCMode.All, _0024finalM_00242213);
-						_0024self__00242215.shardCount++;
-						result = (Yield(2, new WaitForSeconds(20f)) ? 1 : 0);
-						break;
-					}
-					goto IL_01aa;
-				case 2:
-					_0024self__00242215.shardCount--;
-					if (_0024self__00242215.shardCount <= 0)
-					{
-						_0024self__00242215.GetComponent<NetworkView>().RPC("iceShardN", RPCMode.All, _0024mag_00242214, 0);
-					}
-					goto IL_01aa;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_01aa:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024mag_00242216;
-
-		internal PlayerControllerN _0024self__00242217;
-
-		public _0024iceShard_00242212(int mag, PlayerControllerN self_)
-		{
-			_0024mag_00242216 = mag;
-			_0024self__00242217 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024mag_00242216, _0024self__00242217);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Start_00242218 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator Start()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		yield return new WaitForSeconds(2f);
+		leavingLevel = false;
+		while (true)
 		{
-			internal PlayerControllerN _0024self__00242219;
-
-			public _0024(PlayerControllerN self_)
+			if (GetComponent<NetworkView>().isMine && !downed)
 			{
-				_0024self__00242219 = self_;
+				gameScript.DecreaseHunger();
 			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					leavingLevel = false;
-					goto IL_0039;
-				case 3:
-					if (_0024self__00242219.GetComponent<NetworkView>().isMine && !downed)
-					{
-						_0024self__00242219.gameScript.DecreaseHunger();
-					}
-					goto IL_0039;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0039:
-					result = (Yield(3, new WaitForSeconds(60f)) ? 1 : 0);
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242220;
-
-		public _0024Start_00242218(PlayerControllerN self_)
-		{
-			_0024self__00242220 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242220);
+			yield return new WaitForSeconds(60f);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024SetZoneName_00242221 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator SetZoneName(string s)
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		leaving = false;
+		if (gameScript != null)
 		{
-			internal string _0024s_00242222;
-
-			internal PlayerControllerN _0024self__00242223;
-
-			public _0024(string s, PlayerControllerN self_)
-			{
-				_0024s_00242222 = s;
-				_0024self__00242223 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242223.leaving = false;
-					if ((bool)_0024self__00242223.gameScript)
-					{
-						_0024self__00242223.gameScript.txtZone.text = _0024s_00242222;
-						_0024self__00242223.gameScript.txtLevelName.text = _0024s_00242222;
-						_0024self__00242223.gameScript.txtLevelName.gameObject.SetActive(value: true);
-					}
-					else if (_0024self__00242223.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242223.gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
-						result = (Yield(2, new WaitForSeconds(0.5f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0143;
-				case 2:
-					if ((bool)_0024self__00242223.gameScript)
-					{
-						_0024self__00242223.gameScript.txtZone.text = _0024s_00242222;
-						_0024self__00242223.gameScript.txtLevelName.text = _0024s_00242222;
-						_0024self__00242223.gameScript.txtLevelName.gameObject.SetActive(value: true);
-					}
-					goto IL_0143;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0143:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
+			gameScript.txtZone.text = s;
+			gameScript.txtLevelName.text = s;
+			gameScript.txtLevelName.gameObject.SetActive(true);
 		}
-
-		internal string _0024s_00242224;
-
-		internal PlayerControllerN _0024self__00242225;
-
-		public _0024SetZoneName_00242221(string s, PlayerControllerN self_)
+		else if (GetComponent<NetworkView>().isMine)
 		{
-			_0024s_00242224 = s;
-			_0024self__00242225 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024s_00242224, _0024self__00242225);
+			gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
+			yield return new WaitForSeconds(0.5f);
+			if (gameScript != null)
+			{
+				gameScript.txtZone.text = s;
+				gameScript.txtLevelName.text = s;
+				gameScript.txtLevelName.gameObject.SetActive(true);
+			}
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024DrumATKTick_00242226 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator DrumATKTick()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (GetComponent<NetworkView>().isMine)
 		{
-			internal PlayerControllerN _0024self__00242227;
-
-			public _0024(PlayerControllerN self_)
+			yield return new WaitForSeconds(15f);
+			if (GameScript.drumATK > 10)
 			{
-				_0024self__00242227 = self_;
+				GameScript.drumATK -= 10;
 			}
-
-			public override bool MoveNext()
+			else
 			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242227.GetComponent<NetworkView>().isMine)
-					{
-						result = (Yield(2, new WaitForSeconds(15f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0094;
-				case 2:
-					if (GameScript.drumATK > 10)
-					{
-						GameScript.drumATK -= 10;
-					}
-					else
-					{
-						GameScript.drumATK = 0;
-					}
-					if (GameScript.drumATK <= 0)
-					{
-						_0024self__00242227.GetComponent<NetworkView>().RPC("drumATKN", RPCMode.All, 0);
-					}
-					goto IL_0094;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0094:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
+				GameScript.drumATK = 0;
+			}
+			if (GameScript.drumATK <= 0)
+			{
+				GetComponent<NetworkView>().RPC("drumATKN", RPCMode.All, 0);
 			}
 		}
-
-		internal PlayerControllerN _0024self__00242228;
-
-		public _0024DrumATKTick_00242226(PlayerControllerN self_)
+		while (true)
 		{
-			_0024self__00242228 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242228);
+			yield return null;
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024DrumDEXTick_00242229 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator DrumDEXTick()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (GetComponent<NetworkView>().isMine)
 		{
-			internal PlayerControllerN _0024self__00242230;
+			yield return new WaitForSeconds(15f);
 
-			public _0024(PlayerControllerN self_)
+			if (GameScript.drumDEX > 10)
 			{
-				_0024self__00242230 = self_;
+				GameScript.drumDEX -= 10;
+			}
+			else
+			{
+				GameScript.drumDEX = 0;
 			}
 
-			public override bool MoveNext()
+			if (GameScript.drumDEX <= 0)
 			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242230.GetComponent<NetworkView>().isMine)
-					{
-						result = (Yield(2, new WaitForSeconds(15f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0094;
-				case 2:
-					if (GameScript.drumDEX > 10)
-					{
-						GameScript.drumDEX -= 10;
-					}
-					else
-					{
-						GameScript.drumDEX = 0;
-					}
-					if (GameScript.drumDEX <= 0)
-					{
-						_0024self__00242230.GetComponent<NetworkView>().RPC("drumDEXN", RPCMode.All, 0);
-					}
-					goto IL_0094;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0094:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
+				GetComponent<NetworkView>().RPC("drumDEXN", RPCMode.All, 0);
 			}
-		}
-
-		internal PlayerControllerN _0024self__00242231;
-
-		public _0024DrumDEXTick_00242229(PlayerControllerN self_)
-		{
-			_0024self__00242231 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242231);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024DrumMAGTick_00242232 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator DrumMAGTick()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (GetComponent<NetworkView>().isMine)
 		{
-			internal PlayerControllerN _0024self__00242233;
-
-			public _0024(PlayerControllerN self_)
+			yield return new WaitForSeconds(15f);
+			if (GameScript.drumMAG > 10)
 			{
-				_0024self__00242233 = self_;
+				GameScript.drumMAG -= 10;
 			}
-
-			public override bool MoveNext()
+			else
 			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242233.GetComponent<NetworkView>().isMine)
-					{
-						result = (Yield(2, new WaitForSeconds(15f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0089;
-				case 2:
-					if (GameScript.drumMAG > 10)
-					{
-						GameScript.drumMAG -= 10;
-					}
-					else
-					{
-						GameScript.drumMAG = 0;
-					}
-					_0024self__00242233.GetComponent<NetworkView>().RPC("drumMAGN", RPCMode.All, 0);
-					goto IL_0089;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0089:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
+				GameScript.drumMAG = 0;
 			}
+			GetComponent<NetworkView>().RPC("drumMAGN", RPCMode.All, 0);
 		}
-
-		internal PlayerControllerN _0024self__00242234;
-
-		public _0024DrumMAGTick_00242232(PlayerControllerN self_)
+		while (true)
 		{
-			_0024self__00242234 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242234);
+			yield return null;
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024mWeaponsN_00242235 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator mWeaponsN(int a)
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		mBonus += a;
+		mWeapon.SetActive(true);
+		yield return new WaitForSeconds(15f);
+		mBonus -= a;
+		if (mBonus < 0)
 		{
-			internal int _0024a_00242236;
-
-			internal PlayerControllerN _0024self__00242237;
-
-			public _0024(int a, PlayerControllerN self_)
-			{
-				_0024a_00242236 = a;
-				_0024self__00242237 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					mBonus += _0024a_00242236;
-					_0024self__00242237.mWeapon.SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(15f)) ? 1 : 0);
-					break;
-				case 2:
-					mBonus -= _0024a_00242236;
-					if (mBonus < 0)
-					{
-						mBonus = 0;
-					}
-					if (mBonus == 0)
-					{
-						_0024self__00242237.mWeapon.SetActive(value: false);
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
+			mBonus = 0;
 		}
-
-		internal int _0024a_00242238;
-
-		internal PlayerControllerN _0024self__00242239;
-
-		public _0024mWeaponsN_00242235(int a, PlayerControllerN self_)
+		if (mBonus == 0)
 		{
-			_0024a_00242238 = a;
-			_0024self__00242239 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00242238, _0024self__00242239);
+			mWeapon.SetActive(false);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024HELP_00242240 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator HELP()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (!reviving)
 		{
-			internal PlayerControllerN _0024self__00242241;
+			GetComponent<NetworkView>().RPC("EX", RPCMode.All);
+			reviving = true;
+			GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 3);
+			yield return new WaitForSeconds(1f);
 
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242241 = self_;
-			}
+			GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 2);
+			yield return new WaitForSeconds(1f);
 
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242241.reviving)
-					{
-						_0024self__00242241.GetComponent<NetworkView>().RPC("EX", RPCMode.All);
-						_0024self__00242241.reviving = true;
-						_0024self__00242241.GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 3);
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_014c;
-				case 2:
-					_0024self__00242241.GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 2);
-					result = (Yield(3, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 3:
-					_0024self__00242241.GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 1);
-					result = (Yield(4, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 4:
-					_0024self__00242241.reviving = false;
-					_0024self__00242241.GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 0);
-					_0024self__00242241.GetComponent<NetworkView>().RPC("Revive", RPCMode.All);
-					goto IL_014c;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_014c:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
+			GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 1);
+			yield return new WaitForSeconds(1f);
 
-		internal PlayerControllerN _0024self__00242242;
-
-		public _0024HELP_00242240(PlayerControllerN self_)
-		{
-			_0024self__00242242 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242242);
+			reviving = false;
+			GetComponent<NetworkView>().RPC("Tick", RPCMode.All, 0);
+			GetComponent<NetworkView>().RPC("Revive", RPCMode.All);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ChargeN_00242243 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator ChargeN()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		particleCharge.SetActive(true);
+		yield return new WaitForSeconds(10f);
+		chargeBoost -= 4;
+		if (chargeBoost < 0)
 		{
-			internal PlayerControllerN _0024self__00242244;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242244 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242244.particleCharge.SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242244.chargeBoost -= 4;
-					if (_0024self__00242244.chargeBoost < 0)
-					{
-						_0024self__00242244.chargeBoost = 0;
-					}
-					if (_0024self__00242244.chargeBoost == 0)
-					{
-						_0024self__00242244.particleCharge.SetActive(value: false);
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
+			chargeBoost = 0;
 		}
-
-		internal PlayerControllerN _0024self__00242245;
-
-		public _0024ChargeN_00242243(PlayerControllerN self_)
+		if (chargeBoost == 0)
 		{
-			_0024self__00242245 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242245);
+			particleCharge.SetActive(false);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Offledge_00242246 : GenericGenerator<WaitForSeconds>
+	public IEnumerator Offledge()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (!offledge)
 		{
-			internal PlayerControllerN _0024self__00242247;
+			offledge = true;
+			yield return new WaitForSeconds(0.2f);
 
-			public _0024(PlayerControllerN self_)
+			if (Physics.Raycast(ray, out hit, 1.5f))
 			{
-				_0024self__00242247 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
+				if (hit.transform.gameObject.layer == 11)
 				{
-				default:
-					if (!_0024self__00242247.offledge)
-					{
-						_0024self__00242247.offledge = true;
-						result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-						break;
-					}
-					goto IL_00f9;
-				case 2:
-					if (Physics.Raycast(_0024self__00242247.ray, out _0024self__00242247.hit, 1.5f))
-					{
-						if (_0024self__00242247.hit.transform.gameObject.layer == 11)
-						{
-							_0024self__00242247.grounded = true;
-							_0024self__00242247.mode = 0;
-							_0024self__00242247.canDoubleJump = true;
-						}
-						else
-						{
-							_0024self__00242247.mode = 2;
-							_0024self__00242247.grounded = false;
-						}
-					}
-					else
-					{
-						_0024self__00242247.mode = 2;
-						_0024self__00242247.grounded = false;
-					}
-					_0024self__00242247.offledge = false;
-					goto IL_00f9;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00f9:
-					YieldDefault(1);
-					goto case 1;
+					grounded = true;
+					mode = 0;
+					canDoubleJump = true;
 				}
-				return (byte)result != 0;
+				else
+				{
+					mode = 2;
+					grounded = false;
+				}
 			}
-		}
+			else
+			{
+				mode = 2;
+				grounded = false;
+			}
 
-		internal PlayerControllerN _0024self__00242248;
-
-		public _0024Offledge_00242246(PlayerControllerN self_)
-		{
-			_0024self__00242248 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242248);
+			offledge = false;
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024EnterDoor_00242249 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator EnterDoor()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		leaving = true;
+		int cd = GameScript.curDoor;
+		MonoBehaviour.print(cd + " CURDOR ");
+		inDoor = true;
+		GetComponent<NetworkView>().RPC("Leaving", RPCMode.All, cd);
+		yield return new WaitForSeconds(2f);
+		leaving = false;
+	}
+
+	public virtual IEnumerator LeaveDoor()
+	{
+		leaving = true;
+		inDoor = false;
+		trigger.canLeave = true;
+
+		int num = 0;
+		Vector3 pos = p.transform.position;
+		pos.z = num;
+		p.transform.position = pos;
+
+		inDoor = false;
+		GetComponent<NetworkView>().RPC("NotLeaving", RPCMode.Server, GameScript.curDoor);
+
+		yield return new WaitForSeconds(0.2f);
+
+		leaving = false;
+	}
+
+	public virtual IEnumerator HELPSTAY()
+	{
+		if (GetComponent<NetworkView>().isMine)
 		{
-			internal int _0024cd_00242250;
-
-			internal PlayerControllerN _0024self__00242251;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242251 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242251.leaving = true;
-					_0024cd_00242250 = GameScript.curDoor;
-					MonoBehaviour.print(_0024cd_00242250 + " CURDOR ");
-					_0024self__00242251.inDoor = true;
-					_0024self__00242251.GetComponent<NetworkView>().RPC("Leaving", RPCMode.All, _0024cd_00242250);
-					result = (Yield(2, new WaitForSeconds(2f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242251.leaving = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242252;
-
-		public _0024EnterDoor_00242249(PlayerControllerN self_)
-		{
-			_0024self__00242252 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242252);
+			gameScript.immobilized = true;
+			immobilized = true;
+			yield return new WaitForSeconds(3f);
+			gameScript.immobilized = false;
+			immobilized = false;
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024LeaveDoor_00242253 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator Leaving(int d)
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (!leavingLevel)
 		{
-			internal int _0024_0024811_00242254;
-
-			internal Vector3 _0024_0024812_00242255;
-
-			internal PlayerControllerN _0024self__00242256;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242256 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-				{
-					_0024self__00242256.leaving = true;
-					_0024self__00242256.inDoor = false;
-					_0024self__00242256.trigger.canLeave = true;
-					int num = (_0024_0024811_00242254 = 0);
-					Vector3 vector = (_0024_0024812_00242255 = _0024self__00242256.p.transform.position);
-					float num2 = (_0024_0024812_00242255.z = _0024_0024811_00242254);
-					Vector3 vector3 = (_0024self__00242256.p.transform.position = _0024_0024812_00242255);
-					_0024self__00242256.inDoor = false;
-					_0024self__00242256.GetComponent<NetworkView>().RPC("NotLeaving", RPCMode.Server, GameScript.curDoor);
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				}
-				case 2:
-					_0024self__00242256.leaving = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
+			leavingLevel = true;
+			Camera.main.gameObject.SendMessage("fadeOut");
+			yield return new WaitForSeconds(1f);
 		}
 
-		internal PlayerControllerN _0024self__00242257;
-
-		public _0024LeaveDoor_00242253(PlayerControllerN self_)
+		if (Network.isServer)
 		{
-			_0024self__00242257 = self_;
+			int a = default(int);
+			GameScript.changingScene = true;
+			int i = d;
+			GameScript.curBiome = GameScript.doorBiome[i];
+			if (GameScript.isTown)
+			{
+				GameScript.isTown = false;
+			}
+			else if (GameScript.districtLevel == 21)
+			{
+				GameScript.isTown = false;
+			}
+			else
+			{
+				GameScript.isTown = true;
+			}
 		}
+		Application.LoadLevel(2);
+	}
 
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
+	public virtual IEnumerator Dash(int a)
+	{
+		if (gameScript.stamina >= 1f)
 		{
-			return new _0024(_0024self__00242257);
+			dashing = true;
+			gameScript.Stamina();
+			if (MenuScript.pHat != 20)
+			{
+				gameScript.stamina -= 1f;
+			}
+			gameScript.LoadSTA();
+			int bonus = 0;
+			if (MenuScript.pHat == 7)
+			{
+				bonus = 10;
+			}
+			GetComponent<NetworkView>().RPC("po", RPCMode.All, t.position);
+			GetComponent<NetworkView>().RPC("AnimD", RPCMode.All);
+			if (grounded)
+			{
+				if (a != 0)
+				{
+					r.velocity = new Vector3(18 + bonus, r.velocity.y, r.velocity.z);
+				}
+				else
+				{
+					r.velocity = new Vector3(-18 - bonus, r.velocity.y, r.velocity.z);
+				}
+			}
+			else
+			{
+				if (MenuScript.companion == 4)
+				{
+					GameObject dd = (GameObject)Network.Instantiate(Resources.Load("skill/gadget"), transform.position, Quaternion.identity, 0);
+					dd.SendMessage("SetHH", GameScript.finalATK);
+				}
+				if (a != 0)
+				{
+					r.velocity = new Vector3(15 + bonus, r.velocity.y, r.velocity.z);
+				}
+				else
+				{
+					r.velocity = new Vector3(-15 - bonus, r.velocity.y, r.velocity.z);
+				}
+			}
+			yield return new WaitForSeconds(0.3f);
+			dashing = false;
+		}
+		else
+		{
+			UnityEngine.Object.Instantiate(Resources.Load("noSta"), t.position, Quaternion.identity);
+		}
+	}
+	public virtual IEnumerator Jump()
+	{
+		djA = true;
+		GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP", typeof(AudioClip)));
+		canBoost = true;
+		grounded = false;
+		mode = 2;
+		if (!GameScript.isFloating)
+		{
+			r.velocity = new Vector3(r.velocity.x, 25, r.velocity.z);
+		}
+		else
+		{
+			r.velocity = new Vector3(r.velocity.x, 12, r.velocity.z);
+		}
+		yield return new WaitForSeconds(1f);
+		if (MenuScript.companion != 7)
+		{
+			canBoost = false;
+		}
+	}
+	public virtual IEnumerator DoubleJump()
+	{
+		if (gameScript.stamina >= 1f || MenuScript.companion == 7)
+		{
+			djA = false;
+			GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP2", typeof(AudioClip)));
+			canBoost = false;
+			canBoost2 = true;
+			if (MenuScript.companion != 7)
+			{
+				gameScript.Stamina();
+			}
+			if (MenuScript.pHat != 20 && MenuScript.companion != 7)
+			{
+				gameScript.stamina = gameScript.stamina - 1f;
+			}
+			gameScript.LoadSTA();
+			GetComponent<NetworkView>().RPC("po", RPCMode.All, t.position);
+			canDoubleJump = false;
+			int bonus = 0;
+			if (MenuScript.pHat == 9)
+			{
+				bonus = 24;
+			}
+			if (!GameScript.isFloating)
+			{
+				r.velocity = new Vector3(r.velocity.x, 27, r.velocity.z);
+			}
+			else
+			{
+				r.velocity = new Vector3(r.velocity.x, 12, r.velocity.z);
+			}
+			mode = 2;
+			yield return new WaitForSeconds(1f);
+			canBoost2 = false;
+		}
+		else
+		{
+			UnityEngine.Object.Instantiate(Resources.Load("noSta"), t.position, Quaternion.identity);
+		}
+	}
+	public virtual IEnumerator TripleJump()
+	{
+		if (gameScript.stamina >= 1f)
+		{
+			djA = false;
+			GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP2", typeof(AudioClip)));
+			canBoost = false;
+			canBoost2 = true;
+			gameScript.Stamina();
+			gameScript.stamina -= 1f;
+			gameScript.LoadSTA();
+			GetComponent<NetworkView>().RPC("po", RPCMode.All, t.position);
+			canTripleJump = false;
+
+			if (!GameScript.isFloating)
+			{
+				r.velocity = new Vector3(r.velocity.x, 26f, r.velocity.z);
+			}
+			else
+			{
+				r.velocity = new Vector3(r.velocity.x, 12f, r.velocity.z);
+			}
+
+			mode = 2;
+			yield return new WaitForSeconds(1f);
+			canBoost2 = false;
+		}
+		else
+		{
+			UnityEngine.Object.Instantiate(Resources.Load("noSta"), t.position, Quaternion.identity);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024HELPSTAY_00242258 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator Float()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		GetComponent<NetworkView>().RPC("FloatN", RPCMode.All, 1);
+		floatCounter++;
+		GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, 10, GetComponent<Rigidbody>().velocity.z);
+		GameScript.isFloating = true;
+		yield return new WaitForSeconds(10f);
+		floatCounter--;
+		if (floatCounter < 0)
 		{
-			internal PlayerControllerN _0024self__00242259;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242259 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242259.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242259.gameScript.immobilized = true;
-						_0024self__00242259.immobilized = true;
-						result = (Yield(2, new WaitForSeconds(3f)) ? 1 : 0);
-						break;
-					}
-					goto IL_0079;
-				case 2:
-					_0024self__00242259.gameScript.immobilized = false;
-					_0024self__00242259.immobilized = false;
-					goto IL_0079;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0079:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
+			floatCounter = 0;
 		}
-
-		internal PlayerControllerN _0024self__00242260;
-
-		public _0024HELPSTAY_00242258(PlayerControllerN self_)
+		if (floatCounter == 0)
 		{
-			_0024self__00242260 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242260);
+			GetComponent<NetworkView>().RPC("FloatN", RPCMode.All, 0);
+			if (MenuScript.companion != 6)
+			{
+				GameScript.isFloating = false;
+			}
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Leaving_00242261 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator BeginLevel()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if ((bool)fade)
 		{
-			internal int _0024a_00242262;
-
-			internal int _0024i_00242263;
-
-			internal int _0024d_00242264;
-
-			public _0024(int d)
-			{
-				_0024d_00242264 = d;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!leavingLevel)
-					{
-						leavingLevel = true;
-						Camera.main.gameObject.SendMessage("fadeOut");
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					goto IL_00bf;
-				case 2:
-					if (Network.isServer)
-					{
-						_0024a_00242262 = default(int);
-						GameScript.changingScene = true;
-						_0024i_00242263 = _0024d_00242264;
-						GameScript.curBiome = GameScript.doorBiome[_0024i_00242263];
-						if (GameScript.isTown)
-						{
-							GameScript.isTown = false;
-						}
-						else if (GameScript.districtLevel == 21)
-						{
-							GameScript.isTown = false;
-						}
-						else
-						{
-							GameScript.isTown = true;
-						}
-					}
-					Application.LoadLevel(2);
-					goto IL_00bf;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_00bf:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
+			fade.fadeOut();
 		}
+		yield return new WaitForSeconds(0.2f);
+		Application.LoadLevel(2);
+	}
+	public virtual IEnumerator LoadLevel(int level, bool a)
+	{
+		fade.fadeOut();
+		yield return new WaitForSeconds(0.2f);
+		GameScript.changingScene = true;
+		GameScript.isInstance = a;
+		Application.LoadLevel(level);
+	}
 
-		internal int _0024d_00242265;
-
-		public _0024Leaving_00242261(int d)
+	public virtual IEnumerator OnLevelWasLoaded(int level)
+	{
+		GameScript.playersDead = 0;
+		if ((bool)gameScript)
 		{
-			_0024d_00242265 = d;
+			GameScript.playersDead = 0;
 		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
+		if (GameScript.HP <= 0)
 		{
-			return new _0024(_0024d_00242265);
+			downed = false;
+			exclamation.SetActive(false);
+			GameScript.canTakeDamage = true;
+			mode = 0;
+			GameScript.curGold = 0;
+			if ((bool)gameScript)
+			{
+				gameScript.RefreshGold();
+			}
+			GetComponent<NetworkView>().RPC("SetRevive", RPCMode.All);
+			gameScript.SetRevive();
+			PlayerTriggerScript.canTakeDamage = true;
+			trigger.enabled = true;
+		}
+		if (GetComponent<NetworkView>().isMine)
+		{
+			musicBox = GameObject.Find("musicBox");
+		}
+		if (MenuScript.companion == 6 || MenuScript.companion == 9)
+		{
+			GameScript.isFloating = true;
+			GetComponent<Rigidbody>().useGravity = false;
+		}
+		GameScript.readyPlayers = 0;
+		changing = false;
+		if (MenuScript.pHat == 9)
+		{
+			waspEye = true;
+		}
+		if (Network.isServer)
+		{
+			HungerCheck();
+		}
+		particleRoar.SetActive(false);
+		particleFloat.SetActive(false);
+		mWeapon.SetActive(false);
+		particleClair.SetActive(false);
+		shieldObj.SetActive(false);
+		particleCharge.SetActive(false);
+		particleRage.SetActive(false);
+		GetComponent<NetworkView>().RPC("drumATKN", RPCMode.All, 0);
+		GetComponent<NetworkView>().RPC("drumDEXN", RPCMode.All, 0);
+		GetComponent<NetworkView>().RPC("drumMAGN", RPCMode.All, 0);
+		won = false;
+		GetComponent<NetworkView>().RPC("bWN", RPCMode.All);
+		reviveBox.GetComponent<BoxCollider>().enabled = false;
+		chargeBoost = 0;
+		isBoss = false;
+		if (Network.isServer)
+		{
+			int nuu = GameScript.curBiome;
+			if (GameScript.isTown)
+			{
+				nuu = 99;
+			}
+			GetComponent<NetworkView>().RPC("SetMusic", RPCMode.All, nuu);
+		}
+		if (GetComponent<NetworkView>().isMine)
+		{
+			if (Network.connections.Length == 0)
+			{
+				nameObj.SetActive(false);
+			}
+			attackCube.SetActive(false);
+			if ((bool)t)
+			{
+				t.position = new Vector3(2f, -2f, 0f);
+			}
+			inDoor = false;
+			if ((bool)trigger)
+			{
+				trigger.canLeave = false;
+			}
+			p.transform.position = new Vector3(p.transform.position.x, p.transform.position.y, 0f);
+			for (int i = 0; i < 3; i++)
+			{
+				GameScript.door[i] = 0;
+			}
+			GameScript.readyPlayers = 0;
+			gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
+			GameScript.cLevel = PlayerPrefs.GetInt("cLevel");
+		}
+		yield return new WaitForSeconds(1f);
+		gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
+		leavingLevel = false;
+	}
+
+	public IEnumerator Check()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(2.2f);
+
+			if (GameScript.playersDead >= Network.connections.Length + 1)
+			{
+				GetComponent<NetworkView>().RPC("GameOver", RPCMode.All);
+			}
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Dash_00242266 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator GameOver()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (gameScript != null)
 		{
-			internal int _0024bonus_00242267;
-
-			internal GameObject _0024dd_00242268;
-
-			internal int _0024_0024813_00242269;
-
-			internal Vector3 _0024_0024814_00242270;
-
-			internal int _0024_0024815_00242271;
-
-			internal Vector3 _0024_0024816_00242272;
-
-			internal int _0024_0024817_00242273;
-
-			internal Vector3 _0024_0024818_00242274;
-
-			internal int _0024_0024819_00242275;
-
-			internal Vector3 _0024_0024820_00242276;
-
-			internal int _0024a_00242277;
-
-			internal PlayerControllerN _0024self__00242278;
-
-			public _0024(int a, PlayerControllerN self_)
-			{
-				_0024a_00242277 = a;
-				_0024self__00242278 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!(_0024self__00242278.gameScript.stamina < 1f))
-					{
-						_0024self__00242278.dashing = true;
-						_0024self__00242278.gameScript.Stamina();
-						if (MenuScript.pHat != 20)
-						{
-							_0024self__00242278.gameScript.stamina = _0024self__00242278.gameScript.stamina - 1f;
-						}
-						_0024self__00242278.gameScript.LoadSTA();
-						_0024bonus_00242267 = default(int);
-						if (MenuScript.pHat == 7)
-						{
-							_0024bonus_00242267 = 10;
-						}
-						_0024self__00242278.GetComponent<NetworkView>().RPC("po", RPCMode.All, _0024self__00242278.t.position);
-						_0024self__00242278.GetComponent<NetworkView>().RPC("AnimD", RPCMode.All);
-						if (_0024self__00242278.grounded)
-						{
-							if (_0024a_00242277 != 0)
-							{
-								int num = (_0024_0024815_00242271 = 18 + _0024bonus_00242267);
-								Vector3 vector = (_0024_0024816_00242272 = _0024self__00242278.r.velocity);
-								float num2 = (_0024_0024816_00242272.x = _0024_0024815_00242271);
-								Vector3 vector3 = (_0024self__00242278.r.velocity = _0024_0024816_00242272);
-							}
-							else
-							{
-								int num3 = (_0024_0024813_00242269 = -18 - _0024bonus_00242267);
-								Vector3 vector4 = (_0024_0024814_00242270 = _0024self__00242278.r.velocity);
-								float num4 = (_0024_0024814_00242270.x = _0024_0024813_00242269);
-								Vector3 vector6 = (_0024self__00242278.r.velocity = _0024_0024814_00242270);
-							}
-						}
-						else
-						{
-							if (MenuScript.companion == 4)
-							{
-								_0024dd_00242268 = (GameObject)Network.Instantiate(Resources.Load("skill/gadget"), _0024self__00242278.transform.position, Quaternion.identity, 0);
-								_0024dd_00242268.SendMessage("SetHH", GameScript.finalATK);
-							}
-							if (_0024a_00242277 != 0)
-							{
-								int num5 = (_0024_0024819_00242275 = 15 + _0024bonus_00242267);
-								Vector3 vector7 = (_0024_0024820_00242276 = _0024self__00242278.r.velocity);
-								float num6 = (_0024_0024820_00242276.x = _0024_0024819_00242275);
-								Vector3 vector9 = (_0024self__00242278.r.velocity = _0024_0024820_00242276);
-							}
-							else
-							{
-								int num7 = (_0024_0024817_00242273 = -15 - _0024bonus_00242267);
-								Vector3 vector10 = (_0024_0024818_00242274 = _0024self__00242278.r.velocity);
-								float num8 = (_0024_0024818_00242274.x = _0024_0024817_00242273);
-								Vector3 vector12 = (_0024self__00242278.r.velocity = _0024_0024818_00242274);
-							}
-						}
-						result = (Yield(2, new WaitForSeconds(0.3f)) ? 1 : 0);
-						break;
-					}
-					UnityEngine.Object.Instantiate(Resources.Load("noSta"), _0024self__00242278.t.position, Quaternion.identity);
-					goto IL_035a;
-				case 2:
-					_0024self__00242278.dashing = false;
-					goto IL_035a;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_035a:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
+			StartCoroutine(gameScript.Die());
 		}
-
-		internal int _0024a_00242279;
-
-		internal PlayerControllerN _0024self__00242280;
-
-		public _0024Dash_00242266(int a, PlayerControllerN self_)
+		else
 		{
-			_0024a_00242279 = a;
-			_0024self__00242280 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024a_00242279, _0024self__00242280);
+			if (GetComponent<NetworkView>().isMine)
+			{
+				gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
+				yield return new WaitForSeconds(0.1f);
+			}
+			else
+			{
+				gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
+				MonoBehaviour.print("gamescript trying ");
+				yield return new WaitForSeconds(0.1f);
+			}
+			StartCoroutine(gameScript.Die());
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Jump_00242281 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator LevelUp()
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		levelUpObj.SetActive(true);
+		GetComponent<AudioSource>().PlayOneShot(audioLevelUp);
+		yield return new WaitForSeconds(1f);
+		levelUpObj.SetActive(false);
+	}
+
+	public virtual IEnumerator ShieldN()
+	{
+		shieldObj.SetActive(true);
+		yield return new WaitForSeconds(10f);
+
+		PlayerTriggerScript.ShieldDEF -= 4;
+		if (PlayerTriggerScript.ShieldDEF < 0)
 		{
-			internal int _0024_0024821_00242282;
-
-			internal Vector3 _0024_0024822_00242283;
-
-			internal int _0024_0024823_00242284;
-
-			internal Vector3 _0024_0024824_00242285;
-
-			internal PlayerControllerN _0024self__00242286;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242286 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242286.djA = true;
-					_0024self__00242286.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP", typeof(AudioClip)));
-					_0024self__00242286.canBoost = true;
-					_0024self__00242286.grounded = false;
-					_0024self__00242286.mode = 2;
-					if (!GameScript.isFloating)
-					{
-						int num = (_0024_0024823_00242284 = 25);
-						Vector3 vector = (_0024_0024824_00242285 = _0024self__00242286.r.velocity);
-						float num2 = (_0024_0024824_00242285.y = _0024_0024823_00242284);
-						Vector3 vector3 = (_0024self__00242286.r.velocity = _0024_0024824_00242285);
-					}
-					else
-					{
-						int num3 = (_0024_0024821_00242282 = 12);
-						Vector3 vector4 = (_0024_0024822_00242283 = _0024self__00242286.r.velocity);
-						float num4 = (_0024_0024822_00242283.y = _0024_0024821_00242282);
-						Vector3 vector6 = (_0024self__00242286.r.velocity = _0024_0024822_00242283);
-					}
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					if (MenuScript.companion != 7)
-					{
-						_0024self__00242286.canBoost = false;
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
+			PlayerTriggerScript.ShieldDEF = 0;
 		}
-
-		internal PlayerControllerN _0024self__00242287;
-
-		public _0024Jump_00242281(PlayerControllerN self_)
+		if (PlayerTriggerScript.ShieldDEF == 0)
 		{
-			_0024self__00242287 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242287);
+			shieldObj.SetActive(false);
 		}
 	}
 
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024DoubleJump_00242288 : GenericGenerator<WaitForSeconds>
+	public virtual IEnumerator K(bool l)
 	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
+		if (!inDoor && GetComponent<NetworkView>().isMine)
 		{
-			internal int _0024bonus_00242289;
-
-			internal int _0024_0024825_00242290;
-
-			internal Vector3 _0024_0024826_00242291;
-
-			internal int _0024_0024827_00242292;
-
-			internal Vector3 _0024_0024828_00242293;
-
-			internal PlayerControllerN _0024self__00242294;
-
-			public _0024(PlayerControllerN self_)
+			if (l)
 			{
-				_0024self__00242294 = self_;
+				r.velocity = new Vector3(-10, 10, 0);
+				yield return new WaitForEndOfFrame();
 			}
-
-			public override bool MoveNext()
+			else
 			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (_0024self__00242294.gameScript.stamina >= 1f || MenuScript.companion == 7)
-					{
-						_0024self__00242294.djA = false;
-						_0024self__00242294.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP2", typeof(AudioClip)));
-						_0024self__00242294.canBoost = false;
-						_0024self__00242294.canBoost2 = true;
-						if (MenuScript.companion != 7)
-						{
-							_0024self__00242294.gameScript.Stamina();
-						}
-						if (MenuScript.pHat != 20 && MenuScript.companion != 7)
-						{
-							_0024self__00242294.gameScript.stamina = _0024self__00242294.gameScript.stamina - 1f;
-						}
-						_0024self__00242294.gameScript.LoadSTA();
-						_0024self__00242294.GetComponent<NetworkView>().RPC("po", RPCMode.All, _0024self__00242294.t.position);
-						_0024self__00242294.canDoubleJump = false;
-						_0024bonus_00242289 = default(int);
-						if (MenuScript.pHat == 9)
-						{
-							_0024bonus_00242289 = 24;
-						}
-						if (!GameScript.isFloating)
-						{
-							int num = (_0024_0024827_00242292 = 27);
-							Vector3 vector = (_0024_0024828_00242293 = _0024self__00242294.r.velocity);
-							float num2 = (_0024_0024828_00242293.y = _0024_0024827_00242292);
-							Vector3 vector3 = (_0024self__00242294.r.velocity = _0024_0024828_00242293);
-						}
-						else
-						{
-							int num3 = (_0024_0024825_00242290 = 12);
-							Vector3 vector4 = (_0024_0024826_00242291 = _0024self__00242294.r.velocity);
-							float num4 = (_0024_0024826_00242291.y = _0024_0024825_00242290);
-							Vector3 vector6 = (_0024self__00242294.r.velocity = _0024_0024826_00242291);
-						}
-						_0024self__00242294.mode = 2;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					UnityEngine.Object.Instantiate(Resources.Load("noSta"), _0024self__00242294.t.position, Quaternion.identity);
-					goto IL_0263;
-				case 2:
-					_0024self__00242294.canBoost2 = false;
-					goto IL_0263;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0263:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
+				r.velocity = new Vector3(10, 10, 0);
+				yield return new WaitForEndOfFrame();
 			}
-		}
-
-		internal PlayerControllerN _0024self__00242295;
-
-		public _0024DoubleJump_00242288(PlayerControllerN self_)
-		{
-			_0024self__00242295 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242295);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024TripleJump_00242296 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024829_00242297;
-
-			internal Vector3 _0024_0024830_00242298;
-
-			internal int _0024_0024831_00242299;
-
-			internal Vector3 _0024_0024832_00242300;
-
-			internal PlayerControllerN _0024self__00242301;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242301 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!(_0024self__00242301.gameScript.stamina < 1f))
-					{
-						_0024self__00242301.djA = false;
-						_0024self__00242301.GetComponent<AudioSource>().PlayOneShot((AudioClip)Resources.Load("Au/JUMP2", typeof(AudioClip)));
-						_0024self__00242301.canBoost = false;
-						_0024self__00242301.canBoost2 = true;
-						_0024self__00242301.gameScript.Stamina();
-						_0024self__00242301.gameScript.stamina = _0024self__00242301.gameScript.stamina - 1f;
-						_0024self__00242301.gameScript.LoadSTA();
-						_0024self__00242301.GetComponent<NetworkView>().RPC("po", RPCMode.All, _0024self__00242301.t.position);
-						_0024self__00242301.canTripleJump = false;
-						if (!GameScript.isFloating)
-						{
-							int num = (_0024_0024831_00242299 = 26);
-							Vector3 vector = (_0024_0024832_00242300 = _0024self__00242301.r.velocity);
-							float num2 = (_0024_0024832_00242300.y = _0024_0024831_00242299);
-							Vector3 vector3 = (_0024self__00242301.r.velocity = _0024_0024832_00242300);
-						}
-						else
-						{
-							int num3 = (_0024_0024829_00242297 = 12);
-							Vector3 vector4 = (_0024_0024830_00242298 = _0024self__00242301.r.velocity);
-							float num4 = (_0024_0024830_00242298.y = _0024_0024829_00242297);
-							Vector3 vector6 = (_0024self__00242301.r.velocity = _0024_0024830_00242298);
-						}
-						_0024self__00242301.mode = 2;
-						result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-						break;
-					}
-					UnityEngine.Object.Instantiate(Resources.Load("noSta"), _0024self__00242301.t.position, Quaternion.identity);
-					goto IL_0216;
-				case 2:
-					_0024self__00242301.canBoost2 = false;
-					goto IL_0216;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0216:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242302;
-
-		public _0024TripleJump_00242296(PlayerControllerN self_)
-		{
-			_0024self__00242302 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242302);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Float_00242303 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024_0024833_00242304;
-
-			internal Vector3 _0024_0024834_00242305;
-
-			internal PlayerControllerN _0024self__00242306;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242306 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-				{
-					_0024self__00242306.GetComponent<NetworkView>().RPC("FloatN", RPCMode.All, 1);
-					_0024self__00242306.floatCounter++;
-					int num = (_0024_0024833_00242304 = 10);
-					Vector3 vector = (_0024_0024834_00242305 = _0024self__00242306.GetComponent<Rigidbody>().velocity);
-					float num2 = (_0024_0024834_00242305.y = _0024_0024833_00242304);
-					Vector3 vector3 = (_0024self__00242306.GetComponent<Rigidbody>().velocity = _0024_0024834_00242305);
-					GameScript.isFloating = true;
-					result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-					break;
-				}
-				case 2:
-					_0024self__00242306.floatCounter--;
-					if (_0024self__00242306.floatCounter < 0)
-					{
-						_0024self__00242306.floatCounter = 0;
-					}
-					if (_0024self__00242306.floatCounter == 0)
-					{
-						_0024self__00242306.GetComponent<NetworkView>().RPC("FloatN", RPCMode.All, 0);
-						if (MenuScript.companion != 6)
-						{
-							GameScript.isFloating = false;
-						}
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242307;
-
-		public _0024Float_00242303(PlayerControllerN self_)
-		{
-			_0024self__00242307 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242307);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024BeginLevel_00242308 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerControllerN _0024self__00242309;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242309 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if ((bool)_0024self__00242309.fade)
-					{
-						_0024self__00242309.fade.fadeOut();
-					}
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					Application.LoadLevel(2);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242310;
-
-		public _0024BeginLevel_00242308(PlayerControllerN self_)
-		{
-			_0024self__00242310 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242310);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024LoadLevel_00242311 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024level_00242312;
-
-			internal bool _0024a_00242313;
-
-			internal PlayerControllerN _0024self__00242314;
-
-			public _0024(int level, bool a, PlayerControllerN self_)
-			{
-				_0024level_00242312 = level;
-				_0024a_00242313 = a;
-				_0024self__00242314 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242314.fade.fadeOut();
-					result = (Yield(2, new WaitForSeconds(0.2f)) ? 1 : 0);
-					break;
-				case 2:
-					GameScript.changingScene = true;
-					GameScript.isInstance = _0024a_00242313;
-					Application.LoadLevel(_0024level_00242312);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal int _0024level_00242315;
-
-		internal bool _0024a_00242316;
-
-		internal PlayerControllerN _0024self__00242317;
-
-		public _0024LoadLevel_00242311(int level, bool a, PlayerControllerN self_)
-		{
-			_0024level_00242315 = level;
-			_0024a_00242316 = a;
-			_0024self__00242317 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024level_00242315, _0024a_00242316, _0024self__00242317);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024OnLevelWasLoaded_00242318 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal int _0024nuu_00242319;
-
-			internal int _0024i_00242320;
-
-			internal int _0024_0024835_00242321;
-
-			internal Vector3 _0024_0024836_00242322;
-
-			internal PlayerControllerN _0024self__00242323;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242323 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					GameScript.playersDead = 0;
-					if ((bool)_0024self__00242323.gameScript)
-					{
-						GameScript.playersDead = 0;
-					}
-					if (GameScript.HP <= 0)
-					{
-						downed = false;
-						_0024self__00242323.exclamation.SetActive(value: false);
-						GameScript.canTakeDamage = true;
-						_0024self__00242323.mode = 0;
-						GameScript.curGold = 0;
-						if ((bool)_0024self__00242323.gameScript)
-						{
-							_0024self__00242323.gameScript.RefreshGold();
-						}
-						_0024self__00242323.GetComponent<NetworkView>().RPC("SetRevive", RPCMode.All);
-						_0024self__00242323.gameScript.SetRevive();
-						PlayerTriggerScript.canTakeDamage = true;
-						_0024self__00242323.trigger.enabled = true;
-					}
-					if (_0024self__00242323.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242323.musicBox = GameObject.Find("musicBox");
-					}
-					if (MenuScript.companion == 6 || MenuScript.companion == 9)
-					{
-						GameScript.isFloating = true;
-						_0024self__00242323.GetComponent<Rigidbody>().useGravity = false;
-					}
-					GameScript.readyPlayers = 0;
-					_0024self__00242323.changing = false;
-					if (MenuScript.pHat == 9)
-					{
-						_0024self__00242323.waspEye = true;
-					}
-					if (Network.isServer)
-					{
-						_0024self__00242323.HungerCheck();
-					}
-					_0024self__00242323.particleRoar.SetActive(value: false);
-					_0024self__00242323.particleFloat.SetActive(value: false);
-					_0024self__00242323.mWeapon.SetActive(value: false);
-					_0024self__00242323.particleClair.SetActive(value: false);
-					_0024self__00242323.shieldObj.SetActive(value: false);
-					_0024self__00242323.particleCharge.SetActive(value: false);
-					_0024self__00242323.particleRage.SetActive(value: false);
-					_0024self__00242323.GetComponent<NetworkView>().RPC("drumATKN", RPCMode.All, 0);
-					_0024self__00242323.GetComponent<NetworkView>().RPC("drumDEXN", RPCMode.All, 0);
-					_0024self__00242323.GetComponent<NetworkView>().RPC("drumMAGN", RPCMode.All, 0);
-					_0024self__00242323.won = false;
-					_0024self__00242323.GetComponent<NetworkView>().RPC("bWN", RPCMode.All);
-					_0024self__00242323.reviveBox.GetComponent<BoxCollider>().enabled = false;
-					_0024self__00242323.chargeBoost = 0;
-					isBoss = false;
-					if (Network.isServer)
-					{
-						_0024nuu_00242319 = GameScript.curBiome;
-						if (GameScript.isTown)
-						{
-							_0024nuu_00242319 = 99;
-						}
-						_0024self__00242323.GetComponent<NetworkView>().RPC("SetMusic", RPCMode.All, _0024nuu_00242319);
-					}
-					if (_0024self__00242323.GetComponent<NetworkView>().isMine)
-					{
-						if (Network.connections.Length == 0)
-						{
-							_0024self__00242323.nameObj.SetActive(value: false);
-						}
-						_0024self__00242323.attackCube.SetActive(value: false);
-						if ((bool)_0024self__00242323.t)
-						{
-							_0024self__00242323.t.position = new Vector3(2f, -2f, 0f);
-						}
-						_0024self__00242323.inDoor = false;
-						if ((bool)_0024self__00242323.trigger)
-						{
-							_0024self__00242323.trigger.canLeave = false;
-						}
-						int num = (_0024_0024835_00242321 = 0);
-						Vector3 vector = (_0024_0024836_00242322 = _0024self__00242323.p.transform.position);
-						float num2 = (_0024_0024836_00242322.z = _0024_0024835_00242321);
-						Vector3 vector3 = (_0024self__00242323.p.transform.position = _0024_0024836_00242322);
-						_0024i_00242320 = default(int);
-						for (_0024i_00242320 = 0; _0024i_00242320 < 3; _0024i_00242320++)
-						{
-							GameScript.door[_0024i_00242320] = 0;
-						}
-						GameScript.readyPlayers = 0;
-						_0024self__00242323.gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
-						GameScript.cLevel = PlayerPrefs.GetInt("cLevel");
-					}
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242323.gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
-					leavingLevel = false;
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242324;
-
-		public _0024OnLevelWasLoaded_00242318(PlayerControllerN self_)
-		{
-			_0024self__00242324 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242324);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024Check_00242325 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerControllerN _0024self__00242326;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242326 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					result = (Yield(2, new WaitForSeconds(2.2f)) ? 1 : 0);
-					break;
-				case 2:
-					if (GameScript.playersDead >= Network.connections.Length + 1)
-					{
-						_0024self__00242326.GetComponent<NetworkView>().RPC("GameOver", RPCMode.All);
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242327;
-
-		public _0024Check_00242325(PlayerControllerN self_)
-		{
-			_0024self__00242327 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242327);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024GameOver_00242328 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerControllerN _0024self__00242329;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242329 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if ((bool)_0024self__00242329.gameScript)
-					{
-						_0024self__00242329.StartCoroutine(_0024self__00242329.gameScript.Die());
-						goto IL_0121;
-					}
-					if (_0024self__00242329.GetComponent<NetworkView>().isMine)
-					{
-						_0024self__00242329.gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
-						result = (Yield(2, new WaitForSeconds(0.1f)) ? 1 : 0);
-					}
-					else
-					{
-						_0024self__00242329.gameScript = (GameScript)GameObject.Find("GameManager").GetComponent("GameScript");
-						MonoBehaviour.print("gamescript trying ");
-						result = (Yield(3, new WaitForSeconds(0.1f)) ? 1 : 0);
-					}
-					break;
-				case 2:
-					_0024self__00242329.StartCoroutine(_0024self__00242329.gameScript.Die());
-					goto IL_0121;
-				case 3:
-					_0024self__00242329.StartCoroutine(_0024self__00242329.gameScript.Die());
-					goto IL_0121;
-				case 1:
-					{
-						result = 0;
-						break;
-					}
-					IL_0121:
-					YieldDefault(1);
-					goto case 1;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242330;
-
-		public _0024GameOver_00242328(PlayerControllerN self_)
-		{
-			_0024self__00242330 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242330);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024LevelUp_00242331 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerControllerN _0024self__00242332;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242332 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242332.levelUpObj.SetActive(value: true);
-					_0024self__00242332.GetComponent<AudioSource>().PlayOneShot(_0024self__00242332.audioLevelUp);
-					result = (Yield(2, new WaitForSeconds(1f)) ? 1 : 0);
-					break;
-				case 2:
-					_0024self__00242332.levelUpObj.SetActive(value: false);
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242333;
-
-		public _0024LevelUp_00242331(PlayerControllerN self_)
-		{
-			_0024self__00242333 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242333);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024ShieldN_00242334 : GenericGenerator<WaitForSeconds>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForSeconds>, IEnumerator
-		{
-			internal PlayerControllerN _0024self__00242335;
-
-			public _0024(PlayerControllerN self_)
-			{
-				_0024self__00242335 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					_0024self__00242335.shieldObj.SetActive(value: true);
-					result = (Yield(2, new WaitForSeconds(10f)) ? 1 : 0);
-					break;
-				case 2:
-					PlayerTriggerScript.ShieldDEF -= 4;
-					if (PlayerTriggerScript.ShieldDEF < 0)
-					{
-						PlayerTriggerScript.ShieldDEF = 0;
-					}
-					if (PlayerTriggerScript.ShieldDEF == 0)
-					{
-						_0024self__00242335.shieldObj.SetActive(value: false);
-					}
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal PlayerControllerN _0024self__00242336;
-
-		public _0024ShieldN_00242334(PlayerControllerN self_)
-		{
-			_0024self__00242336 = self_;
-		}
-
-		public override IEnumerator<WaitForSeconds> GetEnumerator()
-		{
-			return new _0024(_0024self__00242336);
-		}
-	}
-
-	[Serializable]
-	[CompilerGenerated]
-	internal sealed class _0024K_00242337 : GenericGenerator<WaitForEndOfFrame>
-	{
-		[Serializable]
-		[CompilerGenerated]
-		internal sealed class _0024 : GenericGeneratorEnumerator<WaitForEndOfFrame>, IEnumerator
-		{
-			internal int _0024i_00242338;
-
-			internal int _0024_0024837_00242339;
-
-			internal Vector3 _0024_0024838_00242340;
-
-			internal int _0024_0024839_00242341;
-
-			internal Vector3 _0024_0024840_00242342;
-
-			internal int _0024_0024841_00242343;
-
-			internal Vector3 _0024_0024842_00242344;
-
-			internal int _0024_0024843_00242345;
-
-			internal Vector3 _0024_0024844_00242346;
-
-			internal bool _0024l_00242347;
-
-			internal PlayerControllerN _0024self__00242348;
-
-			public _0024(bool l, PlayerControllerN self_)
-			{
-				_0024l_00242347 = l;
-				_0024self__00242348 = self_;
-			}
-
-			public override bool MoveNext()
-			{
-				int result;
-				switch (_state)
-				{
-				default:
-					if (!_0024self__00242348.inDoor && _0024self__00242348.GetComponent<NetworkView>().isMine)
-					{
-						_0024i_00242338 = default(int);
-						if (_0024l_00242347)
-						{
-							int num = (_0024_0024837_00242339 = -10);
-							Vector3 vector = (_0024_0024838_00242340 = _0024self__00242348.r.velocity);
-							float num2 = (_0024_0024838_00242340.x = _0024_0024837_00242339);
-							Vector3 vector3 = (_0024self__00242348.r.velocity = _0024_0024838_00242340);
-							int num3 = (_0024_0024839_00242341 = 10);
-							Vector3 vector4 = (_0024_0024840_00242342 = _0024self__00242348.r.velocity);
-							float num4 = (_0024_0024840_00242342.y = _0024_0024839_00242341);
-							Vector3 vector6 = (_0024self__00242348.r.velocity = _0024_0024840_00242342);
-							result = (Yield(2, new WaitForEndOfFrame()) ? 1 : 0);
-						}
-						else
-						{
-							int num5 = (_0024_0024841_00242343 = 10);
-							Vector3 vector7 = (_0024_0024842_00242344 = _0024self__00242348.r.velocity);
-							float num6 = (_0024_0024842_00242344.x = _0024_0024841_00242343);
-							Vector3 vector9 = (_0024self__00242348.r.velocity = _0024_0024842_00242344);
-							int num7 = (_0024_0024843_00242345 = 10);
-							Vector3 vector10 = (_0024_0024844_00242346 = _0024self__00242348.r.velocity);
-							float num8 = (_0024_0024844_00242346.y = _0024_0024843_00242345);
-							Vector3 vector12 = (_0024self__00242348.r.velocity = _0024_0024844_00242346);
-							result = (Yield(3, new WaitForEndOfFrame()) ? 1 : 0);
-						}
-						break;
-					}
-					goto case 2;
-				case 2:
-				case 3:
-					YieldDefault(1);
-					goto case 1;
-				case 1:
-					result = 0;
-					break;
-				}
-				return (byte)result != 0;
-			}
-		}
-
-		internal bool _0024l_00242349;
-
-		internal PlayerControllerN _0024self__00242350;
-
-		public _0024K_00242337(bool l, PlayerControllerN self_)
-		{
-			_0024l_00242349 = l;
-			_0024self__00242350 = self_;
-		}
-
-		public override IEnumerator<WaitForEndOfFrame> GetEnumerator()
-		{
-			return new _0024(_0024l_00242349, _0024self__00242350);
 		}
 	}
 
@@ -2293,11 +928,6 @@ public class PlayerControllerN : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator iceShard(int mag)
-	{
-		return new _0024iceShard_00242212(mag, this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void Rage(int a)
 	{
@@ -2335,11 +965,6 @@ public class PlayerControllerN : MonoBehaviour
 		{
 			gameScript.SendMessage("SetMusic", a);
 		}
-	}
-
-	public virtual IEnumerator Start()
-	{
-		return new _0024Start_00242218(this).GetEnumerator();
 	}
 
 	public virtual void HungerCheck()
@@ -2452,12 +1077,6 @@ public class PlayerControllerN : MonoBehaviour
 	}
 
 	[RPC]
-	public virtual IEnumerator SetZoneName(string s)
-	{
-		return new _0024SetZoneName_00242221(s, this).GetEnumerator();
-	}
-
-	[RPC]
 	public virtual void drumATKN(int a)
 	{
 		if (a == 1)
@@ -2478,11 +1097,6 @@ public class PlayerControllerN : MonoBehaviour
 			GetComponent<NetworkView>().RPC("drumATKN", RPCMode.All, 1);
 			StartCoroutine(DrumATKTick());
 		}
-	}
-
-	public virtual IEnumerator DrumATKTick()
-	{
-		return new _0024DrumATKTick_00242226(this).GetEnumerator();
 	}
 
 	[RPC]
@@ -2508,11 +1122,6 @@ public class PlayerControllerN : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator DrumDEXTick()
-	{
-		return new _0024DrumDEXTick_00242229(this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void drumMAGN(int a)
 	{
@@ -2534,17 +1143,6 @@ public class PlayerControllerN : MonoBehaviour
 			GetComponent<NetworkView>().RPC("drumMAGN", RPCMode.All, 1);
 			StartCoroutine(DrumMAGTick());
 		}
-	}
-
-	public virtual IEnumerator DrumMAGTick()
-	{
-		return new _0024DrumMAGTick_00242232(this).GetEnumerator();
-	}
-
-	[RPC]
-	public virtual IEnumerator mWeaponsN(int a)
-	{
-		return new _0024mWeaponsN_00242235(a, this).GetEnumerator();
 	}
 
 	public virtual void mWeapons(int a)
@@ -2577,11 +1175,6 @@ public class PlayerControllerN : MonoBehaviour
 		exclamation.SetActive(value: false);
 	}
 
-	public virtual IEnumerator HELP()
-	{
-		return new _0024HELP_00242240(this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void Tick(int a)
 	{
@@ -2593,12 +1186,6 @@ public class PlayerControllerN : MonoBehaviour
 		{
 			txtTick.text = string.Empty + a;
 		}
-	}
-
-	[RPC]
-	public virtual IEnumerator ChargeN()
-	{
-		return new _0024ChargeN_00242243(this).GetEnumerator();
 	}
 
 	public virtual void Charge()
@@ -3051,11 +1638,6 @@ public class PlayerControllerN : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator Offledge()
-	{
-		return new _0024Offledge_00242246(this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void SetBearHat()
 	{
@@ -3091,11 +1673,6 @@ public class PlayerControllerN : MonoBehaviour
 		@base.GetComponent<Animation>().Play("r");
 	}
 
-	public virtual IEnumerator EnterDoor()
-	{
-		return new _0024EnterDoor_00242249(this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void PrintState()
 	{
@@ -3105,26 +1682,11 @@ public class PlayerControllerN : MonoBehaviour
 		}
 	}
 
-	public virtual IEnumerator LeaveDoor()
-	{
-		return new _0024LeaveDoor_00242253(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator HELPSTAY()
-	{
-		return new _0024HELPSTAY_00242258(this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void SDoor(int a)
 	{
 	}
 
-	[RPC]
-	public virtual IEnumerator Leaving(int d)
-	{
-		return new _0024Leaving_00242261(d).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void NotLeaving(int d)
@@ -3170,31 +1732,10 @@ public class PlayerControllerN : MonoBehaviour
 	{
 		GetComponent<NetworkView>().RPC("AgainN", RPCMode.All);
 	}
-
-	public virtual IEnumerator Dash(int a)
-	{
-		return new _0024Dash_00242266(a, this).GetEnumerator();
-	}
-
 	[RPC]
 	public virtual void WritePlayer(int a)
 	{
 		gameScript.SendMessage("WriteFinal", a);
-	}
-
-	public virtual IEnumerator Jump()
-	{
-		return new _0024Jump_00242281(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator DoubleJump()
-	{
-		return new _0024DoubleJump_00242288(this).GetEnumerator();
-	}
-
-	public virtual IEnumerator TripleJump()
-	{
-		return new _0024TripleJump_00242296(this).GetEnumerator();
 	}
 
 	[RPC]
@@ -3211,11 +1752,6 @@ public class PlayerControllerN : MonoBehaviour
 		{
 			GetComponent<Rigidbody>().useGravity = true;
 		}
-	}
-
-	public virtual IEnumerator Float()
-	{
-		return new _0024Float_00242303(this).GetEnumerator();
 	}
 
 	[RPC]
@@ -3249,11 +1785,6 @@ public class PlayerControllerN : MonoBehaviour
 			GetComponent<NetworkView>().RPC("RemoveDoor", RPCMode.Server, GameScript.curDoor);
 		}
 		UnityEngine.Object.Destroy(gameObject);
-	}
-
-	public virtual IEnumerator BeginLevel()
-	{
-		return new _0024BeginLevel_00242308(this).GetEnumerator();
 	}
 
 	[RPC]
@@ -3361,11 +1892,6 @@ public class PlayerControllerN : MonoBehaviour
 		isBoss = true;
 	}
 
-	[RPC]
-	public virtual IEnumerator LoadLevel(int level, bool a)
-	{
-		return new _0024LoadLevel_00242311(level, a, this).GetEnumerator();
-	}
 
 	public virtual void RA()
 	{
@@ -3383,10 +1909,6 @@ public class PlayerControllerN : MonoBehaviour
 		StartCoroutine(gameScript.Write(a));
 	}
 
-	public virtual IEnumerator OnLevelWasLoaded(int level)
-	{
-		return new _0024OnLevelWasLoaded_00242318(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void SpawnNPC(NetworkViewID id, int pos, int n)
@@ -3434,10 +1956,6 @@ public class PlayerControllerN : MonoBehaviour
 		StartCoroutine(Check());
 	}
 
-	public virtual IEnumerator Check()
-	{
-		return new _0024Check_00242325(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void RemoveDeadPerson()
@@ -3449,11 +1967,6 @@ public class PlayerControllerN : MonoBehaviour
 		}
 	}
 
-	[RPC]
-	public virtual IEnumerator GameOver()
-	{
-		return new _0024GameOver_00242328(this).GetEnumerator();
-	}
 
 	[RPC]
 	public virtual void AnimDead()
@@ -3570,11 +2083,7 @@ public class PlayerControllerN : MonoBehaviour
 		t.position = new Vector3(99f, 99f, 99f);
 	}
 
-	[RPC]
-	public virtual IEnumerator LevelUp()
-	{
-		return new _0024LevelUp_00242331(this).GetEnumerator();
-	}
+
 
 	public virtual void OnPlayerDisconnected(NetworkPlayer player)
 	{
@@ -3583,11 +2092,6 @@ public class PlayerControllerN : MonoBehaviour
 		StartCoroutine(Check());
 	}
 
-	[RPC]
-	public virtual IEnumerator ShieldN()
-	{
-		return new _0024ShieldN_00242334(this).GetEnumerator();
-	}
 
 	public virtual void Shield()
 	{
@@ -3649,12 +2153,6 @@ public class PlayerControllerN : MonoBehaviour
 		{
 			@base.GetComponent<Animation>().Play("dead");
 		}
-	}
-
-	[RPC]
-	public virtual IEnumerator K(bool l)
-	{
-		return new _0024K_00242337(l, this).GetEnumerator();
 	}
 
 	public virtual void TDp()
