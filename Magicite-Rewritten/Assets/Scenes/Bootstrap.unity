@@ -345,10 +345,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1318266106095035322, guid: c8d6acee661899441a0509617035be07,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3120313519438814753, guid: c8d6acee661899441a0509617035be07,
         type: 3}
       propertyPath: m_Name
       value: BootstrapCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350669143398587824, guid: c8d6acee661899441a0509617035be07,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ac08b5d5dfc1dbf46b2602436768090b,
+        type: 3}
+    - target: {fileID: 3350669143398587824, guid: c8d6acee661899441a0509617035be07,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4873808961352827125, guid: c8d6acee661899441a0509617035be07,
         type: 3}
@@ -451,7 +467,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5577555820157068008, guid: c8d6acee661899441a0509617035be07, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d6acee661899441a0509617035be07, type: 3}

@@ -447,8 +447,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Magicite Rewritten
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b453c0cedd595c74f885b78aca2c0a8f, type: 2}
+  m_sharedMaterial: {fileID: -8734233500427566113, guid: b453c0cedd595c74f885b78aca2c0a8f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -472,8 +473,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 181
-  m_fontSizeBase: 181
+  m_fontSize: 152.12
+  m_fontSizeBase: 152.12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
