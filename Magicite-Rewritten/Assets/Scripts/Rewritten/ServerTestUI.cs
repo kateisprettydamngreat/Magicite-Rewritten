@@ -31,7 +31,8 @@ public class ServerTestUI : MonoBehaviour
         _hostButton.onClick.RemoveListener(HandleHostClick);
         _clientButton.onClick.RemoveListener(HandleClientClick);
 
-        NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+        if (NetworkManager.Singleton is not null)
+            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
     }
 
     private void HandleHostClick()
