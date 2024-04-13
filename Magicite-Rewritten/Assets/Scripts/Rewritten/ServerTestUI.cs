@@ -13,6 +13,8 @@ public class ServerTestUI : MonoBehaviour
     [SerializeField] private Button _clientButton;
     [SerializeField] private TMP_Text _waitingText;
 
+    [SerializeField] private AudioClip _menuMusic;
+
     private void Start()
     {
         if (SceneManager.GetSceneByBuildIndex((int)MagiciteScene.TestScene).isLoaded)
@@ -24,6 +26,8 @@ public class ServerTestUI : MonoBehaviour
         _clientButton.onClick.AddListener(HandleClientClick);
 
         NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+
+        SoundManager.Instance.PlayMusic(_menuMusic);
     }
 
     private void OnDisable()

@@ -55,6 +55,7 @@ MonoBehaviour:
   _hostButton: {fileID: 1718745711857940246}
   _clientButton: {fileID: 8039612370544675316}
   _waitingText: {fileID: 6883934690804735027}
+  _menuMusic: {fileID: 8300000, guid: 469a3ebc07799d24aa8f7726552825f2, type: 3}
 --- !u!1 &856832160464955428
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +575,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6172345563457543904}
+  m_TargetGraphic: {fileID: 7398513066382274524}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
