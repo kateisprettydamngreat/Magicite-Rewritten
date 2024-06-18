@@ -14,7 +14,7 @@ Here are some of our goals:
 
 ## Release Plan
 
-As fans, we recognize there is a line between originality and copyright. Our intent is to help more people play and enjoy the game. While we are putting a lot of our own work into this, the bulk of the assets belong to Sean. As such, our project will be released as free patch files via the release tab on this GitHub page. Players must own Magicite and then will apply our patch over top of the original code. We do not endorse obtaining the original Magicite any other way than a legal purchase.
+As fans, we recognize there is a line between originality and copyright. Our intent is to help more people play and enjoy the game. While we are putting a lot of our own work into this, the bulk of the assets belong to Sean. As such, our project will be released as free patch files via the release tab on this GitHub page. Players must own Magicite and then will apply our patch over top of the original code. **_We do not endorse obtaining the original Magicite any other way than a legal purchase._**
 
 ## Project Roadmap
 
