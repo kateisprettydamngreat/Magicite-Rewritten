@@ -35,11 +35,10 @@ I have a new idea I'd like to see added.
 
 ## Community
 
-We have a discord! https://discord.gg/bcHxcJdF5
-(dm k8rgrl on discord if invite expires)
+We have a discord! https://discord.gg/kbWqfZU
 
 ## Cross-Promotion: Scourgefall
 
-If you are here, you likely enjoyed the Magicite formula. We recommend that you also check out our friends over at the Scourgefall project! They are doing a truly new project from the ground up using a similar formal to the original. Find their discord at: https://discord.gg/x7C3yNBUH8
+If you are here, you likely enjoyed the Magicite formula. We recommend that you also check out our friends over at the Scourgefall project! They are doing a truly new project from the ground up using a similar formula to the original. Find their discord at: https://discord.gg/x7C3yNBUH8
 
 # For deephaven!
